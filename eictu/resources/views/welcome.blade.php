@@ -75,7 +75,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel EICTU asdfasd
+                    Laravel EICTU asdfasd sadfasfd
                 </div>
 
                 <div class="links">
