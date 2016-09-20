@@ -48,18 +48,26 @@ Route::post('schools','SchoolController@store');
 /**
 *  I WANT
 **/
-Route::get('iWant/eICTuStudentDemandUpdate',[
+Route::group(['prefix' => 'iwant'], function(){
+	
+	Route::get('iWant/eICTuStudentDemandUpdate',[
 	"uses"=>"IWantController@index", 
-	"as"=>"iWant.index", 
+	"as"=>"iwant.index", 
 	]);
 
-Route::get('iWant/eICTuStudentDemandSearch',[
+	Route::get('iWant/eICTuStudentDemandSearch',[
 	"uses"=>"IWantController@search", 
-	"as"=>"iWant.search", 
+	"as"=>"iwant.search", 
 	]);
 
-Route::get('iWant/eICTuStudentDemandDetail',[
+	Route::get('iWant/eICTuStudentDemandDetail',[
 	"uses"=>"IWantController@detail", 
-	"as"=>"iWant.detail", 
+	"as"=>"iwant.detail", 
 	]);
+});
+
+
+
+
+
 
