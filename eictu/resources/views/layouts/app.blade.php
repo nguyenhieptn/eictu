@@ -11,7 +11,11 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
+<<<<<<< HEAD
+    <link href="{{url("/css/app.css")}}" rel="stylesheet">
+=======
     <link href="{{ url("/css/app.css") }}" rel="stylesheet">
+>>>>>>> origin/master
 
     <!-- Scripts -->
     <script>
@@ -42,7 +46,12 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
+<<<<<<< HEAD
+                    <li><a href="{{ url('renthouses') }}">Nhà trọ</a></li>
+                    &nbsp;
+=======
                     <li><a href="{{ url('schools') }}">Schools</a></li>
+>>>>>>> origin/master
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -80,6 +89,10 @@
     @yield('content')
 
     <!-- Scripts -->
+<<<<<<< HEAD
+    <script src="{{url("/js/app.js")}}"></script>
+=======
     <script src="{{ url("/js/app.js") }}"></script>
+>>>>>>> origin/master
 </body>
 </html>

@@ -8,7 +8,11 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
+<<<<<<< HEAD
+
+=======
                     You are logged in!
+>>>>>>> origin/master
                 </div>
             </div>
         </div>
