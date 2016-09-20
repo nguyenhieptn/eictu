@@ -19,6 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+<<<<<<< HEAD
 /*RentHouse section*/
 Route::get('/renthouses','RentHousesController@index');
 Route::get('/renthouses/create','RentHousesController@create');
@@ -29,3 +30,12 @@ Route::post('/renthouses','RentHousesController@store');
 Route::post('/renthouses_search','RentHousesController@search');
 
 /*end RentHouse section*/
+=======
+/* school section */
+Route::get('/schools','SchoolController@index');
+Route::get('schools/create','SchoolController@create');
+Route::post('schools','SchoolController@store');
+/* end school section */
+
+
+>>>>>>> origin/master
