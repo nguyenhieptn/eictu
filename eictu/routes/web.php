@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix' => 'ktx'], function(){
+	Route::get('searchStudent', ['as'=> 'ktx.getSearch','uses' => 'KtxController@getSearch']);
+});

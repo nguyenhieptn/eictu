@@ -1,0 +1,26 @@
+
+#header{
+	background:  #009999;
+	height:  60px;
+}
+#header .title{
+	color: #ffffff;
+	font-size: 20px;
+	padding: 15px;
+	line-height: 60px;
+}
+#lookup{
+	margin-top: 20px;
+}
+#lookup-group .form-control{
+	border-radius: 2px;
+	box-shadow: none;
+}
+#lookup-group #inputLookup{
+	padding-left: 40px;
+}
+#lookup-group i.fa-search{
+	position: relative;
+	top: -30px;
+	left: 12px;
+}
