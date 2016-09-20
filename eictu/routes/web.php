@@ -38,4 +38,21 @@ Route::post('schools','SchoolController@store');
 /* end school section */
 
 
+/**
+*  I WANT
+**/
+Route::get('iWant/eICTuStudentDemandUpdate',[
+	"uses"=>"eICTuStudentDemandUpdate@index", 
+	"as"=>"iWant.index", 
+	]);
+
+Route::get('iWant/eICTuStudentDemandSearch',[
+	"uses"=>"eICTuStudentDemandUpdate@search", 
+	"as"=>"iWant.search", 
+	]);
+
+Route::get('iWant/eICTuStudentDemandDetail',[
+	"uses"=>"eICTuStudentDemandUpdate@detail", 
+	"as"=>"iWant.detail", 
+	]);
 
