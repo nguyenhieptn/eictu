@@ -42,17 +42,17 @@ Route::post('schools','SchoolController@store');
 *  I WANT
 **/
 Route::get('iWant/eICTuStudentDemandUpdate',[
-	"uses"=>"eICTuStudentDemandUpdate@index", 
+	"uses"=>"IWantController@index", 
 	"as"=>"iWant.index", 
 	]);
 
 Route::get('iWant/eICTuStudentDemandSearch',[
-	"uses"=>"eICTuStudentDemandUpdate@search", 
+	"uses"=>"IWantController@search", 
 	"as"=>"iWant.search", 
 	]);
 
 Route::get('iWant/eICTuStudentDemandDetail',[
-	"uses"=>"eICTuStudentDemandUpdate@detail", 
+	"uses"=>"IWantController@detail", 
 	"as"=>"iWant.detail", 
 	]);
 
