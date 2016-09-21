@@ -15,12 +15,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+<<<<<<< HEAD
 /*===Quan ly ky tuc xa======*/
 Route::group(['prefix' => 'ktx'], function(){
 	Route::get('searchStudent', ['as'=> 'ktx.getSearch','uses' => 'QLKTX\SinhvienKtxController@getSearch']);
 });
 /*=== het Quan ly ky tuc xa======*/
 
+=======
+
+/* 
+	Routes nhóm quản lý lớp học 
+*/
+Route::group(['prefix'=>'qllh'],function(){
+	Route::get('/', ['as'=> 'qllh.trangchu','uses' => 'QLLopHoc@trangchu']);
+	Route::get('dssv/{idlop}', ['as'=> 'qllh.dssvtronglop','uses' => 'QLLopHoc@dssv']);
+	Route::get('phanlop/{idlop}', ['as'=> 'qllh.trangphanlop','uses' => 'QLLopHoc@trangphanlop']);
+	Route::get('phanlop/table/{idlop}', ['as'=> 'qllh.trangphanlop','uses' => 'QLLopHoc@bangsvmoi']);
+	Route::post('phanlop/{idlop}', ['as'=> 'qllh.phanlop','uses' => 'QLLopHoc@phanlop']);
+	Route::get('sinhnhat/{idlop}', ['as'=> 'qllh.sinhnhat','uses' => 'QLLopHoc@sinhnhatbancunglop']);
+});
+>>>>>>> 26dca8e29f2ec6666165c0b9ccff5d94e4b5e0ee
 
 Auth::routes();
 
@@ -45,6 +60,7 @@ Route::post('schools','SchoolController@store');
 /* end school section */
 
 
+<<<<<<< HEAD
 /**
 *  I WANT
 **/
@@ -70,4 +86,6 @@ Route::group(['prefix' => 'iwant'], function(){
 
 
 
+=======
+>>>>>>> 26dca8e29f2ec6666165c0b9ccff5d94e4b5e0ee
 

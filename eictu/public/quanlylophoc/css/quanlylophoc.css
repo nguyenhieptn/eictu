@@ -1,0 +1,73 @@
+table tr{
+	padding: 15px;
+	border-top: none;
+}
+.table>tbody>tr>td,
+.table>tbody>tr>th,
+.table>tfoot>tr>td,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>thead>tr>th{
+	border-top: none;
+}
+#header{
+	background:#6B2085;
+	height:40px;
+}
+#header .title{
+	color:#ffffff;
+	font-size:20px;
+	padding:15px;
+	line-height:40px;
+}
+.hotensv:hover{
+	color:red;
+	text-decoration: underline;
+	cursor: pointer;
+}
+.htsvpl:hover{
+	color:red;
+	text-decoration: underline;
+	cursor: pointer;
+}
+.thdssv{
+	padding:8px;
+	line-height:1.42857143;
+	vertical-align:top;
+	
+	
+}
+#ullink{
+	display:inline;
+	text-decoration:none;
+}
+#imglink{	
+	display:inline;
+	border:0px solid red;
+	margin:0; 
+	padding:0px 0px;
+}
+.qllophoc_header {
+    background-color:#6B2085;
+	color:white;
+	
+}
+.table_header{
+	border:0px;
+	width:100%;
+	}
+.qllophoc_content{
+	margin-top:10px;
+	margin-bottom:10px;	
+}
+.dssv{
+	border:none;
+	margin:15px 0px;
+}
+.tieude{
+	color:#ffffff;
+	font-weight: bold;
+	font-size:20px;
+}
+#logout{
+}
