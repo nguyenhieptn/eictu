@@ -15,15 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-<<<<<<< HEAD
 /*===Quan ly ky tuc xa======*/
 Route::group(['prefix' => 'ktx'], function(){
 	Route::get('searchStudent', ['as'=> 'ktx.getSearch','uses' => 'QLKTX\SinhvienKtxController@getSearch']);
 });
 /*=== het Quan ly ky tuc xa======*/
-
-=======
-
 /* 
 	Routes nhóm quản lý lớp học 
 */
@@ -35,7 +31,6 @@ Route::group(['prefix'=>'qllh'],function(){
 	Route::post('phanlop/{idlop}', ['as'=> 'qllh.phanlop','uses' => 'QLLopHoc@phanlop']);
 	Route::get('sinhnhat/{idlop}', ['as'=> 'qllh.sinhnhat','uses' => 'QLLopHoc@sinhnhatbancunglop']);
 });
->>>>>>> 26dca8e29f2ec6666165c0b9ccff5d94e4b5e0ee
 
 Auth::routes();
 
@@ -60,7 +55,6 @@ Route::post('schools','SchoolController@store');
 /* end school section */
 
 
-<<<<<<< HEAD
 /**
 *  I WANT
 **/
@@ -81,11 +75,3 @@ Route::group(['prefix' => 'iwant'], function(){
 	"as"=>"iwant.detail", 
 	]);
 });
-
-
-
-
-
-=======
->>>>>>> 26dca8e29f2ec6666165c0b9ccff5d94e4b5e0ee
-
