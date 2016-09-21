@@ -20,10 +20,8 @@ class CreateStudentsTable extends Migration
             $table->string('name');
             $table->boolean('gender');
             $table->dateTime('birthday');
-            $table->integer('major_id')->unsigned();
-            $table->foreign('major_id')->references('id')->on('majors');
-            $table->integer('class_id')->unsigned();
-            $table->foreign('class_id')->references('id')->on('classes');
+            $table->integer('major_id');
+            $table->integer('class_id');
             $table->integer('school_id')->unsigned();
             $table->foreign('school_id')->references('id')->on('schools');
             $table->timestamps();
