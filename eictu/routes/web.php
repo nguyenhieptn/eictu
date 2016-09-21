@@ -20,7 +20,17 @@ Route::group(['prefix' => 'ktx'], function(){
 	Route::get('searchStudent', ['as'=> 'ktx.getSearch','uses' => 'QLKTX\SinhvienKtxController@getSearch']);
 });
 /*=== het Quan ly ky tuc xa======*/
-
+/* 
+	Routes nhóm quản lý lớp học 
+*/
+Route::group(['prefix'=>'qllh'],function(){
+	Route::get('/', ['as'=> 'qllh.trangchu','uses' => 'QLLopHoc@trangchu']);
+	Route::get('dssv/{idlop}', ['as'=> 'qllh.dssvtronglop','uses' => 'QLLopHoc@dssv']);
+	Route::get('phanlop/{idlop}', ['as'=> 'qllh.trangphanlop','uses' => 'QLLopHoc@trangphanlop']);
+	Route::get('phanlop/table/{idlop}', ['as'=> 'qllh.trangphanlop','uses' => 'QLLopHoc@bangsvmoi']);
+	Route::post('phanlop/{idlop}', ['as'=> 'qllh.phanlop','uses' => 'QLLopHoc@phanlop']);
+	Route::get('sinhnhat/{idlop}', ['as'=> 'qllh.sinhnhat','uses' => 'QLLopHoc@sinhnhatbancunglop']);
+});
 
 Auth::routes();
 
@@ -64,6 +74,9 @@ Route::group(['prefix' => 'iwant'], function(){
 	"uses"=>"IWantController@detail", 
 	"as"=>"iwant.detail", 
 	]);
+<<<<<<< HEAD
+});
+=======
 });
 
 /*FIND JOB*/
@@ -92,3 +105,4 @@ Route::group(['prefix' => 'findjob'], function(){
 
 
 
+>>>>>>> f1378b0cfbccd2d9d6c56f71ded274383b6c325a
