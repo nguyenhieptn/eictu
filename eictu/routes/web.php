@@ -74,4 +74,35 @@ Route::group(['prefix' => 'iwant'], function(){
 	"uses"=>"IWantController@detail", 
 	"as"=>"iwant.detail", 
 	]);
+<<<<<<< HEAD
 });
+=======
+});
+
+/*FIND JOB*/
+Route::group(['prefix' => 'findjob'], function(){
+
+	Route::get('index', [
+		'as'=>'findjob.index',
+		'uses'=>'FindJob\FindJobControler@getIndex'
+
+	]);
+	Route::get('post', [
+		'as'=>'findjob.post',
+		'uses'=>'FindJob\FindJobControler@getPost'
+
+	]);
+
+	Route::get('detail', [
+		'as'=>'findjob.detail',
+		'uses'=>'FindJob\FindJobControler@getDetail'
+
+	]);
+});
+
+
+
+
+
+
+>>>>>>> f1378b0cfbccd2d9d6c56f71ded274383b6c325a
