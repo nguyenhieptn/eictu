@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTblPhongKtxTable extends Migration
+class CreateStudyprogramsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,15 @@ class CreateTblPhongKtxTable extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('tbl_phong_ktx', function(Blueprint $table){
+       Schema::create('studyprograms', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('building_id')->unsigned();
-            $table->foreign('building_id')->references('id')->on('tbl_khunha_ktx');
+            $table->string('code')->unique();
             $table->string('name');
+            $table->string('term');
+            $table->integer('credit');
+            $table->integer('major_id')->unsigned();
+            $table->foreign('major_id')->references('id')->on('majors');
+            $table->timestamps();
         });
     }
 
@@ -29,7 +32,6 @@ class CreateTblPhongKtxTable extends Migration
      */
     public function down()
     {
-        //
-        Schema::drop('tbl_phong_ktx');
+        Schema::drop('studyprograms');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatTblNganhHocTable extends Migration
+class CreateAreasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreatTblNganhHocTable extends Migration
      */
     public function up()
     {
-        //
-		Schema::create('tbl_NganhHoc', function (Blueprint $table) {
+        Schema::create('areas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('MaNganh')->unique();
-            $table->string('TenNganh')->nullable();
+            $table->string('name');
+            $table->timestamps();
         });
     }
 
@@ -28,7 +27,6 @@ class CreatTblNganhHocTable extends Migration
      */
     public function down()
     {
-        //
-		Schema::drop('tbl_NganhHoc');
+        Schema::drop('areas');
     }
 }

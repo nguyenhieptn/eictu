@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTblSinhvienKtxTable extends Migration
+class CreateSecondhandsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateTblSinhvienKtxTable extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('tbl_sinhvien_ktx', function(Blueprint $table){
+        Schema::create('secondhands', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('student_id');
-            $table->integer('room_id')->unsigned();
-            $table->foreign('room_id')->references('id')->on('tbl_phong_ktx');
+            $table->text('detail');
+            $table->integer('student_id')->unsigned();
+            $table->foreign('student_id')->references('id')->on('students');
+            $table->timestamps();
         });
     }
 
@@ -29,7 +29,6 @@ class CreateTblSinhvienKtxTable extends Migration
      */
     public function down()
     {
-        //
-        Schema::drop('tbl_sinhvien_ktx');
+        Schema::drop('secondhands');
     }
 }

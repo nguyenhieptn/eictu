@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTblKhunhaKtxTable extends Migration
+class CreateMajorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateTblKhunhaKtxTable extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('tbl_khunha_ktx', function(Blueprint $table){
+        Schema::create('majors', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('code')->unique();
             $table->string('name');
+            $table->timestamps();
         });
     }
 
@@ -27,7 +28,6 @@ class CreateTblKhunhaKtxTable extends Migration
      */
     public function down()
     {
-        //
-        Schema::drop('tbl_khunha_ktx');
+        Schema::drop('majors');
     }
 }

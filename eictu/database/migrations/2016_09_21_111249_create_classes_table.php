@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTblLopHocTable extends Migration
+class CreateClassesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateTblLopHocTable extends Migration
      */
     public function up()
     {
-        //
-		Schema::create('tbl_LopHoc', function (Blueprint $table) {
+        Schema::create('classes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('TenLop')->unique();
-            $table->integer('id_Nganh')->nullable();
+            $table->string('name')->unique();
+            $table->integer('major_id')->unsigned();
+            $table->foreign('major_id')->references('id')->on('majors')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
@@ -28,7 +29,6 @@ class CreateTblLopHocTable extends Migration
      */
     public function down()
     {
-        //
-		Schema::drop('tbl_LopHoc');
+        Schema::drop('classes');
     }
 }

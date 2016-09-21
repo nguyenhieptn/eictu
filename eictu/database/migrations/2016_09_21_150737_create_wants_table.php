@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRenthouseTable extends Migration
+class CreateWantsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateRenthouseTable extends Migration
      */
     public function up()
     {
-        Schema::create('renthouse', function (Blueprint $table) {
+        Schema::create('wants', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_sinhvien');
-            $table->string('hotenchunha');
-            $table->string('diachinhatro');
-            $table->date('ngayvaotro');
-
+            $table->text('content');
+            $table->integer('student_id')->unsigned();
+            $table->foreign('student_id')->references('id')->on('students');
+            $table->timestamps();
         });
     }
 
@@ -30,6 +29,6 @@ class CreateRenthouseTable extends Migration
      */
     public function down()
     {
-        Schema::drop('renthouse');
+        Schema::drop('wants');
     }
 }
