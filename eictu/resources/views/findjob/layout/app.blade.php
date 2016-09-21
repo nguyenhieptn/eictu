@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>>
-    <link href="{{url("findjob/css/app.css")}}" rel="stylesheet">
+    <link href="{{url("public/findjob/css/app.css")}}" rel="stylesheet">
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
