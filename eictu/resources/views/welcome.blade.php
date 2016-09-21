@@ -75,7 +75,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                   hello ictu abc-123
+                   hello ictu abc-12
                 </div>
 
                 <div class="links">

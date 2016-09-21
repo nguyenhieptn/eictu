@@ -1,6 +1,6 @@
 Danh sách lớp:<br>
 @if (!isset($dslop) || count($dslop) === 0)
-					I have no record!
+					Chưa có lớp<br>
 				@else			
 					@foreach ($dslop as $lop1)
 								
@@ -14,7 +14,7 @@ Danh sách lớp:<br>
 
 Sinh nhật bạn cùng lớp:<br>
 @if (!isset($dslop) || count($dslop) === 0)
-					I have no record!
+					Chưa có lớp:<br>
 				@else			
 					@foreach ($dslop as $lop1)
 								
