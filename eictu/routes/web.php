@@ -21,7 +21,7 @@ Route::group(['prefix' => 'ktx'], function(){
 });
 /*=== het Quan ly ky tuc xa======*/
 /* 
-	Routes nhóm quản lý lớp học 
+	Routes nhóm quản lý lớp h�?c 
 */
 Route::group(['prefix'=>'qllh'],function(){
 	Route::get('/', ['as'=> 'qllh.trangchu','uses' => 'QLLopHoc@trangchu']);
@@ -74,9 +74,6 @@ Route::group(['prefix' => 'iwant'], function(){
 	"uses"=>"IWantController@detail", 
 	"as"=>"iwant.detail", 
 	]);
-<<<<<<< HEAD
-});
-=======
 });
 
 /*FIND JOB*/
@@ -99,10 +96,3 @@ Route::group(['prefix' => 'findjob'], function(){
 
 	]);
 });
-
-
-
-
-
-
->>>>>>> f1378b0cfbccd2d9d6c56f71ded274383b6c325a
