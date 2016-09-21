@@ -14,19 +14,20 @@ class RentHousesController extends Controller
 {
     //
     public function index(){
-        return view("RentHouses.index");
+        $id_sinhvien=1;
+        $data=DB::table('renthouse')->where('id_sinhvien',$id_sinhvien)->get();
+        return view("rentHouse.index",['data'=>$data]);
     }
 
     public function create(){
-        return view("RentHouses.create");
+        return view("rentHouse.create");
     }
 
     public function search(Request $request){
         $masv = $request->input('masv');
         $id_sinhvien = DB::table('tbl_sinhvien')->where('masv', $masv)->value('id');
-        $data=array();
-        $data=DB::table('tbl_nhatro')->where('id_sinhvien',$id_sinhvien)->get();
-        return view("RentHouses.search",['data'=>$data]);
+        $data=DB::table('renthouse')->where('id_sinhvien',$id_sinhvien)->get();
+        return view("rentHouse.search",['data'=>$data]);
     }
 
     public function store(Request $request){
@@ -49,13 +50,13 @@ class RentHousesController extends Controller
         $renthouse->ngayvaotro=$data['ngayvaotro'];
         $renthouse->save();
 
-        return redirect('renthouses');
+        return redirect('rentHouse');
     }
 
     public function update(){
-        return view("RentHouses.update");
+        return view("rentHouse.update");
     }
     public function delete(){
-        return view("RentHouses.delete");
+        return view("rentHouse.delete");
     }
 }

@@ -21,7 +21,7 @@ Route::group(['prefix' => 'ktx'], function () {
 });
 /*=== het Quan ly ky tuc xa======*/
 /*
-	Routes nhóm quản lý lớp h�?c
+	Routes nhóm quản lý lớp h�?c
 */
 Route::group(['prefix' => 'qllh'], function () {
     Route::get('/', ['as' => 'qllh.trangchu', 'uses' => 'QLLopHoc@trangchu']);
@@ -36,17 +36,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-
-/*RentHouse section*/
-Route::get('/renthouses', 'RentHousesController@index');
-Route::get('/renthouses/create', 'RentHousesController@create');
-Route::get('/renthouses/update', 'RentHousesController@update');
-Route::get('/renthouses/delete', 'RentHousesController@delete');
-Route::get('/renthouses/search', 'RentHousesController@search');
-Route::post('/renthouses', 'RentHousesController@store');
-Route::post('/renthouses_search', 'RentHousesController@search');
-
-/*end RentHouse section*/
 
 
 /**
@@ -74,3 +63,4 @@ Route::group(['prefix' => 'iwant'], function () {
 require_once("classes.php");
 require_once("school.php");
 require_once("findjob.php");
+require_once("renthouse.php");

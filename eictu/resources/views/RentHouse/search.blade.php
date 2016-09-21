@@ -22,10 +22,19 @@
       <div class="row">
           <div class="col-md-12">
               <div class="panel panel-default">
+                 <nav class="navbar navbar-default">
+                   <div class="container-fluid">
+                     <ul class="nav navbar-nav">
+                       <li><a href="{{ url('rentHouse') }}">Rent House</a></li>
+                       <li><a href="{{ url('rentHouse/create') }}">Update</a></li>
+                       <li class="active"><a href="{{ url('rentHouse/search') }}">Find</a></li>
+                     </ul>
+                   </div>
+                 </nav>
                   <div class="panel-heading">Tìm kiếm thông tin nhà trọ của sinh viên</div>
 
                   <div class="panel-body">
-                      <form action = "{{url("renthouses_search")}}" method = "post" class="form-horizontal">
+                      <form action = "{{url("rentHouse_search")}}" method = "post" class="form-horizontal">
                         <div class="form-group">
                           <label class="control-label col-sm-2" for="masv">Mã sinh viên:</label>
                           <div class="col-sm-10">
