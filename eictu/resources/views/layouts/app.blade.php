@@ -46,7 +46,7 @@
                 <li><a href="{{ url('schools') }}"> Schools</a></li>
                 <li><a href="{{ url('classes') }}"> Classes</a></li>
                 <li><a href="{{ url('student') }}"> Student </a></li>
-                <li><a href="{{ url('teacher') }}"> Teacher </a></li>
+                <li><a href="{!! route('teacher.index') !!}"> Teacher </a></li>
                 <li><a href="{{ url('major') }}"> Major </a></li>
                 <li><a href="{{ url('dormitory') }}">Dormitory</a></li>
                 <li><a href="{{ url('rentHouse') }}">Rent House</a></li>
