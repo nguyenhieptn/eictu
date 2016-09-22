@@ -16,8 +16,8 @@ class CreateDormitoriesTable extends Migration
         //
         Schema::create('dormitories', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('day nha');
-            $table->integer('phong');
+            $table->string('building');
+            $table->integer('room');
             $table->integer('student_id')->unsigned();
             $table->foreign('student_id')->references('id')->on('students');
             $table->integer('area_id')->unsigned();
