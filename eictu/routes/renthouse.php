@@ -13,7 +13,7 @@ Route::get('/rentHouse/update', 'RentHouseController@update');
 Route::get('/rentHouse/delete', 'RentHouseController@delete');
 Route::get('/rentHouse/search', 'RentHouseController@search');
 Route::post('rentHouse', 'RentHouseController@store');
-Route::post('rentHouse_search', 'RentHouseController@search');
+Route::post('rentHouse/search', 'RentHouseController@search');
 
 /*end RentHouse section*/
 ?>

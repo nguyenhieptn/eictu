@@ -25,7 +25,7 @@ class RentHouseController extends Controller
 
     public function search(Request $request){
         $masv = $request->input('masv');
-        $id_sinhvien = DB::table('tbl_sinhvien')->where('masv', $masv)->value('id');
+        $id_sinhvien = DB::table('students')->where('code', $masv)->value('id');
         $data=DB::table('renthouse')->where('id_sinhvien',$id_sinhvien)->get();
         return view("rentHouse.search",['data'=>$data]);
     }

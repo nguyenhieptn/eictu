@@ -34,7 +34,7 @@
                   <div class="panel-heading">Tìm kiếm thông tin nhà trọ của sinh viên</div>
 
                   <div class="panel-body">
-                      <form action = "{{url("rentHouse_search")}}" method = "post" class="form-horizontal">
+                      <form action = "{{url("rentHouse/search")}}" method = "post" class="form-horizontal">
                         <div class="form-group">
                           <label class="control-label col-sm-2" for="masv">Mã sinh viên:</label>
                           <div class="col-sm-10">
