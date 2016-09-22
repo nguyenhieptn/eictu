@@ -44,7 +44,7 @@ class TeacherController extends Controller
     }
 
     public function getList(){
-        $teacher = Teacher::get();
+        $teacher = Teacher::paginate(20);
     	return view('teacher.list', compact('teacher'));
     }
 }

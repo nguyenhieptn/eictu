@@ -13,6 +13,7 @@
                         <table class="table">
                             <thead>
                             <tr>
+                                <th>STT</th>
                                 <th>Code</th>
                                 <th>Name</th>
                                 <th>Nganh</th>
@@ -21,8 +22,10 @@
                             </tr>
                             </thead>
                             <tbody>
+                            <?php $i=1; ?>
                             @forelse ($teacher as $item_teacher)
                                 <tr>
+                                    <td>{{$i++}}</td>
                                     <td>{{ $item_teacher->code }}</td>
                                     <td>{{ $item_teacher->name }}</td>
                                     <td>
@@ -48,7 +51,24 @@
                         </table>
                     </div>
                 </div>
+                <div class="pagination pull-right">
+                    <ul class="list-inline">
+                    @if($teacher->currentPage() != 1)
+                      <li><a href="{!! str_replace('/?','?',$teacher->url($teacher->currentPage()- 1)) !!}">Prev</a></li>
+                    @endif  
+                      @for($i =1; $i<= $teacher->lastPage(); $i++)
+                      <li class="{!! ($teacher->currentPage() == $i) ? 'active' :'' !!}">
+                        <a href="{!! str_replace('/?','?',$teacher->url($i)) !!}">{!!$i!!}</a>
+                      </li>
+                      @endfor
+                    @if($teacher->currentPage() != $teacher->lastPage())  
+                      <li><a href="{!! str_replace('/?','?',$teacher->url($teacher->currentPage()+ 1)) !!}">Next</a></li>
+                    @endif
+                    </ul>
+                </div>
             </div>
+
+            
         </div>
     </div>
 @endsection

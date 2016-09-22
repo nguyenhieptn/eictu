@@ -22,4 +22,9 @@ class Teacher extends Model
     {
     	return $this->belongsTo('App\Major', 'major_id');
     }
+
+
+    public function get_name(){
+        return $this->name;
+    }
 }
