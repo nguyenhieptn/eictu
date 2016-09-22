@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\View;
 
 use App\Http\Requests;
 
-class RentHousesController extends Controller
+class RentHouseController extends Controller
 {
     //
     public function index(){
