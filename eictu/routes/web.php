@@ -15,11 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/*===Quan ly ky tuc xa======*/
-Route::group(['prefix' => 'ktx'], function () {
-    Route::get('searchStudent', ['as' => 'ktx.getSearch', 'uses' => 'QLKTX\SinhvienKtxController@getSearch']);
-});
-/*=== het Quan ly ky tuc xa======*/
 /*
 	Routes nhóm quản lý lớp h�?c
 */
@@ -51,3 +46,4 @@ require_once("renthouse.php");
 
 
 require_once("teacher.php");
+require_once("dormitory.php");
