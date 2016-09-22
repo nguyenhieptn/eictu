@@ -26,7 +26,7 @@
 					<div class="form-group">
 						<label class="col-sm-3 col-sm-offset-1 control-label"><i class="fa fa-circle-o"></i> Ngày bắt đầu ở:</label>
 						<div class="col-sm-4">
-							<input type="text" name="" value="" class="form-control" placeholder="">
+							<input type="datetime-local" name="" value="" class="form-control" placeholder="">
 						</div>
 					</div>
 					<div class="form-group">

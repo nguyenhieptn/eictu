@@ -60,3 +60,18 @@ select.form-control{
 	background: #404040;
 	color: #fff;
 }
+.redirect{
+	text-transform: uppercase;
+	font-weight: 600;
+	color: #333;
+}
+#result .list h3{
+	color: #ff6666;
+	font-weight: 600;
+}
+#result .list h3 .fa{
+	color: #333;
+}
+.date_on{
+	padding-right: 15px;
+}
