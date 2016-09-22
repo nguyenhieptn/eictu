@@ -7,13 +7,13 @@
  */
 
 /*RentHouse section*/
-Route::get('/rentHouse', 'RentHousesController@index');
-Route::get('/rentHouse/create', 'RentHousesController@create');
-Route::get('/rentHouse/update', 'RentHousesController@update');
-Route::get('/rentHouse/delete', 'RentHousesController@delete');
-Route::get('/rentHouse/search', 'RentHousesController@search');
-Route::post('rentHouse', 'RentHousesController@store');
-Route::post('rentHouse_search', 'RentHousesController@search');
+Route::get('/rentHouse', 'RentHouseController@index');
+Route::get('/rentHouse/create', 'RentHouseController@create');
+Route::get('/rentHouse/update', 'RentHouseController@update');
+Route::get('/rentHouse/delete', 'RentHouseController@delete');
+Route::get('/rentHouse/search', 'RentHouseController@search');
+Route::post('rentHouse', 'RentHouseController@store');
+Route::post('rentHouse/search', 'RentHouseController@search');
 
 /*end RentHouse section*/
 ?>

@@ -35,8 +35,10 @@
                          </thead>
                          <tbody>
                            <?php
+                                $stt=1;
                                 foreach($data as $key){
                                 echo "<tr>";
+                                echo "<td>$stt++</td>";
                                 echo "<td>$key->ngayvaotro</td>";
                                 echo "<td>$key->hotenchunha</td>";
                                 echo "<td>$key->diachinhatro</td>";
