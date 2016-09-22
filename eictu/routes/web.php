@@ -41,26 +41,13 @@ Route::get('/home', 'HomeController@index');
 /**
  *  I WANT
  **/
-Route::group(['prefix' => 'iwant'], function () {
-
-    Route::get('iWant/eICTuStudentDemandUpdate', [
-        "uses" => "IWantController@index",
-        "as"   => "iwant.index",
-    ]);
-
-    Route::get('iWant/eICTuStudentDemandSearch', [
-        "uses" => "IWantController@search",
-        "as"   => "iwant.search",
-    ]);
-
-    Route::get('iWant/eICTuStudentDemandDetail', [
-        "uses" => "IWantController@detail",
-        "as"   => "iwant.detail",
-    ]);
-});
+require_once("iwant.php");
 
 
 require_once("classes.php");
 require_once("school.php");
 require_once("findjob.php");
 require_once("renthouse.php");
+
+
+require_once("teacher.php");
