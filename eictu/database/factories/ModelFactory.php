@@ -70,3 +70,14 @@ $factory->define(App\Motel::class, function (Faker\Generator $faker) {
         'student_id' => rand(1,49),
     ];
 });
+
+$factory->define(App\Teacher::class, function (Faker\Generator $faker) {
+
+   return [
+        'code' => $faker->company,
+        'name' => $faker->name,
+        'gender'=>rand(0,1),
+        'birthday'=>date('1995-12-31'),
+        'major_id' => rand(1,10),
+    ];
+});

@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
          // $this->call(MajorTableSeeder::class);
         // $this->call(ClassTableSeeder::class);
         // $this->call(StudentTableSeeder::class);
-        $this->call(MotelTableSeeder::class);
+        // $this->call(MotelTableSeeder::class);
+        $this->call(TeacherTableSeeder::class);
 
          //    DB::table('users')->insert([
          // 'code' => str_random(10),
