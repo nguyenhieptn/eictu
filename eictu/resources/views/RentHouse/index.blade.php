@@ -38,10 +38,10 @@
                                 $stt=1;
                                 foreach($data as $key){
                                 echo "<tr>";
-                                echo "<td>$stt++</td>";
-                                echo "<td>$key->ngayvaotro</td>";
-                                echo "<td>$key->hotenchunha</td>";
-                                echo "<td>$key->diachinhatro</td>";
+                                echo "<td>".$stt++."</td>";
+                                echo "<td>$key->date_join</td>";
+                                echo "<td>$key->hostess</td>";
+                                echo "<td>$key->address</td>";
                                 echo "</tr>";
                                 }
                            ?>

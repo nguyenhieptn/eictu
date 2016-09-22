@@ -36,9 +36,9 @@
                   <div class="panel-body">
                       <form action = "{{url("rentHouse/search")}}" method = "post" class="form-horizontal">
                         <div class="form-group">
-                          <label class="control-label col-sm-2" for="masv">Mã sinh viên:</label>
+                          <label class="control-label col-sm-2" for="code">Mã sinh viên:</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" id="masv" name="masv" value="">
+                            <input type="text" class="form-control" id="code" name="code" value="">
                           </div>
                         </div>
 
@@ -65,12 +65,12 @@
                   <?php
                     $stt=1;
                     foreach($data as $item){
-                        $date = new DateTime($item->ngayvaotro);
+                        $date = new DateTime($item->date_join);
                         echo "<tr>";
                         echo "<td>".$stt++."</td>";
                         echo "<td>".$date->format('d/m/Y')."</td>";
-                        echo "<td>$item->hotenchunha</td>";
-                        echo "<td>$item->diachinhatro</td>";
+                        echo "<td>$item->hostess</td>";
+                        echo "<td>$item->address</td>";
                         echo "<tr>";
                     }
                   ?>

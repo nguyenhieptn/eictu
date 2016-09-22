@@ -15,7 +15,7 @@ class RentHouseController extends Controller
     //
     public function index(){
         $id_sinhvien=1;
-        $data=DB::table('renthouse')->where('id_sinhvien',$id_sinhvien)->get();
+        $data=DB::table('motels')->where('student_id',$id_sinhvien)->get();
         return view("rentHouse.index",['data'=>$data]);
     }
 
@@ -26,16 +26,16 @@ class RentHouseController extends Controller
     public function search(Request $request){
         $masv = $request->input('masv');
         $id_sinhvien = DB::table('students')->where('code', $masv)->value('id');
-        $data=DB::table('renthouse')->where('id_sinhvien',$id_sinhvien)->get();
+        $data=DB::table('motels')->where('student_id',$id_sinhvien)->get();
         return view("rentHouse.search",['data'=>$data]);
     }
 
     public function store(Request $request){
         $data=array();
-        $data['id_sinhvien']=$request->input('id_sinhvien');
-        $data['hotenchutro'] = $request->input('hotenchutro');
-        $data['diachinhatro'] = $request->input('diachinhatro');
-        $data['ngayvaotro'] = $request->input('ngayvaotro');
+        $data['student_id']=$request->input('student_id');
+        $data['hostess'] = $request->input('hostess');
+        $data['address'] = $request->input('address');
+        $data['date_join'] = $request->input('date_join');
         /*
         $this->validate($request,[
             'hoten'=>'required',
@@ -44,10 +44,10 @@ class RentHouseController extends Controller
         ]);
         */
         $renthouse = new RentHouse();
-        $renthouse->id_sinhvien=$data['id_sinhvien'];
-        $renthouse->hotenchunha=$data['hotenchutro'];
-        $renthouse->diachinhatro=$data['diachinhatro'];
-        $renthouse->ngayvaotro=$data['ngayvaotro'];
+        $renthouse->student_id=$data['student_id'];
+        $renthouse->hostess=$data['hostess'];
+        $renthouse->address=$data['address'];
+        $renthouse->date_join=$data['date_join'];
         $renthouse->save();
 
         return redirect('rentHouse');
