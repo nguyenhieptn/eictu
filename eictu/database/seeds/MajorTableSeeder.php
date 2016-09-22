@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-class seedSchoolTable extends Seeder
+
+class MajorTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -10,8 +11,6 @@ class seedSchoolTable extends Seeder
      */
     public function run()
     {
-        factory(App\School::class, 10)->create();
-        
-
+        factory(App\Major::class, 50)->create();
     }
 }

@@ -50,6 +50,13 @@
                 <li><a href="{{ url('major') }}"> Major </a></li>
                 <li><a href="{{ url('dormitory') }}">Dormitory</a></li>
                 <li><a href="{{ url('rentHouse') }}">Rent House</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">I Want <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{{route('iwant.status')}}">Update status</a></li>
+                    <li><a href="{{route('iwant.search')}}">New Feed</a></li>
+                  </ul>
+                </li>
             </ul>
 
             <!-- Right Side Of Navbar -->
