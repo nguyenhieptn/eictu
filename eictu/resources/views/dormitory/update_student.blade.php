@@ -10,32 +10,31 @@
 	<div class="container">
 		<div class="top">
 			<div class="inner-top">
-				<p class="caption">eICTuStudentDormitorySearch - Tra cứu chỗ ở trong KTX</p>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-12">
-				<h3 class="redirect">Sinh viên cập nhật nơi ở trong KTX</h3>
+				<p class="caption">eICTuStudentDormitoryUpdate - Sinh viên cập nhật chỗ ở KTX</p>
 			</div>
 		</div>
 		<div class="contentUpdate">
-			<h3>Tìm kiếm thông tin nơi ở sinh viên trong KTX bằng mã sinh viên</h3>
+			<h3>Cập nhật thông tin về chỗ ở hiện tại của KTX tại đây</h3>
 			<div class="box">
-				<form action="" method="get" id="fSearch" class="form-horizontal" accept-charset="utf-8">
+				<form action="" method="get" id="fUpdate" class="form-horizontal" accept-charset="utf-8">
 					<div class="form-group">
-						<label class="col-sm-3 control-label"><i class="fa fa-circle-o"></i> Mã số sinh viên:</label>
+						<label class="col-sm-3 col-sm-offset-1 control-label"><i class="fa fa-circle-o"></i> Khu ký túc xá:</label>
 						<div class="col-sm-4">
 							<input type="text" name="" value="" class="form-control" placeholder="">
 						</div>
-						<div class="col-sm-2">
-							<button type="sumit" class="btn btn">Tìm kiếm</button>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 col-sm-offset-1 control-label"><i class="fa fa-circle-o"></i> Ngày bắt đầu ở:</label>
+						<div class="col-sm-4">
+							<input type="text" name="" value="" class="form-control" placeholder="">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-2 col-sm-offset-4">
+							<button type="sumit" class="btn btn">Cập nhật</button>
 						</div>
 					</div>
 				</form>
-
-				<div id="result">
-					<h3>Kết quả tìm kiếm:</h3>
-				</div>
 			</div>
 		</div>
 	</div>

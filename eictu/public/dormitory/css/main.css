@@ -1,0 +1,62 @@
+
+.top{
+	background: #cc5200;
+}
+.top .inner-top{
+	padding: 8px 15px;
+}
+.top p.caption{
+	color: #ffffff;
+	font-weight: 600;
+	font-size: 20px;
+}
+#lookup{
+	margin-top: 20px;
+}
+#lookup-group .form-control{
+	border-radius: 2px;
+	box-shadow: none;
+}
+select.form-control{
+	border-radius: 2px;
+	
+}
+#lookup-group #inputLookup{
+	padding-left: 40px;
+}
+#lookup-group i.fa-search{
+	position: relative;
+	top: -28px;
+	left: 12px;
+}
+#fUpdate label,
+#fSearch label,
+#fSearch .control-label{
+	font-size: 20px;
+	font-weight: 600;
+}
+#fSearch .form-control,
+#fUpdate .form-control{
+	border-radius: 0px;
+	border:  none;
+	border-bottom: 1px solid #ddd;
+	box-shadow: none;
+	color: #ff6666;
+	font-size: 18px;
+	font-weight: 600;
+}
+.btn{
+	background: #000;
+	color: #fff;
+	font-size: 18px;
+	box-shadow: none;
+	border:  1px solid #000;
+	outline: none;
+	border-radius: 0px;
+}
+.btn:hover,
+.btn:focus,
+.btn:active{
+	background: #404040;
+	color: #fff;
+}
