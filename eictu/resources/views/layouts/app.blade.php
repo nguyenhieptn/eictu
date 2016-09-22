@@ -95,6 +95,6 @@
 @yield('content')
 
         <!-- Scripts -->
-<script src="{{ url("public/js/app.js") }}"></script>
+<script src="{{ url("js/app.js") }}"></script>
 </body>
 </html>
