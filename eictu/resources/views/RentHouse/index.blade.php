@@ -2,54 +2,68 @@
 /**
  * Created by PhpStorm.
  * User: Admin
- * Date: 19/09/2016
- * Time: 11:41 CH
+ * Date: 20/09/2016
+ * Time: 8:48 SA
  */
  ?>
- @extends('layouts.app')
+ <?php
+ /**
+  * Created by PhpStorm.
+  * User: Admin
+  * Date: 19/09/2016
+  * Time: 11:41 CH
+  */
 
- @section('content')
- <div class="container">
-     <div class="row">
-         <div class="col-md-12">
-             <div class="panel panel-default">
-                <nav class="navbar navbar-default">
-                  <div class="container-fluid">
-                    <ul class="nav navbar-nav">
-                      <li class="active"><a href="{{ url('rentHouse') }}">Rent House</a></li>
-                      <li><a href="{{ url('rentHouse/create') }}">Update</a></li>
-                      <li><a href="{{ url('rentHouse/search') }}">Find</a></li>
-                    </ul>
+  ?>
+  @extends('layouts.app')
+
+  @section('content')
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="list-group">
+                 <a href="{{"rentHouse/create"}}" class="list-group-item active">SINH VIÊN CẬP NHẬT</a>
+               </div>
+              <div class="panel panel-default">
+                  <div class="panel-heading">Tìm kiếm thông tin nhà trọ của sinh viên bằng mã số sinh viên</div>
+                  <div class="panel-body">
+                      <form action = "{{url("rentHouse")}}" method = "post" class="form-horizontal">
+                        <div class="form-group">
+                          <label class="control-label col-sm-2" for="code">Mã sinh viên:</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="code" name="code" value="">
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-default">Tìm kiếm</button>
+                          </div>
+                        </div>
+                        <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                      </form>
                   </div>
-                </nav>
-                 <div class="panel-heading">Trang chủ</div>
-                 <div class="panel-body">
-                     <table class="table">
-                         <thead>
-                           <tr>
-                             <th>#</th>
-                             <th>Ngày vào trọ</th>
-                             <th>Họ tên chủ nhà</th>
-                             <th>Địa chỉ nhà trọ</th>
-                           </tr>
-                         </thead>
-                         <tbody>
-                           <?php
-                                $stt=1;
-                                foreach($data as $key){
-                                echo "<tr>";
-                                echo "<td>".$stt++."</td>";
-                                echo "<td>$key->date_join</td>";
-                                echo "<td>$key->hostess</td>";
-                                echo "<td>$key->address</td>";
-                                echo "</tr>";
-                                }
-                           ?>
-                         </tbody>
-                       </table>
-                 </div>
-             </div>
-         </div>
-     </div>
- </div>
- @endsection
+              </div>
+              <div class="container">
+                <h2>Kết quả tìm kiếm:</h2>
+                <ul class="list-group">
+                 <?php
+                    $stt=1;
+                    foreach($data as $item){
+                        $date = new DateTime($item->date_join);
+                        ?>
+                        <li class="list-group-item " style="color:red">
+                        <?php
+                            echo $date->format('d/m/Y').", nhà ông/bà: ".$item->hostess.", địa chỉ: ".$item->address;
+                        ?>
+                        </li>
+                        <?php
+                        }
+                            echo "<center>".$data->render()."</center>";
+                        ?>
+                </ul>
+                </div>
+          </div>
+      </div>
+  </div>
+  @endsection
