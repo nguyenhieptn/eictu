@@ -49,6 +49,20 @@
                        </div>
                        <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                      </form>
+
+                      <div class="container">
+                          <h2>Thông tin của bạn</h2>
+                          <ul class="list-group">
+                          <?php
+                            $stt=1;
+                            foreach($data as $item){
+                                $date = new DateTime($item->date_join);
+                                echo "<li class='list-group-item list-group-item-danger'>".$date->format('d/m/Y').", ".$item->hostess.", ".$item->address."</li>";
+                            }
+                            echo "<center>".$data->render()."</center>";
+                          ?>
+                          </ul>
+                      </div>
                  </div>
              </div>
          </div>

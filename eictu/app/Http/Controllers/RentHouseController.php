@@ -7,6 +7,7 @@ use App\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
+use Illuminate\Pagination\Paginato;
 
 use App\Http\Requests;
 
@@ -16,12 +17,14 @@ class RentHouseController extends Controller
     public function index(Request $request){
         $code = $request->input('code');
         $student_id = DB::table('students')->where('code', $code)->value('id');
-        $data=DB::table('motels')->where('student_id',$student_id)->get();
+        $data=DB::table('motels')->where('student_id',$student_id)->paginate(5);
         return view("rentHouse.index",['data'=>$data]);
     }
 
     public function create(){
-        return view("rentHouse.create");
+        $student_id=1;
+        $data=DB::table('motels')->where('student_id',$student_id) ->orderBy('id', 'desc')->paginate(5);
+        return view("rentHouse.create",['data'=>$data]);
     }
 
     public function store(Request $request){
@@ -42,6 +45,8 @@ class RentHouseController extends Controller
         $renthouse->address=$data['address'];
         $renthouse->date_join=$data['date_join'];
         $renthouse->save();
-         return redirect('rentHouse');
+        $student_id=1;
+        $data=DB::table('motels')->where('student_id',$student_id) ->orderBy('id', 'desc')->paginate(5);
+        return view("rentHouse.create",['data'=>$data]);
     }
 }

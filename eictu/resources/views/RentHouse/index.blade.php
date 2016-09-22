@@ -21,9 +21,11 @@
   <div class="container">
       <div class="row">
           <div class="col-md-12">
+              <div class="list-group">
+                 <a href="{{"rentHouse/create"}}" class="list-group-item active">SINH VIÊN CẬP NHẬT</a>
+               </div>
               <div class="panel panel-default">
-                  <div class="panel-heading">Tìm kiếm thông tin nhà trọ của sinh viên</div>
-
+                  <div class="panel-heading">Tìm kiếm thông tin nhà trọ của sinh viên bằng mã số sinh viên</div>
                   <div class="panel-body">
                       <form action = "{{url("rentHouse")}}" method = "post" class="form-horizontal">
                         <div class="form-group">
@@ -57,6 +59,7 @@
                         </li>
                         <?php
                         }
+                            echo "<center>".$data->render()."</center>";
                         ?>
                 </ul>
                 </div>
