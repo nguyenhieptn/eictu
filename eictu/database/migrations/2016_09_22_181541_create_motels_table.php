@@ -17,7 +17,7 @@ class CreateMotelsTable extends Migration
             $table->increments('id');
             $table->string('hostess');
             $table->string('address');
-            $table->dateTime('date_join');
+            $table->date('date_join');
             $table->integer('student_id')->unsigned();
             $table->foreign('student_id')->references('id')->on('students');
             $table->timestamps();
