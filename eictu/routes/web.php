@@ -48,6 +48,6 @@ require_once("classes.php");
 require_once("school.php");
 require_once("findjob.php");
 require_once("renthouse.php");
-
+require_once ("student.php");
 
 require_once("teacher.php");
