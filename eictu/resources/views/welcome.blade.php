@@ -75,7 +75,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                   hello ictu CSDL Ahehe
+                   hello ictu CSDL Ahihe
                 </div>
 
                 <div class="links">
