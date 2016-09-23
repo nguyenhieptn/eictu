@@ -15,8 +15,18 @@
 		</div>
 		<div class="contentUpdate">
 			<h3>Cập nhật thông tin về chỗ ở hiện tại của KTX tại đây</h3>
+			@if (count($errors) > 0)
+			    <div class="alert alert-danger">
+			        <ul>
+			            @foreach ($errors->all() as $error)
+			                <li>{{ $error }}</li>
+			            @endforeach
+			        </ul>
+			    </div>
+			@endif
 			<div class="box">
-				<form action="" method="get" id="fUpdate" class="form-horizontal" accept-charset="utf-8">
+				<form action="{!! url('dormitory/update')!!}" method="post" id="fUpdate" class="form-horizontal" accept-charset="utf-8">
+				{!! csrf_field()!!}
 					<div class="form-group">
 						<label class="col-sm-3 col-sm-offset-1 control-label"><i class="fa fa-circle-o"></i> Khu ký túc xá:</label>
 						<div class="col-sm-4">
@@ -26,7 +36,7 @@
 					<div class="form-group">
 						<label class="col-sm-3 col-sm-offset-1 control-label"><i class="fa fa-circle-o"></i> Ngày bắt đầu ở:</label>
 						<div class="col-sm-4">
-							<input type="text" name="" value="" class="form-control" placeholder="dd/mm/yyyy">
+							<input type="text" name="start_on" value="" class="form-control" placeholder="dd/mm/yyyy">
 						</div>
 					</div>
 					<div class="form-group">
