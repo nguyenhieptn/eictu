@@ -20,4 +20,8 @@ class IWant extends Model
     {
     	return $this->belongsTo('App\Student', 'student_id');
     }
+    public function user (){
+        # code...
+        return $this->belongTo('App\User');
+    }
 }
