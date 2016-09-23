@@ -16,9 +16,7 @@ class TeacherController extends Controller
     public function index(){
     	// $teacher = Teacher::select('name')->where('code', Auth::user()->username)->first();
        
-          return view('teacher.homepage');
-       
-        
+          // return view('teacher.homepage');
         if ( Auth::user()->type <= 2) {
             return view('teacher.homepage');
         }else{
@@ -32,11 +30,9 @@ class TeacherController extends Controller
             $major = Major::select('*')->get()->toArray();
             return view('teacher.add', compact('major'));
          }elseif(Auth::user()->type == 2){
-            return view('teacher.homepage');
+            return redirect()->route('teacher.index');
          }else{
             return view('welcome');
-
-            return view('home');
          }
          
     }
@@ -79,9 +75,15 @@ class TeacherController extends Controller
         }
         
     public function getLogin(){
-        if (isset(Auth::user()->id)) {
+        if (isset(Auth::user()->id) && Auth::user()->type==1) {
             return redirect()->route('teacher.list');
+        }elseif (isset(Auth::user()->id) && Auth::user()->type==2) {
+            return redirect()->route('teacher.index');
+        }elseif (isset(Auth::user()->id) && Auth::user()->type==3) {
+            return view('welcome');
+        }else{
+            return view('teacher.login');
         }
-        return view('teacher.login');
+        
     }
 }
