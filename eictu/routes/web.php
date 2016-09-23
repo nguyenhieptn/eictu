@@ -11,7 +11,12 @@
 |
 */
 
+Route::get('findjob/index', 'FindJobController@getIndex');
 Route::get('/', function () {
+    return view('schools.eICTuHomePage');
+});
+
+Route::get('/welcomeschool', function () {
     return view('welcome');
 });
 /*===Quan ly ky tuc xa======*/
@@ -22,7 +27,6 @@ Route::group(['prefix' => 'ktx'], function(){
 /*=== het Quan ly ky tuc xa======*/
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index');
 
 

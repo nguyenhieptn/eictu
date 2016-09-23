@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Student;// nhom classes
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -28,7 +29,15 @@ class HomeController extends Controller
         $name= Auth::user()->name;
         if($type==1)        return view('home');
         if($type==2)        return view('teacher.homepage');
-        if($type==3)        return view("students.studentHomepage", compact('name'));
+        if($type==3)
+        {
+            $data = Student::select('*')
+            ->where('code','=',Auth::user()->username)
+            ->get()->first();
+            $classid=$data->class_id;
+            return view("students.studentHomepage", compact('name','classid'));
+
+        }
 
     }
 }

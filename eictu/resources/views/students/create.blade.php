@@ -53,19 +53,6 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label class="control-label col-md-3" for="School_Id">Tên trường :</label>
-                                <div class="col-sm-9">
-                                    <select class="form-control col-sm-9" id="School_Id" name="School_Id">
-                                        @forelse($data as $school)
-                                            <option value="{{$school-> id}}">{{$school-> name}}</option>
-                                        @empty
-                                            <option value="0">Không có trường nào được chọn</option>
-                                        @endforelse
-                                    </select>
-
-                                </div>
-                            </div>
 
                             <div class="form-group" style="text-align: center;">
                                 <button type="submit" class="btn btn-default">Thêm mới</button>
