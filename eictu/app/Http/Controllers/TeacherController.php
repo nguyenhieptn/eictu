@@ -24,17 +24,27 @@ class TeacherController extends Controller
 
 
     public function postAdd(Request $request){
+
+        $this->validate($request, [
+            'code'=>'required|max:30',
+            'name'=>'required|max:30',
+            'gender'=>'required',
+            'birthday'=>'required',
+            'major'=>'required',
+            ]);
         $teaher = new Teacher();
         $teaher->code = $request->code;
         $teaher->name = $request->name;
         $teaher->gender = $request->gender;
-        //$teaher->major_id = $request->major;
+        $teaher->birthday = $request->birthday;
+        $teaher->major_id = $request->major;
 
         $teaher->save();
-        return "ok";
+        return redirect()->route('teacher.list');
     }
 
     public function getList(){
-    	return view('teacher.list');
+        $teacher = Teacher::paginate(20);
+    	return view('teacher.list', compact('teacher'));
     }
 }

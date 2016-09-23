@@ -6,10 +6,10 @@
     <div class="col-lg-6 col-xs-12">
       <form action="{{route('iwant.status')}}" role="form" method="post" accept-charset="utf-8">
         <input type="hidden" name="_token" value="{{Session::token()}}">
-        <div class="form-group {{$errors->has('status')? ' has-error': ''}}">
-          <textarea placeholder="What do you want ?" name="content" class="form-control" rows="2"></textarea>
+        <div class="form-group {{$errors->has('content')? ' has-error': ''}}">
+          <textarea placeholder="What do you want ?" name="content" class="form-control" rows="3"></textarea>
         </div>
-        <button type="submit" class="btn btn-default">Update Status</button>    
+        <button type="submit" class="btn btn-default">Đăng Tin</button>    
       </form>
       <hr>
     </div>
