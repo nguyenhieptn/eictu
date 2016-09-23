@@ -59,13 +59,6 @@
                 <li><a href="{{ url('dormitory') }}">Dormitory</a></li>
                 <li><a href="{{ url('rentHouse') }}">Rent House</a></li>
                 <li><a href="{{ url('findjob/index') }}">Find Job</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">I Want <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="{{route('iwant.status')}}">Update status</a></li>
-                    <li><a href="{{route('iwant.search')}}">New Feed</a></li>
-                  </ul>
-                </li>
                 <li><a href="{{route('iwant.search')}}">I Want</a></li>
 
             </ul>
@@ -106,7 +99,7 @@
 @yield('content')
         <!-- Scripts -->
 <script src="{{ url("/js/app.js") }}"></script>
-{{--<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>--}}
+<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
