@@ -34,7 +34,7 @@ class HomeController extends Controller
             $data = Student::select('*')
             ->where('code','=',Auth::user()->username)
             ->get()->first();
-            $classid=$data->class_id;
+            $classid=$data==null? 0: $data->class_id;
             return view("students.studentHomepage", compact('name','classid'));
 
         }
