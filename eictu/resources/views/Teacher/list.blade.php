@@ -23,29 +23,31 @@
                             </thead>
                             <tbody>
                             <?php $i=1; ?>
-                            @forelse ($teacher as $item_teacher)
-                                <tr>
-                                    <td>{{$i++}}</td>
-                                    <td>{{ $item_teacher->code }}</td>
-                                    <td>{{ $item_teacher->name }}</td>
-                                    <td>
-                                    	<?php 
-                                    		$major_name = DB::table('majors')->where('id',$item_teacher->major_id )->first();
-                                    	 ?>
-                                    	 {{$major_name->name}}
-                                    </td>
-                                    <td>
-	                                    @if($item_teacher->gender == 0)
-	                                    	Nam
-	                                    @else
-	                                    	Nữ
-	                                    @endif
-                                    </td>
-                                    <td>{{ date("d-m-Y",strtotime($item_teacher->birthday)) }}</td>
-                                </tr>
-                            @empty
+                            @if($teacher)
+                                @foreach ($teacher as $item_teacher)
+                                    <tr>
+                                        <td>{{$i++}}</td>
+                                        <td>{{ $item_teacher->code }}</td>
+                                        <td>{{ $item_teacher->name }}</td>
+                                        <td>
+                                        	<?php 
+                                        		$major_name = DB::table('majors')->where('id',$item_teacher->major_id )->first();
+                                        	 ?>
+                                        	 {{$major_name->name}}
+                                        </td>
+                                        <td>
+    	                                    @if($item_teacher->gender == 0)
+    	                                    	Nam
+    	                                    @else
+    	                                    	Nữ
+    	                                    @endif
+                                        </td>
+                                        <td>{{ date("d-m-Y",strtotime($item_teacher->birthday)) }}</td>
+                                    </tr>
+                                @endforeach
+                            @else
                                 <p>Không có giáo viên nào trong trường</p>
-                            @endforelse
+                            @endif
 
                             </tbody>
                         </table>

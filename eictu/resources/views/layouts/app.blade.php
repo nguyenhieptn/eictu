@@ -54,7 +54,7 @@
                 <li><a href="{{ url('schools') }}"> Schools</a></li>
                 <li><a href="{{ url('classes') }}"> Classes</a></li>
                 <li><a href="{{ url('student') }}"> Student </a></li>
-                <li><a href="{!! route('teacher.index') !!}"> Teacher </a></li>
+                <li><a href="{!! route('teacher.login') !!}"> Teacher </a></li>
                 <li><a href="{{ url('major') }}"> Major </a></li>
                 <li><a href="{{ url('dormitory') }}">Dormitory</a></li>
                 <li><a href="{{ url('rentHouse') }}">Rent House</a></li>
@@ -104,8 +104,7 @@
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 
 <script src="{{ url("js/app.js") }}"></script>
-<script src="{{ url("/js/app.js") }}"></script>
-<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 </body>
 </html>
