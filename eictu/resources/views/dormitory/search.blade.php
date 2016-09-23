@@ -36,9 +36,16 @@
 				<div id="result">
 					<h3>Kết quả tìm kiếm:</h3>
 					@if(isset($dormitory))
-					<div class="list">
-						<h3><i class="fa fa-caret-right"></i> <span class="date_on">{!! $dormitory->srart_on!!}</span> </h3>
-					</div>
+						<div class="list">
+							<h3>
+								<i class="fa fa-caret-right"></i>
+								<span class="date_on">{!! $dormitory->start_on!!}</span> Phong {!! $dormitory->room!!},
+								 {!! $dormitory->building!!}, {!! $area->name !!}, KTX {!! $school->name !!}
+							</h3>
+						</div>
+					@endif
+					@if(isset($none))
+						<h4 class="none">{!! $none !!}</h4>
 					@endif
 				</div>
 			</div>
