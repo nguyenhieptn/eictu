@@ -13,7 +13,7 @@ class CreateHavesTable extends Migration
      */
     public function up()
     {
-        Schema::create('haves', function (Blueprint $table) {
+        Schema::create('have', function (Blueprint $table) {
             $table->increments('id');
             $table->text('content');
             $table->integer('student_id')->unsigned();
@@ -29,6 +29,6 @@ class CreateHavesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('haves');
+        Schema::drop('have');
     }
 }

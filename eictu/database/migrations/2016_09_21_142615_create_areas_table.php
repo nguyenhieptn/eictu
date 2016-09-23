@@ -13,11 +13,12 @@ class CreateAreasTable extends Migration
      */
     public function up()
     {
-         Schema::create('areas', function (Blueprint $table) {
+        Schema::create('areas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->timestamps();
-        });    }
+        });
+    }
 
     /**
      * Reverse the migrations.
@@ -26,7 +27,6 @@ class CreateAreasTable extends Migration
      */
     public function down()
     {
-        //
         Schema::drop('areas');
     }
 }
