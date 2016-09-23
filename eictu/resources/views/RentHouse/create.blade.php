@@ -57,7 +57,7 @@
                             $stt=1;
                             foreach($data as $item){
                                 $date = new DateTime($item->date_join);
-                                echo "<li class='list-group-item list-group-item-danger'>".$date->format('d/m/Y').", ".$item->hostess.", ".$item->address."</li>";
+                                echo "<li class=' list-group-item ' style=' color:red '>".$date->format('d/m/Y').", ".$item->hostess.", ".$item->address."</li>";
                             }
                             echo "<center>".$data->render()."</center>";
                           ?>

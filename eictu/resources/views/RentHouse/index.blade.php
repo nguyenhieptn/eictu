@@ -49,17 +49,19 @@
                 <ul class="list-group">
                  <?php
                     $stt=1;
-                    foreach($data as $item){
-                        $date = new DateTime($item->date_join);
-                        ?>
-                        <li class="list-group-item " style="color:red">
-                        <?php
-                            echo $date->format('d/m/Y').", nhà ông/bà: ".$item->hostess.", địa chỉ: ".$item->address;
-                        ?>
-                        </li>
-                        <?php
+                    if(isset($data)){
+                        foreach($data as $item){
+                            $date = new DateTime($item->date_join);
+                            ?>
+                            <li class="list-group-item " style="color:red">
+                            <?php
+                                echo $date->format('d/m/Y').", nhà ông/bà: ".$item->hostess.", địa chỉ: ".$item->address;
+                            ?>
+                            </li>
+                            <?php
+                            }
+                            echo "<center>".$data->appends(Request::input('code'))->render()."</center>";
                         }
-                            echo "<center>".$data->render()."</center>";
                         ?>
                 </ul>
                 </div>
