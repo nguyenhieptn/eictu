@@ -21,7 +21,7 @@ class CreateStudentsTable extends Migration
             $table->boolean('gender');
             $table->dateTime('birthday');
             $table->integer('major_id');
-            $table->integer('class_id');
+            $table->integer('class_id')->nullable();;
             $table->integer('school_id')->unsigned();
             $table->foreign('school_id')->references('id')->on('schools');
             $table->timestamps();
