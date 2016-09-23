@@ -14,11 +14,12 @@ class TeacherController extends Controller
 {
 
     public function index(){
+    	// $teacher = Teacher::select('name')->where('code', Auth::user()->username)->first();
+       
+          return view('teacher.homepage');
+       
+        
     	
-        if ( Auth::user()->type <= 2) {
-            return view('teacher.homepage');
-        }
-    	return view('home');
     }
 
     public function getAdd(){
@@ -27,8 +28,10 @@ class TeacherController extends Controller
             return view('teacher.add', compact('major'));
          }elseif(Auth::user()->type == 2){
             return view('teacher.homepage');
+         }else{
+            return view('home');
          }
-         return view('home');
+         
     }
 
 
