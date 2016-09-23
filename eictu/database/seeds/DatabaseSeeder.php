@@ -14,10 +14,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(seedUserTable::class);
-        $this->call(NganhHocTableSeeder::class);
-        $this->call(LopHocTableSeeder::class);
-        $this->call(SinhVienTableSeeder::class);
-        $this->call(seedUserTable::class);
+        // $this->call(NganhHocTableSeeder::class);
+        // $this->call(LopHocTableSeeder::class);
+        // $this->call(SinhVienTableSeeder::class);
+        // $this->call(seedUserTable::class);
         $this->call(seedSchoolTable::class);
         $this->call(MajorTableSeeder::class);
         $this->call(ClassTableSeeder::class);
@@ -25,11 +25,11 @@ class DatabaseSeeder extends Seeder
         $this->call(MotelTableSeeder::class);
         $this->call(TeacherTableSeeder::class);
 
-        $this->call(NganhHocTableSeeder::class);
+        // $this->call(NganhHocTableSeeder::class);
 
-        $this->call(LopHocTableSeeder::class);
+        // $this->call(LopHocTableSeeder::class);
 
-        $this->call(SinhVienTableSeeder::class);
+        // $this->call(SinhVienTableSeeder::class);
         $this->call(seederFindJobTable::class);
     }
 }

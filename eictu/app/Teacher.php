@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Teacher extends Model
 {
-    protected $table = 'teacher';
+    protected $table = 'teachers';
     /**
      * The attributes that are mass assignable.
      *
@@ -21,5 +21,10 @@ class Teacher extends Model
     public function major()
     {
     	return $this->belongsTo('App\Major', 'major_id');
+    }
+
+
+    public function get_name(){
+        return $this->name;
     }
 }

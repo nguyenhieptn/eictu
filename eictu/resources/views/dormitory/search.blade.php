@@ -1,56 +1,57 @@
-@extends('qlktx.app')
-@section('title')
-QLKTX
+@extends('layouts.app')
+@section('css')
+<link rel="stylesheet" type="text/css" href="{!! url('public/dormitory/css/bootstrap.min.css')!!}">
+<link rel="stylesheet" type="text/css" href="{!! url('public/dormitory/css/font-awesome.min.css')!!}">
+<link rel="stylesheet" type="text/css" href="{!! url('public/dormitory/css/main.css')!!}">
+
 @endsection
 @section('content')
-<div id="lookup">
-	<form action="{!! url('get_results') !!}" id="fLookup" method="get" accept-charset="utf-8">
-		<div class="col-md-5">
-			<div class="col-md-6">
-				<div class="form-group">
-					<label>Nhà</label>
-					<select name="building" class="form-control">
-						<option>A1</option>
-						<option>A1</option>
-					</select>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="form-group">
-					<label>Phòng</label>
-					<select name="room" class="form-control">
-						<option>1</option>
-						<option>2</option>
-					</select>
-				</div>
+<div id="updateStudent">
+	<div class="container">
+		<div class="top">
+			<div class="inner-top">
+				<p class="caption">eICTuStudentDormitorySearch - Tra cứu chỗ ở trong KTX</p>
 			</div>
 		</div>
-		<div class="col-md-6 col-md-offset-1">
-			<div class="search">
-				{!! csrf_field() !!}
-				<div class="form-group" id="lookup-group">
-				<label>Tìm kiếm</label>
-					<input type="text" name="masv" id="inputLookup" value="" class="form-control" placeholder="Nhập mã sinh viên...">
-					<i class="fa fa-search fa-fw"></i>
-				</div>	
+		<div class="row">
+			<div class="col-sm-12">
+				<a href="{!! url('dormitory/update') !!}"><h3 class="redirect"><i class="fa fa-link"></i> Sinh viên cập nhật nơi ở trong KTX</h3></a>
 			</div>
 		</div>
-		
-		<div class="col-md-12">
-			<div id="resultLookup" class="col-md-6">
-				@if(isset($sv))
-					@if($sv != [])
-					<ul>
-						@foreach($sv as $item)
-						<li><strong>{!! $item->tensv !!}</strong> ở nhà {!! $item->nha!!}, phòng {!! $item->phong !!}</li>
-						@endforeach
-					</ul>
-					@else
-						{!! 'Khong co sinh vien' !!}
+		<div class="contentUpdate">
+			<h3>Tìm kiếm thông tin nơi ở sinh viên trong KTX bằng mã sinh viên</h3>
+			<div class="box">
+				<form action="{!! url('dormitory/query')!!}" method="get" id="fSearch" class="form-horizontal" accept-charset="utf-8">
+					<div class="form-group">
+						<label class="col-sm-3 control-label"><i class="fa fa-circle-o"></i> Mã số sinh viên:</label>
+						<div class="col-sm-4">
+							<input type="text" name="student_id" value="" class="form-control" placeholder="DTC...">
+						</div>
+						<div class="col-sm-2">
+							<button type="sumit" class="btn btn">Tìm kiếm</button>
+						</div>
+					</div>
+				</form>
+
+				<div id="result">
+					<h3>Kết quả tìm kiếm:</h3>
+					@if(isset($dormitory))
+						<div class="list">
+							<h3>
+								<i class="fa fa-caret-right"></i>
+								<span class="date_on">{!! $dormitory->start_on!!}</span> Phong {!! $dormitory->room!!},
+								 {!! $dormitory->building!!}, {!! $area->name !!}, KTX {!! $school->name !!}
+							</h3>
+						</div>
 					@endif
-				@endif
+					@if(isset($none))
+						<h4 class="none">{!! $none !!}</h4>
+					@endif
+				</div>
 			</div>
 		</div>
-	</form>
+	</div>
+	<script type="text/javascript" src="{!! url('public/dormitory/js/jquery-1.12.4.min.js')!!}"></script>
+	<script type="text/javascript" src="{!! url('public/dormitory/js/bootstrap.min.js')!!}"></script>
 </div>
 @endsection
