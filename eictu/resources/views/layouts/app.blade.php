@@ -103,15 +103,13 @@
         <!-- Scripts -->
 
 <script src="{{ url("/js/app.js") }}"></script>
-<<<<<<< HEAD
         <!-- Scripts --><script src="{{ url("/js/app.js") }}"></script>
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 
 <script src="{{ url("js/app.js") }}"></script>
 <script src="{{ url("/js/app.js") }}"></script>
-=======
 <script src="{{ url("/js/chat.js") }}"></script>
->>>>>>> af3d77bc0dc0ee302801d1be87cb89f1a7252d73
+
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 </body>
