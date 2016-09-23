@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-	 <div class="container">
+	 <div class="container find-job">
      <div class="row">
          <div class="col-md-12">
              <div class="panel panel-default">
@@ -14,16 +14,21 @@
                     </hr>
                       <div class="entry-content">
                         <h4>Thông tin Sinh viên</h4>
-                        <p>Họ và tên: <strong>{{$detail->name}}</strong></p>
-                        <p>Giới tính:<strong>
-                            @if($detail->gender==1)
-                                {{ "Nam" }}
-                            @else
-                                    {{ "Nữ" }}
-                             @endif
-                            </strong></p>
-                          <p>Ngày đăng : <strong>{{$detail->created_at}}</strong></p>
-                    </div>
+                          <ul>
+                            <li>Họ và tên: <strong>{{$detail->name}}</strong></li>
+                            <li>Giới tính:<strong>
+                                @if($detail->gender==1)
+                                    {{ "Nam" }}
+                                @else
+                                        {{ "Nữ" }}
+                                 @endif
+                                </strong></li>
+                              <li>Ngày đăng : <strong><?php echo date("F j, Y",strtotime($detail->created_at))?></strong></li>
+                          </ul>
+                      </div>
+                     <div style="margin-top: 30px">
+                         <center><span  class="btn btn-default"> <a href="{{ url('findjob/index') }}"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>  ĐÓNG</a></span></center>
+                     </div>
              </div>
          </div>
      </div>

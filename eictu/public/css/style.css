@@ -15,4 +15,31 @@
     color: #333 !important;
 
 }
+.find-job .panel-default>.panel-heading {
+    background-color: #87b5f2 !important;
+    color:#fff;
+}
+.find-job .btn-link-post{
+    margin: 0px;
+    border-radius: 0px !important;
+}
+.find-job .list-group {
+    margin: 10px 0 0 0;
+    padding:5px;
+    border: 1px solid #f7f2f2;
+}
+.find-job .glyphicon-triangle-right{
+    color: #727273 !important;
+    font-size: 12px !important;
+}
+.find-job .list-group-item a{
+    font-size: 13px !important;
+    font-weight:600;
+    color: #5c94bd;
+
+}
+.find-jo .pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    border-radius: 25px;
+    color: #fff !important;
+}
 /*END FIND JOB*/
