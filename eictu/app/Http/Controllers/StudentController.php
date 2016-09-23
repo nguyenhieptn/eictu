@@ -45,7 +45,7 @@ class StudentController extends Controller
         $data['gender']     = $request->input('gender');
         $data['birthday']   = $request->input('Birthday');
         $data['major_id']   = $request->input('Major_Id');
-        $data['school_id']  = $request->input('school_id');
+        $data['school_id']  = $request->input('School_Id');
        // echo  $data['code'] ;
       //  echo   "\nho ten :".$data['name'] ;
 

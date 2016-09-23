@@ -1,0 +1,18 @@
+/*STYLE FIND JOB*/
+.find-job .list-group-item
+{
+    border: none !important;
+    border-bottom: 1px solid rgba(211, 224, 233, 0.25);
+}
+.pagination
+{
+    float: right;
+}
+.pagination li a,
+.pagination>li>span
+{
+    border: none !important;
+    color: #333 !important;
+
+}
+/*END FIND JOB*/

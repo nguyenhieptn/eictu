@@ -14,10 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
 /*===Quan ly ky tuc xa======*/
-Route::group(['prefix' => 'ktx'], function () {
-    Route::get('searchStudent', ['as' => 'ktx.getSearch', 'uses' => 'QLKTX\SinhvienKtxController@getSearch']);
+
+Route::group(['prefix' => 'ktx'], function(){
+	Route::get('searchStudent', ['as'=> 'ktx.getSearch','uses' => 'QLKTX\SinhvienKtxController@getSearch']);
 });
 /*=== het Quan ly ky tuc xa======*/
 /*
@@ -38,16 +38,11 @@ Route::get('/home', 'HomeController@index');
 
 
 
-/**
- *  I WANT
- **/
 require_once("iwant.php");
-
-
 require_once("classes.php");
 require_once("school.php");
 require_once("findjob.php");
 require_once("renthouse.php");
 require_once ("student.php");
-
 require_once("teacher.php");
+require_once("dormitory.php");

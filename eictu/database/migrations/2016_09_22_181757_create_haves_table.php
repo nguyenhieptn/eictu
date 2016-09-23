@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDormitorystudentsTable extends Migration
+class CreateHavesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateDormitorystudentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('dormitorystudents', function(Blueprint $table){
+        Schema::create('have', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('student_id');
-            $table->integer('room_id')->unsigned();
-            $table->foreign('room_id')->references('id')->on('dormitoryareas');
+            $table->text('content');
+            $table->integer('student_id')->unsigned();
+            $table->foreign('student_id')->references('id')->on('students');
+            $table->timestamps();
         });
     }
 
@@ -28,6 +29,6 @@ class CreateDormitorystudentsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('dormitorystudents');
+        Schema::drop('have');
     }
 }
