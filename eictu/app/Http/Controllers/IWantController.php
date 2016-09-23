@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\User;
 use App\IWant;
 use App\Student;
 use DB;
@@ -23,7 +24,10 @@ class IWantController extends Controller
             ]);
         $iwant = new IWant();
         $iwant->content = $request->content;
-        $iwant->student_id       = 1;
+        
+        $student = Student::select('id')->where('code', Auth::user()->username)->first();
+
+        $iwant->student_id       = $student->id;
         $iwant->save();
         // Auth::student()->iwants()->create([
         //     'content'=>$request->input('content'),

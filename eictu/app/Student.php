@@ -6,6 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
+
+    //Coding by Kakarot
+    public $timestamps = false;
+
+    public function manager()
+    {
+        return $this->belongsTo(Classes::class,'id','major_id');
+        //laravel eloquen relationship
+    }
+
+    /// end coding by kakarot
+
+
     //
 	protected $table = 'students';
     /**
@@ -16,7 +29,6 @@ class Student extends Model
     protected $fillable = [
         'code', 'name', 'gender','birthday', 'major_id', 'class_id', 'school_id'
     ];
-
 
 
 

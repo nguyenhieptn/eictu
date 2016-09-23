@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use DB;
 use App\Major;
+use App\User;
 use App\Teacher;
 use App\Http\Requests;
 
@@ -38,8 +39,16 @@ class TeacherController extends Controller
         $teaher->gender = $request->gender;
         $teaher->birthday = $request->birthday;
         $teaher->major_id = $request->major;
-
         $teaher->save();
+        if ($teaher->save() == true) {
+            $user = new User();
+            $user->name = $request->name;
+            $user->username = $request->code;
+            $user->email =changeName($request->name)."@ictu.edu.vn";
+            $user->type = 2;
+            $user->password = bcrypt($request->code);
+            $user->save();
+        }
         return redirect()->route('teacher.list');
     }
 

@@ -24,7 +24,8 @@
             "App\\": "app/"
         },
         "files":[
-            "app/library/function.php"
+            "app/library/function.php",
+            "app/dvkhang/functions.php"
         ]
     },
     "autoload-dev": {

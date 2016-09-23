@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Domitory;
+use App\Dormitory;
 use App\School;
 use App\Student;
 use DB;
@@ -22,14 +22,27 @@ class DormitoryController extends Controller
     	return view('dormitory.search');
     }
 
-    public function postSearch($data, Request $req){
+    public function postSearch(){
     	if($_GET['student_id']){
     		$st = $_GET['student_id'];
     		$student = Student::where('code',$st)->first();
-    		$school = DB::table('schools')->where('id', $student->school_id)->first();
-    		$dormitory = Domitory::where('student_id',$student->id);
+    		if($student == ""){
+    			$none = "Không có kết quả";
+    			return view('dormitory.search', compact('none'));
+    		}
+    		else{
 
-    		return view('dormitory.search', compact('student', 'school', 'dormitory'));
+	    		$school = DB::table('schools')->where('id', $student->school_id)->first();
+	    		$dormitory = DB::table('dormitories')->where('student_id',$student->id)->first();
+	    		if($dormitory == ""){
+	    			$none = "Sinh viên này không ở KTX";
+    				return view('dormitory.search', compact('none'));
+	    		}
+	    		else{
+	    			$area = DB::table('areas')->where('id', $dormitory->area_id)->first();
+	    			return view('dormitory.search', compact('student', 'school', 'dormitory', 'area'));
+	    		}
+	    	}
     	}
     }
 }

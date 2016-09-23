@@ -10,9 +10,9 @@
                             <div class=" alert alert-success"> {{\Illuminate\Support\Facades\Session::get('success')}}</div>
                         @endif
                         <ul class="find-job list-group">
-                            <h3 class=" btn btn-default btn-sm"><a href="{{ route('findjob.post') }}">Sinh viên đăng tin </a></h3>
+                            <h3 class=" btn btn-default btn-sm"><a href="{{ route('findjob.post') }}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Sinh viên đăng tin </a></h3>
                           @foreach($datas as $data=>$item)
-                            <li class="list-group-item"><a href="{{route('findjob.detail',$item['id'])}}"><?php echo _sub($item['content'], 140,5,route('findjob.detail',$item['id']))?></a></li>
+                            <li class="list-group-item"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span> <a href="{{route('findjob.detail',$item['id'])}}"><?php echo _sub($item['content'], 140,5,route('findjob.detail',$item['id']))?></a></li>
                           @endforeach
                         </ul>
                        {!!$datas->render()!!}

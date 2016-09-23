@@ -13,9 +13,6 @@
     <!-- Styles -->
      <link href="{{url("/css/app.css")}}" rel="stylesheet">
     <link href="{{url("/css/style.css")}}" rel="stylesheet">
-    <link href="{{url("css/app.css")}}" rel="stylesheet">
-
-    <!-- Scripts -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <style type="text/css" media="screen">
         .pagination ul li{
@@ -70,6 +67,7 @@
                   </ul>
                 </li>
                 <li><a href="{{route('iwant.search')}}">I Want</a></li>
+
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -106,14 +104,9 @@
 </nav>
 
 @yield('content')
-
         <!-- Scripts -->
 <script src="{{ url("/js/app.js") }}"></script>
-
-{{--<script src="{{ url("public/js/app.js") }}"></script>--}}
-<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-
-{{--<script src="{{ url("js/app.js") }}"></script>--}}
+{{--<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>--}}
+ <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
