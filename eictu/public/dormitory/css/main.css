@@ -75,3 +75,6 @@ select.form-control{
 .date_on{
 	padding-right: 15px;
 }
+.none{
+	color: red;
+}
