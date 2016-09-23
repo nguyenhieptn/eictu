@@ -10,6 +10,10 @@
       <div class="col-xs-4">
         <h3><a href="{{route('teacher.list')}}" title="">Danh sách Giảng Viên</a> </h3>
       </div>
+    @endif
+
+    @if(Auth::user()->type == 3)
+      {{route('iwant.search')}}
     @endif  
     	
   </div>
