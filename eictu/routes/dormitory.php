@@ -9,5 +9,10 @@ Route::group(['prefix' => 'dormitory'], function () {
 	Route::post('/update', 'DormitoryController@postUpdate');
     Route::get('/search', ['as' => 'dormitory.getSearch', 'uses' => 'DormitoryController@getSearch']);
     Route::get('/query', ['as' => 'dormitory.postSearch', 'uses' => 'DormitoryController@postSearch']);
+
 });
 /*=== het Quan ly ky tuc xa======*/
+
+//Kakarot
+
+Route::get('/searchDorm', 'DormitoryController@getSearch');
