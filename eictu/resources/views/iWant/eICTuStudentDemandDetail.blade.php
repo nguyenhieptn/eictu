@@ -11,22 +11,26 @@
 	      <p>Họ và tên: <b style="color: #e74c3c; font-size: 20px;">{{$student->name}}</b></p>
 	      <p>Giới tính: 
 	      @if($student->gender ==0)
-	      	Nữ
-	      @else
 	      	Nam
+	      @else
+	      	Nữ
 	      @endif	
 	      </p>
 	     
 	      <p>Địa chỉ:  
-	      		@if($address)
-	      			{{$address->address}}
-	      		@else
-	      		Không xác định được
-	      		@endif
+	      		<?php 
+	     	if (strtotime($address->date_join) > strtotime($address2->start_on)) {
+            	echo $address->address;
+	          }else{
+	          	$area = DB::table('areas')->where('id', $address2->area_id)->first();
+	          	echo  "Phòng số :".$address2->room." , Tòa nhà :".$address2->building." , Khu :".$area->name;
+	          }
+
+	      ?>
 	      	</p>
 	      
 	      <hr>
-	      <a href="{{route('iwant.search')}}" title="ĐÓng" class="btn btn-primary">Đóng</a>
+	      <a href="{{route('iwant.search')}}" title="ĐÓng" class="btn btn-danger">Đóng</a>
 	    </div> 
 	@endif    
   </div>

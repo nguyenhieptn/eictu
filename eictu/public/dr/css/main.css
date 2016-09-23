@@ -2,10 +2,12 @@
 .top{
 	background: #cc5200;
 }
-.top .inner-top{
-	padding: 8px 15px;
+.top{
+	padding: 8px;
 }
-.top p.caption{
+.top strong.caption,
+.top strong.caption a
+{
 	color: #ffffff;
 	font-weight: 600;
 	font-size: 20px;
