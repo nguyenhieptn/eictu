@@ -84,7 +84,7 @@
 
                     <tr>
                         <td><img src="{{url('img/rightarrow.png')}}"/></td>
-                        <td><a href="#">Nơi ở của bạn trong kí túc xá</a></td>
+                        <td><a href="{!! url('dormitory/search')!!}">Nơi ở của bạn trong kí túc xá</a></td>
                     </tr>
 
                     <tr>

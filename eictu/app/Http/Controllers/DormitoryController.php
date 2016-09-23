@@ -29,13 +29,14 @@ class DormitoryController extends Controller
            return view('dormitory.update_student', compact('str', 'date'));
        }
        else
-        return redirect('/search');
+        return redirect('/login');
     }
 
     public function postUpdate(UpdateSDRequest $req){
         $data = $req->info;
         $data = explode(',', $data);
-        $date = date('Y-m-d',strtotime($req->start_on));
+        $date = explode('/', $req->start_on);
+        $date2 = $date['2'].'-'.$date[1].'-'.$date[0];
         $room = trim(str_replace('Phòng ', '', $data[0]));
         $building = trim(str_replace('Nhà ', '', $data[1]));
         $area = trim($data[2]);
@@ -46,13 +47,16 @@ class DormitoryController extends Controller
         $up = DB::table('dormitories')->where('student_id', $student->id)->update([
             'room' => $room,
             'building'=> $building,
-            'area_id'=> $a->id
+            'area_id'=> $a->id,
+            'start_on'=> $date2
         ]);
-
-        return redirect()->back()->with('msg', 'Cập nhật thành công!');
+       return redirect()->back()->with('msg', 'Cập nhật thành công!');
     }
     public function getSearch(){
-    	return view('dormitory.search');
+        if(!Auth::guest())
+    	   return view('dormitory.search');
+        else
+            return redirect('/login');
     }
 
     public function postSearch(){
