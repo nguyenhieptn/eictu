@@ -32,8 +32,8 @@ class UpdateSDRequest extends FormRequest
 
     public function messages(){
         return [
-            'info.required'=>'bạn chưa nhập nơi ở hiện tại',
-            'start_on'=> 'bạn chưa nhập ngày bắt đầu ở';
+            'info.required'=>'Bạn chưa nhập nơi ở hiện tại',
+            'start_on.required'=> 'Bạn chưa nhập ngày bắt đầu ở'
         ];
     }
 }
