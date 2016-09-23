@@ -23,7 +23,6 @@ class CreateDormitoriesTable extends Migration
             $table->integer('area_id')->unsigned();
             $table->foreign('area_id')->references('id')->on('areas');
             $table->date('start_on');
-            $table->date('end_on');
             $table->timestamps();
         });
     }
