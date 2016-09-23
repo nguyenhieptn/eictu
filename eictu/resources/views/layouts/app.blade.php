@@ -98,7 +98,6 @@
 
 @yield('content')
         <!-- Scripts -->
-<<<<<<< HEAD
 
 
 <script src="{{ url("/js/app.js") }}"></script>
@@ -106,8 +105,6 @@
       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
 <script src="{{ url("js/app.js") }}"></script>
-=======
->>>>>>> cdc0f1589ce8ec6de6c2e0b2f3c4c9942c9477e8
 <script src="{{ url("/js/app.js") }}"></script>
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
