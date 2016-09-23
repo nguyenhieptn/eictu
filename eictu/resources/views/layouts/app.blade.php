@@ -11,20 +11,17 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <link href="{{url("css/app.css")}}" rel="stylesheet">
-=======
-     <link href="{{url("/css/app.css")}}" rel="stylesheet">
-    <link href="{{url("/css/style.css")}}" rel="stylesheet">
->>>>>>> cc60b424b23500da8c31a47faf357d327fb32a7a
-=======
 
     <link href="{{url("css/app.css")}}" rel="stylesheet">
 
      <link href="{{url("/css/app.css")}}" rel="stylesheet">
     <link href="{{url("/css/style.css")}}" rel="stylesheet">
->>>>>>> de9e49f8b8bf856d595657d4310f44abdffe7028
+
+
+    <link href="{{url("css/app.css")}}" rel="stylesheet">
+
+     <link href="{{url("/css/app.css")}}" rel="stylesheet">
+    <link href="{{url("/css/style.css")}}" rel="stylesheet">
 
     <!-- Scripts -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
