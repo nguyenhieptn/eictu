@@ -68,9 +68,9 @@
                             </div>
 
                             <div class="form-group" style="text-align: center;">
-                                    <button type="submit" class="btn btn-default">Thêm mới</button>
+                                <button type="submit" class="btn btn-default">Thêm mới</button>
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                             </div>
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         </form>
                     </div>
                 </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $type= Auth::user()->type;
+        $name= Auth::user()->name;
+        if($type==1)        return view('home');
+        if($type==2)        return view('teacher.homepage');
+        if($type==3)        return view("students.studentHomepage", compact('name'));
+
     }
 }
