@@ -27,7 +27,7 @@ class CreateStudentsTable extends Migration
             $table->date('birthday');
             $table->integer('major_id');
             $table->integer('class_id')->nullable();;
->>>>>>> e6d9c559ec8d869f29f2967f09d6490156b253fc
+>>>>>>> cdc0f1589ce8ec6de6c2e0b2f3c4c9942c9477e8
             $table->integer('school_id')->unsigned();
             $table->foreign('school_id')->references('id')->on('schools');
             $table->timestamps();

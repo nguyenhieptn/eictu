@@ -12,15 +12,23 @@ use App\Http\Requests;
 
 class TeacherController extends Controller
 {
+
     public function index(){
-    	# code...
-    	return view('teacher.homepage');
+    	
+        if ( Auth::user()->type <= 2) {
+            return view('teacher.homepage');
+        }
+    	return view('home');
     }
 
     public function getAdd(){
-        $major = Major::select('*')->get()->toArray();
-    	return view('teacher.add', compact('major'));
-
+         if ( Auth::user()->type == 1) {
+            $major = Major::select('*')->get()->toArray();
+            return view('teacher.add', compact('major'));
+         }elseif(Auth::user()->type == 2){
+            return view('teacher.homepage');
+         }
+         return view('home');
     }
 
 
@@ -45,7 +53,7 @@ class TeacherController extends Controller
             $user->name = $request->name;
             $user->username = $request->code;
             $user->email =changeName($request->name)."@ictu.edu.vn";
-            $user->type = 1;
+            $user->type = 2;
             $user->password = bcrypt($request->code);
             $user->save();
         }
@@ -53,7 +61,15 @@ class TeacherController extends Controller
     }
 
     public function getList(){
+        if ( Auth::user()->type < 2) {
+            return view('home');
+         }
         $teacher = Teacher::paginate(20);
     	return view('teacher.list', compact('teacher'));
+    }
+
+
+    public function getLogin(){
+        return view('auth.login');
     }
 }

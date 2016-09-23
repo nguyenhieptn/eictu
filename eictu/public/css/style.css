@@ -15,4 +15,191 @@
     color: #333 !important;
 
 }
+<<<<<<< HEAD
 /*END FIND JOB*/
+
+/*STYLE STUDENT HOME PAGE*/
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: arial ;
+    font-size: 25px;
+}
+.wrapper{
+    width:1280px;
+    margin: auto;
+}
+.wrapper h1{
+    padding: 30px 20px;
+}
+.pagewrapper{
+    width: 100%;
+
+}
+.pagewrapper .top{
+    width: 95%;
+    float: left;
+    background: #FF2C21;
+    padding: 15px 2.56%;
+    font-size: 25px;
+    color: white;
+    font-weight: bold;
+}
+.top span {
+    float: left;
+}
+.top>div{
+    float: right;
+    background-image: url("/img/exit.png");
+    background-repeat: no-repeat;
+    background-position:left;
+    width: 11%;
+    height: 38px;
+}
+.top>div a{
+    text-decoration: none;
+    color: white;
+    float: right;
+}
+.top>div a:hover{
+    color:black
+}
+.pagewrapper .content{
+    width: 100%;
+    float: left;
+    border: 1px solid #BFBFBF;
+}
+.content p{
+    padding: 20px 40px;
+    font-size: 25px;
+
+}
+.content form {
+    width: 100%;
+    padding: 15px 20%;
+}
+.content form img{
+    width:75% !important;
+}
+.content form td{
+    font-size:25px;
+    font-weight:bold;
+}
+.content form input{
+    width: 100%;
+    padding: 0 20px;
+    font-size: 25px;
+
+}
+.submit{
+    text-align: center;
+    margin:50px 0;
+    height: 150px;
+    cursor: pointer;
+}
+#sb{
+    border: 0;
+    width: 53%;
+    padding: 8px 10px;
+    background-color: black;
+    color: white;
+    font-weight:bold;
+}
+#sb:hover{
+    background: #FF2C21;
+
+}
+.content1{
+    width: 99.9%;
+    float: left;
+    border: 1px solid #BFBFBF;
+}
+.content1 table img{
+    width: 20%;
+    float: right;
+    margin-right: 50px;
+}
+.content1 table #topimg{
+    width: 50%;
+    float: right;
+    margin-right: 20px;
+}
+.content1 table td{
+    padding: 5px 0;
+    font-size: 25px;
+    font-weight: bold;
+}
+.content1 table td a{
+    text-decoration: none;
+    color: black;
+}
+.content1 table td a:hover{
+    color:#FF2C21 ;
+}
+.content1 table td span {
+    color: #BFCDE3;
+    font-weight: bold;
+}
+#toptext{
+    font-weight: bold;
+    font-size: 30px;
+}
+.content2{
+    width: 99.9%;
+    float: left;
+    border: 1px solid #BFBFBF;
+}
+.content2 table{
+    padding: 40px 40px;
+}
+.content2 img{
+    width: 50%;
+    float: right;
+}
+.content2 a {
+    text-decoration: none;
+    color: black;
+}
+.content2 a:hover{
+    color: red;
+}
+.content2 td{
+    padding: 10px 30px;
+}
+#top-ct2 td{
+    padding: 10px 30px;
+    padding-top: 0;
+}
+/* END STUDENT PAGE HOME */
+=======
+.find-job .panel-default>.panel-heading {
+    background-color: #87b5f2 !important;
+    color:#fff;
+}
+.find-job .btn-link-post{
+    margin: 0px;
+    border-radius: 0px !important;
+}
+.find-job .list-group {
+    margin: 10px 0 0 0;
+    padding:5px;
+    border: 1px solid #f7f2f2;
+}
+.find-job .glyphicon-triangle-right{
+    color: #727273 !important;
+    font-size: 12px !important;
+}
+.find-job .list-group-item a{
+    font-size: 13px !important;
+    font-weight:600;
+    color: #5c94bd;
+
+}
+.find-jo .pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    border-radius: 25px;
+    color: #fff !important;
+}
+/*END FIND JOB*/
+>>>>>>> cdc0f1589ce8ec6de6c2e0b2f3c4c9942c9477e8
