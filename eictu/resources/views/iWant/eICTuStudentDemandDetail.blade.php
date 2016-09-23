@@ -11,9 +11,9 @@
 	      <p>Họ và tên: <b style="color: #e74c3c; font-size: 20px;">{{$student->name}}</b></p>
 	      <p>Giới tính: 
 	      @if($student->gender ==0)
-	      	Nữ
-	      @else
 	      	Nam
+	      @else
+	      	Nữ
 	      @endif	
 	      </p>
 	     
@@ -26,7 +26,7 @@
 	      	</p>
 	      
 	      <hr>
-	      <a href="{{route('iwant.search')}}" title="ĐÓng" class="btn btn-primary">Đóng</a>
+	      <a href="{{route('iwant.search')}}" title="ĐÓng" class="btn btn-danger">Đóng</a>
 	    </div> 
 	@endif    
   </div>

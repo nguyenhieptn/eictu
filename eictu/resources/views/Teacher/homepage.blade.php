@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('teacher.master')
 
 @section('content')
 <div class="container">
@@ -10,6 +10,10 @@
       <div class="col-xs-4">
         <h3><a href="{{route('teacher.list')}}" title="">Danh sách Giảng Viên</a> </h3>
       </div>
+    @endif
+
+    @if(Auth::user()->type == 3)
+      {{route('iwant.search')}}
     @endif  
     	
   </div>
@@ -19,16 +23,16 @@
       <?php 
       $teacher = DB::table('teachers')->select('name')->where('code', Auth::user()->username)->first();
      ?>
-     @if($teacher)
-        $teacher->name
-        <ul style="list-style: none; font-size: 20px;">
-      
-      <li><span class="glyphicon glyphicon-home" style="color: #e67e22;">&nbsp;</span><a href="{{route('dormitory.getSearch')}}" title="" class="bg-success">Nơi ở của sinh viên trong KTX</a></li>
-      <li><span class="glyphicon glyphicon-map-marker" style="color: #e67e22;">&nbsp; </span><a href="{{url('rentHouse')}}" title="" class="bg-success">Nơi ở của sinh ngoài phòng trọ</a></li>
-      <li><span class="glyphicon glyphicon-phone-alt" style="color: #e67e22;">&nbsp;</span><a href="" title="" class="bg-success">Chat với lớp</a></li>
-    </ul>
-      @endif
 
+     @if( $teacher)
+      <h2>Giảng viên :{{$teacher->name}}</h2>
+      <ul style="list-style: none; font-size: 20px;">
+      <li><span class="glyphicon glyphicon-play" style="color: #2c3e50;">&nbsp;</span><a href="{{route('dormitory.getSearch')}}" title="" >Nơi ở của sinh viên trong KTX</a></li>
+      <li><span class="glyphicon glyphicon-play" style="color: #2c3e50;">&nbsp; </span><a href="{{url('rentHouse')}}" title="" >Nơi ở của sinh ngoài phòng trọ</a></li>
+      <li><span class="glyphicon glyphicon-play" style="color: #2c3e50;">&nbsp;</span><a href="{{url('/chat/classlist')}}" title="" >Chat với lớp</a></li>
+    </ul>
+     @endif
+    
     </div>
     
   </div>

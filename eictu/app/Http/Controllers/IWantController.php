@@ -48,8 +48,14 @@ class IWantController extends Controller
     {   
         $want  = DB::table('wants')->where('id', $id)->first();
         $student = DB::table('students')->where('id', $want->student_id)->first();
-        $address =DB::table('motels')->where('student_id', $want->student_id)->first();
-    	return view('iWant.eICTuStudentDemandDetail', compact('want', 'student', 'address'));
+        $address =DB::table('motels')->where('student_id', $want->student_id)->where('date_join', 'DESC')->first();
+        $address2 =DB::table('dormirories')->where('student_id', $want->student_id)->where('start_on', 'DESC')->first();
+        // if (strtotime($today) > strtotime($another_date)) {
+        //     echo "Yesterday";
+        //   } else {
+        //     echo "Tomorrow";
+        //   }
+    	return view('iWant.eICTuStudentDemandDetail', compact('want', 'student', 'address', 'address2'));
     }
 
 
