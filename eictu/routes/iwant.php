@@ -1,6 +1,6 @@
 <?php 
 
-    Route::group(['prefix' => 'iwant'], function () {
+    Route::group(['prefix' => 'iwant', 'middleware'=>'auth'], function () {
 
     Route::get('eICTuStudentDemandUpdate', [
         "uses" => "IWantController@getStatus",
