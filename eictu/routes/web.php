@@ -37,3 +37,4 @@ require_once("teacher.php");
 require_once("dormitory.php");
 require_once("lms.php");
 require_once("ihave.php");
+require_once("chat.php");
