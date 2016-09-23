@@ -11,6 +11,6 @@ class MotelTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Motel::class, 50)->create();
+        factory(App\Motel::class, 1)->create();
     }
 }
