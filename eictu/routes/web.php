@@ -37,3 +37,4 @@ require_once("findjob.php");
 require_once("renthouse.php");
 require_once("teacher.php");
 require_once("dormitory.php");
+require_once("lms.php");

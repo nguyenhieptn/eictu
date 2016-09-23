@@ -17,8 +17,8 @@ class CreateSchedulesTable extends Migration
             $table->increments('id');
             $table->integer('student_id')->unsigned();
             $table->foreign('student_id')->references('id')->on('students');
-            $table->integer('major_id')->unsigned();
-            $table->foreign('major_id')->references('id')->on('majors');
+            $table->integer('studyprogram_id')->unsigned();
+            $table->foreign('studyprogram_id')->references('id')->on('studyprograms');
             $table->smallInteger('situation');
             $table->timestamps();
         });
