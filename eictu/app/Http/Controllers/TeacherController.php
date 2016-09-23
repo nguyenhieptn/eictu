@@ -61,11 +61,16 @@ class TeacherController extends Controller
     }
 
     public function getList(){
-        if ( Auth::user()->type < 2) {
-            return view('home');
-         }
-        $teacher = Teacher::paginate(20);
-    	return view('teacher.list', compact('teacher'));
+        if ( Auth::user()->type  ==1 ) {
+            $teacher = Teacher::paginate(20);
+            return view('teacher.list', compact('teacher'));
+         }elseif(Auth::user()->type == 2){
+            return view('teacher.homepage');
+        }else{
+            return view('welcome');
+        }
+        
+        
     }
 
 
