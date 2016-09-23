@@ -12,6 +12,8 @@
     <!-- Styles -->
     <link href="{{url("/css/app.css")}}" rel="stylesheet">
     <link href="{{url("/css/style.css")}}" rel="stylesheet">
+    <link href="{{url("/css/chat.css")}}" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     @yield('css')
     <style type="text/css" media="screen">
@@ -101,11 +103,15 @@
         <!-- Scripts -->
 
 <script src="{{ url("/js/app.js") }}"></script>
+<<<<<<< HEAD
         <!-- Scripts --><script src="{{ url("/js/app.js") }}"></script>
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 
 <script src="{{ url("js/app.js") }}"></script>
 <script src="{{ url("/js/app.js") }}"></script>
+=======
+<script src="{{ url("/js/chat.js") }}"></script>
+>>>>>>> af3d77bc0dc0ee302801d1be87cb89f1a7252d73
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 </body>
