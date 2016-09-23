@@ -9,10 +9,11 @@
                         @if(\Illuminate\Support\Facades\Session::has('success'))
                             <div class=" alert alert-success"> {{\Illuminate\Support\Facades\Session::get('success')}}</div>
                         @endif
-                        <h3 class=" btn btn-default btn-sm btn-link-post"><a href="{{ route('findjob.post') }}"><span
-                                        class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Sinh viên đăng tin
-                            </a></h3>
+                        @if(Auth()->user()->type = 3)
+                        <h3 class=" btn btn-default btn-sm btn-link-post"><a href="{{ route('findjob.post') }}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Sinh viên đăng tin</a></h3>
+                        @endif
                         <ul class="find-job list-group">
+                        <h4>Các bản tin của sinh viên tìm việc:</h4>
                             @foreach($datas as $data=>$item)
                                 <li class="list-group-item">
                                     <span class="glyphicon glyphicon-triangle-right"aria-hidden="true"></span>

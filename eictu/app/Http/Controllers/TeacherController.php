@@ -14,13 +14,21 @@ class TeacherController extends Controller
 {
 
     public function index(){
+    	// $teacher = Teacher::select('name')->where('code', Auth::user()->username)->first();
+       
+          return view('teacher.homepage');
+       
+        
     	
+<<<<<<< HEAD
         if ( Auth::user()->type <= 2) {
             return view('teacher.homepage');
         }else{
             return view('student.index');
         }
     	
+=======
+>>>>>>> db5c98ef3bf46b5013d1d933d0b062a36718fdc7
     }
 
     public function getAdd(){
@@ -30,7 +38,11 @@ class TeacherController extends Controller
          }elseif(Auth::user()->type == 2){
             return view('teacher.homepage');
          }else{
+<<<<<<< HEAD
             return view('welcome');
+=======
+            return view('home');
+>>>>>>> db5c98ef3bf46b5013d1d933d0b062a36718fdc7
          }
          
     }

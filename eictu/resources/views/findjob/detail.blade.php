@@ -14,7 +14,7 @@
                     </hr>
                       <div class="entry-content">
                         <h4>Thông tin Sinh viên</h4>
-                          <ul>
+                          <ul style="margin-left:30px">
                             <li>Họ và tên: <strong>{{$detail->name}}</strong></li>
                             <li>Giới tính:<strong>
                                 @if($detail->gender==1)
