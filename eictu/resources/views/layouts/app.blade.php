@@ -12,13 +12,30 @@
 
     <!-- Styles -->
 <<<<<<< HEAD
+<<<<<<< HEAD
     <link href="{{url("css/app.css")}}" rel="stylesheet">
 =======
      <link href="{{url("/css/app.css")}}" rel="stylesheet">
     <link href="{{url("/css/style.css")}}" rel="stylesheet">
 >>>>>>> cc60b424b23500da8c31a47faf357d327fb32a7a
+=======
+
+    <link href="{{url("css/app.css")}}" rel="stylesheet">
+
+     <link href="{{url("/css/app.css")}}" rel="stylesheet">
+    <link href="{{url("/css/style.css")}}" rel="stylesheet">
+>>>>>>> de9e49f8b8bf856d595657d4310f44abdffe7028
 
     <!-- Scripts -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style type="text/css" media="screen">
+        .pagination ul li{
+            padding: 3px 10px;
+            margin: 3px;
+            font-size: 20px;
+            background: #bdc3c7;
+        }
+    </style>
     <script>
         window.Laravel = <?php echo json_encode([
                 'csrfToken' => csrf_token(),
@@ -51,18 +68,14 @@
                 <li><a href="{{ url('schools') }}"> Schools</a></li>
                 <li><a href="{{ url('classes') }}"> Classes</a></li>
                 <li><a href="{{ url('student') }}"> Student </a></li>
-                <li><a href="{{ url('teacher') }}"> Teacher </a></li>
+                <li><a href="{!! route('teacher.index') !!}"> Teacher </a></li>
                 <li><a href="{{ url('major') }}"> Major </a></li>
                 <li><a href="{{ url('dormitory') }}">Dormitory</a></li>
                 <li><a href="{{ url('rentHouse') }}">Rent House</a></li>
+
+                <li><a href="{{route('iwant.search')}}">I Want</a></li>
+
                 <li><a href="{{ url('findjob/index') }}">Find Job</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">I Want <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="{{route('iwant.status')}}">Update status</a></li>
-                    <li><a href="{{route('iwant.search')}}">New Feed</a></li>
-                  </ul>
-                </li>
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -101,6 +114,13 @@
 @yield('content')
 
         <!-- Scripts -->
+
+
+<script src="{{ url("public/js/app.js") }}"></script>
+<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+<script src="{{ url("js/app.js") }}"></script>
 <script src="{{ url("/js/app.js") }}"></script>
 </body>
 </html>
