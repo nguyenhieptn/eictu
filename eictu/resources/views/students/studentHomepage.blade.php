@@ -62,10 +62,14 @@
                         <td id="toptext">{{$name}}</td>
                     </tr>
 
-                    <tr>
-                        <td><img src="{{url('img/rightarrow.png')}}"/></td>
-                        <td><a href="#">Sinh nhật bạn cùng lớp</a></td>
-                    </tr>
+                    @if(count($classid)>0 && $classid !=null)
+                        <tr>
+                            <td><img src="{{url('img/rightarrow.png')}}"/></td>
+                            <td>
+                                <a href="{{route('classes.classmatersbirthday', $classid )}}">Sinh nhật bạn cùng lớp</a>
+                            </td>
+                        </tr>
+                    @endif
 
                     <tr>
                         <td><img src="{{url('img/rightarrow.png')}}"/></td>
