@@ -59,9 +59,9 @@ class StudentController extends Controller
 
         // lấy mã trường do quản trị viên quản lý
         $userid= Auth::user()->id;
-        $school= School::select('*')->where('user_id', $userid)->first();
+        $school= School::where('user_id', $userid)->first();
         $data['school_id']  = $school->id;
-       // echo  $data['code'] ;
+       // echo  $data['code'] ; 
       //  echo   "\nho ten :".$data['name'] ;
 
         $this->validate($request, [
@@ -80,25 +80,23 @@ class StudentController extends Controller
         $student->class_id  = Null;
         $student->school_id =$data['school_id'];
         $student->save();
-        return redirect("student");
-//        if ($student->save() == true) {
-//            $user = new User();
-//            $user->name = $request->name;
-//            $user->username = $request->code;
-//            $user->email =$request->code."@ictu.edu.vn";
-//            $user->type = 3;
-//            $user->password = bcrypt($request->code);
-//            $user->save();
-//
-//            return redirect("student");
-//        }
-//        // create acount
-//        $user=new User();
-//        $user->email        = $data['code']."@ictu.edu.vn";
-//        $user->username     = $data['code'];
-//        $user->password     = $data['code'];
-//        $user->type         = 3;
-//        $user->name         = $data['name'];
-//        $user->save();
+       if ($student->save() == true) {
+           $user = new User();
+           $user->name = $data['name'];
+           $user->username = $data['code'];
+           $user->email =$data['code']."@ictu.edu.vn";
+           $user->type = 3;
+           $user->password = bcrypt($data['code']);
+           $user->save();
+           return redirect("student");
+       }
+       // create acount
+       // $user=new User();
+       // $user->email        = $data['code']."@ictu.edu.vn";
+       // $user->username     = $data['code'];
+       // $user->password     = $data['code'];
+       // $user->type         = 3;
+       // $user->name         = $data['name'];
+       // $user->save();
     }
 }
