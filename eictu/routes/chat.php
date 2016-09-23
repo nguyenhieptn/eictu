@@ -13,8 +13,6 @@
 
 Route::get('chat/friend','ChatController@friend');
 
-Route::post('/search', function(){
-    var_dump($_POST);
-});
+Route::post('chat/friend', 'ChatController@search');
 
 Route::get('chat/{slug}','ChatController@page');
