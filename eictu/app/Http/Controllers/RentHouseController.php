@@ -25,8 +25,9 @@ class RentHouseController extends Controller
 
     public function create(){
        // if(Auth::attempt(['username' => $username, 'password' => $password], 'type'=>'1'))
-        if(isset(Auth::user()->user_id) && Auth::user()->type=="3") {
-            $student_id = Auth::user()->user_id;
+        if(isset(Auth::user()->username) && Auth::user()->type=="3") {
+            $code = Auth::user()->username;
+            $student_id = DB::table('students')->where('code',$code)->value('id');
             $data = DB::table('motels')->where('student_id', $student_id)->orderBy('id', 'desc')->paginate(5);
             return view("rentHouse.create", ['data' => $data]);
         }else{
@@ -54,8 +55,9 @@ class RentHouseController extends Controller
         $renthouse->address=$data['address'];
         $renthouse->date_join=$data['date_join'];
         $renthouse->save();
-        $student_id=1;
-        $data=DB::table('motels')->where('student_id',$student_id) ->orderBy('id', 'desc')->lim(3);
+        $code = Auth::user()->username;
+        $student_id = DB::table('students')->where('code',$code)->value('id');
+        $data=DB::table('motels')->where('student_id',$student_id) ->orderBy('id', 'desc')->paginate(5);
         return view("rentHouse.create",['data'=>$data]);
     }
 }

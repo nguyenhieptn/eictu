@@ -45,7 +45,7 @@ class TeacherController extends Controller
             $user->name = $request->name;
             $user->username = $request->code;
             $user->email =changeName($request->name)."@ictu.edu.vn";
-            $user->type = 1;
+            $user->type = 2;
             $user->password = bcrypt($request->code);
             $user->save();
         }
