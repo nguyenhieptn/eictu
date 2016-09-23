@@ -7,14 +7,15 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">eICTuLearningManageSystem</div>
                     <div class="panel-body">
-                        
+                    <p>{{ $row2 }}/{{$row1 }} môn học tương đương với {{$row2*100/$row1}}% số môn</p>
+                    <p>{{ number_format($sum2) }}đ/{{number_format($sum1) }}đ học phí đã đóng tương đương với {{round($sum2*100/$sum1,2)}}% học phí</p>
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th>STT</th>
                                     <th>Tên học phần</th>
+                                    <th>Thời gian học dự kiến</th>
                                     <th>Số tín chỉ</th>
-                                    <th>Học kỳ</th>
                                     <th>Học phí</th>
                                     <th>Đã học</th>
                                 </tr>
@@ -25,13 +26,13 @@
                                     <tr>
                                         <td>{{ $val->id }}</td>
                                         <td>{{ $val->name }}</td>
+                                        <td>HK{{ $val->term }}</td>
                                         <td>{{ $val->credit }}</td>
-                                        <td>{{ $val->term }}</td>
-                                        <td>{{ $val->credit*240000 }}</td>
+                                        <td>{{ number_format($val->credit*240000) }}đ</td>
                                         <td>@if ($val->situation==0)
                                             <a href="{{route('LMS.lmsupdate', $val->id )}}">Update</a>
                                             @else
-                                            {{ $val->situation }}
+                                            HK{{ $val->situation }}
                                             @endif
                                         </td>
                                     </tr>
