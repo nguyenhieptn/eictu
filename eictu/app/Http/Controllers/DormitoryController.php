@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\UpdateDSRequest;
 use App\Dormitory;
 use App\School;
 use App\Student;
@@ -14,10 +15,17 @@ class DormitoryController extends Controller
 {
     //
     public function getUpdate(){
-
+        if(Auth::guest()){
+            return 'fail';
+        }
     	return view('dormitory.update_student');
     }
 
+    public function postUpdate(UpdateDSRequest $req){
+        $data = $req->info;
+        $date = $req->start_on;
+        return "ok";
+    }
     public function getSearch(){
     	return view('dormitory.search');
     }
