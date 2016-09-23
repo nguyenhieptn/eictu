@@ -1,17 +1,17 @@
 @extends('layouts.app')
 @section('css')
-<link rel="stylesheet" type="text/css" href="{!! url('public/dormitory/css/bootstrap.min.css')!!}">
-<link rel="stylesheet" type="text/css" href="{!! url('public/dormitory/css/font-awesome.min.css')!!}">
-<link rel="stylesheet" type="text/css" href="{!! url('public/dormitory/css/main.css')!!}">
+<link rel="stylesheet" type="text/css" href="{!! url('dr/css/main.css')!!}">
 
 @endsection
 @section('content')
 <div id="updateStudent">
 	<div class="container">
 		<div class="top">
-			<div class="inner-top">
-				<p class="caption">eICTuStudentDormitoryUpdate - Sinh viên cập nhật chỗ ở KTX</p>
-			</div>
+			<strong class="caption">eICTuStudentDormitoryUpdate - Sinh viên cập nhật chỗ ở KTX
+				@if(!Auth::guest())
+					<a href="{!! url('dormitory/logout') !!}" title="logout" class="pull-right">Logout</a>
+				@endif
+			</strong>
 		</div>
 		<div class="contentUpdate">
 			<h3>Cập nhật thông tin về chỗ ở hiện tại của KTX tại đây</h3>
@@ -24,19 +24,22 @@
 			        </ul>
 			    </div>
 			@endif
+			@if(isset($msg))
+				<div class="alert alert-success">{!! $msg !!}</div>
+			@endif
 			<div class="box">
 				<form action="{!! url('dormitory/update')!!}" method="post" id="fUpdate" class="form-horizontal" accept-charset="utf-8">
 				{!! csrf_field()!!}
 					<div class="form-group">
 						<label class="col-sm-3 col-sm-offset-1 control-label"><i class="fa fa-circle-o"></i> Khu ký túc xá:</label>
 						<div class="col-sm-4">
-							<input type="text" name="info" value="{!! old('info') !!}" class="form-control" placeholder="">
+							<input type="text" name="info" value="{!! old('info', isset($str)? $str: '') !!}" class="form-control" placeholder="">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-3 col-sm-offset-1 control-label"><i class="fa fa-circle-o"></i> Ngày bắt đầu ở:</label>
 						<div class="col-sm-4">
-							<input type="text" name="start_on" value="" class="form-control" placeholder="dd/mm/yyyy">
+							<input type="text" name="start_on" value="{!! old('start_on', isset($date) ? $date : '')!!}" class="form-control" placeholder="dd/mm/yyyy">
 						</div>
 					</div>
 					<div class="form-group">
@@ -48,7 +51,5 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript" src="{!! url('public/dormitory/js/jquery-1.12.4.min.js')!!}"></script>
-	<script type="text/javascript" src="{!! url('public/dormitory/js/bootstrap.min.js')!!}"></script>
 </div>
 @endsection
