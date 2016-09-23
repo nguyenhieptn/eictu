@@ -58,6 +58,7 @@
                 <li><a href="{{ url('major') }}"> Major </a></li>
                 <li><a href="{{ url('dormitory') }}">Dormitory</a></li>
                 <li><a href="{{ url('rentHouse') }}">Rent House</a></li>
+                <li><a href="{{ url('iHave') }}">I Have</a></li>
                 <li><a href="{{ url('findjob/index') }}">Find Job</a></li>
                 <li><a href="{{route('iwant.search')}}">I Want</a></li>
 
