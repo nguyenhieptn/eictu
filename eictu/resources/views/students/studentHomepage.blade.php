@@ -69,7 +69,7 @@
 
                     <tr>
                         <td><img src="{{url('img/rightarrow.png')}}"/></td>
-                        <td><a href="#">Tôi muốn <span>- I Want </span></a></td>
+                        <td><a href="{{route('iwant.search')}}">Tôi muốn <span>- I Want </span></a></td>
                     </tr>
 
                     <tr>
@@ -79,7 +79,7 @@
 
                     <tr>
                         <td><img src="{{url('img/rightarrow.png')}}"/></td>
-                        <td><a href="#">Tôi tìm việc <span>- I Am Finding a Part-time Job </span></a></td>
+                        <td><a href="{{url('findjob/index')}}">Tôi tìm việc <span>- I Am Finding a Part-time Job </span></a></td>
                     </tr>
 
                     <tr>

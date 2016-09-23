@@ -52,13 +52,7 @@
                     if(isset($data)){
                         foreach($data as $item){
                             $date = new DateTime($item->date_join);
-                            ?>
-                            <li class="list-group-item " style="color:red">
-                            <?php
-                                echo $date->format('d/m/Y').", nhà ông/bà: ".$item->hostess.", địa chỉ: ".$item->address;
-                            ?>
-                            </li>
-                            <?php
+                            echo "<li class='glyphicon glyphicon-play list-group-item ' style=' color:red '>".$date->format('d/m/Y').", ".$item->hostess.", ".$item->address."</li>";
                             }
                             echo "<center>".$data->appends(Request::input('code'))->render()."</center>";
                         }

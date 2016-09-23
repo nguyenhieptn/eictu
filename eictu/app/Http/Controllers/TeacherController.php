@@ -17,8 +17,10 @@ class TeacherController extends Controller
     	
         if ( Auth::user()->type <= 2) {
             return view('teacher.homepage');
+        }else{
+            return view('student.index');
         }
-    	return view('home');
+    	
     }
 
     public function getAdd(){
@@ -27,8 +29,10 @@ class TeacherController extends Controller
             return view('teacher.add', compact('major'));
          }elseif(Auth::user()->type == 2){
             return view('teacher.homepage');
+         }else{
+            return view('welcome');
          }
-         return view('home');
+         
     }
 
 
@@ -61,11 +65,16 @@ class TeacherController extends Controller
     }
 
     public function getList(){
-        if ( Auth::user()->type < 2) {
-            return view('home');
-         }
-        $teacher = Teacher::paginate(20);
-    	return view('teacher.list', compact('teacher'));
+        if ( Auth::user()->type  ==1 ) {
+            $teacher = Teacher::orderBy('id', 'DESC')->paginate(20);
+            return view('teacher.list', compact('teacher'));
+         }elseif(Auth::user()->type == 2){
+            return view('teacher.homepage');
+        }else{
+            return view('welcome');
+        }
+        
+        
     }
 
 
