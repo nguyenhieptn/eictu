@@ -60,6 +60,7 @@
                 <li><a href="{{ url('rentHouse') }}">Rent House</a></li>
                 <li><a href="{{ url('findjob/index') }}">Find Job</a></li>
                 <li><a href="{{route('iwant.search')}}">I Want</a></li>
+                <li><a href="{{url('iHave')}}">I Have</a></li>
 
             </ul>
 
@@ -97,6 +98,7 @@
 </nav>
 
 @yield('content')
+<<<<<<< HEAD
         <!-- Scripts -->
 
 <script src="{{ url("/js/app.js") }}"></script>
@@ -104,6 +106,10 @@
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 
 <script src="{{ url("js/app.js") }}"></script>
+=======
+<script src="{{ url("/js/app.js") }}"></script>
+<!-- <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script> -->
+>>>>>>> 8a38e72e348c3897734733d6ec31363ce17a7e61
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 </body>
