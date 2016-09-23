@@ -7,10 +7,11 @@ Route::group(['prefix' => 'LMS'], function () {
         'uses' => 'LMSController@getshow'
 
     ]);
-    Route::get('update', [
+    Route::get('update/{id}', [
         'as'   => 'LMS.lmsupdate',
         'uses' => 'LMSController@getupdate'
 
     ]);
     
 });
+Route::post('update/{id}','LMSController@update');
