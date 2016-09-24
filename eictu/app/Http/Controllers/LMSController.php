@@ -24,14 +24,16 @@ class LMSController extends Controller
                 } 
                 return redirect("LMS/show");
             }else{
-                $datas = DB::table('studyprograms')->join('schedules', 'studyprograms.id', '=', 'schedules.studyprogram_id')->where('student_id','=',$student->id)->get();
+                
+                $datas = DB::table('studyprograms')->join('schedules', 'studyprograms.id', '=', 'schedules.studyprogram_id')->where('student_id','=',$student->id)->orderby('term')->get();
                 $row1 = DB::table('studyprograms')->join('schedules', 'studyprograms.id', '=', 'schedules.studyprogram_id')->where('student_id','=',$student->id)->count();
                 $row2 = DB::table('studyprograms')->join('schedules', 'studyprograms.id', '=', 'schedules.studyprogram_id')->where('student_id','=',$student->id)->where('situation','>',0)->count();
                	$s1 = DB::table('studyprograms')->join('schedules', 'studyprograms.id', '=', 'schedules.studyprogram_id')->where('student_id','=',$student->id)->sum('credit');
                	$s2 = DB::table('studyprograms')->join('schedules', 'studyprograms.id', '=', 'schedules.studyprogram_id')->where('student_id','=',$student->id)->where('situation','>',0)->sum('credit');
                	$sum1=$s1*240000;
                	$sum2=$s2*240000;
-            return view('LMS.show', ['datas' => $datas,'row1' => $row1,'row2' => $row2,'sum1' => $sum1,'sum2' => $sum2]);
+                return view('LMS.show', ['datas' => $datas,'row1' => $row1,'row2' => $row2,'sum1' => $sum1,'sum2' => $sum2,'st' => $student]);
+                
             }
         }
        else{
@@ -41,8 +43,13 @@ class LMSController extends Controller
 
     public function getupdate($id)
     {
-		$datas = DB::table('studyprograms')->join('schedules', 'studyprograms.id', '=', 'schedules.studyprogram_id')->where('schedules.id','=',$id )->get();
-    	return view('LMS.update',['datas' => $datas]);
+        if(!Auth::guest()){
+        if(Auth::user()->type == 3)
+            $code = Auth::user()->username;
+            $student = DB::table('students')->where('code', $code)->first();
+    		$datas = DB::table('studyprograms')->join('schedules', 'studyprograms.id', '=', 'schedules.studyprogram_id')->where('schedules.id','=',$id )->get();
+        	return view('LMS.update',['datas' => $datas,'st' => $student]);
+        }
     }
 
      public function update(Request $request,$id)
