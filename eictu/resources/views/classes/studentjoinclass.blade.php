@@ -27,14 +27,14 @@ function loadtable(_page)
 	var rowperpage=10;
 	
 	var _url="{{ route('classes.waitingstudentlist',$_class->id)}}";
-	
+	var sid = '{{$_schoolid}}';
 	if( _page!=="") _url=_url+"?page="+_page;
 	var token = $('#tokenid').val();
 	$.ajax({
 		url : _url,
 		type : 'get',
 		dataType : 'json',
-		data:{'_token':token,'rowperpage':rowperpage},
+		data:{'_token':token,'rowperpage':rowperpage,'schoolid':sid},
 		success : function (data){  
 			var html = '';
 			html += '<table class="table" id="table_dssv1">';	
