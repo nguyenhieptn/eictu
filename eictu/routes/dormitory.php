@@ -25,6 +25,7 @@ Route::group(['prefix' => 'dormitory'], function () {
 
         return 'ok';
     });
+    
     Route::get('/removeAll',function(){
     	DB::table('areas')->all()->delete();
     	DB::table('dormitoies')->all()->delete();
