@@ -50,6 +50,7 @@
             {{--</a>--}}
         {{--</div>--}}
 
+<<<<<<< HEAD
         {{--<div class="collapse navbar-collapse" id="app-navbar-collapse">--}}
             {{--<!-- Left Side Of Navbar -->--}}
             {{--<ul class="nav navbar-nav">--}}
@@ -64,6 +65,22 @@
                 {{--<li><a href="{{ url('findjob/index') }}">Find Job</a></li>--}}
                 {{--<li><a href="{{route('iwant.search')}}">I Want</a></li>--}}
                 {{--<li><a href="{{url('iHave')}}">I Have</a></li>--}}
+=======
+        <div class="collapse navbar-collapse" id="app-navbar-collapse">
+            <!-- Left Side Of Navbar -->
+            <ul class="nav navbar-nav">
+                <li><a href="{{ url('schools') }}"> Schools</a></li>
+                <li><a href="{{ url('classes') }}"> Classes</a></li>
+                <li><a href="{{ url('student') }}"> Student </a></li>
+                <li><a href="{!! route('teacher.login') !!}"> Teacher </a></li>
+                <li><a href="{{ url('major') }}"> Major </a></li>
+                <li><a href="{{ url('dormitory/search') }}">Dormitory</a></li>
+                <li><a href="{{ url('rentHouse') }}">Rent House</a></li>
+                <li><a href="{{ url('iHave') }}">I Have</a></li>
+                <li><a href="{{ url('findjob/index') }}">Find Job</a></li>
+                <li><a href="{{route('iwant.search')}}">I Want</a></li>
+                
+>>>>>>> 0d0dfb213270961329e3557b70f6bba20b33f59a
 
             {{--</ul>--}}
 

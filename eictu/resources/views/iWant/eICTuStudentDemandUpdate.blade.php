@@ -4,6 +4,9 @@
 <div class="container">
     <div class="row">
     <div class="col-lg-6 col-xs-12">
+    <p>Sinh viên có nhu cầu muốn một cái gì đó như đi nhờ xe, vay thẻ điện
+thoại, xin một chai nước, tìm một người đi chơi.. có thể đăng yêu cầu ở
+đây:</p>
       <form action="{{route('iwant.status')}}" role="form" method="post" accept-charset="utf-8">
         <input type="hidden" name="_token" value="{{Session::token()}}">
         <div class="form-group {{$errors->has('content')? ' has-error': ''}}">

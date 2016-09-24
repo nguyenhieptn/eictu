@@ -112,7 +112,7 @@
 
                     <tr>
                     <td><img src="{{url('img/rightarrow.png')}}"/></td>
-                    <td><a href="{{url('#')}}">LMS</a></td>
+                    <td><a href="{{url('LMS/show')}}">LMS</a></td>
                 </tr>
                 </table>
             </div>

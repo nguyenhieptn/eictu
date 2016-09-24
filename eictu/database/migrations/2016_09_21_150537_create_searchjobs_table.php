@@ -16,8 +16,7 @@ class CreateSearchjobsTable extends Migration
         Schema::create('searchjobs', function (Blueprint $table) {
             $table->increments('id');
             $table->text('content');
-            $table->integer('student_id')->unsigned();
-            $table->foreign('student_id')->references('id')->on('students');
+            $table->integer('student_id');
             $table->timestamps();
         });
     }
