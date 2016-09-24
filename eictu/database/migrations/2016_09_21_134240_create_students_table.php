@@ -19,7 +19,7 @@ class CreateStudentsTable extends Migration
             $table->string('code')->unique();
             $table->string('name');
             $table->boolean('gender');
-            $table->dateTime('birthday');
+            $table->date('birthday');
             $table->integer('major_id')->nullable();
             $table->integer('class_id')->nullable();
             $table->integer('school_id')->unsigned();

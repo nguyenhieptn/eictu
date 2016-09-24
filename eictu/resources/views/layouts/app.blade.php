@@ -58,7 +58,7 @@
                 <li><a href="{{ url('student') }}"> Student </a></li>
                 <li><a href="{!! route('teacher.login') !!}"> Teacher </a></li>
                 <li><a href="{{ url('major') }}"> Major </a></li>
-                <li><a href="{{ url('dormitory') }}">Dormitory</a></li>
+                <li><a href="{{ url('dormitory/search') }}">Dormitory</a></li>
                 <li><a href="{{ url('rentHouse') }}">Rent House</a></li>
                 <li><a href="{{ url('iHave') }}">I Have</a></li>
                 <li><a href="{{ url('findjob/index') }}">Find Job</a></li>
