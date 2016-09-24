@@ -28,12 +28,12 @@ Route::group(['prefix' => 'dormitory'], function () {
     
     Route::get('/removeAll',function(){
     	DB::table('areas')->all()->delete();
-    	DB::table('dormitoies')->all()->delete();
+    	DB::table('dormitories')->all()->delete();
     });
 
     Route::get('/addST', function(){
     	$st = DB::table('students')->where('code','DTC125D4802010082')->first();
-	    DB::table('dormitories')->where('id', 7)->update(['student_id'=>$st->id]);
+	    DB::table('dormitories')->where('id', 4)->update(['student_id'=>$st->id]);
     });
 
 });
