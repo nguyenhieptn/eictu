@@ -85,7 +85,8 @@ class DormitoryController extends Controller
     				return view('dormitory.search', compact('none'));
 	    		}
 	    		else{
-	    			$area = DB::table('areas')->where('id', $dormitory->area_id)->first();
+	    			//$area = DB::table('areas')->where('id', $dormitory->area_id)->first();
+                    $area = 'Khu 1';
 	    			return view('dormitory.search', compact('student', 'school', 'dormitory', 'area'));
 	    		}
 	    	}

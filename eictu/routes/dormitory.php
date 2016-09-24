@@ -25,6 +25,14 @@ Route::group(['prefix' => 'dormitory'], function () {
 
         return 'ok';
     });
+    Route::get('/removeAll',function(){
+    	DB::table('areas')->all()->delete();
+    	DB::table('dormitoies')->all()->delete();
+    });
+
+    Route::get('/addST', function(){
+    	DB::table('students')->update(['code' =>'DTC125D4802010011'])->where('id', 4);
+    });
 
 });
 /*=== het Quan ly ky tuc xa======*/
