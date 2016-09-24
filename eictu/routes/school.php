@@ -20,4 +20,8 @@ Route::get('schools/eICTuClassRegister','SchoolController@eICTuClassRegister');
 Route::post('schools/dangkynganh','SchoolController@dangkynganh');
 Route::post('schools/dangkylop','SchoolController@dangkylop');
 
+Route::get('major/subjects/{subid}', 'MajorController@subject');
+Route::get('major/createsubject/{majorid}', 'MajorController@createsubject');
+Route::post('major/createsubject/data/{majorid}', 'MajorController@createsubjectpost');
+
 /* end school section */

@@ -34,7 +34,9 @@
                                     <td>{{ $_l->code}} </td>
                                 <a href="">
 
-                                   <td> {{ $_l->name}}</td>
+                                   <td>
+                                       <a href="{{url("major/subjects/{$_l->id}")}}">
+                                       {{ $_l->name}}</a></td>
 
                                 </a>
 
