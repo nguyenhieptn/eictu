@@ -20,7 +20,7 @@
 	     
 	      <p>Địa chỉ:  
 	      		<?php 
-	      		if (isset($address) || isset($address2)) {
+	      		if (!empty($address) || !empty($address2)) {
 	      			if (strtotime($address->date_join) > strtotime($address2->start_on)) {
 	            	echo " Xóm trọ ông/bà :".$address->hostess." , ".$address->address;
 		          }else{
