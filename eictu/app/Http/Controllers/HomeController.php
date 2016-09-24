@@ -33,7 +33,10 @@ class HomeController extends Controller
         }
 
 
-        if ($type == 2) return route('teacher.index');
+        if ($type == 2) {
+            return route('teacher.index');
+        }
+
         if ($type == 3){
             $data = Student::select('*')
                 ->where('code', '=', Auth::user()->username)
