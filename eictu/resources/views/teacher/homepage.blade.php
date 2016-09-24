@@ -1,5 +1,7 @@
-@extends('teacher.master')
-
+@extends('layouts.app')
+@section('title')
+Trang chủ của giáo viên
+@endsection
 @section('content')
 <div class="container">
     <div class="row">
