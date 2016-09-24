@@ -44,6 +44,7 @@ eICTuStudentRentHouseSearch - Sinh viên khai báo nhà trọ
                        <div class="form-group">
                          <div class="col-sm-offset-2 col-sm-10">
                            <button type="submit" class="btn btn-default">Cập nhật</button>
+                           <a href="{{url('rentHouse')}}" class="btn btn-danger" role="button">Hủy bỏ</a>
                          </div>
                        </div>
                        <input type="hidden" name="_token" value="{{csrf_token()}}"/>
