@@ -17,4 +17,3 @@ Route::group(['prefix' => 'LMS'], function () {
 });
 Route::post('update/{id}','LMSController@update');
 
-Route::get('/LMSshow' , 'LMSController@getshow');
