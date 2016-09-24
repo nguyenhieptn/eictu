@@ -39,7 +39,7 @@
             <span>eICTuStudentLogin - Trang đăng nhập của sinh viên</span>
         </div>
         <div class="content1">
-            <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
+            <form class="form-horizontal" role="form" method="POST" action="{{ url('student/login') }}">
             {{ csrf_field() }}
 
             <!-- <div class="form-group">
@@ -83,7 +83,17 @@
                         @endif
                     </div>
                 </div>
-
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-6">
+                        @if(session()->has('global'))
+                            <div class="alert alert-info" style="color: red;">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>Thông báo! </strong> {{session()->get('global')}}
+                            </div>
+                        @endif
+                    </div>
+                </div>
                 <div class="form-group">
                     <div class="col-md-8 col-md-offset-4">
                         <button type="submit" class="btn btn-primary">
