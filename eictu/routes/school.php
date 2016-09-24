@@ -15,11 +15,7 @@ Route::get('schools/eICTuSchoolAdminLogin','SchoolController@eICTuSchoolAdminLog
 Route::get('schools/eICTuMajorList','SchoolController@eICTuMajorList');
 Route::get('schools/eICTuMajorRegister','SchoolController@eICTuMajorRegister');
 Route::get('schools/eICTuClassList','SchoolController@eICTuClassList');
-
-
 Route::get('schools/eICTuClassRegister','SchoolController@eICTuClassRegister');
-
-
 Route::post('schools/dangkynganh','SchoolController@dangkynganh');
 Route::post('schools/dangkylop','SchoolController@dangkylop');
 

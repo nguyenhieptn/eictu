@@ -6,6 +6,7 @@ Route::group(['prefix' => 'dormitory'], function () {
 		return redirect('dormitory/search');
 	});
 	Route::get('/update', 'DormitoryController@getUpdate');
+	Route::post('/update', 'DormitoryController@postUpdate');
     Route::get('/search', ['as' => 'dormitory.getSearch', 'uses' => 'DormitoryController@getSearch']);
     Route::get('/query', ['as' => 'dormitory.postSearch', 'uses' => 'DormitoryController@postSearch']);
 });

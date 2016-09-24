@@ -9,27 +9,29 @@
                     <div class="panel-body">
                         <p>Thông tin môn học:</p>
                             <ul>
+                        @foreach ($datas as $val)
                                 <li>
-                                    <label class="lab-update">Tên môn học: </label>
+                                    <label class="lab-update">Tên môn học: {{ $val->name }}</label>
                                 </li>
                                 <li>
-                                    <label class="lab-update">Học kỳ dự kiến: </label>
+                                    <label class="lab-update">Học kỳ dự kiến: {{ $val->term }}</label>
                                 </li>
                                 <li>
-                                    <label class="lab-update">Số tiết học: </label>
+                                    <label class="lab-update">Số tín chỉ: {{ $val->credit }}</label>
                                 </li>
                                 <li>
-                                    <label class="lab-update">Số tín chỉ: </label>
-                                </li>
-                                <li>
-                                    <label class="lab-update">Số tiền học phí: </label>
+                                    <label class="lab-update">Số tiền học phí: {{ $val->credit*240000 }}</label>
                                 </li>
                             </ul>
                         <p>Tiến độ học tập thực tế:</p>
                         <span class="facttime" ><b>Thời gian học thực tế (Học kỳ):</b></span>
-                        <input type="text" name="hocky" class="box-hocky">
+                        <form action="{{ url("update/$val->id")}}" method="post" class="form-horizontal">
+                        <input type="text" name="term" class="box-hocky">
                         <br/><br/>
                         <input type="submit" name="update" class="submit-update" value="Cập nhật">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        </form>
+                        @endforeach
                     </div>
                 </div>
             </div>

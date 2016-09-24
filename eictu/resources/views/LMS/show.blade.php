@@ -9,22 +9,36 @@
                     <div class="panel-body">
                         
                         <table class="table">
-                            <tr>
-                                <th>STT</th>
-                                <th>Tên học phần</th>
-                                <th>Số tín chỉ</th>
-                                <th>Học kỳ</th>
-                                <th>Học phí</th>
-                                <th>Đã học</th>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Toán cao cấp 1</td>
-                                <td>4</td>
-                                <td>1</td>
-                                <td>800.000đ</td>
-                                <td>HK1</td>
-                            </tr>
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Tên học phần</th>
+                                    <th>Số tín chỉ</th>
+                                    <th>Học kỳ</th>
+                                    <th>Học phí</th>
+                                    <th>Đã học</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            
+                                @forelse ($datas as $val)
+                                    <tr>
+                                        <td>{{ $val->id }}</td>
+                                        <td>{{ $val->name }}</td>
+                                        <td>{{ $val->credit }}</td>
+                                        <td>{{ $val->term }}</td>
+                                        <td>{{ $val->credit*240000 }}</td>
+                                        <td>@if ($val->situation==0)
+                                            <a href="{{route('LMS.lmsupdate', $val->id )}}">Update</a>
+                                            @else
+                                            {{ $val->situation }}
+                                            @endif
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <p>No </p>
+                                @endforelse
+                            </tbody>
                         </table>
                     </div>
                 </div>

@@ -83,7 +83,6 @@ class SchoolController extends Controller
             ->select('name','id','code')
             ->orderBy('id', 'asc')
             ->get();
-
         return view("schools.eICTuClassRegister",['_majors'=>$_majors]);
     }
 
@@ -100,12 +99,17 @@ class SchoolController extends Controller
     }
     public function add(Request $request)
     {
-
-        DB::table('adminschool')->insert(['code' => Input::get('viettat'), 'fullname' =>  Input::get('tendaydu'), 'name' =>  Input::get('hoten'), 'email' =>  Input::get('taikhoan'), 'password' =>  Input::get('matkhau')]);
-        return view("schools.eICTuSchoolAdminLogin");
+          if( Input::get('viettat')==null|| Input::get('tendaydu')==null|| Input::get('hoten')==null||Input::get('taikhoan')==null||Input::get('matkhau')==null){
+              echo  "Bạn Hãy nhập đầy đủ !";
+          }else{
+                  DB::table('adminschool')->insert(['code' => Input::get('viettat'), 'fullname' =>  Input::get('tendaydu'), 'name' =>  Input::get('hoten'), 'email' =>  Input::get('taikhoan'), 'password' =>  Input::get('matkhau')]);
+                  return view("schools.eICTuSchoolAdminLogin");
+          }
     }
 
     public function  dangnhap(){
+
+        if( Input::get('user')!=null&& Input::get('matkhau')!=null){
        $bien= DB::table('adminschool')->select('email','password')
                                   ->where([['email', '=', Input::get('user')],['password', '=', Input::get('matkhau')]])
                                    ->get();
@@ -115,31 +119,61 @@ class SchoolController extends Controller
                  return view("schools.eICTuSchoolHomePage");
 
               }
+        }else{
+            echo  "Bạn Hãy nhập đầy đủ !";
+        }
 
 
     }
 
     public function dangkynganh(Request $request)
     {
-
+      if(Input::get('code')!=null&&Input::get('name')!=null){
         DB::table('majors')->insert(['code' => Input::get('code'), 'name' =>  Input::get('name')]);
         $_majors =  DB::table('majors')
             ->select('name','id','code')
             ->orderBy('id', 'asc')
             ->get();
-        return view("schools.eICTuMajorList",['_majors'=>$_majors]);
+        return view("schools.eICTuMajorList",['_majors'=>$_majors]);}
+        else{
+            echo  "Bạn Hãy nhập đầy đủ !";
+        }
     }
 
     public function dangkylop(Request $request)
     {
+        if(Input::get('name')!=null&&Input::get('manganh')!=null){
         DB::table('classes')->insert(['name' => Input::get('name'), 'major_id' =>  Input::get('manganh')]);
         $_classes =  DB::table('classes')
             ->select('name','id')
             ->orderBy('id', 'asc')
             ->get();
-        return view("schools.eICTuClassList",['_classes'=>$_classes]);
+        return view("schools.eICTuClassList",['_classes'=>$_classes]);}
+        else{
+            echo  "Bạn Hãy nhập đầy đủ !";
+        }
     }
 
+
+    public function login(Request $request)
+    {
+        $username =$request->input('username'); //Input::get('username');
+        $password =$request->input('password'); //Input::get('password');
+
+        if (auth()->attempt(['username' => $username, 'password' => $password])) {
+            if (auth()->user()->type == 1) {
+                $data = Student::select('*')
+                    ->where('code', '=', auth()->user()->username)
+                    ->get()->first();
+                $classid = $data->class_id;
+                $name = Auth::user()->name;
+                return view("students.studentHomepage", compact('name', 'classid'));
+            }
+            else
+                return redirect()->back()->with('global', 'Xin lỗi! bạn không phải sinh viên.');
+        }
+        return redirect()->back()->with('global', ' Tên đăng nhập hoặc mật khẩu không đúng.');
+    }
 
 
 

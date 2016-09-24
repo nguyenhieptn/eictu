@@ -5,7 +5,8 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">eICTuSchoolRegister - Đăng kí trường học mới</div>
+                    <link rel="stylesheet" type="text/css" href="{!! url('quanlytruong/css/trangthanhvien.css')!!}">
+                    <div class="thanhvien" >eICTuSchoolRegister - Đăng kí trường học mới</div>
                     <div class="panel-body">
                         <form action="{{ url("schools/rgm")}}" method="post" class="form-horizontal">
                         Để đăng kí trường học mới bạn cần đăng kí đầy đủ thông tin quản trị viên và thông tin nhà trường.
@@ -47,7 +48,7 @@
 
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="submit" class="btn btn-default">Submit</button>
+                                    <button type="submit" class="btn btn-default">Đăng Ký</button>
                                 </div>
                             </div>
                             <input type="hidden" name="_token" value="{{ csrf_token() }}" />

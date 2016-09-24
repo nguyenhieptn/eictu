@@ -5,9 +5,13 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">eICTuClassList - Lớp Học </div>
+                    <link rel="stylesheet" type="text/css" href="{!! url('quanlytruong/css/trangthanhvien.css')!!}">
+                    <div class="thanhvien">eICTuClassList - Lớp Học </div>
                     <div class="panel-body">
-                        <a href="{{ url('schools/eICTuClassRegister') }}">Tao Lop Moi</a>
+                        <a href="{{ url('schools/eICTuClassRegister') }}">Thêm Lớp Học Mới</a>
+                        <br/>
+                        <br/>
+                        Danh Mục Lớp Học
                         <table class="table">
 
 

@@ -13,5 +13,5 @@ function _sub($str, $length, $minword = 3,$link)
             break;
         }
     }
-    return $sub . (($len < strlen($str)) ? '...<a href="'.$link.'">Read More</>' : '');
+    return $sub . (($len < strlen($str)) ? '...<a href="'.$link.'">read more</>' : '');
 }

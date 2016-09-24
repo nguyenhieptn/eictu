@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('schools.eICTuHomePage');
 });
 /*===Quan ly ky tuc xa======*/
 

@@ -13,6 +13,7 @@
                         <table class="table">
                             <thead>
                             <tr>
+                                <th>STT</th>
                                 <th>Họ tên</th>
                                 <th>Lớp</th>
                                 <th>Mã sinh viên</th>
@@ -21,8 +22,12 @@
                             <tbody>
                             @forelse ( $data as $student)
                                 <tr>
+                                    <td>{{$stt++}}</td>
                                     <td>{{ $student->name }}</td>
-                                    <td>{{ $student->class_id }}</td>
+                                    <td>{{
+                                   //  \App\Classes::find($student->class_id)->name
+                                       $student->class_id
+                                     }}</td>
                                     <td>{{ $student->code }}</td>
                                 </tr>
                             @empty

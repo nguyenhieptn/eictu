@@ -22,7 +22,7 @@ class FindJobController extends Controller
 
     public function getIndex()
     {
-        $datas = FindJob::paginate(8);
+        $datas = FindJob::orderby('id','DESC')->paginate(8);
         return view('findjob.index')->with('datas', $datas);
     }
 

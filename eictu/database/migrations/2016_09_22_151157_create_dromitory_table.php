@@ -23,7 +23,6 @@ class CreateDromitoryTable extends Migration
             $table->string('building');
             $table->string('room');
             $table->date('start_on');
-            $table->date('end_on');
             $table->timestamps();
         });
     }

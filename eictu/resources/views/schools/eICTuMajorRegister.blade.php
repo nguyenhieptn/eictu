@@ -5,8 +5,24 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">eICTuMajorRegister - Khai Báo Ngành Học Mới</div>
+                    <link rel="stylesheet" type="text/css" href="{!! url('quanlytruong/css/trangthanhvien.css')!!}">
+                    <div class="thanhvien">eICTuMajorRegister - Khai Báo Ngành Học Mới</div>
+                    <div >
+                        <a href="{{ url('/logout') }}"
+                           onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+
+                        <form id="logout-form" action="{{ url('/logout') }}" method="POST"
+                              style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </div>
                     <div class="panel-body">
+                        Hãy nhập đủ thông tin cho ngành học mới vào mẫu sau:
+                        <br/>
+                        <br/>
                         <form action="{{ url("schools/dangkynganh")}}" method="post" class="form-horizontal">
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="codee">Mã Ngành:</label>
@@ -25,7 +41,7 @@
 
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="submit" class="btn btn-default">Submit</button>
+                                    <button type="submit" class="btn btn-default">Thêm Mới</button>
                                 </div>
                             </div>
                             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
