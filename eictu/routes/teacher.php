@@ -4,7 +4,7 @@
 
     Route::get('eICTuTeacherHomePage', [
         "uses" => "TeacherController@index",
-        "as"   => "Teacher.index",
+        "as"   => "teacher.index",
     ]);
 
     Route::get('eICTuTeacherAddNew', [
