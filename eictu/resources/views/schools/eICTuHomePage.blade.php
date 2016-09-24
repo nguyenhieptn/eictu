@@ -16,13 +16,6 @@
 
                         <img class="image" src="{{url('quanlytruong/images/li.png')}}">
                         <a class="link" href="{{route('teacher.login')}}">Giáo Viên</a>
-
-
-                        <img class="image" src="{{url('quanlytruong/images/li.png')}}"> <a class="link" href="{{route('teacher.login')}}">Giáo Viên</a>
-
-
-                        <br />
-
                         <br/>
                         Nếu Bạn Là Sinh Viên, hãy chọn.
                         <br />
