@@ -27,7 +27,7 @@
         </div>
         @endforeach
     @else
-      <p>Khong ai them muon gi ca luon day !</p>
+      <p>Không ai thèm muốn gì luôn đấy !</p>
     @endif 
 
     <div class="pagination pull-right">
