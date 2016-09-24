@@ -32,7 +32,7 @@ class HomeController extends Controller
             return view("schools.eICTuSchoolHomePage", compact('name'));
         }
 
-<<<<<<< HEAD
+
         if ($type == 2) return route('teacher.index');
         if ($type == 3){
             $data = Student::select('*')
@@ -40,7 +40,6 @@ class HomeController extends Controller
                 ->get()->first();
             $classid = $data == null ? 0 : $data->class_id;
             return view("students.studentHomepage", compact('name', 'classid'));
-=======
         if ($type == 2) return view('teacher.homepage');
 
         if ($type == 3) {
@@ -55,9 +54,6 @@ class HomeController extends Controller
 
             }
 
-
-
->>>>>>> d3e9b77836ee11ea816c1d3153f7356b58d7837b
         }
     }
 
