@@ -18,7 +18,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'name' => $faker->name,
         'email'=>$faker->email,
         'username' => $faker->name,
-        'type' => rand(1,3),
+        'type' => 1,
         'password' => bcrypt('123456'),
         'remember_token' => str_random(10),
     ];
@@ -29,7 +29,7 @@ $factory->define(App\School::class, function (Faker\Generator $faker) {
     return [
         'code' => $faker->company,
         'name' => $faker->name,
-        'user_id' => rand(1,10)
+        'user_id' => rand(1,10),
     ];
 });
 
@@ -37,7 +37,7 @@ $factory->define(App\Major::class, function (Faker\Generator $faker) {
 
     return [
         'code' => $faker->company,
-        'name' => $faker->name
+        'name' => $faker->name,
     ];
 });
 
@@ -54,11 +54,11 @@ $factory->define(App\Student::class, function (Faker\Generator $faker) {
    return [
         'code' => $faker->company,
         'name' => $faker->name,
-        'gender'=>rand(1,2),
+        'gender'=>rand(0,1),
         'birthday'=>date('2015-12-31'),
         'major_id' => rand(1,10),
         'class_id' => rand(1,10),
-        'school_id' => rand(1,10),
+        'school_id' => 1,
     ];
 });
 
@@ -69,7 +69,7 @@ $factory->define(App\Motel::class, function (Faker\Generator $faker) {
         'hostess' => $faker->name,
         'address' => $faker->address,
         'date_join'=>date('2016-12-31'),
-        'student_id' => 55,
+        'student_id' => rand(1,49),
     ];
 });
 
@@ -88,23 +88,6 @@ $factory->define(App\FindJob::class, function (Faker\Generator $faker) {
 
     return [
         'content' => $faker->unique()->text($maxNbChars = 400)      ,
-        'student_id' => rand(1,10)
-    ];
-});
-
-$factory->define(App\Area::class, function (Faker\Generator $faker) {
-
-    return [
-        'name' => 'Khu '.rand(1, 10),
-    ];
-});
-$factory->define(App\Dormitory::class, function (Faker\Generator $faker) {
-
-    return [
-        'building' => 'A '.rand(1, 10),
-        'room' => rand(1, 100),
-        'student_id' => rand(1, 10),
-        'area_id' => rand(1, 10),
-        'start_on' => '2012/09/01',
+        'student_id' => rand(2,10)
     ];
 });

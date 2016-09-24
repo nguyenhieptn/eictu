@@ -14,12 +14,12 @@ class RentHousesTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        foreach (range(1,1000) as $index) {
-            DB::table('motels')->insert([
-                'student_id'=>$faker->numberBetween(1,100),
-                'hostess' => $faker->name,
-                'address' => $faker->address,
-                'date_join' => $faker->date,
+        foreach (range(1,10) as $index) {
+            DB::table('renthouse')->insert([
+                'id_sinhvien'=>'1',
+                'hotenchunha' => $faker->name,
+                'diachinhatro' => $faker->address,
+                'ngayvaotro' => $faker->date,
             ]);
         }
     }
