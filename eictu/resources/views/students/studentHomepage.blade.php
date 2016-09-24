@@ -31,7 +31,7 @@ Trang chủ của sinh viên
 
                         <tr>
                             <td><img src="{{url('img/rightarrow.png')}}"/></td>
-                            <td><a href="{{route('iwant.search')}}">Tôi muốn <span>- I Want </span></a></td>
+                            <td><a href="{{route('iwant.status')}}">Tôi muốn <span>- I Want </span></a></td>
                         </tr>
 
                         <tr>
