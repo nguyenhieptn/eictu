@@ -8,7 +8,6 @@
                 <div class="panel panel-default">
                     <link rel="stylesheet" type="text/css" href="{{url('quanlytruong/css/eICTuHomePage.css')}}">
                     <div class="trangchu" >eICTuHomePage - Trang Chủ</div>
-
                     <div class="body">
                         Đây là hệ sinh thái dành cho các trường đại học.
                         <br/>
@@ -37,9 +36,6 @@
                         Nếu Bạn Là Người Cần Tuyển Sinh Viên làm Việc ngoài giờ, hãy chọn.
                         <br />
                         <img class="image" src="{{url('quanlytruong/images/li.png')}}"> <a class="link" href="{{url('findjob/index')}}">Sinh Viên Tìm Việc</a>
-
-
-
 
                     </div>
                 </div>
