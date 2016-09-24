@@ -16,29 +16,17 @@ class TeacherController extends Controller
     public function index(){
     	// $teacher = Teacher::select('name')->where('code', Auth::user()->username)->first();
        
-<<<<<<< HEAD
+
           return view('teacher.homepage');
        
-        
-<<<<<<< HEAD
-    	
-<<<<<<< HEAD
-=======
->>>>>>> 515f95f6be17d299ec5186e02e8e45f46e7ccd0b
-=======
+
           // return view('teacher.homepage');
->>>>>>> e633cc90c3530706b517dfbbc9c829f07e04fd8a
         if ( Auth::user()->type <= 2) {
             return view('teacher.homepage');
         }else{
             return view('student.index');
         }
     	
-<<<<<<< HEAD
-=======
->>>>>>> db5c98ef3bf46b5013d1d933d0b062a36718fdc7
-=======
->>>>>>> 515f95f6be17d299ec5186e02e8e45f46e7ccd0b
     }
 
     public function getAdd(){
@@ -48,22 +36,9 @@ class TeacherController extends Controller
          }elseif(Auth::user()->type == 2){
             return redirect()->route('teacher.index');
          }else{
-<<<<<<< HEAD
-<<<<<<< HEAD
             return view('welcome');
-=======
-            return view('home');
->>>>>>> db5c98ef3bf46b5013d1d933d0b062a36718fdc7
-=======
-            return view('welcome');
-<<<<<<< HEAD
-
-            return view('home');
->>>>>>> 515f95f6be17d299ec5186e02e8e45f46e7ccd0b
-=======
->>>>>>> e633cc90c3530706b517dfbbc9c829f07e04fd8a
-         }
          
+        }
     }
 
 

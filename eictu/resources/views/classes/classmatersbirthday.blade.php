@@ -7,7 +7,18 @@
 <div class="qllophoc_header">
 	<header id="header" class="">
 		<div class="header-content">
-				<span class="title">eICTuClassmatersBirthday - Sinh nhật bạn cùng lớp</span>
+				<span class="title">
+					eICTuClassmatersBirthday - Sinh nhật bạn cùng lớp
+					
+					@if(!Auth::guest())
+						<span class="pull-right">
+							<img src="{!! url('classes_src/images/logout.png')!!}" />
+							<a href="{{ route('classes.logout')}}">Logout</a>
+						</span>
+					@endif
+					
+					
+				</span>
 		</div>
 	</header>
 <!--

@@ -17,7 +17,6 @@ class CreateSearchjobsTable extends Migration
             $table->increments('id');
             $table->text('content');
             $table->integer('student_id')->unsigned();
-            $table->foreign('student_id')->references('id')->on('students');
             $table->timestamps();
         });
     }

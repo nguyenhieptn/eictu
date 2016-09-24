@@ -62,3 +62,18 @@ ol li {
 .chat-name {
     outline: none;
 }
+
+#right{
+    text-align:right;
+    margin-top:15px;
+    margin-bottom:15px;
+    color:#FF0000;
+    font-size: 20px;
+}
+#left{
+    text-align:left;
+    color:#0000FF;
+    margin-top:15px;
+    margin-bottom:15px;
+    font-size: 20px;
+}

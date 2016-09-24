@@ -59,7 +59,7 @@
                                 $date = new DateTime($item->date_join);
                                 echo "<li class='glyphicon glyphicon-play list-group-item ' style=' color:red '>".$date->format('d/m/Y').", ".$item->hostess.", ".$item->address."</li>";
                             }
-                            echo "<center>".$data->render()."</center>";
+                            echo "<center>".$data->links()."</center>";
                           ?>
                           </ul>
                       </div>
