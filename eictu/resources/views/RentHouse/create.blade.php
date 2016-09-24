@@ -52,22 +52,21 @@
                        </div>
                        <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                      </form>
-
-                      <div class="container">
-                          <strong>Thông tin của bạn</strong>
-                          <ul class="list-group">
-                          <?php
-                            $stt=1;
-                            foreach($data as $item){
-                                $date = new DateTime($item->date_join);
-                                echo "<li class='list-group-item ' style=' color:red '><i class='glyphicon glyphicon-triangle-right' style='color:#8c8c8c'> &nbsp;</i>".$date->format('d/m/Y').", ".$item->hostess.", ".$item->address."</li>";
-                            }
-                            echo "<center>".$data->links()."</center>";
-                          ?>
-                          </ul>
-                      </div>
                  </div>
              </div>
+             <div class="panel panel-default">
+               <ul class="list-group">
+               <li class='list-group-item active'><strong>Thông tin của bạn</strong></li>
+               <?php
+                 $stt=1;
+                 foreach($data as $item){
+                     $date = new DateTime($item->date_join);
+                     echo "<li class='list-group-item ' style=' color:red '><i class='glyphicon glyphicon-triangle-right' style='color:#8c8c8c'> &nbsp;</i>".$date->format('d/m/Y').", ".$item->hostess.", ".$item->address."</li>";
+                 }
+                 echo "<center>".$data->links()."</center>";
+               ?>
+               </ul>
+           </div>
          </div>
      </div>
  </div>

@@ -3,13 +3,17 @@
 
     <?php
     $user_id = Auth::user()->username;
-    $st= DB::table('students')->where('code', $user_id)->first();
-    $class_id = $st->class_id;
-    $class= DB::table('classes')->where('id', $class_id)->first();
-    $class_name = $class->name;
-
     $class_room = $_GET['c'];
     $id = $_GET['id'];
+
+    if (Auth::user()->type == 2){
+        $name = Auth::user()->name;
+    } else {
+
+    $st = DB::table('students')->where('code', $user_id)->first();
+    $class_id = $st->class_id;
+    $class = DB::table('classes')->where('id', $class_id)->first();
+    $class_name = $class->name;
 
     if ($class_room == $class_name && $user_id == $id){
         $student = DB::table('students')->where('code', $id)->first();
@@ -19,7 +23,8 @@
 
     <div class="row">
         <br><br><br><br>
-        <h2 style="margin-left: 200px;">Bạn không có quyền hạn để truy cập vào đường dẫn này. Xin mời logout và đăng nhập lại
+        <h2 style="margin-left: 200px;">Bạn không có quyền hạn để truy cập vào đường dẫn này. Xin mời logout
+            và đăng nhập lại
             <a href="{{ url('/logout') }}"
                onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
@@ -35,7 +40,7 @@
     <?php
     return false;
     }
-
+    }
 
     ?>
     <div class="row">
@@ -54,7 +59,7 @@
         </div>
         <div class="col-lg-8 col-lg-offset-2">
             <input type="hidden" class="chat-room" value="<?php echo $class_room;?>"/>
-            <input type="text" disabled="disabled" class="chat-name" value="<?php echo $name;?>"/>
+            <input type="hidden" disabled="disabled" class="chat-name" value="<?php echo $name;?>"/>
         </div>
         <div class="col-lg-8 col-lg-offset-2 chat-messages">
             <div id="left"></div>
@@ -140,29 +145,44 @@
                     }
                 });
 
-                var today,h,i,m,j,s,d,month,y,k,l;
+                var today, h, i, m, j, s, d, month, y, k, l;
                 var name = chatName.value,
                         room = chatRoom.value,
                         time,
                         nd = "";
                 var button = document.getElementById("send");
-                button.onclick = function()
-                {
+                button.onclick = function () {
                     today = new Date();
                     l = today.getHours();
-                    if(l<10){h="0"+l;}else{h=l;}
+                    if (l < 10) {
+                        h = "0" + l;
+                    } else {
+                        h = l;
+                    }
                     i = today.getMinutes();
-                    if(i<10){m= "0"+i;}else{m=i;}
+                    if (i < 10) {
+                        m = "0" + i;
+                    } else {
+                        m = i;
+                    }
                     j = today.getSeconds();
-                    if(j<10){s= "0"+j;}else{s=j;}
+                    if (j < 10) {
+                        s = "0" + j;
+                    } else {
+                        s = j;
+                    }
                     d = today.getDate();
                     k = today.getMonth();
-                    if(k>8){month=k+1;}else{month = "0"+(k+1);}
+                    if (k > 8) {
+                        month = k + 1;
+                    } else {
+                        month = "0" + (k + 1);
+                    }
                     y = today.getFullYear();
 
-                    time = h+":"+m+":"+s+" / "+d+"-"+month+"-"+y;
+                    time = h + ":" + m + ":" + s + " / " + d + "-" + month + "-" + y;
                     nd = document.querySelector('.chat-input').value;
-                    socket.emit('input',{
+                    socket.emit('input', {
                         name: name,
                         room: room,
                         message: nd,

@@ -28,7 +28,7 @@
             foreach ($classes as $class) {
                 $class_name = $class->name;
 
-                echo "<li><a href='classroom?c=$class_name&id=$name'>$class_name</a></li>";
+                echo "<li><a href='classroom?c=$class_name&id=$user_id'>$class_name</a></li>";
             }
             ?>
             </ol>
