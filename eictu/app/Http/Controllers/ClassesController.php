@@ -53,8 +53,6 @@ class ClassesController extends Controller
 		}else{
 			return redirect('schools/login');
 		}
-		
-		
 	}
 	
 	// tạo view trang phân lớp cho sinh viên

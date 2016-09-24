@@ -12,7 +12,8 @@ Route::get('student/create','StudentController@create');
 Route::post('students','StudentController@store');
 Route::get('student/login','StudentController@vLogin');
 Route::post('student/login','StudentController@login');
-
+Route::get('student/impost','StudentController@impost');
+Route::get('student/deleteall','StudentController@deleteall');
 /* end student section */
 
 
