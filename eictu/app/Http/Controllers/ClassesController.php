@@ -25,35 +25,58 @@ class ClassesController extends Controller
 	
 	public function studentlist($classid)
 	{
-		
-		$_class= DB::table('classes')->select('name','id')
+		if(!Auth::guest())
+		{
+			if(Auth::user()->type==1)
+			{
+				$_class= DB::table('classes')->select('name','id')
 									->where('id', '=', $classid)
 									->get()->first();	
 		
-		$_students =  DB::table('students')->select('code','name', 'birthday')
-											->where('class_id', '=', $classid)
-											->orderBy('code', 'asc')
-											->paginate(100);	
-		$_page = null;
-		$_page = Input::get('page');	
-		if($_page !=null && count($_page)>0)$_page = ($_page-1)*100;		
-		if($_class==null) return "The class is not available";
-		return view('classes.studentlist',
-										['_students' => $_students,
-										'_class'=>$_class,
-										'_page'=>$_page]
-					);
+				$_students =  DB::table('students')->select('code','name', 'birthday')
+													->where('class_id', '=', $classid)
+													->orderBy('code', 'asc')
+													->paginate(100);	
+				$_page = null;
+				$_page = Input::get('page');	
+				if($_page !=null && count($_page)>0)$_page = ($_page-1)*100;
+					
+				if($_class==null) return "The class is not available";
+				return view('classes.studentlist',
+												['_students' => $_students,
+												'_class'=>$_class,
+												'_page'=>$_page]
+							);
+			}else{
+			return redirect('schools/login');
+		}
+		}else{
+			return redirect('schools/login');
+		}
+		
+		
 	}
 	
 	// tạo view trang phân lớp cho sinh viên
 	function studentjoinclasspage($classid)		{
-		$_st=  DB::table('students')->select('students.code as studentcode','students.name as studentname', 'birthday','gender','majors.code as major_code')
-		->leftjoin('majors', 'major_id', '=', 'majors.id')
-		->where('class_id', '=', null)->get()->first();
-		
-		$_class= DB::table('classes')->select('name','id')->where('id', '=', $classid)->get()->first();			
-		
-		return view('classes.studentjoinclass',['_class'=>$_class,'_st'=>$_st]);			
+		if(!Auth::guest())
+		{
+			if(Auth::user()->type==1)
+			{
+				$_st=  DB::table('students')->select('students.code as studentcode','students.name as studentname', 'birthday','gender','majors.code as major_code')
+				->leftjoin('majors', 'major_id', '=', 'majors.id')
+				->where('class_id', '=', null)->get()->first();
+				
+				$_class= DB::table('classes')->select('name','id')->where('id', '=', $classid)->get()->first();			
+				
+				return view('classes.studentjoinclass',['_class'=>$_class,'_st'=>$_st]);
+			}else{
+				return redirect('schools/login');
+			}
+		}else{
+			return redirect('schools/login');
+		}
+					
 		
 	}
 	

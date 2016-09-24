@@ -45,11 +45,16 @@
                 {{--<span class="icon-bar"></span>--}}
             {{--</button>--}}
 
+<<<<<<< HEAD
             {{--<!-- Branding Image -->--}}
             {{--<a class="navbar-brand" href="{{ url('/') }}">--}}
                 {{--{{ config('app.name', 'Laravel') }}--}}
             {{--</a>--}}
         {{--</div>--}}
+=======
+        <div class="collapse navbar-collapse" id="app-navbar-collapse">
+            <!-- Left Side Of Navbar -->
+>>>>>>> 7ec451f749132eabcee341c4a5f6a8a4732868aa
 
         {{--<div class="collapse navbar-collapse" id="app-navbar-collapse">--}}
             {{--<!-- Left Side Of Navbar -->--}}
@@ -66,6 +71,7 @@
                 {{--<li><a href="{{route('iwant.search')}}">I Want</a></li>--}}
 
 
+<<<<<<< HEAD
             {{--</ul>--}}
 
             {{--<!-- Right Side Of Navbar -->--}}
@@ -100,11 +106,37 @@
         {{--</div>--}}
     {{--</div>--}}
 {{--</nav>--}}
+=======
+            <!-- Right Side Of Navbar -->
+            <ul class="nav navbar-nav navbar-right">
+                <!-- Authentication Links -->
+                @if (Auth::guest())
+
+                @else
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu" role="menu">
+                                <form id="logout-form" action="{{ url('/logout') }}" method="POST"
+                                      style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
+            </ul>
+        </div>
+    </div>
+</nav>
+>>>>>>> 7ec451f749132eabcee341c4a5f6a8a4732868aa
 
 @yield('content')
 <script src="{{ url("/js/app.js") }}"></script>
 <!-- <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script> -->
-<!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></scrip -->
+<!-- <script src="http://maxcdn.bootstrapcdn.com/bootstit rap/3.3.1/js/bootstrap.min.js"></scrip -->
 
 </body>
 </html>

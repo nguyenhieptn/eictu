@@ -7,7 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">School</div>
                     <div class="panel-body">
-                        <a href="{{ url('schools/create') }}">Tao moi truong</a>
+                        <a href="{{ url('schools/eICTuSchoolRegister') }}">Tao moi truong</a>
 
                         <h2>Danh Sach Truong</h2>
                         <table class="table">

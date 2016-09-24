@@ -4,7 +4,9 @@
      <div class="row">
          <div class="col-md-12">
              <div class="panel panel-default">
-                 <div class="panel-heading">eICTuStudentJobDetail - Bản tin tìm việc chi tiết của sinh viên</div>
+                 <div class="panel-heading">eICTuStudentJobDetail - Bản tin tìm việc chi tiết của sinh viên 
+                 <span class="pull-right"> <a href="{{ url('/logout') }}">Logout</a></span>
+                 </div>
                  <div class="panel-body">
                     <div class="entry-content">
                         <h4>Nội dung bản tin của sinh viên:</h4>
@@ -14,9 +16,9 @@
                       <div class="entry-content">
                         <h4>Thông tin Sinh viên</h4>
                           <ul style="margin-left:30px">
-                            <li>Họ và tên: <strong>{{$detail->name}}</strong></li>
+                            <li>Họ và tên: <strong>{{$student->name}}</strong></li>
                             <li>Giới tính:<strong>
-                                @if($detail->gender==1)
+                                @if($student->gender==1)
                                     {{ "Nam" }}
                                 @else
                                         {{ "Nữ" }}
