@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-Danh sách giáo viên
+Quản lý giáo viên
 @endsection
 @section('content')
     <div class="container">
