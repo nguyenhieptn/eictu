@@ -12,7 +12,7 @@
         "as"   => "teacher.add",
     ]);
     Route::post('eICTuTeacherAddNew', [
-        "uses" => "teacherController@postAdd",
+        "uses" => "TeacherController@postAdd",
     ]);
 
     Route::get('eICTuTeacherList', [
