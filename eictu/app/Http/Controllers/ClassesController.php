@@ -48,8 +48,8 @@ class ClassesController extends Controller
 												'_page'=>$_page]
 							);
 			}else{
-			return redirect('schools/login');
-		}
+				return "You are not a Manager!Go out!";
+			}
 		}else{
 			return redirect('schools/login');
 		}
@@ -58,20 +58,27 @@ class ClassesController extends Controller
 	}
 	
 	// tạo view trang phân lớp cho sinh viên
-	function studentjoinclasspage($classid)		{
+	function studentjoinclasspage($classid)	{
+		
 		if(!Auth::guest())
 		{
 			if(Auth::user()->type==1)
 			{
+				
+				$data123 = DB::table('schools')->select('name','id')
+                    ->where('user_id', '=', Auth()->user()->id)
+                    ->get()->first();
+				$sid = $data123->id;
+			
 				$_st=  DB::table('students')->select('students.code as studentcode','students.name as studentname', 'birthday','gender','majors.code as major_code')
 				->leftjoin('majors', 'major_id', '=', 'majors.id')
 				->where('class_id', '=', null)->get()->first();
 				
 				$_class= DB::table('classes')->select('name','id')->where('id', '=', $classid)->get()->first();			
 				
-				return view('classes.studentjoinclass',['_class'=>$_class,'_st'=>$_st]);
+				return view('classes.studentjoinclass',['_class'=>$_class,'_st'=>$_st,'_schoolid'=>$sid]);
 			}else{
-				return redirect('schools/login');
+				return "Who are you?";
 			}
 		}else{
 			return redirect('schools/login');
@@ -82,26 +89,31 @@ class ClassesController extends Controller
 	
 	function waitingstudentlist($classid)
 	{
-				
-		$rp=Input::get('rowperpage');
 		
-		$_class= DB::table('classes')->select('name','id')->where('id', '=', $classid)->get()->first();
+			$sid1=Input::get('schoolid');
+			$rp=Input::get('rowperpage');
 		
-		$_students =  DB::table('students')->select('students.code as studentcode',
-		'students.name as studentname', 'birthday','gender','majors.code as major_code')
-		->leftjoin('majors', 'major_id', '=', 'majors.id')
-		->where('class_id', '=', null)
-		->orderBy('students.code', 'asc')
-		->paginate($rp);
+			$_class= DB::table('classes')->select('name','id')->where('id', '=', $classid)->get()->first();
+			
+			$_students =  DB::table('students')->select('students.code as studentcode',
+			'students.name as studentname', 'birthday','gender','majors.code as major_code')
+			->leftjoin('majors', 'major_id', '=', 'majors.id')
+			->where('class_id', '=', null)
+			->where('school_id','=',$sid1)
+			->orderBy('students.code', 'asc')
+			->paginate($rp);
+			
+			if(Request::ajax()){
+				return response()->json(array(
+								   'result'   => $_students->toArray()['data'], 
+								   'pagination' => (string) $_students->links()
+								) );
+			}else{
+				return view('classes.studentjoinclass',['_students' => $_students,'_class'=>$_class]);
+			}	
 		
-		if(Request::ajax()){
-			return response()->json(array(
-							   'result'   => $_students->toArray()['data'], 
-							   'pagination' => (string) $_students->links()
-							) );
-		}else{
-			return view('classes.studentjoinclass',['_students' => $_students,'_class'=>$_class]);
-		}	
+			
+		
 		
 	}
 	
@@ -164,7 +176,7 @@ class ClassesController extends Controller
 				return view('classes.classmatersbirthday',['_classmatersbirthday' => $d,'_class'=>$_class]);			
 				
 			}else{
-				return redirect('login');
+				return "Who are you?";
 			}
 		}else{
 			return redirect('login');

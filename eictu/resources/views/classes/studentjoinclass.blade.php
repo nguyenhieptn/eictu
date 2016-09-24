@@ -27,14 +27,14 @@ function loadtable(_page)
 	var rowperpage=10;
 	
 	var _url="{{ route('classes.waitingstudentlist',$_class->id)}}";
-	
+	var sid = '{{$_schoolid}}';
 	if( _page!=="") _url=_url+"?page="+_page;
 	var token = $('#tokenid').val();
 	$.ajax({
 		url : _url,
 		type : 'get',
 		dataType : 'json',
-		data:{'_token':token,'rowperpage':rowperpage},
+		data:{'_token':token,'rowperpage':rowperpage,'schoolid':sid},
 		success : function (data){  
 			var html = '';
 			html += '<table class="table" id="table_dssv1">';	
@@ -57,7 +57,7 @@ function loadtable(_page)
 			html +=  '<th>';
 			html +=  "Giới tính";
 			html +=  '</th>';
-			html +=  '<th class="col-md-8" colspan="8">';
+			html +=  '<th >';
 			html += 'Ngày sinh';
 			html +=  '</th>';
 			html +=  '</tr>';
@@ -84,7 +84,7 @@ function loadtable(_page)
 				else
 					html +=  "Nam";
 				html +=  '</td>';
-				html +=  '<td class="col-md-8" colspan="8">';
+				html +=  '<td >';
 				var d=item['birthday'].split("-");							
 				html +=  d[2]+"/"+d[1]+"/"+d[0];
 				html +=  '</td>';
