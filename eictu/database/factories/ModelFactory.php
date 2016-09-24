@@ -69,7 +69,7 @@ $factory->define(App\Motel::class, function (Faker\Generator $faker) {
         'hostess' => $faker->name,
         'address' => $faker->address,
         'date_join'=>date('2016-12-31'),
-        'student_id' => rand(1,49),
+        'student_id' => 55,
     ];
 });
 

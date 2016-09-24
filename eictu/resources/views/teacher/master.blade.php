@@ -21,6 +21,17 @@
             font-size: 20px;
             background: #bdc3c7;
         }
+        .navbar{
+            background: #2ecc71;
+        }
+        .navbar-default .navbar-nav>li>a {
+            color: #ecf0f1;
+        }
+        .navbar-default .navbar-brand {
+            color: #ecf0f1;
+        }
+
+
     </style>
     <script>
         window.Laravel = <?php echo json_encode([

@@ -19,9 +19,27 @@ class StudentController extends Controller
 
     }
 
+    public function vLogin()
+    {
+        return view("students.login");
+    }
+
+    public function login()
+    {
+        $username = Input::get('username');
+        $password = Input::get('password');
+
+        if (auth()->attempt(['username' => $username, 'password' => $password])) {
+          $this->index();
+        }
+        return redirect()->back()->with('global', 'Login Fail');
+    }
+
     public function index()
     {
-        $type = Auth::user()->type;
+        $type = auth()->user()->type;
+
+//        $type = Auth::user()->type;
         if($type==1) {
             $data = Student::select('*')->get();
             // return view('iWant.eICTuStudentDemandSearch', compact('data'));
@@ -35,8 +53,12 @@ class StudentController extends Controller
         }
         else if($type==3)
         {
+            $data = Student::select('*')
+            ->where('code','=',Auth::user()->username)
+            ->get()->first();
+            $classid=$data->class_id;
             $name= Auth::user()->name;
-            return view("students.studentHomepage", compact('name'));
+            return view("students.studentHomepage", compact('name','classid'));
         }
     }
 

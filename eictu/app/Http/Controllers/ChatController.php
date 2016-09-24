@@ -21,6 +21,14 @@ class ChatController extends Controller
         return view('chat.friend', ['users' => $users]);
     }
 
+    public function search(Request $request){
+
+        $data = $request->input('message');
+
+        return view('chat.friend', ['id_search' => $data]);
+
+    }
+
     public function page($slug){
 
         return view('chat/'.$slug, ['name'=> $slug]);

@@ -15,15 +15,17 @@
             <h4>Mã Sinh Viên: </h4>
         </div>
 
-        <form action="search" method="post">
+        <form action="{{ url("chat/friend")}}" method="post">
             <div class="col-lg-3">
-                <input class="form-control input-lg" id="inputlg" name="message" type="text" placeholder="Nhập mã sinh viên cần CHAT">
+                <input class="form-control input-lg" id="inputlg" name="message" type="text"
+                       placeholder="Nhập mã sinh viên cần CHAT"  onclick="myFunction()">
 
             </div>
 
             <div class="col-lg-4">
                 <button type="submit" class="btn btn-primary btn-lg">Tìm Kiếm</button>
             </div>
+            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
         </form>
 
         <div class="col-lg-10 col-lg-offset-2">
@@ -31,11 +33,10 @@
             <a href="friendroom.blade.php" >Cai gi the</a>
         </div>
 
-    <?php
-
-        foreach ($users as $user) {
-            echo $user->name;
-        }
-    ?>
+        <?php
+                if (isset($id_search)){
+                echo  $id_search;
+                }
+            ?>
     </div>
 @stop

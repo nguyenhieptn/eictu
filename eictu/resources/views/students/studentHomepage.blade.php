@@ -62,10 +62,14 @@
                         <td id="toptext">{{$name}}</td>
                     </tr>
 
-                    <tr>
-                        <td><img src="{{url('img/rightarrow.png')}}"/></td>
-                        <td><a href="#">Sinh nhật bạn cùng lớp</a></td>
-                    </tr>
+                    @if(count($classid)>0 && $classid !=null)
+                        <tr>
+                            <td><img src="{{url('img/rightarrow.png')}}"/></td>
+                            <td>
+                                <a href="{{route('classes.classmatersbirthday', $classid )}}">Sinh nhật bạn cùng lớp</a>
+                            </td>
+                        </tr>
+                    @endif
 
                     <tr>
                         <td><img src="{{url('img/rightarrow.png')}}"/></td>
@@ -74,9 +78,8 @@
 
                     <tr>
                         <td><img src="{{url('img/rightarrow.png')}}"/></td>
-                        <td><a href="#">Tôi có <span>- I Have </span></a></td>
+                        <td><a href="{{url('/iHave')}}">Tôi có <span>- I Have </span></a></td>
                     </tr>
-
                     <tr>
                         <td><img src="{{url('img/rightarrow.png')}}"/></td>
                         <td><a href="{{url('findjob/index')}}">Tôi tìm việc <span>- I Am Finding a Part-time Job </span></a></td>
@@ -89,7 +92,7 @@
 
                     <tr>
                         <td><img src="{{url('img/rightarrow.png')}}"/></td>
-                        <td><a href="#">Bạn tôi thuê nhà ở đâu</a></td>
+                        <td><a href="{{url('/rentHouse')}}">Bạn tôi thuê nhà ở đâu</a></td>
                     </tr>
 
                     <tr>
@@ -99,7 +102,7 @@
 
                     <tr>
                         <td><img src="{{url('img/rightarrow.png')}}"/></td>
-                        <td><a href="#">Chát với bạn</a></td>
+                        <td><a href="{{url('chat/friend')}}">Chát với bạn</a></td>
                     </tr>
 
                     <tr>
@@ -109,7 +112,7 @@
 
                     <tr>
                     <td><img src="{{url('img/rightarrow.png')}}"/></td>
-                    <td>LMS</td>
+                    <td><a href="{{url('#')}}">LMS</a></td>
                 </tr>
                 </table>
             </div>

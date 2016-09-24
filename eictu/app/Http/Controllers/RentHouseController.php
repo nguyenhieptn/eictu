@@ -24,8 +24,12 @@ class RentHouseController extends Controller
     }
 
     public function create(){
-       // if(Auth::attempt(['username' => $username, 'password' => $password], 'type'=>'1'))
-        if(isset(Auth::user()->username) && Auth::user()->type=="3") {
+        if(Auth::guest()){
+            echo '<script> alert("Bạn chưa đăng nhập");
+                window.history.back();
+            </script>';
+        }else
+        if( Auth::user()->type=="3") {
             $code = Auth::user()->username;
             $student_id = DB::table('students')->where('code',$code)->value('id');
             $data = DB::table('motels')->where('student_id', $student_id)->orderBy('id', 'desc')->paginate(5);
