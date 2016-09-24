@@ -3,10 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-    <div class="col-lg-6 col-xs-12">
-    <p>Sinh viên có nhu cầu muốn một cái gì đó như đi nhờ xe, vay thẻ điện
-thoại, xin một chai nước, tìm một người đi chơi.. có thể đăng yêu cầu ở
-đây:</p>
+    <div class="col-lg-8 col-lg-offset-2 col-xs-12">
       <form action="{{route('iwant.status')}}" role="form" method="post" accept-charset="utf-8">
         <input type="hidden" name="_token" value="{{Session::token()}}">
         <div class="form-group {{$errors->has('content')? ' has-error': ''}}">
@@ -17,9 +14,8 @@ thoại, xin một chai nước, tìm một người đi chơi.. có thể đăn
       <hr>
     </div>
   </div>
-  <hr>
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-lg-8 col-lg-offset-2 ">
       <h4>Hiện có các lời kêu gọi/yêu cầu sau đây, mời bạn xem và trợ giúp nếu có thể:</h4>
       <hr>
       @if($data)
