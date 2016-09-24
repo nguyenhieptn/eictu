@@ -9,12 +9,10 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Styles -->
-    <link href="{{url("/css/app.css")}}" rel="stylesheet">
-    <link href="{{url("/css/style.css")}}" rel="stylesheet">
-    <link href="{{url("/css/chat.css")}}" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     @yield('css')
     <style type="text/css" media="screen">
         .pagination ul li{
@@ -23,6 +21,17 @@
             font-size: 20px;
             background: #bdc3c7;
         }
+        .navbar{
+            background: #2ecc71;
+        }
+        .navbar-default .navbar-nav>li>a {
+            color: #ecf0f1;
+        }
+        .navbar-default .navbar-brand {
+            color: #ecf0f1;
+        }
+
+
     </style>
     <script>
         window.Laravel = <?php echo json_encode([
@@ -53,17 +62,8 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li><a href="{{ url('schools') }}"> Schools</a></li>
-                <li><a href="{{ url('classes') }}"> Classes</a></li>
-                <li><a href="{{ url('student') }}"> Student </a></li>
-                <li><a href="{!! route('teacher.login') !!}"> Teacher </a></li>
-                <li><a href="{{ url('major') }}"> Major </a></li>
-                <li><a href="{{ url('dormitory') }}">Dormitory</a></li>
-                <li><a href="{{ url('rentHouse') }}">Rent House</a></li>
-                <li><a href="{{ url('iHave') }}">I Have</a></li>
-                <li><a href="{{ url('findjob/index') }}">Find Job</a></li>
-                <li><a href="{{route('iwant.search')}}">I Want</a></li>
-                <li><a href="{{url('iHave')}}">I Have</a></li>
+                <!-- <li><a href="{{ url('schools') }}"> Schools</a></li> -->
+           
 
             </ul>
 
@@ -72,7 +72,6 @@
                 <!-- Authentication Links -->
                 @if (Auth::guest())
                     <li><a href="{{ url('/login') }}">Login</a></li>
-                    <li><a href="{{ url('/register') }}">Register</a></li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -101,9 +100,9 @@
 </nav>
 
 @yield('content')
-<script src="{{ url("/js/app.js") }}"></script>
-<!-- <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script> -->
-<!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></scrip -->
+        <!-- Scripts -->
 
-</body>
+
+<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </html>

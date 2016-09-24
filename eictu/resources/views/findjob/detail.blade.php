@@ -9,7 +9,6 @@
                     <div class="entry-content">
                         <h4>Nội dung bản tin của sinh viên:</h4>
                         <p>{{$detail->content }}</p>
-
                     </div>
                     </hr>
                       <div class="entry-content">

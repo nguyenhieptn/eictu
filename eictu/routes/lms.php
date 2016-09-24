@@ -7,6 +7,7 @@ Route::group(['prefix' => 'LMS'], function () {
         'uses' => 'LMSController@getshow'
 
     ]);
+
     Route::get('update/{id}', [
         'as'   => 'LMS.lmsupdate',
         'uses' => 'LMSController@getupdate'
@@ -15,3 +16,5 @@ Route::group(['prefix' => 'LMS'], function () {
     
 });
 Route::post('update/{id}','LMSController@update');
+
+Route::get('/LMSshow' , 'LMSController@getshow');

@@ -22,7 +22,7 @@ class FindJobController extends Controller
 
     public function getIndex()
     {
-        $datas = FindJob::orderby('id','DESC')->paginate(8);
+        $datas = FindJob::orderby('id','DESC')->paginate(10);
         return view('findjob.index')->with('datas', $datas);
     }
 
@@ -47,20 +47,21 @@ class FindJobController extends Controller
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator->errors());
         }
-        echo Auth::user()->id;
         FindJob::create([
             'content' => $input['content'],
             'student_id' => Auth::user()->id
         ]);
-        Session::flash('succsess', 'Đăng tin thành công');
         return redirect()->route('findjob.index');
     }
 
 
     public function getDetail($id)
     {
-        $detail = DB::table('searchjobs')->join('students', 'searchjobs.student_id', '=', 'students.id')->where('searchjobs.id', $id)->get()->first();
-        return view('findjob.detail', compact('detail'));
+
+          $detail = DB::table('searchjobs')->join('students', 'searchjobs.student_id', '=', 'students.id')->where('searchjobs.id', $id)->get()->first();
+         return view('findjob.detail', compact('detail'));
+
+      
     }
 
 }

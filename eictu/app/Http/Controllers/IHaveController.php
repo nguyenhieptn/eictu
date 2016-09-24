@@ -14,7 +14,13 @@ class IHaveController extends Controller
 {
     public function update()
     {
-        return view('iHave.update');
+        if(isset(Auth::user()->username) && Auth::user()->type=="3") {
+            return view('iHave.update');
+        }else{
+            echo '<script> alert("Bạn không phải là sinh viên");
+                window.history.back();
+            </script>';
+        }
     }
 
     public function store(Request $request)

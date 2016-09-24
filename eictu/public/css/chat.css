@@ -1,0 +1,64 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* visited link */
+a:visited {
+    color: #560777;
+}
+
+/* mouse over link */
+a:hover {
+    color: red;
+}
+
+/* selected link */
+a:active {
+    color: yellow;
+}
+
+body,
+button,
+input {
+    font: 13px Arial, Helvetica, sans-serif;
+}
+
+#purple {
+    background-color: #9b09d6;
+    color: #fff;
+}
+
+
+.link {
+    font: 18px Arial;
+    text-decoration: none;
+    padding-left: 20px;
+    font-weight: bold;
+}
+ol li {
+    padding-bottom: 10px;
+}
+
+.chat-messages {
+    width: 100%;
+    height: 450px;
+    overflow-y: scroll;
+    padding: 10px;
+    max-height: 450px;
+}
+
+.chat-message {
+    padding: 5px;
+    font-size: 20px;
+    color: #0000FF;
+    font-weight: bold;
+}
+
+.chat-status {
+    padding: 5px;
+    color: #00FF00;
+}
+
+.chat-input,
+.chat-name {
+    outline: none;
+}

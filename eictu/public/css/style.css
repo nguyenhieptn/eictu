@@ -15,6 +15,7 @@
     color: #333 !important;
 
 }
+<<<<<<< HEAD
 .find-job .panel-default>.panel-heading {
     background: #7ac1e8 !important;
     color: #fff;
@@ -47,6 +48,8 @@
     color: #fff !important;
 }
 
+=======
+>>>>>>> e633cc90c3530706b517dfbbc9c829f07e04fd8a
 /*END FIND JOB*/
 
 /*STYLE STUDENT HOME PAGE*/
@@ -83,7 +86,7 @@ body{
 }
 .top>div{
     float: right;
-    background-image: url("/img/exit.png");
+    background-image: url('/img/exit.png');
     background-repeat: no-repeat;
     background-position:left;
     width: 11%;
@@ -148,7 +151,7 @@ body{
     border: 1px solid #BFBFBF;
 }
 .content1 table img{
-    width: 20%;
+    width: 50px;
     float: right;
     margin-right: 50px;
 }
@@ -204,5 +207,37 @@ body{
     padding-top: 0;
 }
 /* END STUDENT PAGE HOME */
+<<<<<<< HEAD
 
 
+=======
+
+.find-job .panel-default>.panel-heading {
+    background-color: #87b5f2 !important;
+    color:#fff;
+}
+.find-job .btn-link-post{
+    margin: 0px;
+    border-radius: 0px !important;
+}
+.find-job .list-group {
+    margin: 10px 0 0 0;
+    padding:5px;
+    border: 1px solid #f7f2f2;
+}
+.find-job .glyphicon-triangle-right{
+    color: #727273 !important;
+    font-size: 12px !important;
+}
+.find-job .list-group-item a{
+    font-size: 13px !important;
+    font-weight:600;
+    color: #5c94bd;
+
+}
+.find-jo .pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    border-radius: 25px;
+    color: #fff !important;
+}
+/*END FIND JOB*/
+>>>>>>> e633cc90c3530706b517dfbbc9c829f07e04fd8a
