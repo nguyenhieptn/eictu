@@ -25,6 +25,9 @@ Route::group(['prefix' => 'dormitory'], function () {
 
         return 'ok';
     });
+    Route::get('/addST', function(){
+    	DB::table('students')->where('id', 4)->update(['code' =>'DTC125D4802010011']);
+    });
 
 });
 /*=== het Quan ly ky tuc xa======*/
