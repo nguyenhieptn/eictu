@@ -18,7 +18,7 @@
 
     <div class="row">
         <br><br><br><br>
-            <h2 style="margin-left: 200px;">Bạn không có quyền hạn để truy cập vào đường dẫn này. Xin mời logout và đăng nhập lại
+            <h2>Bạn không có quyền hạn để truy cập vào đường dẫn này. Xin mời logout và đăng nhập lại
                 <a href="{{ url('/logout') }}"
                    onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
@@ -55,8 +55,8 @@
         </h4>
     </div>
     <div class="col-lg-8 col-lg-offset-2">
-        <input type="hidden" class="chat-friend" value="<?php echo $id;?>"/>
-        <input type="text" disabled="disabled" class="chat-name" value="<?php echo $name;?>"/>
+        <input type="hidden" class="chat-friend" value="<?php echo $friend;?>"/>
+        <input type="hidden" disabled="disabled" class="chat-name" value="<?php echo $id;?>"/>
     </div>
 
     <div class="col-lg-8 col-lg-offset-2 chat-messages">

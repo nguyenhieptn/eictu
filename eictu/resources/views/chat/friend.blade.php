@@ -58,7 +58,6 @@
 
             }
             ?>
-            <a href="friendroom?id=DTC125D4802010198&friend=DTC125D4802010196" class="link"></a>
         </div>
 
 
