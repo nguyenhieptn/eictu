@@ -34,7 +34,7 @@ class TeacherController extends Controller
             $major = Major::select('*')->get()->toArray();
             return view('teacher.add', compact('major'));
          }elseif(Auth::user()->type == 2){
-            return redirect()->route('Teacher.index');
+            return redirect()->route('teacher.index');
          }else{
             return view('welcome');
          
