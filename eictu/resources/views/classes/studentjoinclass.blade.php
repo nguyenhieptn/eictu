@@ -1,7 +1,4 @@
-@extends('layouts.app')
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-		
-		<title>Quản Lý Lớp học - @yield('title')</title>
+@extends('layouts.app')		
 		
 		<link rel="stylesheet" type="text/css" 
 			href="{!! url('classes_src/css/bootstrap.min.css')!!}">
@@ -13,11 +10,12 @@
 		</script>
 		
 		<script src="{!! url('classes_src/js/classes.js')!!}"></script>
-@section('title')
-	Trang phân lớp cho sinh viên
-@endsection		
+	
+		@section('title')
+			Quản lý lớp học - Trang phân lớp cho sinh viên
+		@endsection		
 
-
+	
 @section('content')
 <div class="container">
 <script language="javascript">
@@ -46,33 +44,50 @@ function loadtable(_page)
 			html +='Nhấn vào tên sinh viên để thêm vào lớp {{ $_class->name }}';
 			html +='</td>';
 			html +='</tr>';			
-			 
+			html +=  '<tr>';
+			html +=  '<th>';
+			html +=  "STT";
+			html +=  '</th>';
+			html +=  '<th>';
+			html +=  "Mã ngành";
+			html +=  '</th>';
+			html +=  '<th>';
+			html +=  "Họ tên";
+			html +=  '</th>';
+			html +=  '<th>';
+			html +=  "Giới tính";
+			html +=  '</th>';
+			html +=  '<th class="col-md-8" colspan="8">';
+			html += 'Ngày sinh';
+			html +=  '</th>';
+			html +=  '</tr>';
+				
 			var i=0;
 			if( _page!=="")i= (parseInt(_page)-1)*rowperpage;
 			$(data['result']).each (function (key, item){
 				i++;
 				html +=  '<tr>';
-				html +=  '<th>';
+				html +=  '<td>';
 				html +=  i;
-				html +=  '</th>';
-				html +=  '<th>';
+				html +=  '</td>';
+				html +=  '<td>';
 				html +=  item['major_code'];
-				html +=  '</th>';
-				html +=  '<th><span value="';
+				html +=  '</td>';
+				html +=  '<td><span value="';
 				html +=  item['studentcode'];
-				html +='" class="htsvpl">';
+				html +='" class="htsvpl" title="Thêm sinh viên vào lớp">';
 				html +=  item['studentname'];
-				html +=  '</span></th>';
-				html +=  '<th>';
+				html +=  '</span></td>';
+				html +=  '<td>';
 				if(item['gender']=="0")
 					html +=  "Nữ";
 				else
 					html +=  "Nam";
-				html +=  '</th>';
-				html +=  '<th class="col-md-8" colspan="8">';
+				html +=  '</td>';
+				html +=  '<td class="col-md-8" colspan="8">';
 				var d=item['birthday'].split("-");							
 				html +=  d[2]+"/"+d[1]+"/"+d[0];
-				html +=  '</th>';
+				html +=  '</td>';
 				html +=  '</tr>';
 			});			 
 			html +=  '</table>';
@@ -116,6 +131,7 @@ $(document).on('click', '.htsvpl', function () {
 });
 </script>
 <div class="qllophoc_header">
+<!--
 	<header id="header" class="">
 		<div class="header-content">
 		<span class="title">
@@ -129,6 +145,7 @@ $(document).on('click', '.htsvpl', function () {
 		</span>
 		</div>
 	</header>
+	-->
 <!--
 	<table class="table" >
 		<tr>
@@ -140,7 +157,7 @@ $(document).on('click', '.htsvpl', function () {
 
 </div>
 <div class="qllophoc_content">
-	 Danh sách Sinh viên trúng tuyển chưa phân lớp.
+	 Danh sách sinh viên trúng tuyển chưa phân lớp.
 </div>
 	<input id = "tokenid" type=hidden name=_token value={{csrf_token()}} />	
 	<div class="dssv">	
@@ -153,7 +170,7 @@ $(document).on('click', '.htsvpl', function () {
 				<button type=submit 
 					onclick="location.href='
 					{{ 	route('classes.studentlist',$_class->id)}}'" 
-					style="color:white;background-color:black;padding:5px"	
+					class="btn btn-success"
 				>
 					ĐÓNG
 				</button>
