@@ -1,17 +1,16 @@
 
 @extends('layouts.app')
-
+@section('title')
+    <span>Đây là hệ sinh thái dành cho các trường đại học</span>
+    @endsection
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <link rel="stylesheet" type="text/css" href="{{url('quanlytruong/css/eICTuHomePage.css')}}">
-                    <div class="trangchu" >eICTuHomePage - Trang Chủ</div>
+                    <div class="trangchu" > Trang Chủ</div>
                     <div class="body">
-                        Đây là hệ sinh thái dành cho các trường đại học.
-                        <br/>
-                        <br/>
                         Nếu Bạn Là giáo viên, hãy chọn.
                         <br/>
                         <img class="image" src="{{url('quanlytruong/images/li.png')}}">

@@ -39,7 +39,7 @@
            eICTuSchoolAdminLogin - Quản Trị Viên
         </div>
         <div class="content1">
-            <form class="form-horizontal" role="form" method="POST" action="{{ url('schools/login') }}">
+            <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
             {{ csrf_field() }}
 
             <!-- <div class="form-group">
