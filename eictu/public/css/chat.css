@@ -25,10 +25,15 @@ button,
 input {
     font: 13px Arial, Helvetica, sans-serif;
 }
-
+#cla{
+    font-size: 18px;
+}
 #purple {
+    text-align: center;
     background-color: #9b09d6;
     color: #fff;
+    border: 2px solid #9209c9;
+    border-radius: 5px;
 }
 
 
@@ -80,4 +85,8 @@ ol li {
     margin-top:15px;
     margin-bottom:15px;
     font-size: 20px;
+}
+
+.radi{
+
 }
