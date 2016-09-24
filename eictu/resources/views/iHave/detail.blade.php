@@ -1,16 +1,13 @@
 @extends('layouts.app')
+@section('title')
+eICTuStudentGoodsDetail - Chi tiết về bản tin đồ cũ
+@endsection
 @section('content')
 	 <div class="container">
      <div class="row">
          <div class="col-md-12">
              <div class="panel panel-default">
-                 <div style="background:#026086; height:40px; padding: 8px;">
-                   <strong  style="color:#ffffff; font-size:20px; font-weight: 600px;">eICTuStudentGoodsDetail - Chi tiết về bản tin đồ cũ
-                        @if(!Auth::guest())
-                            <a  style="color:#ffffff; font-size:20px; font-weight: 600px;"href="{!! url('dormitory/logout') !!}" title="logout" class="pull-right">Logout</a>
-                        @endif
-                   </strong>
-                 </div>
+                 
                  <div class="panel-body">
                     <div class="entry-content">
                         <h4>Thông tin về đồ đạc:</h4>
@@ -23,7 +20,7 @@
                         </div>
 
                     </div>
-                    </hr>
+                    
                       <div class="entry-content">
                         <h4>Thông tin Sinh viên:</h4>
                           <ul>
@@ -37,5 +34,5 @@
              </div>
          </div>
      </div>
- </div>
+ </div></div>
 @endsection
