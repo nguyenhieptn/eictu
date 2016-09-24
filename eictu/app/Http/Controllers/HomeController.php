@@ -32,7 +32,7 @@ class HomeController extends Controller
             return view("schools.eICTuSchoolHomePage", compact('name'));
         }
 
-        if ($type == 2) return view('teacher.homepage');
+        if ($type == 2) return route('teacher.index');
         if ($type == 3){
             $data = Student::select('*')
                 ->where('code', '=', Auth::user()->username)
