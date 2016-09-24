@@ -22,8 +22,7 @@
 			<p>Khong ai them muon gi ca luon day !</p>
 		@endif 
 
-		@if($data->count()>15)
-			<div class="pagination pull-right">
+		<div class="pagination pull-right">
 	        <ul class="list-inline">
 	        @if($data->currentPage() != 1)
 	          <li><a href="{!! str_replace('/?','?',$data->url($data->currentPage()- 1)) !!}">Prev</a></li>
@@ -38,7 +37,6 @@
 	        @endif
 	        </ul>
 	    </div>
-		@endif	
 		   
 	  </div>
 	</div>

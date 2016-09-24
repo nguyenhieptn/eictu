@@ -17,12 +17,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     @yield('css')
     <style type="text/css" media="screen">
-        .pagination ul li{
+        /*.pagination ul li{
             padding: 3px 10px;
             margin: 3px;
             font-size: 20px;
             background: #bdc3c7;
-        }
+        }*/
     </style>
     <script>
         window.Laravel = <?php echo json_encode([
