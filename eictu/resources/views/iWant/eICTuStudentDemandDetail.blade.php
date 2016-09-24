@@ -29,8 +29,6 @@
 	      		}else{
 	      			echo "Không xác định được địa chỉ hiện tại của sinh viên";
 	      		}
-	     	
-
 	      ?>
 	      	</p>
 	      
