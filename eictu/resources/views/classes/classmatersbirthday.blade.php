@@ -1,9 +1,24 @@
-@extends('classes.main')
+@extends('layouts.app')
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		
+		<title>Quản Lý Lớp học - @yield('title')</title>
+		
+		<link rel="stylesheet" type="text/css" 
+			href="{!! url('classes_src/css/bootstrap.min.css')!!}">
+			
+		<link rel="stylesheet" type="text/css" 
+			href="{!! url('classes_src/css/classes.css')!!}">	
+			
+		<script src="{!! url('classes_src/js/jquery.min.js')!!}">
+		</script>
+		
+		<script src="{!! url('classes_src/js/classes.js')!!}"></script>
 @section('title')	
 		Sinh nhật bạn cùng lớp 	
 @endsection		
 
 @section('content')
+<div class="container">
 <div class="qllophoc_header">
 	<header id="header" class="">
 		<div class="header-content">
@@ -55,6 +70,7 @@
 		</table>	
 
    </div>
+</div>
 </div>
 @endsection			
 

@@ -71,8 +71,11 @@ class FindJobController extends Controller
     public function getDetail($id)
     {
         $code = DB::table('users')->where('id',$id)->get()->first();
-        $detail = DB::table('searchjobs')->where('id',$id)->get()->first();
-        $student = DB::table('students')->where('code',$code->username)->get()->first();
+        // var_dump($code);
+
+         $detail = DB::table('searchjobs')->where('id',$id)->get()->first();
+         $student = DB::table('students')->where('code',$code->username)->get()->first();
+        // var_dump($student);
         return view('findjob.detail', compact('detail','student'));
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDormitoriesTable extends Migration
+class CreateDromitoryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,14 +14,14 @@ class CreateDormitoriesTable extends Migration
     public function up()
     {
         //
-        Schema::create('dormitories', function (Blueprint $table) {
+        Schema::create('dormitories', function(Blueprint $table){
             $table->increments('id');
-            $table->string('building');
-            $table->integer('room');
             $table->integer('student_id')->unsigned();
             $table->foreign('student_id')->references('id')->on('students');
-            $table->integer('area_id')->unsigned();
-            $table->foreign('area_id')->references('id')->on('areas');
+            $table->integer('school_id')->unsigned();
+            $table->foreign('school_id')->references('id')->on('schools');
+            $table->string('building');
+            $table->string('room');
             $table->date('start_on');
             $table->timestamps();
         });

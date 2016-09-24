@@ -28,8 +28,10 @@ class HomeController extends Controller
         $type = Auth::user()->type;
         $name = Auth::user()->name;
         if ($type == 1) return view('home');
-        if($type==2)        return redirect()->route('teacher.index');
-       
+
+        if ($type == 2) return view('teacher.homepage');
+        if ($type == 3) {
+
        
         if($type==3)
         {

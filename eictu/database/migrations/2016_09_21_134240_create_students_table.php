@@ -19,8 +19,12 @@ class CreateStudentsTable extends Migration
             $table->string('code')->unique();
             $table->string('name');
             $table->boolean('gender');
-            $table->dateTime('birthday');
+            $table->date('birthday');
+<<<<<<< HEAD
+            $table->integer('major_id');
+=======
             $table->integer('major_id')->nullable();
+>>>>>>> 20ecedd53f2916d2343ccb50cebb539d0c601484
             $table->integer('class_id')->nullable();
             $table->integer('school_id')->unsigned();
             $table->foreign('school_id')->references('id')->on('schools');

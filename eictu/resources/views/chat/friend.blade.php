@@ -1,10 +1,22 @@
 @extends('/layouts/app')
 @section('content')
 
+
+
     <div class="row">
 
-        <div class="col-lg-6 col-lg-offset-2" id="purple">
-            <h4>eICTuChatFriend - Tìm bạn để Chat</h4>
+        <div class="col-lg-8 col-lg-offset-2" id="purple">
+            <h4>eICTuChatFriend - Tìm bạn để Chat
+                <a style="float:right;" href="{{ url('/logout') }}"
+                   onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                    Logout
+                </a>
+
+                <form id="logout-form" action="{{ url('/logout') }}" method="POST">
+                    {{ csrf_field() }}
+                </form>
+            </h4>
         </div>
 
         <div class="col-lg-10 col-lg-offset-2">
@@ -16,7 +28,7 @@
         </div>
 
         <form action="{{ url("chat/friend")}}" method="post">
-            <div class="col-lg-3">
+            <div class="col-lg-4">
                 <input class="form-control input-lg" id="inputlg" name="message" type="text"
                        placeholder="Nhập mã sinh viên cần CHAT" onclick="myFunction()">
 
@@ -41,7 +53,7 @@
                     $name = $student->name;
                     $code = $student->code;
                     $id = $data["user_id"];
-                    echo "<a href='friendroom?id=$id&friend=$code'>$name</a>";
+                    echo "<h3><a href='friendroom?id=$id&friend=$code'>$name</a></h3>";
                 }
 
             }

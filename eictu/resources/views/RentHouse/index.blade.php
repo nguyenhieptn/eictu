@@ -28,7 +28,7 @@
     </div>
     <div class="row">
         <div class="col-sm-12">
-            <a STYLE="color:#000;" href="{{"rentHouse/create"}}"><h3 class="redirect"><i class="glyphicon glyphicon-star"></i>SINH VIÊN CẬP NHẬT NHÀ TRỌ</h3></a>
+            <a STYLE="color:#000;" href="{{"rentHouse/create"}}"><h3 class="redirect"><i class="glyphicon glyphicon-star">&nbsp;</i>SINH VIÊN CẬP NHẬT NHÀ TRỌ</h3></a>
         </div>
     </div>
       <div class="row">
@@ -57,7 +57,8 @@
                     if(isset($data)){
                         foreach($data as $item){
                             $date = new DateTime($item->date_join);
-                            echo "<li class='list-group-item ' style=' color:red '><i class='glyphicon glyphicon-triangle-right' style='color:#8c8c8c'> &nbsp;</i>".$date->format('d/m/Y').", ".$item->hostess.", ".$item->address."</li>";
+                            echo "<li class='list-group-item ' style=' color:red '>
+                                <i class='glyphicon glyphicon-triangle-right' style='color:#8c8c8c'> &nbsp;</i>".$date->format('d/m/Y').", ".$item->hostess.", ".$item->address."</li>";
                             }
                             echo "<center>".$data->appends(Request::only('code'))->links()."</center>";
                         }

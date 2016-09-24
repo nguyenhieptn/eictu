@@ -4,7 +4,9 @@
      <div class="row">
          <div class="col-md-12">
              <div class="panel panel-default">
-                 <div class="panel-heading">eICTuStudentJobDetail - Bản tin tìm việc chi tiết của sinh viên</div>
+                 <div class="panel-heading">eICTuStudentJobDetail - Bản tin tìm việc chi tiết của sinh viên 
+                 <span class="pull-right"> <a href="{{ url('/logout') }}">Logout</a></span>
+                 </div>
                  <div class="panel-body">
                     <div class="entry-content">
                         <h4>Nội dung bản tin của sinh viên:</h4>

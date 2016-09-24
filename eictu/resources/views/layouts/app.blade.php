@@ -52,27 +52,14 @@
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
-            <ul class="nav navbar-nav">
-                <li><a href="{{ url('schools') }}"> Schools</a></li>
-                <li><a href="{{ url('classes') }}"> Classes</a></li>
-                <li><a href="{{ url('student') }}"> Student </a></li>
-                <li><a href="{!! route('teacher.login') !!}"> Teacher </a></li>
-                <li><a href="{{ url('major') }}"> Major </a></li>
-                <li><a href="{{ url('dormitory/search') }}">Dormitory</a></li>
-                <li><a href="{{ url('rentHouse') }}">Rent House</a></li>
-                <li><a href="{{ url('iHave') }}">I Have</a></li>
-                <li><a href="{{ url('findjob/index') }}">Find Job</a></li>
-                <li><a href="{{route('iwant.search')}}">I Want</a></li>
-                <li><a href="{{url('iHave')}}">I Have</a></li>
 
-            </ul>
+
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href="{{ url('/login') }}">Login</a></li>
-                    <li><a href="{{ url('/register') }}">Register</a></li>
+
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -80,13 +67,6 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <a href="{{ url('/logout') }}"
-                                   onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
-                                    Logout
-                                </a>
-
                                 <form id="logout-form" action="{{ url('/logout') }}" method="POST"
                                       style="display: none;">
                                     {{ csrf_field() }}
@@ -103,7 +83,7 @@
 @yield('content')
 <script src="{{ url("/js/app.js") }}"></script>
 <!-- <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script> -->
-<!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></scrip -->
+<!-- <script src="http://maxcdn.bootstrapcdn.com/bootstit rap/3.3.1/js/bootstrap.min.js"></scrip -->
 
 </body>
 </html>
