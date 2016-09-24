@@ -123,10 +123,16 @@ class StudentController extends Controller
         return redirect()->back();
     }
 
+    public  function deleteall()
+    {
+        DB::table('users')->where('type', '=', 3)->delete();
+        DB::table('students')->delete();
+
+        return redirect()->back();
+    }
     public function impost()
     {
 
-        DB::table('students')->delete();
 
 
         $userid= Auth::user()->id;
@@ -279,8 +285,6 @@ class StudentController extends Controller
         DB::table('students')->insert(['code' =>'DTC125D4802010242', 'name' => 'Nguyễn Hải Yến','gender' => '1','birthday' => '1994/02/02','school_id'=>$school_id]);
         DB::table('students')->insert(['code' =>'DTC125D4802010234', 'name' => 'Nguyễn Thị Yến','gender' => '0','birthday' => '1993/03/12','school_id'=>$school_id]);
         DB::table('students')->insert(['code' =>'DTC1151200663', 'name' => 'Phạm Hải Yến','gender' => '1','birthday' => '1993/03/14','school_id'=>$school_id]);
-
-        DB::table('users')->where('id', '>', 1)->delete();
 
 
         DB::table('users')->insert(['email' =>'DTC125D4802010062@ictu.edu.vn', 'username' => 'DTC125D4802010062','password' => bcrypt('DTC125D4802010062'),'type' => '3','name'=>'Bùi Ngọc Hoàng Anh']);
