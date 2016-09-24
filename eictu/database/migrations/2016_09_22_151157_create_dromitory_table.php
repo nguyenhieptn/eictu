@@ -18,8 +18,8 @@ class CreateDromitoryTable extends Migration
             $table->increments('id');
             $table->integer('student_id')->unsigned();
             $table->foreign('student_id')->references('id')->on('students');
-            $table->integer('school_id')->unsigned();
-            $table->foreign('school_id')->references('id')->on('schools');
+            $table->integer('area_id')->unsigned();
+            $table->foreign('area_id')->references('id')->on('areas');
             $table->string('building');
             $table->string('room');
             $table->date('start_on');
