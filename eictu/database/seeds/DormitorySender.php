@@ -39,13 +39,14 @@ class DormitorySender extends Seeder
         	'class_id'=>1,
         	'school_id'=>1
         	]);*/
-         DB::table('dormitories')->insert([
+         /*DB::table('dormitories')->insert([
         	'student_id'=> 1,
         	'area_id'=> 1,
         	'building'=> 'A10',
         	'room'=> 195,
         	'start_on' => '2012/02/02',
         	'end_on'=> '2013/01/01'
-        	]);
+        	]);*/
+       
     }
 }

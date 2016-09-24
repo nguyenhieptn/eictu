@@ -91,3 +91,20 @@ $factory->define(App\FindJob::class, function (Faker\Generator $faker) {
         'student_id' => rand(1,10)
     ];
 });
+
+$factory->define(App\Area::class, function (Faker\Generator $faker) {
+
+    return [
+        'name' => 'Khu '.rand(1, 10),
+    ];
+});
+$factory->define(App\Dormitory::class, function (Faker\Generator $faker) {
+
+    return [
+        'building' => 'A '.rand(1, 10),
+        'room' => rand(1, 100),
+        'student_id' => rand(1, 10),
+        'area_id' => rand(1, 10),
+        'start_on' => '2012/09/01',
+    ];
+});
