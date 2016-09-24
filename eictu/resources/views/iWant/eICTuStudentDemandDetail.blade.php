@@ -20,17 +20,24 @@
 	     
 	      <p>Địa chỉ:  
 	      		<?php 
-	      		if (isset($address) || isset($address2)) {
-	      			if (strtotime($address->date_join) > strtotime($address2->start_on)) {
-	            	echo " Xóm trọ ông/bà :".$address->hostess." , ".$address->address;
-		          }else{
-		          	$area = DB::table('areas')->where('id', $address2->area_id)->first();
-		          	echo  "Phòng số :".$address2->room." , Tòa nhà :".$address2->building." , Khu :".$area->name;
-		          }
-	      			
+
+	      		if (isset($address)) {
+	      			echo " Xóm trọ ông/bà :".$address->hostess." , ".$address->address;
+	      		}elseif (isset($address2)) {
+	      			echo  "Phòng số :".$address2->room." , Tòa nhà :".$address2->building." , Khu :".$area->name;
 	      		}else{
 	      			echo "Không xác định được địa chỉ hiện tại của sinh viên";
 	      		}
+	      		
+	      		// if (isset($address) || isset($address2)) {
+	      		// 	if (strtotime($address->date_join) > strtotime($address2->start_on)) {
+	        //     	echo " Xóm trọ ông/bà :".$address->hostess." , ".$address->address;
+		       //    }else{
+		       //    	$area = DB::table('areas')->where('id', $address2->area_id)->first();
+		       //    	echo  "Phòng số :".$address2->room." , Tòa nhà :".$address2->building." , Khu :".$area->name;
+		       //    }
+	      			
+	      		
 	      ?>
 	      	</p>
 	      
