@@ -33,7 +33,7 @@
 	      	</p>
 	      
 	      <hr>
-	      <a href="{{route('iwant.search')}}" title="ĐÓng" class="btn btn-danger">Đóng</a>
+	      <a href="{{route('iwant.search')}}" title="ĐÓng" class="btn btn-danger" style="color: white;">Đóng</a>
 	    </div> 
 	@endif    
   </div>
