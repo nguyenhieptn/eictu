@@ -21,7 +21,7 @@ class RentHouseController extends Controller
         $student_id = DB::table('students')->where('code', $code)->value('id');
         $data = DB::table('motels')->where('student_id', $student_id)->orderBy('date_join', 'desc')->paginate(5);
         $name=DB::table('students')->where('code', $code)->value('name');
-        return view("rentHouse.index", ['data' => $data,'name'=>$name]);
+        return view("RentHouse.index", ['data' => $data,'name'=>$name]);
     }
 
     public function create(){
@@ -34,7 +34,7 @@ class RentHouseController extends Controller
             $code = auth()->user()->username;
             $student_id = DB::table('students')->where('code',$code)->value('id');
             $data = DB::table('motels')->where('student_id', $student_id)->orderBy('date_join', 'desc')->paginate(5);
-            return view("rentHouse.create", ['data' => $data]);
+            return view("RentHouse.create", ['data' => $data]);
         }else{
             echo '<script> alert("Bạn không phải là sinh viên");
                 window.history.back();
@@ -63,6 +63,6 @@ class RentHouseController extends Controller
         $renthouse->date_join=$data['date_join'];
         $renthouse->save();
         $data=DB::table('motels')->where('student_id',$student_id) ->orderBy('date_join', 'desc')->paginate(5);
-        return view("rentHouse.create",['data'=>$data]);
+        return view("RentHouse.create",['data'=>$data]);
     }
 }

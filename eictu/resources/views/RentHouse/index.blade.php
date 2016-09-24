@@ -1,20 +1,3 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Admin
- * Date: 20/09/2016
- * Time: 8:48 SA
- */
- ?>
- <?php
- /**
-  * Created by PhpStorm.
-  * User: Admin
-  * Date: 19/09/2016
-  * Time: 11:41 CH
-  */
-
-  ?>
   @extends('layouts.app')
 
   @section('content')
@@ -26,11 +9,20 @@
             @endif
         </strong>
     </div>
+    <?php
+    if(Auth::guest()){
+
+    }
+    elseif(auth()->user()->type==3){
+      ?>
     <div class="row">
         <div class="col-sm-12">
             <a STYLE="color:#000;" href="{{"rentHouse/create"}}"><h3 class="redirect"><i class="glyphicon glyphicon-star">&nbsp;</i>SINH VIÊN CẬP NHẬT NHÀ TRỌ</h3></a>
         </div>
     </div>
+    <?php
+    }
+      ?>
       <div class="row">
           <div class="col-md-12">
               <div class="panel panel-default">
@@ -49,9 +41,9 @@
                     </form>
                   </div>
               </div>
-              <div class="container">
-                <strong>Kết quả tìm kiếm: </strong><strong style="color:#c7254e;"><?php echo $name; ?></strong>
+              <div class="panel panel-default">
                 <ul class="list-group">
+                <li class='list-group-item active'><strong style="font-size:18px;">Kết quả tìm kiếm: <?php echo $name; ?></strong></li>
                  <?php
                     $stt=1;
                     if(isset($data)){
