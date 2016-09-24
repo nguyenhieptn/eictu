@@ -8,16 +8,12 @@
 
  ?>
  @extends('layouts.app')
+@section('title')
+eICTuStudentRentHouseSearch - Sinh viên khai báo nhà trọ
+@endsection
 
  @section('content')
  <div class="container">
-    <div style="background:#cc5200; height:40px; padding: 8px;">
-        <strong  style="color:#ffffff; font-size:20px; font-weight: 600px;">eICTuStudentRentHouseSearch - Sinh viên Khai báo nhà trọ
-            @if(!Auth::guest())
-                <a  style="color:#ffffff; font-size:20px; font-weight: 600px;"href="{!! url('dormitory/logout') !!}" title="logout" class="pull-right">Logout</a>
-            @endif
-        </strong>
-    </div>
      <div class="row">
          <div class="col-md-12">
              <div class="panel panel-default">
@@ -54,19 +50,6 @@
                      </form>
                  </div>
              </div>
-             <div class="panel panel-default">
-               <ul class="list-group">
-               <li class='list-group-item active'><strong>Thông tin của bạn</strong></li>
-               <?php
-                 $stt=1;
-                 foreach($data as $item){
-                     $date = new DateTime($item->date_join);
-                     echo "<li class='list-group-item ' style=' color:red '><i class='glyphicon glyphicon-triangle-right' style='color:#8c8c8c'> &nbsp;</i>".$date->format('d/m/Y').", ".$item->hostess.", ".$item->address."</li>";
-                 }
-                 echo "<center>".$data->links()."</center>";
-               ?>
-               </ul>
-           </div>
          </div>
      </div>
  </div>
