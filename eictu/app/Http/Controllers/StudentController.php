@@ -42,28 +42,6 @@ class StudentController extends Controller
                 return redirect()->back()->with('global', 'Xin lỗi! bạn không phải sinh viên.');
         }
         return redirect()->back()->with('global', ' Tên đăng nhập hoặc mật khẩu không đúng.');
-//        $user= User::select('*')->where('username','=',$username)->get()->first();
-//        if($user!= null && $user->type == 3)
-//        {
-//            if($user->password == bcrypt($password))
-//            {
-//                $data = Student::select('*')
-//                    ->where('code','=',$user()->username)
-//                    ->get()->first();
-//                $classid=$data->class_id;
-//                $name= $user()->name;
-//                return view("students.studentHomepage", compact('name','classid'));
-//            }
-//            else
-//                echo "Fail 1 : user - ".$username." ; pass_use : ".$user->password." ; pass :".bcrypt($password);
-//        }
-//            else
-//                echo "Fail2";
-////        if (auth()->attempt(['username' => $username, 'password' => $password])) {
-////            $this->index();
-////        }
-////        else echo "fail";
-////        return redirect()->back()->with('global', 'Login Fail');
     }
 
     public function index()
@@ -73,12 +51,7 @@ class StudentController extends Controller
 //        $type = Auth::user()->type;
         if($type==1) {
             $data = Student::select('*')->get();
-            // return view('iWant.eICTuStudentDemandSearch', compact('data'));
-//        DB::table('users')
-//            ->join('contacts', 'users.id', '=', 'contacts.user_id')
-//            ->join('orders', 'users.id', '=', 'orders.user_id')
-//            ->select('users.id', 'contacts.phone', 'orders.price')
-//            ->get();
+
             $stt = 1;
             return view("students.index", compact('data', 'stt'));
         }
@@ -143,13 +116,5 @@ class StudentController extends Controller
            $user->save();
            return redirect("student");
        }
-       // create acount
-       // $user=new User();
-       // $user->email        = $data['code']."@ictu.edu.vn";
-       // $user->username     = $data['code'];
-       // $user->password     = $data['code'];
-       // $user->type         = 3;
-       // $user->name         = $data['name'];
-       // $user->save();
     }
 }
