@@ -46,23 +46,25 @@ class StudentController extends Controller
 
     public function index()
     {
-        $type = auth()->user()->type;
+        if(!Auth::guest()) {
+            $type = auth()->user()->type;
 
 //        $type = Auth::user()->type;
-        if($type==1) {
-            $data = Student::select('*')->get();
+            if ($type == 1) {
+                $data = Student::select('*')->get();
 
-            $stt = 1;
-            return view("students.index", compact('data', 'stt'));
-        }
-        else if($type==3)
-        {
-            $data = Student::select('*')
-            ->where('code','=',Auth::user()->username)
-            ->get()->first();
-            $classid=$data->class_id;
-            $name= Auth::user()->name;
-            return view("students.studentHomepage", compact('name','classid'));
+                $stt = 1;
+                return view("students.index", compact('data', 'stt'));
+            } else if ($type == 3) {
+                $data = Student::select('*')
+                    ->where('code', '=', Auth::user()->username)
+                    ->get()->first();
+                $classid = $data->class_id;
+                $name = Auth::user()->name;
+                return view("students.studentHomepage", compact('name', 'classid'));
+            }
+        }else{
+            return redirect('students/login');
         }
     }
 
@@ -114,5 +116,10 @@ class StudentController extends Controller
            $user->save();
            return redirect("student");
        }
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect()->back();
     }
 }
