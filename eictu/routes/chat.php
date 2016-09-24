@@ -15,4 +15,8 @@ Route::get('chat/friend','ChatController@friend');
 
 Route::post('chat/friend', 'ChatController@search');
 
+Route::get('chat/classrooms','ChatController@classroom');
+
+Route::get('chat/friends','ChatController@friends');
+
 Route::get('chat/{slug}','ChatController@page');
