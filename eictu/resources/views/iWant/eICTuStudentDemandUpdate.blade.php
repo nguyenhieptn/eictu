@@ -2,23 +2,22 @@
 
 @section('content')
 <div class="container">
-@if(Auth::check() && Auth::user()->type ==3)
-    <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-xs-12">
-      <form action="{{route('iwant.status')}}" role="form" method="post" accept-charset="utf-8">
-        <input type="hidden" name="_token" value="{{Session::token()}}">
-        <div class="form-group {{$errors->has('content')? ' has-error': ''}}">
-          <textarea placeholder="Bạn muốn gì, mọi người sẽ đáp ứng !" name="content" class="form-control" rows="3"></textarea>
-        </div>
-        <button type="submit" class="btn btn-default">Đăng Tin</button>    
-      </form>
-      <hr>
-    </div>
-  </div>
-@endif  
+
+
   <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 ">
-      <h4>Hiện có các lời kêu gọi/yêu cầu sau đây, mời bạn xem và trợ giúp nếu có thể:</h4>
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Login</div>
+                <div class="panel-body">
+                  <form action="{{route('iwant.status')}}" role="form" method="post" accept-charset="utf-8">
+                    <input type="hidden" name="_token" value="{{Session::token()}}">
+                    <div class="form-group {{$errors->has('content')? ' has-error': ''}}">
+                      <textarea placeholder="Bạn muốn gì, mọi người sẽ đáp ứng !" name="content" class="form-control" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-default">Đăng Tin</button>    
+                  </form>
+                  <hr>
+                     <h4>Hiện có các lời kêu gọi/yêu cầu sau đây, mời bạn xem và trợ giúp nếu có thể:</h4>
       <hr>
       @if($data)
         @foreach($data as $want)
@@ -45,8 +44,12 @@
           @endif
           </ul>
       </div>
-       
+
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
+
+
 @endsection
