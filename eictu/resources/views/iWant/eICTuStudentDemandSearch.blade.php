@@ -4,7 +4,7 @@
 <div class="container">
 	<div class="row">
     	<div class="col-xs-6">
-    		<h3><a href="{{route('iwant.status')}}" title="" style="color: #e74c3c;">SINH VIÊN CẦN TRỢ GIÚP KHẨN CẤP</a></h3>
+    		<h3><span class="glyphicon glyphicon-hand-up" style="color: #e67e22;">&nbsp;</span><a href="{{route('iwant.status')}}" title="" style="color: #e74c3c;">SINH VIÊN CẦN TRỢ GIÚP KHẨN CẤP</a></h3>
     	</div>
   	</div>
   	<hr>
