@@ -7,7 +7,7 @@
                  <div class="panel-heading">Bản tin tìm việc chi tiết của sinh viên</div>
                  <div class="panel-body">
                     <div class="entry-content">
-                        <h5>Nội dung bản tin của sinh viên:</h5>
+                        <h4><strong>Nội dung bản tin của sinh viên: </strong></h4>
                         <p>{{$detail->content }}</p>
                     </div>
                     </hr>

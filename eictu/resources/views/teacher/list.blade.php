@@ -30,7 +30,7 @@
                                         <td>{{ $item_teacher->code }}</td>
                                         <td>{{ $item_teacher->name }}</td>
                                         <td>
-                                        	<?php 
+                                        	<?php
                                         		$major_name = DB::table('majors')->where('id',$item_teacher->major_id )->first();
                                         	 ?>
                                         	 {{$major_name->name}}

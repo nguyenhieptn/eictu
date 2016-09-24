@@ -98,5 +98,6 @@ class DormitoryController extends Controller
     public function logout(){
         Auth::logout();
         return redirect('/');
+        return view('schools.eICTuHomePage');
     }
 }
