@@ -51,7 +51,7 @@
                 </tr>
                 <tr>
                     <td><img width="50" src="{{url('/img/rightarrow.png')}}"/></td>
-                    <td><a href="#">Giáo viên</a></td>
+                    <td><a href="{{route('teacher.login')}}">Giáo viên</a></td>
                     <td></td>
                 </tr>
 

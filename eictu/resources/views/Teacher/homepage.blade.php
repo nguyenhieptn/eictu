@@ -24,6 +24,7 @@
       $teacher = DB::table('teachers')->select('name')->where('code', Auth::user()->username)->first();
      ?>
 
+       
      @if( $teacher)
       <h2>Giảng viên :{{$teacher->name}}</h2>
       <ul style="list-style: none; font-size: 20px;">
@@ -32,6 +33,7 @@
       <li><span class="glyphicon glyphicon-play" style="color: #2c3e50;">&nbsp;</span><a href="{{url('/chat/classlist')}}" title="" >Chat với lớp</a></li>
     </ul>
      @endif
+
     
     </div>
     

@@ -1,4 +1,4 @@
-﻿@extends('classes.main')
+@extends('classes.main')
 
 @section('title')
 	
@@ -11,7 +11,14 @@
 <div class="qllophoc_header">
 	<header id="header" class="">
 		<div class="header-content">
-			<span class="title">eICTUclassstudentList - Sinh viên trong lớp học</span>
+			<span class="title">eICTUclassstudentList - Sinh viên trong lớp học
+				@if(!Auth::guest())
+						<span class="pull-right">
+							<img src="{!! url('classes_src/images/logout.png')!!}" />
+							<a href="{{ route('classes.logout')}}">Logout</a>
+						</span>
+					@endif
+			</span>
 		</div>
 	</header>
 	<!--

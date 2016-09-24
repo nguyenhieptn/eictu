@@ -24,8 +24,8 @@
 			        </ul>
 			    </div>
 			@endif
-			@if(isset($msg))
-				<div class="alert alert-success">{!! $msg !!}</div>
+			@if(Session::has('msg'))
+				<div class="alert alert-success">{!! Session::get('msg') !!}</div>
 			@endif
 			<div class="box">
 				<form action="{!! url('dormitory/update')!!}" method="post" id="fUpdate" class="form-horizontal" accept-charset="utf-8">
@@ -52,4 +52,5 @@
 		</div>
 	</div>
 </div>
+
 @endsection

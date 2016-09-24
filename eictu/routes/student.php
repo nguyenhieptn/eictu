@@ -11,6 +11,7 @@ Route::get('/student','StudentController@index');
 Route::get('student/create','StudentController@create');
 Route::post('students','StudentController@store');
 Route::get('student/login','StudentController@vLogin');
+Route::post('student/login','StudentController@login');
 /* end student section */
 
 ?>

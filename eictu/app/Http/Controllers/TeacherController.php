@@ -16,6 +16,10 @@ class TeacherController extends Controller
     public function index(){
     	// $teacher = Teacher::select('name')->where('code', Auth::user()->username)->first();
        
+
+          return view('teacher.homepage');
+       
+
           // return view('teacher.homepage');
         if ( Auth::user()->type <= 2) {
             return view('teacher.homepage');
@@ -33,8 +37,8 @@ class TeacherController extends Controller
             return redirect()->route('teacher.index');
          }else{
             return view('welcome');
-         }
          
+        }
     }
 
 

@@ -4,7 +4,7 @@
 <div class="container">
 	<div class="row">
     	<div class="col-xs-6">
-    		<h3><a href="{{route('iwant.status')}}" title="" style="color: #e74c3c;">SINH VIÊN CẦN TRỢ GIÚP KHẨN CẤP</a></h3>
+    		<h3><span class="glyphicon glyphicon-hand-up" style="color: #e67e22;">&nbsp;</span><a href="{{route('iwant.status')}}" title="" style="color: #e74c3c;">SINH VIÊN CẦN TRỢ GIÚP KHẨN CẤP</a></h3>
     	</div>
   	</div>
   	<hr>
@@ -22,8 +22,7 @@
 			<p>Khong ai them muon gi ca luon day !</p>
 		@endif 
 
-		@if($data->count()>15)
-			<div class="pagination pull-right">
+		<div class="pagination pull-right">
 	        <ul class="list-inline">
 	        @if($data->currentPage() != 1)
 	          <li><a href="{!! str_replace('/?','?',$data->url($data->currentPage()- 1)) !!}">Prev</a></li>
@@ -38,7 +37,6 @@
 	        @endif
 	        </ul>
 	    </div>
-		@endif	
 		   
 	  </div>
 	</div>
