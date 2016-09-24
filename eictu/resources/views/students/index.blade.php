@@ -9,6 +9,7 @@
                     <div class="panel-body">
                         <a href="{{ url('student/create') }}">THÊM SINH VIÊN VÀO TRƯỜNG</a>
 
+                        <a href="{{ url('student/impost') }}">import sinh viên</a>
                         <h2>Danh sách sinh viên toàn trường</h2>
                         <table class="table">
                             <thead>
@@ -36,6 +37,7 @@
 
                             </tbody>
                         </table>
+                        {!! $data->render() !!}
                     </div>
                 </div>
             </div>
