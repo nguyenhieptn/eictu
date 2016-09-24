@@ -28,9 +28,7 @@ Route::group(['prefix' => 'ktx'], function(){
 
 Auth::routes();
 Route::get('/home', 'HomeController@index');
-
-
-
+// Route::get('/logout','Auth\LoginController@inde');
 require_once("iwant.php");
 require_once("classes.php");
 require_once("school.php");

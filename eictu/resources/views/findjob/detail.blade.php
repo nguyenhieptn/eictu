@@ -4,10 +4,10 @@
      <div class="row">
          <div class="col-md-12">
              <div class="panel panel-default">
-                 <div class="panel-heading"><center>Bản tin tìm việc chi tiết của sinh viên </center></div>
+                 <div class="panel-heading">Bản tin tìm việc chi tiết của sinh viên</div>
                  <div class="panel-body">
                     <div class="entry-content">
-                        <h4>Nội dung bản tin của sinh viên:</h4>
+                        <h5>Nội dung bản tin của sinh viên:</h5>
                         <p>{{$detail->content }}</p>
                     </div>
                     </hr>
@@ -26,7 +26,10 @@
                           </ul>
                       </div>
                      <div style="margin-top: 30px">
-                         <center><span  class="btn btn-default"> <a href="{{ url('findjob/index') }}"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>  ĐÓNG</a></span></center>
+                     <form action="{{ url('findjob/index') }}">
+                        <center><Button class="btn btn-danger"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>  ĐÓNG</a></Button></center>
+                     </form>
+                         
                      </div>
              </div>
          </div>
