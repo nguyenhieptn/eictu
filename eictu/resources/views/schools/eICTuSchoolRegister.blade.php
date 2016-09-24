@@ -34,7 +34,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-sm-2" for="taikhoan">Tên Tài Khoản(Email):</label>
+                                <label class="control-label col-sm-2" for="taikhoan">Tên Tài Khoản:</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="taikhoan" name="taikhoan" placeholder="Tên Tài Khoản">
                                 </div>

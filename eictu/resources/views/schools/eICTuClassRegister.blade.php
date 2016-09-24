@@ -6,7 +6,12 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <link rel="stylesheet" type="text/css" href="{!! url('quanlytruong/css/trangthanhvien.css')!!}">
-                    <div class="thanhvien">eICTuClassRegister - Khai Báo Lớp Học</div>
+                    <div class="thanhvien">eICTuClassRegister - Khai Báo Lớp Học    <a style=" padding-left:560px;font-size: 18px; color: #FFFFFF;" href="{{ url('/logout') }}"
+                                                                                       onclick="event.preventDefault();
+                                                                                       document.getElementById('logout-form').submit();">
+                                                            Logout
+                                                        </a>
+                    </div>
                     <div class="panel-body">
                         Hãy Nhập đủ thông tin cho lớp học mới vào mẫu sau:
                         <form action="{{ url("schools/dangkylop")}}" method="post" class="form-horizontal">

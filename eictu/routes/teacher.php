@@ -1,6 +1,6 @@
 <?php 
-
-    Route::group(['prefix' => 'teacher', 'middleware'=>'auth'], function () {
+//, 'middleware'=>'auth'
+    Route::group(['prefix' => 'teacher'], function () {
 
     Route::get('eICTuTeacherHomePage', [
         "uses" => "TeacherController@index",
@@ -18,6 +18,11 @@
     Route::get('eICTuTeacherList', [
         "uses" => "TeacherController@getList",
         "as"   => "teacher.list",
+    ]);
+
+    Route::get('eICTuTeacherLogin', [
+        "uses" => "TeacherController@getLogin",
+        "as"   => "teacher.login",
     ]);
 
 });

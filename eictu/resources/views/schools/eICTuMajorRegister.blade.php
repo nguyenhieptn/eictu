@@ -6,13 +6,14 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <link rel="stylesheet" type="text/css" href="{!! url('quanlytruong/css/trangthanhvien.css')!!}">
-                    <div class="thanhvien">eICTuMajorRegister - Khai Báo Ngành Học Mới</div>
+                    <div class="thanhvien">eICTuMajorRegister - Khai Báo Ngành Học Mới        <a style=" padding-left:500px;font-size: 18px; color: #FFFFFF;" href="{{ url('/logout') }}"
+                                                                                                 onclick="event.preventDefault();
+                                                                                       document.getElementById('logout-form').submit();">
+                                                                                         Logout
+                                                                                             </a>
+                    </div>
                     <div >
-                        <a href="{{ url('/logout') }}"
-                           onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
-                            Logout
-                        </a>
+
 
                         <form id="logout-form" action="{{ url('/logout') }}" method="POST"
                               style="display: none;">

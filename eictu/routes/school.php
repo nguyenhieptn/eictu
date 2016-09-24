@@ -7,10 +7,11 @@
  */
 
 /* school section */
-Route::get('schools','SchoolController@eICTuHomePage');
-Route::get('schools/eICTuSchoolRegister','SchoolController@eICTuSchoolRegister');
-Route::post('schools/rgm','SchoolController@add');
-Route::post('schools/login','SchoolController@dangnhap');
+Route::get('/schools','SchoolController@index');
+Route::get('/schools/eICTuSchoolRegister','SchoolController@eICTuSchoolRegister');
+Route::post('schools/rgm','SchoolController@newstore');
+Route::get('/schools/login','SchoolController@vlogin');
+Route::post('schools/login','SchoolController@login');
 Route::get('schools/eICTuSchoolAdminLogin','SchoolController@eICTuSchoolAdminLogin');
 Route::get('schools/eICTuMajorList','SchoolController@eICTuMajorList');
 Route::get('schools/eICTuMajorRegister','SchoolController@eICTuMajorRegister');

@@ -1,17 +1,18 @@
 @extends('layouts.app')
 @section('css')
-<link rel="stylesheet" type="text/css" href="{!! url('public/dormitory/css/bootstrap.min.css')!!}">
-<link rel="stylesheet" type="text/css" href="{!! url('public/dormitory/css/font-awesome.min.css')!!}">
-<link rel="stylesheet" type="text/css" href="{!! url('public/dormitory/css/main.css')!!}">
+<link rel="stylesheet" type="text/css" href="{!! url('dr/css/font-awesome.min.css')!!}">
+<link rel="stylesheet" type="text/css" href="{!! url('dr/css/main.css')!!}">
 
 @endsection
 @section('content')
 <div id="updateStudent">
 	<div class="container">
 		<div class="top">
-			<div class="inner-top">
-				<p class="caption">eICTuStudentDormitorySearch - Tra cứu chỗ ở trong KTX</p>
-			</div>
+			<strong class="caption">eICTuStudentDormitorySearch - Tra cứu chỗ ở trong KTX
+				@if(!Auth::guest())
+					<a href="{!! url('dormitory/logout') !!}" title="logout" class="pull-right">Logout</a>
+				@endif
+			</strong>
 		</div>
 		<div class="row">
 			<div class="col-sm-12">
@@ -51,7 +52,6 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript" src="{!! url('public/dormitory/js/jquery-1.12.4.min.js')!!}"></script>
-	<script type="text/javascript" src="{!! url('public/dormitory/js/bootstrap.min.js')!!}"></script>
+
 </div>
 @endsection

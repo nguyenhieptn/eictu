@@ -14,11 +14,31 @@ class TeacherController extends Controller
 {
 
     public function index(){
+    	// $teacher = Teacher::select('name')->where('code', Auth::user()->username)->first();
+       
+<<<<<<< HEAD
+          return view('teacher.homepage');
+       
+        
+<<<<<<< HEAD
     	
+<<<<<<< HEAD
+=======
+>>>>>>> 515f95f6be17d299ec5186e02e8e45f46e7ccd0b
+=======
+          // return view('teacher.homepage');
+>>>>>>> e633cc90c3530706b517dfbbc9c829f07e04fd8a
         if ( Auth::user()->type <= 2) {
             return view('teacher.homepage');
+        }else{
+            return view('student.index');
         }
-    	return view('home');
+    	
+<<<<<<< HEAD
+=======
+>>>>>>> db5c98ef3bf46b5013d1d933d0b062a36718fdc7
+=======
+>>>>>>> 515f95f6be17d299ec5186e02e8e45f46e7ccd0b
     }
 
     public function getAdd(){
@@ -26,9 +46,24 @@ class TeacherController extends Controller
             $major = Major::select('*')->get()->toArray();
             return view('teacher.add', compact('major'));
          }elseif(Auth::user()->type == 2){
-            return view('teacher.homepage');
+            return redirect()->route('teacher.index');
+         }else{
+<<<<<<< HEAD
+<<<<<<< HEAD
+            return view('welcome');
+=======
+            return view('home');
+>>>>>>> db5c98ef3bf46b5013d1d933d0b062a36718fdc7
+=======
+            return view('welcome');
+<<<<<<< HEAD
+
+            return view('home');
+>>>>>>> 515f95f6be17d299ec5186e02e8e45f46e7ccd0b
+=======
+>>>>>>> e633cc90c3530706b517dfbbc9c829f07e04fd8a
          }
-         return view('home');
+         
     }
 
 
@@ -61,15 +96,25 @@ class TeacherController extends Controller
     }
 
     public function getList(){
-        if ( Auth::user()->type < 2) {
-            return view('home');
-         }
-        $teacher = Teacher::paginate(20);
-    	return view('teacher.list', compact('teacher'));
-    }
-
-
+        
+            $teacher = Teacher::orderBy('id', 'DESC')->paginate(20);
+            // print_r($teacher);
+            return view('teacher.list', compact('teacher'));
+        
+        }
+        
     public function getLogin(){
-        return view('auth.login');
+        if (isset(Auth::user()->id) && Auth::user()->type==1) {
+            return redirect()->route('teacher.list');
+        }elseif (isset(Auth::user()->id) && Auth::user()->type==2) {
+            return redirect()->route('teacher.index');
+        }elseif (isset(Auth::user()->id) && Auth::user()->type==3) {
+            return view('welcome');
+        }else{
+            return view('teacher.login');
+        }
+        
     }
+
+
 }

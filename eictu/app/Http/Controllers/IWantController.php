@@ -48,8 +48,11 @@ class IWantController extends Controller
     {   
         $want  = DB::table('wants')->where('id', $id)->first();
         $student = DB::table('students')->where('id', $want->student_id)->first();
-        $address =DB::table('motels')->where('student_id', $want->student_id)->first();
-    	return view('iWant.eICTuStudentDemandDetail', compact('want', 'student', 'address'));
+
+        $address =DB::table('motels')->where('student_id', $want->student_id)->orderBy('date_join', 'DESC')->first();
+        $address2 =DB::table('dormitories')->where('student_id', $want->student_id)->orderBy('start_on', 'DESC')->first();
+     
+    	return view('iWant.eICTuStudentDemandDetail', compact('want', 'student', 'address', 'address2'));
     }
 
 

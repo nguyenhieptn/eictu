@@ -87,7 +87,9 @@ $(document).on('click', '.htsvpl', function () {
 	var _page ="";
 	if(typeof $(".pagination .active").html()!=='undefined')
 	{
-		_page=$(".pagination .active").html().substring(6,7);
+		var textp=$(".pagination .active").html();
+		var inp = textp.indexOf("<",5)
+		_page=textp.substring(6,inp);
 	}	
 	$object=$(this);
 	

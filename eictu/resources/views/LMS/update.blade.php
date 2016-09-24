@@ -14,13 +14,13 @@
                                     <label class="lab-update">Tên môn học: {{ $val->name }}</label>
                                 </li>
                                 <li>
-                                    <label class="lab-update">Học kỳ dự kiến: {{ $val->term }}</label>
+                                    <label class="lab-update">Học kỳ dự kiến: HK{{ $val->term }}</label>
                                 </li>
                                 <li>
                                     <label class="lab-update">Số tín chỉ: {{ $val->credit }}</label>
                                 </li>
                                 <li>
-                                    <label class="lab-update">Số tiền học phí: {{ $val->credit*240000 }}</label>
+                                    <label class="lab-update">Số tiền học phí: {{  number_format($val->credit*240000) }}đ</label>
                                 </li>
                             </ul>
                         <p>Tiến độ học tập thực tế:</p>

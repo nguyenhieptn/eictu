@@ -13,14 +13,29 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+<<<<<<< HEAD
         DB::table('schools')
 		->insert(['code' =>'ICTU', 'name' => 'CNTT TT TN','user_id'=>'1']);
+=======
+        // $this->call(seedUserTable::class);
+        // $this->call(NganhHocTableSeeder::class);
+        // $this->call(LopHocTableSeeder::class);
+        // $this->call(SinhVienTableSeeder::class);
+        // $this->call(seedUserTable::class);
+        // $this->call(seedSchoolTable::class);
+        // $this->call(MajorTableSeeder::class);
+        // $this->call(ClassTableSeeder::class);
+        // $this->call(StudentTableSeeder::class);
+        $this->call(MotelTableSeeder::class);
+        // $this->call(TeacherTableSeeder::class);
+>>>>>>> 7709b3511774adaf4e6fdf2a9bd9dc6b8d7a7790
 
 		DB::table('majors')->insert(['code' =>'CNTT', 'name' => 'Công nghệ thông tin']);
 		DB::table('majors')->insert(['code' =>'HTTTKT', 'name' => 'HTTT Kinh tế']);
 		DB::table('majors')->insert(['code' =>'ĐKTĐ', 'name' => 'Điều khiển tự động']);
 		DB::table('majors')->insert(['code' =>'CNOT', 'name' => 'Công nghệ ô tô']);
 
+<<<<<<< HEAD
 		DB::table('classes')->insert(['name' =>'CNTT K11A', 'major_id' => '1']);
 		DB::table('classes')->insert(['name' =>'CNTT K11B', 'major_id' => '1']);
 		DB::table('classes')->insert(['name' =>'CNTT K11C', 'major_id' => '1']);
@@ -81,5 +96,11 @@ class DatabaseSeeder extends Seeder
 			 'class_id' => null,
 			]);
 		}
+=======
+        // $this->call(LopHocTableSeeder::class);
+
+        // $this->call(SinhVienTableSeeder::class);
+        // $this->call(seederFindJobTable::class);
+>>>>>>> 7709b3511774adaf4e6fdf2a9bd9dc6b8d7a7790
     }
 }

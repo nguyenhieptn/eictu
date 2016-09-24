@@ -3,8 +3,8 @@
 @section('content')
 <div class="container">
 	<div class="row">
-    	<div class="col-xs-3">
-    		<p><a href="{{route('iwant.status')}}" title="">Lời thỉnh cầu</a></p>
+    	<div class="col-xs-6">
+    		<h3><a href="{{route('iwant.status')}}" title="" style="color: #e74c3c;">SINH VIÊN CẦN TRỢ GIÚP KHẨN CẤP</a></h3>
     	</div>
   	</div>
   	<hr>

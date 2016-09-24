@@ -14,27 +14,27 @@
                         <br/>
                         Nếu Bạn Là giáo viên, hãy chọn.
                         <br/>
-                        <img class="image" src="{{url('quanlytruong/images/li.png')}}"> <a class="link" href="{{ url('schools/create') }}">Giáo Viên</a>
+                        <img class="image" src="{{url('quanlytruong/images/li.png')}}"> <a class="link" href="#">Giáo Viên</a>
                         <br />
                         <br/>
                         Nếu Bạn Là Sinh Viên, hãy chọn.
                         <br />
-                        <img class="image" src="{{url('quanlytruong/images/li.png')}}"> <a class="link" href="{{ url('schools/create') }}">Sinh Viên</a>
+                        <img class="image" src="{{url('quanlytruong/images/li.png')}}"> <a class="link" href="{{url('student/login')}}">Sinh Viên</a>
                         <br />
                         <br/>
                         Nếu Bạn Là Quản Trị Viên của trường học đã tham gia eICTu, hãy chọn.
                         <br />
-                        <img class="image" src="{{url('quanlytruong/images/li.png')}}"> <a class="link" href="{{ url('schools/eICTuSchoolAdminLogin') }}">Trường Học</a>
+                        <img class="image" src="{{url('quanlytruong/images/li.png')}}"> <a class="link" href="{{url('/schools/login')}}">Trường Học</a>
                         <br />
                         <br/>
                         Nếu Trường Đại Học của bạn chưa tham gia eICTu, hãy bắt đầu tham gia.
                         <br />
-                        <img class="image" src="{{url('quanlytruong/images/li.png')}}"> <a class="link" href="{{ url('schools/eICTuSchoolRegister') }}">Đăng Kí</a>
+                        <img class="image" src="{{url('quanlytruong/images/li.png')}}"> <a class="link" href="{{url('/schools/eICTuSchoolRegister')}}">Đăng Kí</a>
                         <br />
                         <br/>
                         Nếu Bạn Là Người Cần Tuyển Sinh Viên làm Việc ngoài giờ, hãy chọn.
                         <br />
-                        <img class="image" src="{{url('quanlytruong/images/li.png')}}"> <a class="link" href="{{ url('schools/create') }}">Sinh Viên Tìm Việc</a>
+                        <img class="image" src="{{url('quanlytruong/images/li.png')}}"> <a class="link" href="{{url('findjob/index')}}">Sinh Viên Tìm Việc</a>
 
 
 

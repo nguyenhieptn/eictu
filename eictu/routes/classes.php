@@ -35,4 +35,8 @@ Route::group(['prefix' => 'classes'], function () {
 	
 	['as' => 'classes.classmatersbirthday', 
 	'uses' => 'ClassesController@classmatersbirthday']);
+ 	Route::get('logout', 
+	
+	['as' => 'classes.logout', 
+	'uses' => 'ClassesController@logout']);
 });

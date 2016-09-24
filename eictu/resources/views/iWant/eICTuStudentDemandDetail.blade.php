@@ -5,18 +5,32 @@
     <div class="row">
     @if($want)
 	    <div class="col-xs-12">
+	    <p>Nội dung lời kêu gọi :</p>
 	      <h2>{{$want->content}}</h2>
 	      <h3>Thông tin người đăng : </h3>
-	      <p>Họ và tên: <a href="" title="">{{$student->name}}</a></p>
+	      <p>Họ và tên: <b style="color: #e74c3c; font-size: 20px;">{{$student->name}}</b></p>
 	      <p>Giới tính: 
 	      @if($student->gender ==0)
-	      	Nữ
-	      @else
 	      	Nam
+	      @else
+	      	Nữ
 	      @endif	
 	      </p>
-	      <p>Địa chỉ: {{$address->address}}</p>
+	     
+	      <p>Địa chỉ:  
+	      		<?php 
+	     	if (strtotime($address->date_join) > strtotime($address2->start_on)) {
+            	echo $address->address;
+	          }else{
+	          	$area = DB::table('areas')->where('id', $address2->area_id)->first();
+	          	echo  "Phòng số :".$address2->room." , Tòa nhà :".$address2->building." , Khu :".$area->name;
+	          }
+
+	      ?>
+	      	</p>
+	      
 	      <hr>
+	      <a href="{{route('iwant.search')}}" title="ĐÓng" class="btn btn-danger">Đóng</a>
 	    </div> 
 	@endif    
   </div>

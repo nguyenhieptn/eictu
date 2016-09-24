@@ -19,9 +19,58 @@ class StudentController extends Controller
 
     }
 
+    public function vLogin()
+    {
+        return view("students.login");
+    }
+
+    public function login(Request $request)
+    {
+        $username =$request->input('username'); //Input::get('username');
+        $password =$request->input('password'); //Input::get('password');
+
+        if (auth()->attempt(['username' => $username, 'password' => $password])) {
+            if (auth()->user()->type == 3) {
+                $data = Student::select('*')
+                    ->where('code', '=', auth()->user()->username)
+                    ->get()->first();
+                $classid = $data->class_id;
+                $name = Auth::user()->name;
+                return view("students.studentHomepage", compact('name', 'classid'));
+            }
+            else
+                return redirect()->back()->with('global', 'Xin lỗi! bạn không phải sinh viên.');
+        }
+        return redirect()->back()->with('global', ' Tên đăng nhập hoặc mật khẩu không đúng.');
+//        $user= User::select('*')->where('username','=',$username)->get()->first();
+//        if($user!= null && $user->type == 3)
+//        {
+//            if($user->password == bcrypt($password))
+//            {
+//                $data = Student::select('*')
+//                    ->where('code','=',$user()->username)
+//                    ->get()->first();
+//                $classid=$data->class_id;
+//                $name= $user()->name;
+//                return view("students.studentHomepage", compact('name','classid'));
+//            }
+//            else
+//                echo "Fail 1 : user - ".$username." ; pass_use : ".$user->password." ; pass :".bcrypt($password);
+//        }
+//            else
+//                echo "Fail2";
+////        if (auth()->attempt(['username' => $username, 'password' => $password])) {
+////            $this->index();
+////        }
+////        else echo "fail";
+////        return redirect()->back()->with('global', 'Login Fail');
+    }
+
     public function index()
     {
-        $type = Auth::user()->type;
+        $type = auth()->user()->type;
+
+//        $type = Auth::user()->type;
         if($type==1) {
             $data = Student::select('*')->get();
             // return view('iWant.eICTuStudentDemandSearch', compact('data'));
@@ -35,8 +84,12 @@ class StudentController extends Controller
         }
         else if($type==3)
         {
+            $data = Student::select('*')
+            ->where('code','=',Auth::user()->username)
+            ->get()->first();
+            $classid=$data->class_id;
             $name= Auth::user()->name;
-            return view("students.studentHomepage", compact('name'));
+            return view("students.studentHomepage", compact('name','classid'));
         }
     }
 

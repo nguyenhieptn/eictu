@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\School;
+use App\User;
 use Illuminate\Support\Facades\DB;
-use Request;
+use Auth;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Response;
@@ -20,6 +23,41 @@ class SchoolController extends Controller
     public function create()
     {
         return view('schools.create');
+    }
+
+    public function newstore(Request $request)
+    {
+        $data = array();
+        $data['name']       = $request->input('hoten');
+        $data['username']       = $request->input('taikhoan');
+        $data['email']     = $request->input('taikhoan')."@ictu.edu.vn";
+        $data['password']   = $request->input('matkhau');
+
+        $this->validate($request, [
+            'taikhoan'    => 'required',
+            'matkhau'    => 'required'
+        ]);
+
+        $user = new User();
+        $user->name = $data['name'];
+        $user->username = $data['username'];
+        $user->email =$data['email'];
+        $user->type = 1;
+        $user->password = bcrypt($data['password']);
+        $user->save();
+
+        //add school
+
+        if ($user->save() == true) {
+            // lay user_id admin
+            $adm = User::select('*')
+                ->where('username', '=', $data['username'])
+                ->get()->first();
+            $userid = $adm!=null ? $adm->id :-1;
+
+               DB::table('schools')->insert(['code' => Input::get('viettat'), 'name' =>  Input::get('tendaydu'),'user_id' =>  $userid]);
+            return view("schools.login");
+        }
     }
 
     public function store(Request $request)
@@ -153,6 +191,10 @@ class SchoolController extends Controller
             echo  "Bạn Hãy nhập đầy đủ !";
         }
     }
+    public  function  vlogin()
+    {
+        return view('schools.login');
+    }
 
 
     public function login(Request $request)
@@ -162,19 +204,14 @@ class SchoolController extends Controller
 
         if (auth()->attempt(['username' => $username, 'password' => $password])) {
             if (auth()->user()->type == 1) {
-                $data = Student::select('*')
-                    ->where('code', '=', auth()->user()->username)
-                    ->get()->first();
-                $classid = $data->class_id;
                 $name = Auth::user()->name;
-                return view("students.studentHomepage", compact('name', 'classid'));
+                return view("schools.eICTuSchoolHomePage", compact('name'));
             }
             else
                 return redirect()->back()->with('global', 'Xin lỗi! bạn không phải sinh viên.');
         }
         return redirect()->back()->with('global', ' Tên đăng nhập hoặc mật khẩu không đúng.');
-    }
 
 
-
+}
 }
