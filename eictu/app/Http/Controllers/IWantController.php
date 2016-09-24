@@ -32,9 +32,7 @@ class IWantController extends Controller
 
         $iwant->student_id       = $student->id;
         $iwant->save();
-        // Auth::student()->iwants()->create([
-        //     'content'=>$request->input('content'),
-        //     ]);
+      
 
         return redirect()->back();
     }
