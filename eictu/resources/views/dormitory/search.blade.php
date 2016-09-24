@@ -12,6 +12,9 @@ eICTuStudentDormitorySearch - Tra cứu chỗ ở trong KTX
 	<div class="container">
 		
 		<div class="row">
+			@if(Session::has('msg'))
+			<div class="alert alert-warning">{!! Session::get('msg') !!}</div>
+			@endif
 			<div class="col-sm-12">
 				<a href="{!! url('dormitory/update') !!}"><h3 class="redirect"><i class="fa fa-link"></i> Sinh viên cập nhật nơi ở trong KTX</h3></a>
 			</div>

@@ -18,7 +18,7 @@ class seedDormitoryTable extends Seeder
                 DB::table('areas')->insert([
                 'name'=> 'Khu '.$i,
             ]);
-        for($i = 30; $i <= 100; $i+=3){
+        for($i = 1; $i <= 100; $i+=3){
         	DB::table('dormitories')->insert([
         		'student_id' => $i,
         		'room' => rand(20, 100),
