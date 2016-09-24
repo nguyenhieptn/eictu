@@ -20,7 +20,7 @@
                     <div class="form-group {{$errors->has('content')? ' has-error': ''}}">
                       <textarea placeholder="Bạn muốn gì, mọi người sẽ đáp ứng !" name="content" class="form-control" rows="3"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-default">Đăng Tin</button>    
+                    <button type="submit" class="btn btn-success">Đăng Tin</button>    
                   </form>
 
                   <hr>
