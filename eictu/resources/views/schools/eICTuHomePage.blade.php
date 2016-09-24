@@ -34,6 +34,8 @@
                         Nếu Bạn Là Người Cần Tuyển Sinh Viên làm Việc ngoài giờ, hãy chọn.
                         <br />
                         <img class="image" src="{{url('quanlytruong/images/li.png')}}"> <a class="link" href="{{url('findjob/index')}}">Sinh Viên Tìm Việc</a>
+                        <br/>
+                        <br/>
 
                     </div>
                 </div>
