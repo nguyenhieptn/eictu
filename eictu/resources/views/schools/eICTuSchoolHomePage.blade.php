@@ -33,7 +33,7 @@
 
                         Để quản trị giao viên, chọn mục.
                         <br />
-                        <img class="image" src="{{route('teacher.list')}}"> <a class="link" href="{{ url('student') }}">Sinh Viên</a>
+                        <img class="image" src="{{route('teacher.list')}}"> <a class="link" href="{{ url('student') }}">Giao Viên</a>
 
 
                     </div>
