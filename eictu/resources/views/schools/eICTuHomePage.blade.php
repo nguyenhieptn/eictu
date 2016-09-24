@@ -13,17 +13,8 @@
                     <div class="body">
                         Nếu Bạn Là giáo viên, hãy chọn.
                         <br/>
-<<<<<<< HEAD
-                        <img class="image" src="{{url('quanlytruong/images/li.png')}}">
-                        <a class="link" href="{{route('teacher.login')}}">Giáo Viên</a>
-=======
-
-
-                        <img class="image" src="{{url('quanlytruong/images/li.png')}}"> <a class="link" href="{{route('teacher.login')}}">Giáo Viên</a>
-
-
-                        <br />
->>>>>>> d3e9b77836ee11ea816c1d3153f7356b58d7837b
+                        <img class="image" src="{{url('quanlytruong/images/li.png')}}"><a class="link" href="{{route('teacher.login')}}">Giáo Viên</a>
+                        <br/>
                         <br/>
                         Nếu Bạn Là Sinh Viên, hãy chọn.
                         <br />
@@ -43,6 +34,8 @@
                         Nếu Bạn Là Người Cần Tuyển Sinh Viên làm Việc ngoài giờ, hãy chọn.
                         <br />
                         <img class="image" src="{{url('quanlytruong/images/li.png')}}"> <a class="link" href="{{url('findjob/index')}}">Sinh Viên Tìm Việc</a>
+                        <br/>
+                        <br/>
 
                     </div>
                 </div>

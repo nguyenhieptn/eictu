@@ -44,7 +44,7 @@
 
     ?>
     <div class="row">
-        <div class="col-lg-8 col-lg-offset-2" id="purple">
+        <div class="col-sm-8 col-sm-offset-2" id="purple">
             <h4>eICTuChatClassRoom - Phòng Chat của lớp <span><?php echo $class_room;?></span>
                 <a style="float:right;" href="{{ url('/logout') }}"
                    onclick="event.preventDefault();
@@ -57,11 +57,11 @@
                 </form>
             </h4>
         </div>
-        <div class="col-lg-8 col-lg-offset-2">
+        <div class="col-sm-8 col-sm-offset-2">
             <input type="hidden" class="chat-room" value="<?php echo $class_room;?>"/>
             <input type="hidden" disabled="disabled" class="chat-name" value="<?php echo $name;?>"/>
         </div>
-        <div class="col-lg-8 col-lg-offset-2 chat-messages">
+        <div class="col-sm-8 col-sm-offset-2 chat-messages">
             <div id="left"></div>
             <div id="right"></div>
         </div>
@@ -69,18 +69,18 @@
 
     <div class="row">
 
-        <div class="col-lg-8 col-lg-offset-2">
-            <input class="form-control input-lg chat-input" id="inputlg" type="text"
+        <div class="col-sm-8 col-sm-offset-2">
+            <input class="form-control input-sm chat-input" id="inputsm" type="text"
                    placeholder="Type your message">
         </div>
-        <div class="col-lg-2">
-            <button type="button" id="send" class="btn btn-primary btn-lg">Send</button>
+        <div class="col-sm-2">
+            <button type="button" id="send" class="btn btn-primary btn-sm">Send</button>
         </div>
 
-        <div class="col-lg-8 col-lg-offset-2 chat-status">Status: <span>Idle</span></div>
+        <div class="col-sm-8 col-sm-offset-2 chat-status">Status: <span>Idle</span></div>
     </div>
 
-    <script src="http://127.0.0.1:8088/socket.io/socket.io.js"></script>
+    <script src="http://45.32.41.40:8088/socket.io/socket.io.js"></script>
     <script>
         (function () {
             var getNode = function (s) {
@@ -107,7 +107,7 @@
                     };
 
             try {
-                var socket = io.connect('http://127.0.0.1:8088');
+                var socket = io.connect('http://45.32.41.40:8088');
             } catch (e) {
                 //set status to warn user
             }
