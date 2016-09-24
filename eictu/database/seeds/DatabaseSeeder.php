@@ -13,29 +13,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-<<<<<<< HEAD
         DB::table('schools')
 		->insert(['code' =>'ICTU', 'name' => 'CNTT TT TN','user_id'=>'1']);
-=======
-        // $this->call(seedUserTable::class);
-        // $this->call(NganhHocTableSeeder::class);
-        // $this->call(LopHocTableSeeder::class);
-        // $this->call(SinhVienTableSeeder::class);
-        // $this->call(seedUserTable::class);
-        // $this->call(seedSchoolTable::class);
-        // $this->call(MajorTableSeeder::class);
-        // $this->call(ClassTableSeeder::class);
-        // $this->call(StudentTableSeeder::class);
-        // $this->call(MotelTableSeeder::class);
-        // $this->call(TeacherTableSeeder::class);
->>>>>>> 7709b3511774adaf4e6fdf2a9bd9dc6b8d7a7790
 
 		DB::table('majors')->insert(['code' =>'CNTT', 'name' => 'Công nghệ thông tin']);
 		DB::table('majors')->insert(['code' =>'HTTTKT', 'name' => 'HTTT Kinh tế']);
 		DB::table('majors')->insert(['code' =>'ĐKTĐ', 'name' => 'Điều khiển tự động']);
 		DB::table('majors')->insert(['code' =>'CNOT', 'name' => 'Công nghệ ô tô']);
 
-<<<<<<< HEAD
 		DB::table('classes')->insert(['name' =>'CNTT K11A', 'major_id' => '1']);
 		DB::table('classes')->insert(['name' =>'CNTT K11B', 'major_id' => '1']);
 		DB::table('classes')->insert(['name' =>'CNTT K11C', 'major_id' => '1']);
@@ -96,12 +81,7 @@ class DatabaseSeeder extends Seeder
 			 'class_id' => null,
 			]);
 		}
-=======
-        // $this->call(LopHocTableSeeder::class);
 
-        // $this->call(SinhVienTableSeeder::class);
-        // $this->call(seederFindJobTable::class);
-<<<<<<< HEAD
     //     DB::table('schools')->insert(['code' =>'ICTU', 'name' => 'CNTT TT TN','user_id'=>'1']);
     //     DB::table('majors')->insert(['code' =>'CNTT', 'name' => 'Công nghệ thông tin']);
     //     DB::table('majors')->insert(['code' =>'HTTTKT', 'name' => 'HTTT Kinh tế']);
@@ -403,8 +383,5 @@ class DatabaseSeeder extends Seeder
     //     DB::table('users')->insert(['email' =>'DTC125D4802010234@ictu.edu.vn', 'username' => 'DTC125D4802010234','password' => '$2y$10$mvMHoSJLYe3ZYIiGSeln5.phlOhrKcllOPzmt8GwqPUc47WiBxkAC','type' => '1','name' => 'Nguyễn Thị Yến']);
     //     DB::table('users')->insert(['email' =>'DTC1151200663@ictu.edu.vn', 'username' => 'DTC1151200663','password' => '$2y$10$mvMHoSJLYe3ZYIiGSeln5.phlOhrKcllOPzmt8GwqPUc47WiBxkAC','type' => '1','name' => 'Phạm Hải Yến']);
     // }
-=======
->>>>>>> 7709b3511774adaf4e6fdf2a9bd9dc6b8d7a7790
     }
->>>>>>> 07a7710e934b052d1a9125b94149c03ed85f6995
 }
