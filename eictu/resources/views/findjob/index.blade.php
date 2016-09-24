@@ -26,7 +26,7 @@
                             @foreach($datas as $data=>$item)
                                 <li class="list-group-item">
                                     <span class="glyphicon glyphicon-triangle-right"aria-hidden="true"></span>
-                                    <a href="{{route('findjob.detail',$item['id'])}}"><?php echo _sub($item['content'], 140, 3)?></a>
+                                    <a href="{{route('findjob.detail',$item['id'])}}"><?php echo substr($item['content'], 0, 140)."[..]"?></a>
                                 </li>
                             @endforeach
                         </ul>
