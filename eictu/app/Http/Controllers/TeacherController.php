@@ -30,15 +30,17 @@ class TeacherController extends Controller
     }
 
     public function getAdd(){
-         if ( Auth::user()->type == 1) {
-            $major = Major::select('*')->get()->toArray();
-            return view('teacher.add', compact('major'));
-         }elseif(Auth::user()->type == 2){
-            return redirect()->route('teacher.index');
-         }else{
-            return view('welcome');
+        //  if ( Auth::user()->type == 1) {
+        //     $major = Major::select('*')->get()->toArray();
+        //     return view('teacher.add', compact('major'));
+        //  }elseif(Auth::user()->type == 2){
+            
+        //  }else{
+        //     return view('welcome');
          
-        }
+        // }
+        $major = Major::select('*')->get()->toArray();
+            return view('teacher.add', compact('major'));
     }
 
 
