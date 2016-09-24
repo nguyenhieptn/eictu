@@ -57,7 +57,8 @@ class DormitoryController extends Controller
         $up = DB::table('dormitories')->where('student_id', $student->id)->update([
             'room' => $room,
             'building'=> $building,
-            'area_id'=> 1, //$a->id,
+            'school_id'=> 1,
+            //'area_id'=> 1, //$a->id,
             'start_on'=> $date2
         ]);
        return redirect()->back()->with('msg', 'Cập nhật thành công!');
