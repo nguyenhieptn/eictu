@@ -47,7 +47,7 @@ class TeacherController extends Controller
     public function postAdd(Request $request){
 
         $this->validate($request, [
-            'code'=>'required|max:30',
+            'code'=>'required|max:30|unique:teacher,code',
             'name'=>'required|max:30',
             'gender'=>'required',
             'birthday'=>'required',
