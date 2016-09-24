@@ -6,6 +6,7 @@ use Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Response;
+use Auth;
 
 class ClassesController extends Controller
 {
@@ -93,42 +94,62 @@ class ClassesController extends Controller
 	// Tìm các bạn sinh nhật trong 30 ngày tới
 	function classmatersbirthday($classid)
 	{	
-		
-		$_class= DB::table('classes')
-		->select('name','id')->where('id', '=', $classid)->get()->first();	
-		
-		$begin_date=date('Y-m-d');
-		$begin=explode("-", $begin_date);	
-		
-		$_students =  DB::table('students')->select('code','name', 'birthday','gender')->where('class_id', '=', $classid)
-		->orderBy('code', 'asc')
-		->get();
-		$d="";
-		for($i=0;$i<count($_students);$i++)
+		if(!Auth::guest())
 		{
-			for($sn=1;$sn<31;$sn++)
+			if(Auth::user()->type==3)
 			{
-				$stop_date = date('Y-m-d', strtotime( "$begin_date + $sn day" ));
+				$_st= DB::table('students')
+				->select('name','class_id')->where('code', '=', Auth::user()->username)->get()->first();	
+				$_classid = $_st->class_id;
+				if($classid!=$_classid) 
+					return "Xin lỗi ".Auth::user()->name." bạn không phải sinh viên lớp này";
 				
-				$stop=explode("-", $stop_date);
-				$nsn = explode("-", $_students[$i]->birthday);
-				if($nsn[2]==$stop[2] && $nsn[1]==$stop[1])
+				$_class= DB::table('classes')
+				->select('name','id')->where('id', '=', $classid)->get()->first();	
+				
+				$begin_date=date('Y-m-d');
+				$begin=explode("-", $begin_date);	
+				
+				$_students =  DB::table('students')->select('code','name', 'birthday','gender')->where('class_id', '=', $classid)
+				->orderBy('code', 'asc')
+				->get();
+				$d="";
+				for($i=0;$i<count($_students);$i++)
 				{
-					$gt="Nam";
-					if($_students[$i]->gender=="0")
+					for($sn=1;$sn<31;$sn++)
 					{
-						$gt="Nữ";
+						$stop_date = date('Y-m-d', strtotime( "$begin_date + $sn day" ));
+						
+						$stop=explode("-", $stop_date);
+						$nsn = explode("-", $_students[$i]->birthday);
+						if($nsn[2]==$stop[2] && $nsn[1]==$stop[1])
+						{
+							$gt="Nam";
+							if($_students[$i]->gender=="0")
+							{
+								$gt="Nữ";
+							}
+							$d[] = array(
+										'name'=>$_students[$i]->name,
+										'gender_text'=>$gt,
+										'birthday'=>$nsn[2]."/".$nsn[1],
+										'deadline'=>$sn." ngày nữa"
+									);
+						}
 					}
-					$d[] = array(
-								'name'=>$_students[$i]->name,
-								'gender_text'=>$gt,
-								'birthday'=>$nsn[2]."/".$nsn[1],
-								'deadline'=>$sn." ngày nữa"
-							);
 				}
+				return view('classes.classmatersbirthday',['_classmatersbirthday' => $d,'_class'=>$_class]);			
+				
+			}else{
+				return redirect('login');
 			}
+		}else{
+			return redirect('login');
 		}
-		return view('classes.classmatersbirthday',['_classmatersbirthday' => $d,'_class'=>$_class]);			
 		
 	}
+	public function logout(){
+        Auth::logout();
+        return redirect()->back();
+    }
 }

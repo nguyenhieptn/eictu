@@ -4,26 +4,26 @@
 <div class="container">
 	<div class="row">
     	<div class="col-xs-6">
-    		<h3><a href="{{route('iwant.status')}}" title="" style="color: #e74c3c;">SINH VIÊN CẦN TRỢ GIÚP KHẨN CẤP</a></h3>
+    		<h3><span class="glyphicon glyphicon-hand-up" style="color: #e67e22;">&nbsp;</span><a href="{{route('iwant.status')}}" title="" style="color: #e74c3c;">SINH VIÊN CẦN TRỢ GIÚP KHẨN CẤP</a></h3>
     	</div>
   	</div>
   	<hr>
     <div class="row">
     	
 	    <div class="col-md-12">
+	    <h4>Hiện có các lời kêu gọi/yêu cầu sau đây, mời bạn xem và trợ giúp nếu có thể:</h4>
+	    <hr>
 	    @if($data)
 		    @foreach($data as $want)
 		    <div class="col-xs-12">
-		      <p><span class="glyphicon glyphicon-play" style="color: #27ae60;">&nbsp;</span><a href="{{route('iwant.detail', $want['id'])}}" title="">{{$want['content']}}</a></p>
-		      <hr>
+		      <p style="font-weight: bold; font-size: 20px; color: black;"><span class="glyphicon glyphicon-play" style="color: #27ae60;">&nbsp;</span><a style="color: black;" href="{{route('iwant.detail', $want['id'])}}" title="">{{$want['content']}}</a></p>
 		    </div>
 		    @endforeach
 		@else
 			<p>Khong ai them muon gi ca luon day !</p>
 		@endif 
 
-		@if($data->count()>15)
-			<div class="pagination pull-right">
+		<div class="pagination pull-right">
 	        <ul class="list-inline">
 	        @if($data->currentPage() != 1)
 	          <li><a href="{!! str_replace('/?','?',$data->url($data->currentPage()- 1)) !!}">Prev</a></li>
@@ -38,7 +38,6 @@
 	        @endif
 	        </ul>
 	    </div>
-		@endif	
 		   
 	  </div>
 	</div>

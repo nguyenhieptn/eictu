@@ -4,19 +4,26 @@
     <?php
     $friend = $_GET['friend'];
     $id = $_GET['id'];
+    $student1 = DB::table('students')->where('code', $friend)->first();
+    $namefriend = $student1->name;
+    $student2 = DB::table('students')->where('code', $id)->first();
+    $name = $student2->name;
     ?>
 
 
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2" id="purple">
-            <h4>eICTuChatFriendRoom - Phòng CHAT với <span><?php echo $friend;?></span></h4>
+            <h4>eICTuChatFriendRoom - Phòng CHAT với <span><?php echo $namefriend;?></span></h4>
         </div>
         <div class="col-lg-8 col-lg-offset-2">
-            <input type="hidden" class="chat-friend" value="<?php echo $friend;?>"/>
-            <input type="text" disabled="disabled" class="chat-name" value="<?php echo $id;?>"/>
+            <input type="hidden" class="chat-friend" value="<?php echo $id;?>"/>
+            <input type="text" disabled="disabled" class="chat-name" value="<?php echo $name;?>"/>
         </div>
 
-        <div class="col-lg-8 col-lg-offset-2 chat-messages" style="height: 450px;"></div>
+        <div class="col-lg-8 col-lg-offset-2 chat-messages">
+            <div id="left"></div>
+            <div id="right"></div>
+        </div>
 
     </div>
 
@@ -64,20 +71,25 @@
 
             if (socket !== undefined) {
                 //Lisen for output
-                socket.on('output', function (data) {
-                    if (data.length) {
-                        for (var x = 0; x < data.length; x = x + 1) {
-                            if ((data[x].room == chatFriend.value && data[x].name == chatName.value) || (data[x].name == chatFriend.value && data[x].room == chatName.value)) {
+                socket.on('output', function(data){
+                    if(data.length)
+                    {
+                        for(var x=0;x<data.length; x=x+1)
+                        {
+                            if((data[x].room == chatFriend.value && data[x].name == chatName.value) || (data[x].name == chatFriend.value && data[x].room == chatName.value)){
                                 var message = document.createElement('div');
-                                message.setAttribute('class', 'chat-message');
-                                message.textContent = data[x].name + ': ' + data[x].message;
+                                if(data[x].name !== chatName.value){
+                                    message.setAttribute('id','left');
+                                    message.innerHTML= data[x].name + ": "+ " ("+data[x].time+") -- " + data[x].message;
 
+                                }else{
+                                    message.setAttribute('id','right');
+                                    message.innerHTML =data[x].message +" -- ("+data[x].time+")";
+                                }
                                 messages.appendChild(message);
-                                messages.insertBefore(message, messages.lastChild);
+                                messages.insertBefore(message, messages.firstChild);
                             }
-
                         }
-
                     }
                 });
 
@@ -91,20 +103,36 @@
                     }
                 });
 
+                var today,h,i,m,j,s,d,month,y,k,l;
                 var name = chatName.value,
-                        friend = chatFriend.value;
-                nd = "";
+                        friend = chatFriend.value,
+                        time,
+                        nd = "";
                 var button = document.getElementById("send");
-                button.onclick = function () {
+                button.onclick = function()
+                {
+                    today = new Date();
+                    l = today.getHours();
+                    if(l<10){h="0"+l;}else{h=l;}
+                    i = today.getMinutes();
+                    if(i<10){m= "0"+i;}else{m=i;}
+                    j = today.getSeconds();
+                    if(j<10){s= "0"+j;}else{s=j;}
+                    d = today.getDate();
+                    k = today.getMonth();
+                    if(k>8){month=k+1;}else{month = "0"+(k+1);}
+                    y = today.getFullYear();
+
+                    time = h+":"+m+":"+s+" / "+d+"-"+month+"-"+y;
                     nd = document.querySelector('.chat-input').value;
-                    socket.emit('input', {
+                    socket.emit('input',{
                         name: name,
                         room: friend,
-                        message: nd
+                        message: nd,
+                        time: time
                     });
 
                 };
-
             }
         })();
     </script>
