@@ -10,7 +10,7 @@
 Route::get('/schools','SchoolController@index');
 Route::get('/schools/eICTuSchoolRegister','SchoolController@eICTuSchoolRegister');
 Route::post('schools/rgm','SchoolController@newstore');
-Route::get('/schools/login','SchoolController@vlogin');
+Route::get('schools/login','SchoolController@vLogin');
 Route::post('schools/login','SchoolController@login');
 Route::get('schools/eICTuSchoolAdminLogin','SchoolController@eICTuSchoolAdminLogin');
 Route::get('schools/eICTuMajorList','SchoolController@eICTuMajorList');

@@ -39,7 +39,8 @@ class LMSController extends Controller
 
             }
         } else {
-            return redirect('/student/login');
+
+            return redirect('/login');
         }
     }
 

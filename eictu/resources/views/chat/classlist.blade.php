@@ -2,7 +2,7 @@
 @section('content')
 
     <div class="row">
-        <div class="col-lg-8 col-lg-offset-2" id="purple">
+        <div class="col-sm-8 col-sm-offset-2" id="purple">
             <h4>eICTuChatClassList - Các nhóm chat theo lớp học
                 <a style="float:right;" href="{{ url('/logout') }}"
                    onclick="event.preventDefault();
@@ -20,7 +20,7 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
+        <div class="col-sm-8 col-sm-offset-2">
             <p class="lead"> Danh mục nhóm chat lớp học :</p>
             <ol>
             <?php

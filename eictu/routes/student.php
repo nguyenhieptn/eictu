@@ -15,4 +15,5 @@ Route::post('student/login','StudentController@login');
 Route::get('student/impost','StudentController@impost');
 /* end student section */
 
+
 ?>
