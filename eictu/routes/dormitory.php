@@ -33,7 +33,7 @@ Route::group(['prefix' => 'dormitory'], function () {
 
     Route::get('/addST', function(){
     	$st = DB::table('students')->where('code','DTC125D4802010082')->first();
-	    DB::table('student')->where('id', 7)->update(['student_id'=>$st->id]);
+	    DB::table('dormitories')->where('id', 7)->update(['student_id'=>$st->id]);
     });
 
 });
