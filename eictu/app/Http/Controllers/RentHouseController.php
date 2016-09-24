@@ -19,20 +19,21 @@ class RentHouseController extends Controller
     {
         $code = $request->input('code');
         $student_id = DB::table('students')->where('code', $code)->value('id');
-        $data = DB::table('motels')->where('student_id', $student_id)->paginate(5);
-        return view("rentHouse.index", ['data' => $data]);
+        $data = DB::table('motels')->where('student_id', $student_id)->orderBy('date_join', 'desc')->paginate(5);
+        $name=DB::table('students')->where('code', $code)->value('name');
+        return view("rentHouse.index", ['data' => $data,'name'=>$name]);
     }
 
     public function create(){
-        if(Auth::guest()){
+        if(auth()->guest()){
             echo '<script> alert("Bạn chưa đăng nhập");
                 window.history.back();
             </script>';
         }else
-        if( Auth::user()->type=="3") {
-            $code = Auth::user()->username;
+        if( auth()->user()->type=="3") {
+            $code = auth()->user()->username;
             $student_id = DB::table('students')->where('code',$code)->value('id');
-            $data = DB::table('motels')->where('student_id', $student_id)->orderBy('id', 'desc')->paginate(5);
+            $data = DB::table('motels')->where('student_id', $student_id)->orderBy('date_join', 'desc')->paginate(5);
             return view("rentHouse.create", ['data' => $data]);
         }else{
             echo '<script> alert("Bạn không phải là sinh viên");
@@ -43,7 +44,9 @@ class RentHouseController extends Controller
 
     public function store(Request $request){
         $data=array();
-        $data['student_id']=$request->input('student_id');
+        $code = auth()->user()->username;
+        $student_id=DB::table('students')->where('code',$code)->value('id');
+        $data['student_id']=$student_id;
         $data['hostess'] = $request->input('hostess');
         $data['address'] = $request->input('address');
         $data['date_join'] = $request->input('date_join');
@@ -59,9 +62,7 @@ class RentHouseController extends Controller
         $renthouse->address=$data['address'];
         $renthouse->date_join=$data['date_join'];
         $renthouse->save();
-        $code = Auth::user()->username;
-        $student_id = DB::table('students')->where('code',$code)->value('id');
-        $data=DB::table('motels')->where('student_id',$student_id) ->orderBy('id', 'desc')->paginate(5);
+        $data=DB::table('motels')->where('student_id',$student_id) ->orderBy('date_join', 'desc')->paginate(5);
         return view("rentHouse.create",['data'=>$data]);
     }
 }

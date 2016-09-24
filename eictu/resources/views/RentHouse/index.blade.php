@@ -45,7 +45,7 @@
                   </div>
               </div>
               <div class="container">
-                <h2>Kết quả tìm kiếm:</h2>
+                <h2>Kết quả tìm kiếm: <strong><?php echo $name; ?></strong></h2>
                 <ul class="list-group">
                  <?php
                     $stt=1;
@@ -54,7 +54,7 @@
                             $date = new DateTime($item->date_join);
                             echo "<li class='glyphicon glyphicon-play list-group-item ' style=' color:red '>".$date->format('d/m/Y').", ".$item->hostess.", ".$item->address."</li>";
                             }
-                            echo "<center>".$data->appends(Request::input('code'))->render()."</center>";
+                            echo "<center>".$data->appends(Request::only('code'))->links()."</center>";
                         }
                         ?>
                 </ul>
