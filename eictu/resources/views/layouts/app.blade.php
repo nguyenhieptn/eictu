@@ -52,9 +52,7 @@
 
             </ul>
             <ul class="navbar-nav nav navbar-right">
-                @if(Auth::guest())
-                         <li><a href="{{ url('/login') }}">Login</a></li>
-                @else
+               
                     
                         <ul class="dropdown-menu" role="menu">
                             <li>
@@ -70,7 +68,7 @@
                                 </form>
                             </li>
                         </ul>
-                @endif
+                
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
