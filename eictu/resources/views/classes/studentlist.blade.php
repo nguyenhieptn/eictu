@@ -1,7 +1,4 @@
 @extends('layouts.app')
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-		
-		<title>Quản Lý Lớp học - @yield('title')</title>
 		
 		<link rel="stylesheet" type="text/css" 
 			href="{!! url('classes_src/css/bootstrap.min.css')!!}">
@@ -13,15 +10,17 @@
 		</script>
 		
 		<script src="{!! url('classes_src/js/classes.js')!!}"></script>
+		
 @section('title')
 	
-	Danh sách sinh viên trong lớp {{ $_class->name }} 
+	Quản lý lớp học - Danh sách sinh viên trong lớp {{ $_class->name }} 
 	
 @endsection		
 
 @section('content')
 <div class="container">
 <div class="qllophoc_header">
+<!--
 	<header id="header" class="">
 		<div class="header-content">
 			<span class="title">eICTUclassstudentList - Sinh viên trong lớp học
@@ -34,6 +33,7 @@
 			</span>
 		</div>
 	</header>
+	-->
 	<!--
 	<table class="table_header" >
 		<tr>
@@ -45,6 +45,7 @@
 </div>
 <div class="qllophoc_content">
 	<div>
+		
 		<span style="display:inline;border:0px solid red;margin:0; padding:0px 0px;">
 			<img src="{!! url('classes_src/images/li.png')!!}" />
 		</span>
@@ -69,6 +70,19 @@
 					Danh sách sinh viên lớp {{ $_class->name }}
 				</td>
 			</tr>
+			<tr>
+				<tr>
+						<th>
+							STT
+						</th>
+						<th  >
+							Mã sinh viên
+						</th>
+						<th  colspan="10">
+							Họ tên
+						</th>							
+					</tr>
+			</tr>
 			@if (count($_students) === 0 )
 			<tr>
 				<td align="left" class="col-md-1" colspan="12" >
@@ -78,19 +92,19 @@
 			@else
 				@foreach ($_students as $_student)						
 					<tr>
-						<th >
+						<td>
 							@if(isset($_page) && count($_page>0))							
 								{{ $loop->iteration + $_page }}.
 							@else								
-								{{ $loop->iteration }}.
+								{{ $loop->iteration }}
 							@endif
-						</th>
-						<th class="col-md-1" >
+						</td>
+						<td  >
 							{{ $_student->code }}
-						</th>
-						<th class="col-md-10" colspan="10">
+						</td>
+						<td >
 							{{ $_student->name }}
-						</th>							
+						</td>							
 					</tr>
 				@endforeach
 			@endif						

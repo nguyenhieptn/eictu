@@ -1,12 +1,13 @@
 @extends('layouts.app')
 
-@section('content')
+@section('title')
+
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <link rel="stylesheet" type="text/css" href="{!! url('quanlytruong/css/trangthanhvien.css')!!}">
-                    <div class="thanhvien">eICTuSchoolAdminLogin - Quản trị Viên</div>
+                    <div class="thanhvien"></div>
                     <div class="panel-body">
                         <form action="{{ url("schools/login")}}" method="post" class="form-horizontal">
                            Đây là trang đăng nhập cho quản trị viện của trường học.

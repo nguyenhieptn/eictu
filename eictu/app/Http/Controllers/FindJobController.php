@@ -22,20 +22,14 @@ class FindJobController extends Controller
 
     public function getIndex()
     {
-        $datas = FindJob::orderby('id','DESC')->paginate(10);
-        return view('findjob.index')->with('datas', $datas);
-    }
-
-    public function getPost( Request $request)
-    {
-        if(Auth::user()->type ==3){
-             return view('findjob.add');
-         }else{
-            $datas = FindJob::orderby('id','DESC')->paginate(10);
-            $request->session()->flash('lock', 'vui lòng đăng nhập tài khoản sinh viên để thực hiện chức năng này');
+        if(Auth::check() && Auth::user()->type==3){
+            $datas = FindJob::orderby('id','DESC')->paginate(8);
             return view('findjob.index')->with('datas', $datas);
-         }
-       
+        }else{
+             $datas = FindJob::orderby('id','DESC')->paginate(10);
+            return view('findjob.index')->with('datas', $datas);
+        }
+        
     }
 
     /**
@@ -61,14 +55,12 @@ class FindJobController extends Controller
         return redirect()->route('findjob.index');
     }
 
-
     public function getDetail($id)
     {
-
-          $detail = DB::table('searchjobs')->join('students', 'searchjobs.student_id', '=', 'students.id')->where('searchjobs.id', $id)->get()->first();
-         return view('findjob.detail', compact('detail'));
-
-      
+         $detail = DB::table('searchjobs')->where('id',$id)->get()->first();
+         $code = DB::table('users')->where('id',$detail->student_id)->get()->first();
+         $student = DB::table('students')->where('code',$code->username)->get()->first();
+         return view('findjob.detail', compact('detail','student'));
     }
 
 }

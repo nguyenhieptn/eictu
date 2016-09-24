@@ -15,9 +15,14 @@ class SchoolController extends Controller
 {
     public function index()
     {
-        $schools = School::with('manager')->get();
+        if(!Auth::guest()) {
+            $schools = School::with('manager')->get();
 
-        return view("schools.index")->with('schools',$schools);
+            return view("schools.index")->with('schools', $schools);
+        }
+        else{
+                return redirect('students/login');
+            }
     }
 
     public function create()
@@ -212,6 +217,10 @@ class SchoolController extends Controller
         }
         return redirect()->back()->with('global', ' Tên đăng nhập hoặc mật khẩu không đúng.');
 
+    }
 
-}
+    public function logout(){
+        Auth::logout();
+        return redirect()->back();
+    }
 }

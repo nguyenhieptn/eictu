@@ -13,7 +13,25 @@
 
 Route::get('findjob/index', 'FindJobController@getIndex');
 Route::get('/', function () {
+    if(auth()->user()== null)
     return view('schools.eICTuHomePage');
+    else
+    {
+        $type = auth()->user()->type;
+        if ($type == 1) {
+            $name = Auth::user()->name;
+            return view("schools.eICTuSchoolHomePage", compact('name'));
+        }
+        if ($type == 2) return view('teacher.homepage');
+        if ($type == 3) {
+                $data = \App\Student::select('*')
+                    ->where('code', '=', auth()->user()->username)
+                    ->get()->first();
+                $classid = $data == null ? 0 : $data->class_id;
+                $name = auth()->user()->name;
+                return view("students.studentHomepage", compact('name', 'classid'));
+        }
+    }
 });
 
 Route::get('/welcomeschool', function () {
@@ -28,9 +46,7 @@ Route::group(['prefix' => 'ktx'], function(){
 
 Auth::routes();
 Route::get('/home', 'HomeController@index');
-
-
-
+// Route::get('/logout','Auth\LoginController@inde');
 require_once("iwant.php");
 require_once("classes.php");
 require_once("school.php");

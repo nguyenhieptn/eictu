@@ -27,9 +27,13 @@ class HomeController extends Controller
     {
         $type = Auth::user()->type;
         $name = Auth::user()->name;
-        if ($type == 1) return view('home');
+        if ($type == 1){
+            $name = Auth::user()->name;
+            return view("schools.eICTuSchoolHomePage", compact('name'));
+        }
 
         if ($type == 2) return view('teacher.homepage');
+
         if ($type == 3) {
 
 
@@ -42,8 +46,9 @@ class HomeController extends Controller
 
             }
 
-        }
 
+
+        }
     }
 
 }

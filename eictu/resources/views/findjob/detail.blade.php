@@ -4,29 +4,32 @@
      <div class="row">
          <div class="col-md-12">
              <div class="panel panel-default">
-                 <div class="panel-heading">eICTuStudentJobDetail - Bản tin tìm việc chi tiết của sinh viên</div>
+                 <div class="panel-heading">Bản tin tìm việc chi tiết của sinh viên</div>
                  <div class="panel-body">
                     <div class="entry-content">
-                        <h4>Nội dung bản tin của sinh viên:</h4>
+                        <h5>Nội dung bản tin của sinh viên:</h5>
                         <p>{{$detail->content }}</p>
                     </div>
                     </hr>
                       <div class="entry-content">
                         <h4>Thông tin Sinh viên</h4>
                           <ul style="margin-left:30px">
-                            <li>Họ và tên: <strong>{{$detail->name}}</strong></li>
+                            <li>Họ và tên: <strong>{{$student->name}}</strong></li>
                             <li>Giới tính:<strong>
-                                @if($detail->gender==1)
+                                @if($student->gender==1)
                                     {{ "Nam" }}
                                 @else
-                                        {{ "Nữ" }}
+                                    {{ "Nữ" }}
                                  @endif
                                 </strong></li>
                               <li>Ngày đăng : <strong><?php echo date("F j, Y",strtotime($detail->created_at))?></strong></li>
                           </ul>
                       </div>
                      <div style="margin-top: 30px">
-                         <center><span  class="btn btn-default"> <a href="{{ url('findjob/index') }}"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>  ĐÓNG</a></span></center>
+                     <form action="{{ url('findjob/index') }}">
+                        <center><Button class="btn btn-danger"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>  ĐÓNG</a></Button></center>
+                     </form>
+                         
                      </div>
              </div>
          </div>

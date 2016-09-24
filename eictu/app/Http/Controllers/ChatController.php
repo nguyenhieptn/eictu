@@ -65,9 +65,7 @@ class ChatController extends Controller
         $type = Auth::user()->type;
 
         if ($type == 2 || $type == 1){
-            $teacher = DB::table('teachers')->where('code', $user)->first();
-            $teacher_name = $teacher->name;
-            return view('chat.classlist', ['name' => $teacher_name]);
+            return view('chat.classlist', ['user_id' => $user]);
         } else {
             return view('chat.error');
         }
