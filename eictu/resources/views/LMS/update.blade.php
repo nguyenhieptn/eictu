@@ -5,11 +5,12 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">eICTuLearningManageSystem Update</div>
+                @foreach ($datas as $val)
+                    <div class="panel-heading" style="background:#328f31;color:#fff;font-weight:bold;">eICTuLearningManageSystem Update - Cập nhật môn học {{ $val->name }} cho sinh viên {{$st->name}}</div>
                     <div class="panel-body">
                         <p>Thông tin môn học:</p>
                             <ul>
-                        @foreach ($datas as $val)
+                        
                                 <li>
                                     <label class="lab-update">Tên môn học: {{ $val->name }}</label>
                                 </li>
@@ -31,7 +32,7 @@
                         <input type="submit" name="update" class="submit-update" value="Cập nhật">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         </form>
-                        @endforeach
+                @endforeach
                     </div>
                 </div>
             </div>
