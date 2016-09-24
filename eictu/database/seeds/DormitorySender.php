@@ -47,6 +47,10 @@ class DormitorySender extends Seeder
         	'start_on' => '2012/02/02',
         	'end_on'=> '2013/01/01'
         	]);*/
+            for($i= 1; $i <= 10; $i++)
+                DB::table('areas')->insert([
+                'name'=> 'Khu '.$i,
+            ]);
        
     }
 }
