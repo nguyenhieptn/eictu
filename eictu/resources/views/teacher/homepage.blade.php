@@ -21,7 +21,7 @@
   <div class="row">
     <div class="col-xs-10">
       <?php 
-      $teacher = DB::table('teachers')->select('name')->where('code', Auth::user()->username)->first();
+      $teacher = DB::table('teacher')->select('name')->where('code', Auth::user()->username)->first();
      ?>
 
        
