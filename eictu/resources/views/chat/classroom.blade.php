@@ -23,7 +23,7 @@
 
     <div class="row">
         <br><br><br><br>
-        <h2 style="margin-left: 200px;">Bạn không có quyền hạn để truy cập vào đường dẫn này. Xin mời logout
+        <h2 id="purple">Bạn không có quyền hạn để truy cập vào đường dẫn này. Xin mời logout
             và đăng nhập lại
             <a href="{{ url('/logout') }}"
                onclick="event.preventDefault();
@@ -45,7 +45,7 @@
     ?>
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2" id="purple">
-            <h4>eICTuChatClassRoom - Phòng Chat của lớp <span><?php echo $class_room;?></span>
+            <h4>Phòng Chat của lớp <span><?php echo $class_room;?></span>
                 <a style="float:right;" href="{{ url('/logout') }}"
                    onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
