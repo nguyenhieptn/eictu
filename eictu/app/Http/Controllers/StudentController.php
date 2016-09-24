@@ -87,8 +87,6 @@ class StudentController extends Controller
         $userid= Auth::user()->id;
         $school= School::where('user_id', $userid)->first();
         $data['school_id']  = $school->id;
-       // echo  $data['code'] ; 
-      //  echo   "\nho ten :".$data['name'] ;
 
         $this->validate($request, [
             'Code'    => 'required',
