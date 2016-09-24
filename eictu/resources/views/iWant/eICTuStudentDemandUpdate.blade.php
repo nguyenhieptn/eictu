@@ -9,6 +9,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>
                 <div class="panel-body">
+                 @if(Auth::check() && Auth::user()->type ==3)
                   <form action="{{route('iwant.status')}}" role="form" method="post" accept-charset="utf-8">
                     <input type="hidden" name="_token" value="{{Session::token()}}">
                     <div class="form-group {{$errors->has('content')? ' has-error': ''}}">
@@ -16,7 +17,9 @@
                     </div>
                     <button type="submit" class="btn btn-default">Đăng Tin</button>    
                   </form>
+
                   <hr>
+                  @endif
                      <h4>Hiện có các lời kêu gọi/yêu cầu sau đây, mời bạn xem và trợ giúp nếu có thể:</h4>
       <hr>
       @if($data)
