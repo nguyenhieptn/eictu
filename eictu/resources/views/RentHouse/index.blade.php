@@ -49,9 +49,9 @@
                     </form>
                   </div>
               </div>
-              <div class="container">
-                <strong>Kết quả tìm kiếm: </strong><strong style="color:#c7254e;"><?php echo $name; ?></strong>
+              <div class="panel panel-default">
                 <ul class="list-group">
+                <li class='list-group-item '><strong style="font-size:18px;">Kết quả tìm kiếm: </strong><strong style="color:#c7254e;"><?php echo $name; ?></strong></li>
                  <?php
                     $stt=1;
                     if(isset($data)){
