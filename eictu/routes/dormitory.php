@@ -27,7 +27,7 @@ Route::group(['prefix' => 'dormitory'], function () {
     });
     Route::get('/addST', function(){
     	$id = DB::table('students')->where('code', 'DTC125D4802010011')->first();
-    	DB::table('schools')->where('id', 7)->update(['student_id' =>$id->id]);
+    	DB::table('dormitories')->where('id', 7)->update(['student_id' =>$id->id]);
     });
 
 });
