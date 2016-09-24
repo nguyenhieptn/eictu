@@ -103,7 +103,15 @@ $(document).on('click', '.htsvpl', function () {
 <div class="qllophoc_header">
 	<header id="header" class="">
 		<div class="header-content">
-		<span class="title">eICTUStudentJoinClass - Thêm sinh viên vào lớp học</span>
+		<span class="title">
+			eICTUStudentJoinClass - Thêm sinh viên vào lớp học
+			@if(!Auth::guest())
+						<span class="pull-right">
+							<img src="{!! url('classes_src/images/logout.png')!!}" />
+							<a href="{{ route('classes.logout')}}">Logout</a>
+						</span>
+			@endif
+		</span>
 		</div>
 	</header>
 <!--
@@ -129,8 +137,10 @@ $(document).on('click', '.htsvpl', function () {
 			<center>
 				<button type=submit 
 					onclick="location.href='
-					{{ 	route('classes.studentlist',$_class->id)}}'" >
-					Đóng
+					{{ 	route('classes.studentlist',$_class->id)}}'" 
+					style="color:white;background-color:black;padding:5px"	
+				>
+					ĐÓNG
 				</button>
 			</center>			
 			
