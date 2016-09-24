@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container find-job">
+    <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
@@ -17,13 +17,14 @@
                         </div>
                     </div>
                     <div style="padding-left: 23px;>Hiện có các bản tin rao đồ cũ sau đây:</div>
-                    <ul class="find-job list-group">
+                    <ul class="list-group">
                         @foreach($data as $item)
                             <li class="list-group-item">
                                 <span class="glyphicon glyphicon-triangle-right"aria-hidden="true"></span>
                                 <a href="{{url('iHave/detail', $item->id)}}"><?php echo $item->content;?></a>
                             </li>
                         @endforeach
+                        <?php echo "<li><center>".$data->render()."</center></li>";?>
                     </ul>
                     {!!$data->render()!!}
                 </div>
