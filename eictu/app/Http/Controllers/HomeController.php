@@ -34,7 +34,7 @@ class HomeController extends Controller
 
 
         if ($type == 2) {
-            return view('teacher.homepage');
+            return redirect()->route('teacher.index');
         }
 
         if ($type == 3){
