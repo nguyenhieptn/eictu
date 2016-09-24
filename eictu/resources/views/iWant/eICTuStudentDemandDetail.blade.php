@@ -7,6 +7,7 @@
 	    <div class="col-xs-12">
 	    <p>Nội dung lời kêu gọi :</p>
 	      <h2>{{$want->content}}</h2>
+	      <hr>
 	      <h3>Thông tin người đăng : </h3>
 	      <p>Họ và tên: <b style="color: #e74c3c; font-size: 20px;">{{$student->name}}</b></p>
 	      <p>Giới tính: 
