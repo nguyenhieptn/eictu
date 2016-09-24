@@ -34,7 +34,7 @@ class HomeController extends Controller
 
 
         if ($type == 2) {
-            return view('teacher.eICTuTeacherHomePage');
+            return view('teacher.homepage');
         }
 
         if ($type == 3){
