@@ -12,9 +12,9 @@
 	      <p>Họ và tên: <b style="color: #e74c3c; font-size: 20px;">{{$student->name}}</b></p>
 	      <p>Giới tính: 
 	      @if($student->gender ==0)
-	      	Nam
-	      @else
 	      	Nữ
+	      @else
+	      	Nam
 	      @endif	
 	      </p>
 	     
