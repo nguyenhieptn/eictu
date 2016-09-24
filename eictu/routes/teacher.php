@@ -9,7 +9,7 @@
 
     Route::get('eICTuTeacherAddNew', [
         "uses" => "TeacherController@getAdd",
-        "as"   => "Teacher.add",
+        "as"   => "teacher.add",
     ]);
     Route::post('eICTuTeacherAddNew', [
         "uses" => "TeacherController@postAdd",
@@ -17,12 +17,12 @@
 
     Route::get('eICTuTeacherList', [
         "uses" => "TeacherController@getList",
-        "as"   => "Teacher.list",
+        "as"   => "teacher.list",
     ]);
 
     Route::get('eICTuTeacherLogin', [
         "uses" => "TeacherController@getLogin",
-        "as"   => "Teacher.login",
+        "as"   => "teacher.login",
     ]);
 
 });
