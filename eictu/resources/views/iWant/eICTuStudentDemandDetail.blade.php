@@ -22,7 +22,7 @@
 	      		<?php 
 	      		if (isset($address) || isset($address2)) {
 	      			if (strtotime($address->date_join) > strtotime($address2->start_on)) {
-	            	echo $address->address;
+	            	echo " Xóm trọ ông/bà :".$address->hostess." , ".$address->address;
 		          }else{
 		          	$area = DB::table('areas')->where('id', $address2->area_id)->first();
 		          	echo  "Phòng số :".$address2->room." , Tòa nhà :".$address2->building." , Khu :".$area->name;
