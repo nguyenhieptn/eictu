@@ -30,11 +30,19 @@
                         Để quản trị sinh viên, chọn mục.
                         <br />
                         <img class="image" src="{{url('quanlytruong/images/li.png')}}"> <a class="link" href="{{ url('student') }}">Sinh Viên</a>
+<<<<<<< HEAD
 
                         Để quản trị giao viên, chọn mục.
                         <br />
                         <img class="image" src="{{route('teacher.list')}}"> <a class="link" href="{{ url('student') }}">Giao Viên</a>
 
+=======
+                        
+                         <br/>
+                        Để quản trị giao viên, chọn mục.
+                        <br />
+                        <img class="image" src=""> <a class="link" href="{{route('teacher.list')}}">giao Viên</a>
+>>>>>>> 82b9140c2a216ec8d26e3f65d47d63ee0b085288
 
                     </div>
                 </div>
