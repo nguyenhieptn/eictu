@@ -1,7 +1,5 @@
 @extends('layouts.app')
-@section('title')
-Giáo viên đăng nhập
-@endsection
+
 @section('content')
 <div class="container">
     <div class="row">
