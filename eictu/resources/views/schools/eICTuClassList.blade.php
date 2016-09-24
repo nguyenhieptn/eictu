@@ -18,8 +18,8 @@
                         Danh Mục Lớp Học
                         <table class="table">
                             <tr>
-                               <td>STT</td>
-                                <td>Tên Lớp</td>
+                               <th>STT</th>
+                                <th>Tên Lớp</th>
                             </tr>
 
                             @if (!isset($_classes) || $_classes ==null)

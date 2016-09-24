@@ -19,9 +19,9 @@
 <table class="table">
 
             <tr>
-                    <td>STT</td>
-                      <td>Mã Ngành</td>
-                <td>Tên Ngành</td>
+                    <th>STT</th>
+                      <th>Mã Ngành</th>
+                <th>Tên Ngành</th>
 
             </tr>
                         @if (!isset($_majors) || $_majors ==null)
