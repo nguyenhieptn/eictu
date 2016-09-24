@@ -7,7 +7,7 @@
       <form action="{{route('iwant.status')}}" role="form" method="post" accept-charset="utf-8">
         <input type="hidden" name="_token" value="{{Session::token()}}">
         <div class="form-group {{$errors->has('content')? ' has-error': ''}}">
-          <textarea placeholder="What do you want ?" name="content" class="form-control" rows="3"></textarea>
+          <textarea placeholder="Bạn muốn gì, mọi người sẽ đáp ứng !" name="content" class="form-control" rows="3"></textarea>
         </div>
         <button type="submit" class="btn btn-default">Đăng Tin</button>    
       </form>
