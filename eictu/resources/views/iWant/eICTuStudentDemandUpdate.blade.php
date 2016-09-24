@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+Đăng tin - Danh sách những mong muốn
+@endsection
 @section('content')
 <div class="container">
 @if(Auth::check() && Auth::user()->type ==3)
