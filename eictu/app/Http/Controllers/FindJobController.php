@@ -61,22 +61,13 @@ class FindJobController extends Controller
         return redirect()->route('findjob.index');
     }
 
-
-    // public public function getstudentid($username)
-    // {
-    //     $data= DB::table('students')->
-    //     select * from students where code=$username;    
-    // }
-
     public function getDetail($id)
     {
-        $code = DB::table('users')->where('id',$id)->get()->first();
-        // var_dump($code);
-
          $detail = DB::table('searchjobs')->where('id',$id)->get()->first();
+         $code = DB::table('users')->where('id',$detail->user_id)->get()->first();
          $student = DB::table('students')->where('code',$code->username)->get()->first();
-        // var_dump($student);
-        return view('findjob.detail', compact('detail','student'));
+         var_dump($student);
+        // return view('findjob.detail', compact('detail','student'));
     }
 
 }

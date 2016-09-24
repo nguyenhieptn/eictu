@@ -4,9 +4,7 @@
      <div class="row">
          <div class="col-md-12">
              <div class="panel panel-default">
-                 <div class="panel-heading">eICTuStudentJobDetail - Bản tin tìm việc chi tiết của sinh viên 
-                 <span class="pull-right"> <a href="{{ url('/logout') }}">Logout</a></span>
-                 </div>
+                 <div class="panel-heading"><center>Bản tin tìm việc chi tiết của sinh viên </center></div>
                  <div class="panel-body">
                     <div class="entry-content">
                         <h4>Nội dung bản tin của sinh viên:</h4>
@@ -21,7 +19,7 @@
                                 @if($student->gender==1)
                                     {{ "Nam" }}
                                 @else
-                                        {{ "Nữ" }}
+                                    {{ "Nữ" }}
                                  @endif
                                 </strong></li>
                               <li>Ngày đăng : <strong><?php echo date("F j, Y",strtotime($detail->created_at))?></strong></li>
