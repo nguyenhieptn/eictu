@@ -15,8 +15,10 @@ Route::get('chat/friend','ChatController@friend');
 
 Route::post('chat/friend', 'ChatController@search');
 
+Route::post('chat/friendroom', 'ChatController@friendroom');
+
 Route::get('chat/classrooms','ChatController@classroom');
 
-Route::get('chat/friends','ChatController@friends');
+Route::get('chat/classlist','ChatController@classlist');
 
 Route::get('chat/{slug}','ChatController@page');

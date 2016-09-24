@@ -23,6 +23,14 @@ class ChatController extends Controller
         return view('chat.friend', ['users' => $user_id]);
     }
 
+    public function friendroom()
+    {
+
+        $user_id = Auth::user()->username;
+
+        return view('chat/friendroom', ['user_id' => $user_id]);
+    }
+
     public function search(Request $request)
     {
         $data = array();
@@ -35,16 +43,6 @@ class ChatController extends Controller
 
     }
 
-    public function friends()
-    {
-
-        $user = Auth::user()->username;
-
-        $student = DB::table('students')->where('code', $user)->first();
-
-        $code = $student->code;
-        return redirect("chat/classroom?c=CNTT_K11B&id=".$code);
-    }
 
     public function classroom()
     {
@@ -58,6 +56,22 @@ class ChatController extends Controller
         $class = DB::table('classes')->where('id', $class_id)->first();
         $class_name = $class->name;
         return redirect("chat/classroom?c=".$class_name."&id=".$code);
+    }
+
+    public function classlist()
+    {
+
+        $user = Auth::user()->username;
+        $type = Auth::user()->type;
+
+        if ($type == 2 || $type == 1){
+            $teacher = DB::table('teachers')->where('code', $user)->first();
+            $teacher_name = $teacher->name;
+            return view('chat.classlist', ['name' => $teacher_name]);
+        } else {
+            return view('chat.error');
+        }
+
     }
 
     public function page($slug)

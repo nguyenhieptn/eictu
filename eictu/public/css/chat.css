@@ -16,6 +16,10 @@ a:active {
     color: yellow;
 }
 
+a {
+    color: #fff;
+}
+
 body,
 button,
 input {

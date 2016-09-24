@@ -2,14 +2,55 @@
 @section('content')
 
     <?php
+    $user_id = Auth::user()->username;
+    $st= DB::table('students')->where('code', $user_id)->first();
+    $class_id = $st->class_id;
+    $class= DB::table('classes')->where('id', $class_id)->first();
+    $class_name = $class->name;
+
     $class_room = $_GET['c'];
     $id = $_GET['id'];
-    $student = DB::table('students')->where('code', $id)->first();
-            $name = $student->name;
+
+    if ($class_room == $class_name && $user_id == $id){
+        $student = DB::table('students')->where('code', $id)->first();
+        $name = $student->name;
+    } else {
+    ?>
+
+    <div class="row">
+        <br><br><br><br>
+        <h2 style="margin-left: 200px;">Bạn không có quyền hạn để truy cập vào đường dẫn này. Xin mời logout và đăng nhập lại
+            <a href="{{ url('/logout') }}"
+               onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                Logout
+            </a>
+
+            <form id="logout-form" action="{{ url('/logout') }}" method="POST">
+                {{ csrf_field() }}
+            </form>
+        </h2>
+    </div>
+
+    <?php
+    return false;
+    }
+
+
     ?>
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2" id="purple">
-            <h4>eICTuChatClassRoom - Phòng Chat của lớp <span><?php echo $class_room;?></span></h4>
+            <h4>eICTuChatClassRoom - Phòng Chat của lớp <span><?php echo $class_room;?></span>
+                <a style="float:right;" href="{{ url('/logout') }}"
+                   onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                    Logout
+                </a>
+
+                <form id="logout-form" action="{{ url('/logout') }}" method="POST">
+                    {{ csrf_field() }}
+                </form>
+            </h4>
         </div>
         <div class="col-lg-8 col-lg-offset-2">
             <input type="hidden" class="chat-room" value="<?php echo $class_room;?>"/>
