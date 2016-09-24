@@ -25,17 +25,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $type= Auth::user()->type;
-        $name= Auth::user()->name;
-        if($type==1)        return view('home');
-        if($type==2)        return view('teacher.homepage');
-        if($type==3)
-        {
+        $type = Auth::user()->type;
+        $name = Auth::user()->name;
+        if ($type == 1) return view('home');
+        if ($type == 2) return view('teacher.homepage');
+        if ($type == 3) {
             $data = Student::select('*')
-            ->where('code','=',Auth::user()->username)
-            ->get()->first();
-            $classid=$data==null? 0: $data->class_id;
-            return view("students.studentHomepage", compact('name','classid'));
+                ->where('code', '=', Auth::user()->username)
+                ->get()->first();
+            $classid = $data == null ? 0 : $data->class_id;
+            return view("students.studentHomepage", compact('name', 'classid'));
 
         }
 
