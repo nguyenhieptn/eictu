@@ -1,142 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Styles -->
-    <link href="{{url("/css/app.css")}}" rel="stylesheet">
-    <link href="{{url("/css/style.css")}}" rel="stylesheet">
-    <link href="{{url("/css/chat.css")}}" rel="stylesheet">
-    
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    @yield('css')
-    <style type="text/css" media="screen">
-        /*.pagination ul li{
-            padding: 3px 10px;
-            margin: 3px;
-            font-size: 20px;
-            background: #bdc3c7;
-        }*/
-    </style>
-    <script>
-        window.Laravel = <?php echo json_encode([
-                'csrfToken' => csrf_token(),
-        ]); ?>
-    </script>
-</head>
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+
 <body>
-
-{{--<nav class="navbar navbar-default navbar-static-top">--}}
-    {{--<div class="container">--}}
-        {{--<div class="navbar-header">--}}
-
-            {{--<!-- Collapsed Hamburger -->--}}
-            {{--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"--}}
-                    {{--data-target="#app-navbar-collapse">--}}
-                {{--<span class="sr-only">Toggle Navigation</span>--}}
-                {{--<span class="icon-bar"></span>--}}
-                {{--<span class="icon-bar"></span>--}}
-                {{--<span class="icon-bar"></span>--}}
-            {{--</button>--}}
-
-<<<<<<< HEAD
-            {{--<!-- Branding Image -->--}}
-            {{--<a class="navbar-brand" href="{{ url('/') }}">--}}
-                {{--{{ config('app.name', 'Laravel') }}--}}
-            {{--</a>--}}
-        {{--</div>--}}
-=======
-        <div class="collapse navbar-collapse" id="app-navbar-collapse">
-            <!-- Left Side Of Navbar -->
->>>>>>> 7ec451f749132eabcee341c4a5f6a8a4732868aa
-
-        {{--<div class="collapse navbar-collapse" id="app-navbar-collapse">--}}
-            {{--<!-- Left Side Of Navbar -->--}}
-            {{--<ul class="nav navbar-nav">--}}
-                {{--<li><a href="{{ url('schools') }}"> Schools</a></li>--}}
-                {{--<li><a href="{{ url('classes') }}"> Classes</a></li>--}}
-                {{--<li><a href="{{ url('student') }}"> Student </a></li>--}}
-                {{--<li><a href="{!! route('teacher.login') !!}"> Teacher </a></li>--}}
-                {{--<li><a href="{{ url('major') }}"> Major </a></li>--}}
-                {{--<li><a href="{{ url('dormitory/search') }}">Dormitory</a></li>--}}
-                {{--<li><a href="{{ url('rentHouse') }}">Rent House</a></li>--}}
-                {{--<li><a href="{{ url('iHave') }}">I Have</a></li>--}}
-                {{--<li><a href="{{ url('findjob/index') }}">Find Job</a></li>--}}
-                {{--<li><a href="{{route('iwant.search')}}">I Want</a></li>--}}
-
-
-<<<<<<< HEAD
-            {{--</ul>--}}
-
-            {{--<!-- Right Side Of Navbar -->--}}
-            {{--<ul class="nav navbar-nav navbar-right">--}}
-                {{--<!-- Authentication Links -->--}}
-                {{--@if (Auth::guest())--}}
-                    {{--<li><a href="{{ url('/login') }}">Login</a></li>--}}
-                    {{--<li><a href="{{ url('/register') }}">Register</a></li>--}}
-                {{--@else--}}
-                    {{--<li class="dropdown">--}}
-                        {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">--}}
-                            {{--{{ Auth::user()->name }} <span class="caret"></span>--}}
-                        {{--</a>--}}
-
-                        {{--<ul class="dropdown-menu" role="menu">--}}
-                            {{--<li>--}}
-                                {{--<a href="{{ url('/logout') }}"--}}
-                                   {{--onclick="event.preventDefault();--}}
-                                                 {{--document.getElementById('logout-form').submit();">--}}
-                                    {{--Logout--}}
-                                {{--</a>--}}
-
-                                {{--<form id="logout-form" action="{{ url('/logout') }}" method="POST"--}}
-                                      {{--style="display: none;">--}}
-                                    {{--{{ csrf_field() }}--}}
-                                {{--</form>--}}
-                            {{--</li>--}}
-                        {{--</ul>--}}
-                    {{--</li>--}}
-                {{--@endif--}}
-            {{--</ul>--}}
-        {{--</div>--}}
-    {{--</div>--}}
-{{--</nav>--}}
-=======
-            <!-- Right Side Of Navbar -->
-            <ul class="nav navbar-nav navbar-right">
-                <!-- Authentication Links -->
-                @if (Auth::guest())
-
-                @else
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {{ Auth::user()->name }} <span class="caret"></span>
-                        </a>
-
-                        <ul class="dropdown-menu" role="menu">
-                                <form id="logout-form" action="{{ url('/logout') }}" method="POST"
-                                      style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
-                @endif
-            </ul>
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    EICTU
+                </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href=""> @yield('title')</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if(Auth::guest())
+                        <li><a href="">Đăng nhập</a></li>
+                        @else
+                        <li class="dropdown"><a href="">{!! Auth::user()->name !!}</a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{!! url('/logout') !!}">Đăng xuất</a></li>
+                            </ul>
+                        </li>
+                    @endif
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
->>>>>>> 7ec451f749132eabcee341c4a5f6a8a4732868aa
-
-@yield('content')
-<script src="{{ url("/js/app.js") }}"></script>
-<!-- <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script> -->
-<!-- <script src="http://maxcdn.bootstrapcdn.com/bootstit rap/3.3.1/js/bootstrap.min.js"></scrip -->
-
+    </nav>
+    @yield('content')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
 </body>
 </html>
