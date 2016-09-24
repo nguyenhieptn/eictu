@@ -41,7 +41,7 @@ class IWantController extends Controller
     public function search()
     {
         // $data = IWant::select('id', 'content')->orderBy('id','DESC')->paginate(15);
-    	return view('iWant.eICTuStudentDemandUpdate');
+    	return redirect()->route('iwant.status');
     }
     public function detail($id)
     {   
