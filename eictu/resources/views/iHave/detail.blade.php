@@ -14,7 +14,13 @@
                  <div class="panel-body">
                     <div class="entry-content">
                         <h4>Thông tin về đồ đạc:</h4>
-                        <p>{{$have}}</p>
+                        <div class="row">
+                             <div class="col-md-12">
+                                <div class="panel panel-default">
+                                    <div style="padding: 10px"><p>{{$have}}</p></div>
+                                </div>
+                             </div>
+                        </div>
 
                     </div>
                     </hr>
