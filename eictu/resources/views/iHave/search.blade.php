@@ -13,10 +13,10 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                             <a STYLE="color:#000;" href="{{"iHave/update"}}"><h4 class="redirect"><i class="glyphicon glyphicon-star"></i>SINH VIÊN RAO ĐỒ CŨ CẦN CHO/TẶNG</h4></a>
+                             <a STYLE="color:#000;padding-left: 10px;" href="{{"iHave/update"}}"><h4 class="redirect"><i class="glyphicon glyphicon-star"></i>SINH VIÊN RAO ĐỒ CŨ CẦN CHO/TẶNG</h4></a>
                         </div>
                     </div>
-                    <div>Hiện có các bản tin rao đồ cũ sau đây:</div>
+                    <div style="padding-left: 23px;>Hiện có các bản tin rao đồ cũ sau đây:</div>
                     <ul class="find-job list-group">
                         @foreach($data as $item)
                             <li class="list-group-item">
