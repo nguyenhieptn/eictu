@@ -1,19 +1,16 @@
 @extends('layouts.app')
+@section('title')
+eICTuStudentGoodsSearch - Danh sách đồ cũ đang rao
+@endsection
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div style="background:#026086; height:40px; padding: 8px;">
-                       <strong  style="color:#ffffff; font-size:20px; font-weight: 600px;">eICTuStudentGoodsSearch - Danh sách đồ cũ đang rao
-                            @if(!Auth::guest())
-                                <a  style="color:#ffffff; font-size:20px; font-weight: 600px;"href="{!! url('dormitory/logout') !!}" title="logout" class="pull-right">Logout</a>
-                            @endif
-                       </strong>
-                    </div>
+                    
                     <div class="row">
                         <div class="col-sm-12">
-                             <a STYLE="color:#000;padding-left: 10px;" href="{{"iHave/update"}}"><h4 class="redirect"><i class="glyphicon glyphicon-star"></i>SINH VIÊN RAO ĐỒ CŨ CẦN CHO/TẶNG</h4></a>
+                             <a STYLE="color:#000;padding-left: 20px;" href="{{"iHave/update"}}"><h4 class="redirect"><i class="glyphicon glyphicon-star"></i>SINH VIÊN RAO ĐỒ CŨ CẦN CHO/TẶNG</h4></a>
                         </div>
                     </div>
                     <div style="padding-left: 23px;>Hiện có các bản tin rao đồ cũ sau đây:</div>

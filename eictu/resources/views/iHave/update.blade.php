@@ -1,16 +1,13 @@
 @extends('layouts.app')
+@section('title')
+eICTuStudentGoodsUpdate - Đăng tin đồ cũ
+@endsection
 @section('content')
     <div class="container find-job ">
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div style="background:#026086; height:40px; padding: 8px;">
-                       <strong  style="color:#ffffff; font-size:20px; font-weight: 600px;">eICTuStudentGoodsUpdate - Đăng tin đồ cũ
-                            @if(!Auth::guest())
-                                <a  style="color:#ffffff; font-size:20px; font-weight: 600px;"href="{!! url('dormitory/logout') !!}" title="logout" class="pull-right">Logout</a>
-                            @endif
-                       </strong>
-                    </div>
+                   
                     <div class="panel-body">
                         <p>Sinh viên có đồ dùng cũ, sách cũ, … không có nhu cầu sử dụng có thể đem cho thì đăng tin ở đây để tìm người cần dùng:</p>
                         @if(count($errors)>0)
