@@ -11,21 +11,22 @@
                             @endif
                        </strong>
                     </div>
-                    <div class="panel-body">
-                        <div class="list-group">
-                         <a href="{{url("iHave/update")}}" class="list-group-item active">SINH VIÊN RAO ĐỒ CŨ CẦN CHO/TẶNG</a>
+                    <div class="row">
+                        <div class="col-sm-12">
+                             <a STYLE="color:#000;" href="{{"iHave/update"}}"><h4 class="redirect"><i class="glyphicon glyphicon-star"></i>SINH VIÊN RAO ĐỒ CŨ CẦN CHO/TẶNG</h4></a>
                         </div>
-                        <div><a>Hiện có các bản tin rao đồ cũ sau đây:</a></div>
-                        <ul class="find-job list-group">
-                            @foreach($data as $item)
-                                <li class="list-group-item">
-                                    <span class="glyphicon glyphicon-triangle-right"aria-hidden="true"></span>
-                                    <a href="{{url('iHave/detail', $item->id)}}"><?php echo $item->content;?></a>
-                                </li>
-                            @endforeach
-                        </ul>
-                        {!!$data->render()!!}
                     </div>
+                    <div>Hiện có các bản tin rao đồ cũ sau đây:</div>
+                    <ul class="find-job list-group">
+                        @foreach($data as $item)
+                            <li class="list-group-item">
+                                <span class="glyphicon glyphicon-triangle-right"aria-hidden="true"></span>
+                                <a href="{{url('iHave/detail', $item->id)}}"><?php echo $item->content;?></a>
+                            </li>
+                        @endforeach
+                    </ul>
+                    {!!$data->render()!!}
+                </div>
                 </div>
             </div>
         </div>
