@@ -69,7 +69,7 @@ body{
 }
 .wrapper{
     width:900px;
-    margin: auto;
+    margin:0 auto;
 }
 .wrapper h1{
     padding: 30px 20px;

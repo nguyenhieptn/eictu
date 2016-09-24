@@ -23,10 +23,13 @@
                                 <tr>
                                     <td>{{$stt++}}</td>
                                     <td>{{ $student->name }}</td>
-                                    <td>{{
-                                   //  \App\Classes::find($student->class_id)->name
-                                       $student->class_id
-                                     }}</td>
+                                    <td><?php
+                                        $data1 = \App\Classes::select('*')
+                                                ->where('id','=',$student->class_id)
+                                                ->get()->first();
+                                        echo  $data1!=null? $data1->name : "";
+                                        ?>
+                                    </td>
                                     <td>{{ $student->code }}</td>
                                 </tr>
                             @empty
