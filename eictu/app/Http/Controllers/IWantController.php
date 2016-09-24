@@ -36,7 +36,7 @@ class IWantController extends Controller
         //     'content'=>$request->input('content'),
         //     ]);
 
-        return redirect()->route('iwant.search');
+        return redirect()->back();
     }
     public function search()
     {
