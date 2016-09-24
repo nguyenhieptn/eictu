@@ -1,12 +1,16 @@
 @extends('layouts.app')
 
+@section('title')
+    Đăng kí trường học mới
+@endsection
 @section('content')
+
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <link rel="stylesheet" type="text/css" href="{!! url('quanlytruong/css/trangthanhvien.css')!!}">
-                    <div class="thanhvien" >eICTuSchoolRegister - Đăng kí trường học mới</div>
+                    <div class="thanhvien" > Đăng kí trường học mới</div>
                     <div class="panel-body">
                         <form action="{{ url("schools/rgm")}}" method="post" class="form-horizontal">
                         Để đăng kí trường học mới bạn cần đăng kí đầy đủ thông tin quản trị viên và thông tin nhà trường.
@@ -34,7 +38,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-sm-2" for="taikhoan">Tên Tài Khoản:</label>
+                                <label class="control-label col-sm-2" for="taikhoan">Tên Tài Khoản(Email):</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="taikhoan" name="taikhoan" placeholder="Tên Tài Khoản">
                                 </div>
