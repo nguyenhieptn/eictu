@@ -57,7 +57,7 @@ function loadtable(_page)
 			html +=  '<th>';
 			html +=  "Giới tính";
 			html +=  '</th>';
-			html +=  '<th class="col-md-8" colspan="8">';
+			html +=  '<th >';
 			html += 'Ngày sinh';
 			html +=  '</th>';
 			html +=  '</tr>';
@@ -84,7 +84,7 @@ function loadtable(_page)
 				else
 					html +=  "Nam";
 				html +=  '</td>';
-				html +=  '<td class="col-md-8" colspan="8">';
+				html +=  '<td >';
 				var d=item['birthday'].split("-");							
 				html +=  d[2]+"/"+d[1]+"/"+d[0];
 				html +=  '</td>';
