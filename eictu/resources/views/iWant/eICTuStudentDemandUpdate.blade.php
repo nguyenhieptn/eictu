@@ -7,7 +7,7 @@
   <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+                <div class="panel-heading">Mong muốn của sinh viên</div>
                 <div class="panel-body">
                  @if(Auth::check() && Auth::user()->type ==3)
                   <form action="{{route('iwant.status')}}" role="form" method="post" accept-charset="utf-8">
