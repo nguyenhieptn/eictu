@@ -126,8 +126,14 @@ class StudentController extends Controller
     public  function deleteall()
     {
         DB::table('users')->where('type', '=', 3)->delete();
+        DB::table('wants')->delete();
+        DB::table('areas')->delete();
+        DB::table('have')->delete();
+        DB::table('motels')->delete();
+        DB::table('secondhands')->delete();
+        DB::table('dormitories')->delete();
+        DB::table('schedules')->delete();
         DB::table('students')->delete();
-
         return redirect()->back();
     }
     public function impost()
