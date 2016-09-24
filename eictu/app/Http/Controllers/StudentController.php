@@ -138,6 +138,7 @@ class StudentController extends Controller
         DB::table('classes')->delete();
         return redirect()->back();
     }
+
     public function impost()
     {
 

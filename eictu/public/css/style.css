@@ -65,10 +65,10 @@
 }
 body{
     font-family: arial ;
-    font-size: 25px;
+    font-size: 15px;
 }
 .wrapper{
-    width:1280px;
+    width:900px;
     margin: auto;
 }
 .wrapper h1{
@@ -76,32 +76,34 @@ body{
 }
 .pagewrapper{
     width: 100%;
+    margin: 0px auto;
 
 }
 .pagewrapper .top{
-    width: 95%;
+    width: 70%;
     float: left;
     background: #FF2C21;
-    padding: 15px 2.56%;
-    font-size: 25px;
+    font-size: 20px;
     color: white;
-    font-weight: bold;
 }
 .top span {
     float: left;
+    font-weight: normal;
+    padding: 15px 2.56%;
 }
 .top>div{
     float: right;
-    background-image: url('/img/exit.png');
+    background-image: url("img/exit.png");
     background-repeat: no-repeat;
     background-position:left;
-    width: 11%;
-    height: 38px;
+    width: 10%;
+    padding: 15px 2.56%;
 }
 .top>div a{
     text-decoration: none;
     color: white;
     float: right;
+
 }
 .top>div a:hover{
     color:black
@@ -152,12 +154,17 @@ body{
 
 }
 .content1{
-    width: 99.9%;
+    width: 69.9%;
     float: left;
     border: 1px solid #BFBFBF;
+
 }
+.content1 table{
+    margin: 20px;
+}
+
 .content1 table img{
-    width: 50px;
+    width: 20%;
     float: right;
     margin-right: 50px;
 }
@@ -168,7 +175,6 @@ body{
 }
 .content1 table td{
     padding: 5px 0;
-    font-size: 25px;
     font-weight: bold;
 }
 .content1 table td a{
@@ -184,7 +190,7 @@ body{
 }
 #toptext{
     font-weight: bold;
-    font-size: 30px;
+    font-size: 20px;
 }
 .content2{
     width: 99.9%;
