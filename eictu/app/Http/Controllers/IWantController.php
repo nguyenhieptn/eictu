@@ -40,8 +40,8 @@ class IWantController extends Controller
     }
     public function search()
     {
-        $data = IWant::select('id', 'content')->orderBy('id','DESC')->paginate(15);
-    	return view('iWant.eICTuStudentDemandSearch', compact('data'));
+        // $data = IWant::select('id', 'content')->orderBy('id','DESC')->paginate(15);
+    	return view('iWant.eICTuStudentDemandUpdate');
     }
     public function detail($id)
     {   
