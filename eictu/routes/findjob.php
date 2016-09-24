@@ -10,7 +10,7 @@ Route::group(['prefix' => 'findjob'], function () {
     Route::get('post', [
         'as' => 'findjob.post',
         'uses' => 'FindJobController@getPost'
-    ]);
+    ])->middleware('auth');
 
     Route::post('post-add', [
         'as' => 'findjob.post.add',

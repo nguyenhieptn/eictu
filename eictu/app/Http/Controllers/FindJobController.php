@@ -15,10 +15,10 @@ use DB;
 class FindJobController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     public function getIndex()
     {
@@ -26,9 +26,16 @@ class FindJobController extends Controller
         return view('findjob.index')->with('datas', $datas);
     }
 
-    public function getPost()
+    public function getPost( Request $request)
     {
-        return view('findjob.add');
+        if(Auth::user()->type ==3){
+             return view('findjob.add');
+         }else{
+            $datas = FindJob::orderby('id','DESC')->paginate(10);
+            $request->session()->flash('lock', 'vui lòng đăng nhập tài khoản sinh viên để thực hiện chức năng này');
+            return view('findjob.index')->with('datas', $datas);
+         }
+       
     }
 
     /**

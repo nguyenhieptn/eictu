@@ -6,11 +6,6 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">eICTuStudentNeedJob - Trang tin tìm việc làm của Sinh viên</div>
                     <div class="panel-body">
-                        @if(\Illuminate\Support\Facades\Session::has('lock'))
-                          <script type='text/javascript'>alert('vui lòng đăng nhập tài khoản sinh viên để thực hiện chức năng này')</script>
-                        @endif
-                      <h3 class=" btn btn-default btn-sm btn-link-post"><a href="{{ route('findjob.post') }}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Sinh viên đăng tin</a></h3>
-
                         <ul class="find-job list-group">
                         <h4>Các bản tin của sinh viên tìm việc:</h4>
                             @foreach($datas as $data=>$item)
@@ -26,4 +21,8 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+       
+       document.getElementsByClassName('find-job-dange').delay(3000).hiden();
+    </script>
 @endsection
