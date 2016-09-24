@@ -24,7 +24,7 @@
                             
                                 @forelse ($datas as $val)
                                     <tr>
-                                        <td>{{ $val->id }}</td>
+                                        <td>{{ $loop->iteration }}</td>
                                         <td>{{ $val->name }}</td>
                                         <td>HK{{ $val->term }}</td>
                                         <td>{{ $val->credit }}</td>

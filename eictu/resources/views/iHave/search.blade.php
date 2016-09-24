@@ -4,7 +4,13 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">eICTuStudentGoodsSearch - Danh sách đồ cũ đang rao</div>
+                    <div style="background:#026086; height:40px; padding: 8px;">
+                       <strong  style="color:#ffffff; font-size:20px; font-weight: 600px;">eICTuStudentGoodsSearch - Danh sách đồ cũ đang rao
+                            @if(!Auth::guest())
+                                <a  style="color:#ffffff; font-size:20px; font-weight: 600px;"href="{!! url('dormitory/logout') !!}" title="logout" class="pull-right">Logout</a>
+                            @endif
+                       </strong>
+                    </div>
                     <div class="panel-body">
                         <div class="list-group">
                          <a href="{{url("iHave/update")}}" class="list-group-item active">SINH VIÊN RAO ĐỒ CŨ CẦN CHO/TẶNG</a>

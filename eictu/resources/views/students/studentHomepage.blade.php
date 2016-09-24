@@ -97,7 +97,7 @@
 
                     <tr>
                         <td><img src="{{url('img/rightarrow.png')}}"/></td>
-                        <td><a href="#">Chát với cả lớp ICT11</a></td>
+                        <td><a href="{{url('chat/classrooms')}}">Chát với cả lớp</a></td>
                     </tr>
 
                     <tr>
@@ -112,7 +112,7 @@
 
                     <tr>
                     <td><img src="{{url('img/rightarrow.png')}}"/></td>
-                    <td><a href="{{url('#')}}">LMS</a></td>
+                    <td><a href="{{url('LMS/show')}}">LMS</a></td>
                 </tr>
                 </table>
             </div>

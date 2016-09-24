@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('content')
@@ -5,7 +6,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <link rel="stylesheet" type="text/css" href="{!! url('quanlytruong/css/eICTuHomePage.css')!!}">
+                    <link rel="stylesheet" type="text/css" href="{{url('quanlytruong/css/eICTuHomePage.css')}}">
                     <div class="trangchu" >eICTuHomePage - Trang Chủ</div>
 
                     <div class="body">

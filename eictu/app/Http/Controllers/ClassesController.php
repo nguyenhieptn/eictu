@@ -48,7 +48,7 @@ class ClassesController extends Controller
 	// tạo view trang phân lớp cho sinh viên
 	function studentjoinclasspage($classid)		{
 		$_st=  DB::table('students')->select('students.code as studentcode','students.name as studentname', 'birthday','gender','majors.code as major_code')
-		->join('majors', 'major_id', '=', 'majors.id')
+		->leftjoin('majors', 'major_id', '=', 'majors.id')
 		->where('class_id', '=', null)->get()->first();
 		
 		$_class= DB::table('classes')->select('name','id')->where('id', '=', $classid)->get()->first();			
@@ -66,7 +66,7 @@ class ClassesController extends Controller
 		
 		$_students =  DB::table('students')->select('students.code as studentcode',
 		'students.name as studentname', 'birthday','gender','majors.code as major_code')
-		->join('majors', 'major_id', '=', 'majors.id')
+		->leftjoin('majors', 'major_id', '=', 'majors.id')
 		->where('class_id', '=', null)
 		->orderBy('students.code', 'asc')
 		->paginate($rp);

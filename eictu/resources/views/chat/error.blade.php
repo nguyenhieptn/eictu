@@ -2,8 +2,9 @@
 @section('content')
 
     <div class="row">
+        <br><br><br><br><br><br><br><br>
         <div class="col-lg-8 col-lg-offset-2" id="purple">
-            <h4>eICTuChatClassList - Các nhóm chat theo lớp học
+            <h4>Bạn không có quyền hạn để truy cập vào đường dẫn này. Xin mời logout và đăng nhập lại
                 <a style="float:right;" href="{{ url('/logout') }}"
                    onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
@@ -19,20 +20,5 @@
 
     </div>
 
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
-            <p class="lead"> Danh mục nhóm chat lớp học :</p>
-            <ol>
-            <?php
-            $classes = DB::table('classes')->get();
-            foreach ($classes as $class) {
-                $class_name = $class->name;
 
-                echo "<li><a href='classroom?c=$class_name&id=$name'>$class_name</a></li>";
-            }
-            ?>
-            </ol>
-
-        </div>
-    </div>
 @stop
