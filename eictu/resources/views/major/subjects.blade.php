@@ -23,15 +23,15 @@
         </div>
 
         <div class="container">
-            <table class="table-bordered" style="font-weight: bold">
+            <table class="table-bordered" >
                 @if (count($programs) == 0 )
-                    <tr>
+                    <tr style="font-weight: bold">
                         <td align="left" class="col-md-1" colspan="12">
                             Chưa có Môn
                         </td>
                     </tr>
                 @else
-                    <tr>
+                    <tr >
                         <th class="col-md-2">
                             Mã Môn
                         </th>
@@ -43,6 +43,9 @@
                         </th>
                         <th class="col-md-2">
                             Số Tín Chỉ
+                        </th>
+                        <th class="col-md-2">
+                            Số Tiết học
                         </th>
                     </tr>
                     @foreach ($programs as $sub)
@@ -58,6 +61,9 @@
                             </td>
                             <td class="col-md-3">
                                 {{ $sub->credit }}
+                            </td>
+                            <td class="col-md-3">
+                                {{ $sub->credit*15 }}
                             </td>
                         </tr>
                     @endforeach
