@@ -1,15 +1,17 @@
 @extends('layouts.app')
-
+@section('title')
+eICTuLearningManageSystem Update - Cập nhật môn học
+@endsection
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
                 @foreach ($datas as $val)
-                    <div class="panel-heading" style="background:#328f31;color:#fff;font-weight:bold;">eICTuLearningManageSystem Update - Cập nhật môn học {{ $val->name }} cho sinh viên {{$st->name}}</div>
+                    
                     <div class="panel-body">
                         <p>Thông tin môn học:</p>
-                            <ul>
+                            <ul style="padding-left:30px;">
                         
                                 <li>
                                     <label class="lab-update">Tên môn học: {{ $val->name }}</label>
