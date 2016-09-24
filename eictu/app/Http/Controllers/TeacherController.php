@@ -22,7 +22,7 @@ class TeacherController extends Controller
 
           // return view('teacher.homepage');
         if ( Auth::user()->type <= 2) {
-            return view('Teacher.homepage');
+            return view('teacher.homepage');
         }else{
             return view('student.index');
         }
@@ -67,14 +67,14 @@ class TeacherController extends Controller
             $user->password = bcrypt($request->code);
             $user->save();
         }
-        return redirect()->route('Teacher.list');
+        return redirect()->route('teacher.list');
     }
 
     public function getList(){
         
             $teacher = Teacher::orderBy('id', 'DESC')->paginate(20);
             // print_r($teacher);
-            return view('Teacher.list', compact('teacher'));
+            return view('teacher.list', compact('teacher'));
         
         }
         
@@ -86,7 +86,7 @@ class TeacherController extends Controller
         }elseif (isset(Auth::user()->id) && Auth::user()->type==3) {
             return view('welcome');
         }else{
-            return view('Teacher.login');
+            return view('teacher.login');
         }
         
     }
