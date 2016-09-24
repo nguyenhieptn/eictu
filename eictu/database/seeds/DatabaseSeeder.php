@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+
         DB::table('schools')
 		->insert(['code' =>'ICTU', 'name' => 'CNTT TT TN','user_id'=>'1']);
 
