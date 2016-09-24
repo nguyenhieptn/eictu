@@ -37,18 +37,21 @@
       <p>Không ai thèm muốn gì luôn đấy !</p>
     @endif 
 
-  <div class="panel-body panel-body-2">
-                        <ul class="find-job list-group">
-                         <center> <h4 style="color:#e25252; font-weight:bold;margin-bottom:0 !important"></h4></center>
-                            @foreach($data as $data=>$item)
-                                <li class="list-group-item">
-                                    <span class="glyphicon glyphicon-triangle-right"aria-hidden="true"></span>
-                                    <a href="{{route('findjob.detail',$item['id'])}}"><?php echo substr($item['content'], 0, 140)."[..]"?></a>
-                                </li>
-                            @endforeach
-                        </ul>
-                        {!!$data->render()!!}
-                    </div>
+    <div class="pagination pull-right">
+          <ul class="list-inline">
+          @if($data->currentPage() != 1)
+            <li><a href="{!! str_replace('/?','?',$data->url($data->currentPage()- 1)) !!}">Prev</a></li>
+          @endif  
+            @for($i =1; $i<= $data->lastPage(); $i++)
+            <li class="{!! ($data->currentPage() == $i) ? 'active' :'' !!}">
+              <a href="{!! str_replace('/?','?',$data->url($i)) !!}">{!!$i!!}</a>
+            </li>
+            @endfor
+          @if($data->currentPage() != $data->lastPage())  
+            <li><a href="{!! str_replace('/?','?',$data->url($data->currentPage()+ 1)) !!}">Next</a></li>
+          @endif
+          </ul>
+      </div>
                 </div>
             </div>
         </div>
