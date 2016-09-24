@@ -6,6 +6,7 @@
 <style type="text/css" media="screen">
   .panel-default>.panel-heading{
     background: #2ecc71;
+    color: white;
   }
 </style>
   <div class="row">
@@ -24,11 +25,11 @@
 
                   <hr>
                   @endif
-                     <h4>Hiện có các lời kêu gọi/yêu cầu sau đây, mời bạn xem và trợ giúp nếu có thể:</h4>
+      <h4>Hiện có các lời kêu gọi/yêu cầu sau đây, mời bạn xem và trợ giúp nếu có thể:</h4>
       <hr>
       @if($data)
         @foreach($data as $want)
-        <div class="col-xs-12">
+        <div >
           <p style="font-weight: bold; font-size: 20px; color: black;"><span class="glyphicon glyphicon-play" style="color: #27ae60;">&nbsp;</span><a style="color: black;" href="{{route('iwant.detail', $want['id'])}}" title="">{{$want['content']}}</a></p>
         </div>
         @endforeach
@@ -51,7 +52,6 @@
           @endif
           </ul>
       </div>
-
                 </div>
             </div>
         </div>
