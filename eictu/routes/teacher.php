@@ -1,7 +1,6 @@
 <?php 
 //, 'middleware'=>'auth'
     Route::group(['prefix' => 'teacher'], function () {
-
     Route::get('eICTuTeacherHomePage', [
         "uses" => "TeacherController@index",
         "as"   => "teacher.index",
