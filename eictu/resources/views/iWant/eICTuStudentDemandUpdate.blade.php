@@ -3,11 +3,15 @@
 @section('content')
 <div class="container">
 
-
+<style type="text/css" media="screen">
+  .panel-default>.panel-heading{
+    background: #2ecc71;
+  }
+</style>
   <div class="row">
         <div class="col-lg-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">Mong muốn của sinh viên</div>
+            <div class="panel panel-default ">
+                <div class="panel-heading iwant">Mong muốn của sinh viên</div>
                 <div class="panel-body">
                  @if(Auth::check() && Auth::user()->type ==3)
                   <form action="{{route('iwant.status')}}" role="form" method="post" accept-charset="utf-8">
