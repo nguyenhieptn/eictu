@@ -14,10 +14,9 @@ class IWantController extends Controller
 {
     public function getStatus()
     {
-        if ( Auth::user()->type ==3) {
-            return view('iWant.eICTuStudentDemandUpdate');
-        }
-        return view('teacher.homepage');
+
+        $data = IWant::select('id', 'content')->orderBy('id','DESC')->paginate(15);
+        return view('iWant.eICTuStudentDemandUpdate', compact('data'));
     	
     }
 

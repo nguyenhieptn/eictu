@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
     @if($want)
-	    <div class="col-xs-12">
+	    <div class="col-lg-8 col-lg-offset-2 col-xs-12">
 	    <p>Nội dung lời kêu gọi :</p>
 	      <h2>{{$want->content}}</h2>
 	      <hr>
@@ -42,7 +42,7 @@
 	      	</p>
 	      
 	      <hr>
-	      <a href="{{route('iwant.search')}}" title="ĐÓng" class="btn btn-danger" style="color: white;">Đóng</a>
+	      <a href="{{route('iwant.status')}}" title="ĐÓng" class="btn btn-danger" style="color: white;">Đóng</a>
 	    </div> 
 	@endif    
   </div>
