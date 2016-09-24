@@ -13,17 +13,16 @@
                     <div class="body">
                         Nếu Bạn Là giáo viên, hãy chọn.
                         <br/>
-<<<<<<< HEAD
+
                         <img class="image" src="{{url('quanlytruong/images/li.png')}}">
                         <a class="link" href="{{route('teacher.login')}}">Giáo Viên</a>
-=======
 
 
                         <img class="image" src="{{url('quanlytruong/images/li.png')}}"> <a class="link" href="{{route('teacher.login')}}">Giáo Viên</a>
 
 
                         <br />
->>>>>>> d3e9b77836ee11ea816c1d3153f7356b58d7837b
+
                         <br/>
                         Nếu Bạn Là Sinh Viên, hãy chọn.
                         <br />
