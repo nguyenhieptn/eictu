@@ -9,7 +9,7 @@
 		<script src="{!! url('classes_src/js/jquery.min.js')!!}">
 		</script>
 		<script src="{!! url('classes_src/js/classes.js')!!}"></script>
-<
+
 @section('title')	
 		Trang sinh viên - Sinh nhật bạn cùng lớp 	
 @endsection	
@@ -60,7 +60,7 @@
 			@else
 				@foreach ($_classmatersbirthday as $sv)						
 					<tr >
-						<td>{{ $loop->iteration }}.</td>
+						<td>{{ $loop->iteration }}</td>
 						<td>{{ $sv['name'] }}</td>								
 						<td>{{ $sv['gender_text'] }}</td>
 						<td>{{ $sv['birthday'] }}</td>

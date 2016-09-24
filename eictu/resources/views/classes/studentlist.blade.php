@@ -75,10 +75,10 @@
 						<th>
 							STT
 						</th>
-						<th class="col-md-1" >
+						<th  >
 							Mã sinh viên
 						</th>
-						<th class="col-md-10" colspan="10">
+						<th  colspan="10">
 							Họ tên
 						</th>							
 					</tr>
@@ -96,13 +96,13 @@
 							@if(isset($_page) && count($_page>0))							
 								{{ $loop->iteration + $_page }}.
 							@else								
-								{{ $loop->iteration }}.
+								{{ $loop->iteration }}
 							@endif
 						</td>
-						<td class="col-md-1" >
+						<td  >
 							{{ $_student->code }}
 						</td>
-						<td class="col-md-10" colspan="10">
+						<td >
 							{{ $_student->name }}
 						</td>							
 					</tr>

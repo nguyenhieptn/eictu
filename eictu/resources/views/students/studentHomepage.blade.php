@@ -1,12 +1,15 @@
 @extends('/layouts/app')
 
 @section('title')
+Trang chủ của sinh viên
+
     <span>Trang chủ của sinh viên</span>
 @endsection
 @section('content')
 <body>
     <div class="container">
         <div class="row">
+
             <div class="panel-heading">
             </div>
                 <div class="content1">
