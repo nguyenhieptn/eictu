@@ -1,5 +1,5 @@
 <?php
-function _sub($str, $length, $minword = 3,$link)
+function _sub($str, $length, $minword = 3)
 {
     $sub = '';
     $len = 0;
@@ -14,5 +14,5 @@ function _sub($str, $length, $minword = 3,$link)
         }
 
     }
-    return $sub . (($len < strlen($str)) ? '...<a href="'.$link.'">read more</>' : '');
+    return $sub . (($len < strlen($str)) ? ' [..]' : '');
 }

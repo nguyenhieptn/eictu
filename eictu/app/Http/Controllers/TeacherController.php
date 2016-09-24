@@ -47,7 +47,7 @@ class TeacherController extends Controller
     public function postAdd(Request $request){
 
         $this->validate($request, [
-            'code'=>'required|max:30',
+            'code'=>'required|max:30|unique:teacher,code',
             'name'=>'required|max:30',
             'gender'=>'required',
             'birthday'=>'required',
@@ -64,7 +64,7 @@ class TeacherController extends Controller
             $user = new User();
             $user->name = $request->name;
             $user->username = $request->code;
-            $user->email =changeName($request->name)."@ictu.edu.vn";
+            $user->email =$request->code."@ictu.edu.vn";
             $user->type = 2;
             $user->password = bcrypt($request->code);
             $user->save();
