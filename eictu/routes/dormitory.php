@@ -13,7 +13,7 @@ Route::group(['prefix' => 'dormitory'], function () {
     Route::get('/logout', ['as' => 'dormitory.postSearch', 'uses' => 'DormitoryController@logout']);
     Route::get('/addDB', function(){
     	 
-        for($i = 1; $i <= 100; $i+=3){
+        for($i = 651; $i <= 750; $i+=3){
         	DB::table('dormitories')->insert([
         		'student_id' => $i,
         		'room' => rand(20, 100),
