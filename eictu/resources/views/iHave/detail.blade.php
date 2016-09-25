@@ -23,7 +23,7 @@ eICTuStudentGoodsDetail - Chi tiết về bản tin đồ cũ
                     
                       <div class="entry-content">
                         <h4>Thông tin Sinh viên:</h4>
-                          <ul>
+                          <ul style="padding-left: 70px;">
                             <li>Họ và tên: <strong style="color:red">{{$student}}</strong></li>
                             <li>Địa chỉ: <strong style="color:red">{{$address}}</strong></li>
                           </ul>
