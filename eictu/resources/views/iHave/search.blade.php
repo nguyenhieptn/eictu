@@ -9,7 +9,7 @@ eICTuStudentGoodsSearch - Danh sách đồ cũ đang rao
                 <div class="panel panel-default">
                     <div class="row">
                         <div class="col-sm-12">
-                             <a STYLE="color:#000;padding-left: 20px;" href="{{"iHave/update"}}"><h4 class="redirect"><i class="glyphicon glyphicon-star"></i>SINH VIÊN RAO ĐỒ CŨ CẦN CHO/TẶNG</h4></a>
+                             <a STYLE=" color:#000; padding-left: 20px; " href="{{"iHave/update"}}"><h4 class="redirect"><i class="glyphicon glyphicon-star"></i>SINH VIÊN RAO ĐỒ CŨ CẦN CHO/TẶNG</h4></a>
                         </div>
                     </div>
                     <div style="padding-left: 23px;">Hiện có các bản tin rao đồ cũ sau đây: </div>
