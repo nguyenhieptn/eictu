@@ -25,23 +25,10 @@ Route::group(['prefix' => 'dormitory'], function () {
 
         return 'ok';
     });
-<<<<<<< HEAD
 
     Route::get('/removeAll',function(){
     	DB::table('areas')->all()->delete();
     	DB::table('dormitories')->all()->delete();
-=======
-<<<<<<< HEAD
-    Route::get('/addST', function(){
-    	$id = DB::table('students')->where('code', 'DTC125D4802010011')->first();
-    	DB::table('dormitories')->where('id', 7)->update(['student_id' =>$id->id]);
-=======
-    
-    Route::get('/removeAll',function(){
-    	DB::table('areas')->all()->delete();
-    	DB::table('dormitories')->all()->delete();
->>>>>>> 8b8427bff0a45ccc34ad4f360cbae4832ad0c74f
->>>>>>> cbb458f48b6ab8f5f3cf2b7ab970acdae6ca02e8
     });
 
     Route::get('/addST', function(){
