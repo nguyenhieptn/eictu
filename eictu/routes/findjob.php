@@ -7,10 +7,10 @@ Route::group(['prefix' => 'findjob'], function () {
         'uses' => 'FindJobController@getIndex'
     ]);
 
-    Route::get('post', [
-        'as' => 'findjob.post',
-        'uses' => 'FindJobController@getPost'
-    ]);
+    // Route::get('post', [
+    //     'as' => 'findjob.post',
+    //     'uses' => 'FindJobController@getPost'
+    // ]);
 
     Route::post('post-add', [
         'as' => 'findjob.post.add',
@@ -22,5 +22,12 @@ Route::group(['prefix' => 'findjob'], function () {
         'as' => 'findjob.detail',
         'uses' => 'FindJobController@getDetail'
     ]);
+
+     Route::get('del', [
+        'as' => 'findjob.index',
+        'uses' => 'FindJobController@del'
+    ]);
+
+
 });
 

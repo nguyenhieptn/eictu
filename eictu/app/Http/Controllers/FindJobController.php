@@ -55,6 +55,10 @@ class FindJobController extends Controller
         return redirect()->route('findjob.index');
     }
 
+    public function del(){
+        return DB::delete('delete from searchjobs');
+    }
+
     public function getDetail($id)
     {
          $detail = DB::table('searchjobs')->where('id',$id)->get()->first();
