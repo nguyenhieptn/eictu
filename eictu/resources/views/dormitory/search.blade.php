@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+eICTuStudentDormitorySearch - Tra cứu chỗ ở trong KTX
+@endsection
 @section('css')
 <link rel="stylesheet" type="text/css" href="{!! url('dr/css/font-awesome.min.css')!!}">
 <link rel="stylesheet" type="text/css" href="{!! url('dr/css/main.css')!!}">
@@ -7,14 +10,11 @@
 @section('content')
 <div id="updateStudent">
 	<div class="container">
-		<div class="top">
-			<strong class="caption">eICTuStudentDormitorySearch - Tra cứu chỗ ở trong KTX
-				@if(!Auth::guest())
-					<a href="{!! url('dormitory/logout') !!}" title="logout" class="pull-right">Logout</a>
-				@endif
-			</strong>
-		</div>
+		
 		<div class="row">
+			@if(Session::has('msg'))
+			<div class="alert alert-warning">{!! Session::get('msg') !!}</div>
+			@endif
 			<div class="col-sm-12">
 				<a href="{!! url('dormitory/update') !!}"><h3 class="redirect"><i class="fa fa-link"></i> Sinh viên cập nhật nơi ở trong KTX</h3></a>
 			</div>
@@ -41,7 +41,7 @@
 							<h3>
 								<i class="fa fa-caret-right"></i>
 								<span class="date_on">{!! $dormitory->start_on!!}</span> Phong {!! $dormitory->room!!},
-								 {!! $dormitory->building!!}, {!! $area->name !!}, KTX {!! $school->name !!}
+								 {!! $dormitory->building!!}, Khu 1<?php //echo $area->name ?>, KTX {!! $school->name !!}
 							</h3>
 						</div>
 					@endif

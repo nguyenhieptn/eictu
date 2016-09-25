@@ -47,14 +47,14 @@ class IHaveController extends Controller
 
     public function search()
     {
-        $data = DB::table('haves')->orderBy('id','desc')->paginate(15);
+        $data = DB::table('have')->orderBy('id','desc')->paginate(10);
         return view("iHave.search",['data'=>$data]);
 
     }
     public function detail($id)
     {
-        $student_id=DB::table('haves')->where('id', $id)->value('student_id');
-        $have  = DB::table('haves')->where('id', $id)->value('content');
+        $student_id=DB::table('have')->where('id', $id)->value('student_id');
+        $have  = DB::table('have')->where('id', $id)->value('content');
         $student = DB::table('students')->where('id', $student_id)->value('name');
         $address =DB::table('motels')->where('student_id', $student_id)->value('address');
         return view('iHave.detail', compact('have', 'student', 'address'));

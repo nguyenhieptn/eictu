@@ -14,10 +14,9 @@ class IWantController extends Controller
 {
     public function getStatus()
     {
-        if ( Auth::user()->type ==3) {
-            return view('iWant.eICTuStudentDemandUpdate');
-        }
-        return view('teacher.homepage');
+
+        $data = IWant::select('id', 'content')->orderBy('id','DESC')->paginate(20);
+        return view('iWant.eICTuStudentDemandUpdate', compact('data'));
     	
     }
 
@@ -33,16 +32,14 @@ class IWantController extends Controller
 
         $iwant->student_id       = $student->id;
         $iwant->save();
-        // Auth::student()->iwants()->create([
-        //     'content'=>$request->input('content'),
-        //     ]);
+      
 
-        return redirect()->route('iwant.search');
+        return redirect()->back();
     }
     public function search()
     {
-        $data = IWant::select('id', 'content')->orderBy('id','DESC')->paginate(15);
-    	return view('iWant.eICTuStudentDemandSearch', compact('data'));
+        // $data = IWant::select('id', 'content')->orderBy('id','DESC')->paginate(15);
+    	return redirect()->route('iwant.status');
     }
     public function detail($id)
     {   

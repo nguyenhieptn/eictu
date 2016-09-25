@@ -1,36 +1,32 @@
 @extends('/layouts/app')
 @section('content')
-
+    <?php
+    $user_id = Auth::user()->username;
+    $type = Auth::user()->type;
+            if ($type != 2 || $type != 1){
+                redirect('chat/error');
+            }
+    ?>
     <div class="row">
-        <div class="col-lg-8 col-lg-offset-2" id="purple">
-            <h4>eICTuChatClassList - Các nhóm chat theo lớp học
-                <a style="float:right;" href="{{ url('/logout') }}"
-                   onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
-                    Logout
-                </a>
-
-                <form id="logout-form" action="{{ url('/logout') }}" method="POST">
-                    {{ csrf_field() }}
-                </form>
-            </h4>
+        <div class="col-sm-8 col-sm-offset-2" id="purple">
+            <h4>Các phòng chat theo lớp học</h4>
 
         </div>
 
     </div>
 
     <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
-            <p class="lead"> Danh mục nhóm chat lớp học :</p>
+        <div class="col-sm-5 col-sm-offset-3">
+            <br>
             <ol>
-            <?php
-            $classes = DB::table('classes')->get();
-            foreach ($classes as $class) {
-                $class_name = $class->name;
+                <?php
+                $classes = DB::table('classes')->get();
+                foreach ($classes as $class) {
+                    $class_name = $class->name;
 
-                echo "<li><a href='classroom?c=$class_name&id=$name'>$class_name</a></li>";
-            }
-            ?>
+                    echo "<li id='cla'><a href='classroom?c=$class_name&id=$user_id'>$class_name</a></li>";
+                }
+                ?>
             </ol>
 
         </div>

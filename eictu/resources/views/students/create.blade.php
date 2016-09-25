@@ -1,9 +1,11 @@
 @extends('layouts.app')
-
+@section('title')
+    <span>Th</span>
+@endsection
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-7">
+            <div class="col-md-offset-2 col-md-8">
                 <div class="panel panel-default">
                     <div class="panel-heading">Hãy nhập đầy đủ thông tin cho sinh viên mới trúng tuyển vào mẫu sau:</div>
                     <div class="panel-body">
@@ -12,7 +14,6 @@
                                 <label class="control-label col-md-3" for="Major_Id">Mã ngành :</label>
                                 <div class="col-md-9">
                                     <select class="form-control col-sm-9" id="Major_Id" name="Major_Id">
-                                        <option value="0"> - Chọn - </option>
                                         @forelse($majors as $major)
                                             <option value="{{$major-> id}}">{{$major-> code}}</option>
                                         @empty
@@ -40,8 +41,8 @@
                                 <label class="control-label col-sm-3" for="gender">Giới tính :</label>
                                <div class="col-sm-9">
                                     <select class="form-control col-sm-9" id="gender" name="gender">
-                                        <option value="0">Nam</option>
-                                        <option value="1">Nữ</option>
+                                        <option value="1">Nam</option>
+                                        <option value="0">Nữ</option>
                                     </select>
                                </div>
                             </div>
@@ -62,7 +63,6 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-5"></div>
         </div>
 
 

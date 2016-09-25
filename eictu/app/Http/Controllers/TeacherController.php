@@ -30,22 +30,24 @@ class TeacherController extends Controller
     }
 
     public function getAdd(){
-         if ( Auth::user()->type == 1) {
-            $major = Major::select('*')->get()->toArray();
-            return view('teacher.add', compact('major'));
-         }elseif(Auth::user()->type == 2){
-            return redirect()->route('teacher.index');
-         }else{
-            return view('welcome');
+        //  if ( Auth::user()->type == 1) {
+        //     $major = Major::select('*')->get()->toArray();
+        //     return view('teacher.add', compact('major'));
+        //  }elseif(Auth::user()->type == 2){
+            
+        //  }else{
+        //     return view('welcome');
          
-        }
+        // }
+        $major = Major::select('*')->get()->toArray();
+            return view('teacher.add', compact('major'));
     }
 
 
     public function postAdd(Request $request){
 
         $this->validate($request, [
-            'code'=>'required|max:30',
+            'code'=>'required|max:30|unique:teacher,code',
             'name'=>'required|max:30',
             'gender'=>'required',
             'birthday'=>'required',
@@ -62,7 +64,7 @@ class TeacherController extends Controller
             $user = new User();
             $user->name = $request->name;
             $user->username = $request->code;
-            $user->email =changeName($request->name)."@ictu.edu.vn";
+            $user->email =$request->code."@ictu.edu.vn";
             $user->type = 2;
             $user->password = bcrypt($request->code);
             $user->save();
@@ -77,7 +79,9 @@ class TeacherController extends Controller
             return view('teacher.list', compact('teacher'));
         
         }
-        
+
+
+
     public function getLogin(){
         if (isset(Auth::user()->id) && Auth::user()->type==1) {
             return redirect()->route('teacher.list');
@@ -90,6 +94,7 @@ class TeacherController extends Controller
         }
         
     }
+    
 
 
 }

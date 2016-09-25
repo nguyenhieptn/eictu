@@ -1,16 +1,15 @@
 @extends('layouts.app')
 
+@section('title')
+    Ngành Học
+@endsection
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <link rel="stylesheet" type="text/css" href="{!! url('quanlytruong/css/trangthanhvien.css')!!}">
-                    <div class="thanhvien">eICTuMajorRegister - Ngành Học    <a style=" padding-left:650px;font-size: 18px; color: #FFFFFF;" href="{{ url('/logout') }}"
-                                                                                onclick="event.preventDefault();
-                                                                                       document.getElementById('logout-form').submit();">
-                                                                                Logout
-                                                                            </a>
+                    <div class="thanhvien">eICTuMajorRegister - Ngành Học
                     </div>
                     <div class="panel-body">
                         <a href="{{ url('schools/eICTuMajorRegister') }}">THÊM NGÀNH MỚI</a>
