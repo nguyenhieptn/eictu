@@ -24,7 +24,7 @@
     color: #fff;
 }
 .find-job .panel-default>.panel-heading {
-    background-color: #87b5f2 !important;
+    background-color: #2ecc71 !important;
     color:#fff;
 }
 .find-job .btn-link-post{
@@ -43,7 +43,7 @@
 .find-job .list-group-item a{
     font-size: 15px !important;
    /* font-weight:600;*/
-    color: #5c94bd;
+    color: #4980a9;
 
 }
 .find-job .panel-default>.panel-body-2{
