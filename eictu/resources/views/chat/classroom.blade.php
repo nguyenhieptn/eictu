@@ -45,17 +45,7 @@
     ?>
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2" id="purple">
-            <h4>Phòng Chat của lớp <span><?php echo $class_room;?></span>
-                <a style="float:right;" href="{{ url('/logout') }}"
-                   onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
-                    Logout
-                </a>
-
-                <form id="logout-form" action="{{ url('/logout') }}" method="POST">
-                    {{ csrf_field() }}
-                </form>
-            </h4>
+            <h4>Phòng Chat của lớp <span><?php echo $class_room;?></span></h4>
         </div>
         <div class="col-sm-8 col-sm-offset-2">
             <input type="hidden" class="chat-room" value="<?php echo $class_room;?>"/>
@@ -69,12 +59,12 @@
 
     <div class="row">
 
-        <div class="col-sm-8 col-sm-offset-2">
-            <input class="form-control input-sm chat-input" id="inputsm" type="text"
+        <div class="col-sm-7 col-sm-offset-2">
+            <input class="form-control input-lg chat-input" id="inputlg" type="text"
                    placeholder="Type your message">
         </div>
         <div class="col-sm-2">
-            <button type="button" id="send" class="btn btn-primary btn-sm">Send</button>
+            <button type="button" id="send" class="btn btn-primary btn-lg">Send</button>
         </div>
 
         <div class="col-sm-8 col-sm-offset-2 chat-status">Status: <span>Idle</span></div>

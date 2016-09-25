@@ -26,7 +26,7 @@ Chi tiết lời yêu cầu
 	      		if (isset($address)) {
 	      			echo " Xóm trọ ông/bà :".$address->hostess." , ".$address->address;
 	      		}elseif (isset($address2)) {
-	      			echo  "Phòng số :".$address2->room." , Tòa nhà :".$address2->building." , Khu :".$area->name;
+	      			echo  "Phòng số :".$address2->room." , Tòa nhà :".$address2->building." , Khu : 1";
 	      		}else{
 	      			echo "Không xác định được địa chỉ hiện tại của sinh viên";
 	      		}

@@ -60,6 +60,6 @@ class RentHouseController extends Controller
         $renthouse->date_join=$data['date_join'];
         $renthouse->save();
         $data=DB::table('motels')->where('student_id',$student_id) ->orderBy('date_join', 'desc')->paginate(5);
-        return view("RentHouse.index",['data'=>$data,'name'=>'Thông tin của bạn:']);
+        return redirect("rentHouse");
     }
 }
