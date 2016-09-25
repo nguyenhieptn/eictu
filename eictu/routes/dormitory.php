@@ -36,7 +36,10 @@ Route::group(['prefix' => 'dormitory'], function () {
 	    DB::table('dormitories')->where('id', 4)->update(['student_id'=>$st->id]);
 	 return $st->id;
     });
-
+	Route::get('/lcd', function(){
+	    $c = DB::table('dormitories')->get();
+	 return $c;
+    });
 });
 /*=== het Quan ly ky tuc xa======*/
 
