@@ -9,7 +9,7 @@ eICTuStudentGoodsUpdate - Đăng tin đồ cũ
                 <div class="panel panel-default">
                    
                     <div class="panel-body">
-                        <p>Sinh viên có đồ dùng cũ, sách cũ, … không có nhu cầu sử dụng có thể đem cho thì đăng tin ở đây để tìm người cần dùng:</p>
+                        <p>Sinh viên có đồ dùng cũ, sách cũ, … không có nhu cầu sử dụng có thể đem cho thì đăng tin ở đây.</p>
                         @if(count($errors)>0)
                               <div class="alert alert-danger">
                                   {{ $errors->first('content') }}
