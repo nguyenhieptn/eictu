@@ -1,7 +1,5 @@
-@extends('layouts.app')
-@section('title')
-Trang chủ của giáo viên
-@endsection
+@extends('teacher.master')
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -23,7 +21,7 @@ Trang chủ của giáo viên
   <div class="row">
     <div class="col-xs-10">
       <?php 
-      $teacher = DB::table('teacher')->select('name')->where('code', Auth::user()->username)->first();
+      $teacher = DB::table('teachers')->select('name')->where('code', Auth::user()->username)->first();
      ?>
 
        

@@ -1,7 +1,5 @@
-@extends('layouts.app')
-@section('title')
-Quản lý giáo viên
-@endsection
+@extends('teacher.master')
+
 @section('content')
     <div class="container">
         <div class="row">
