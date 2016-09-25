@@ -22,6 +22,7 @@ eICTuStudentGoodsSearch - Danh sách đồ cũ đang rao
                         @endforeach
                         <?php echo "<li><center>".$data->render()."</center></li>"?>
                     </ul>
+                    {!!$data->render()!!}
                 </div>
                 </div>
             </div>
