@@ -17,11 +17,5 @@ Route::group(['prefix' => 'findjob'], function () {
         'uses' => 'FindJobController@getDetail'
     ]);
 
-     Route::get('del', [
-        'as' => 'findjob.index',
-        'uses' => 'FindJobController@del'
-    ]);
-
-
 });
 
