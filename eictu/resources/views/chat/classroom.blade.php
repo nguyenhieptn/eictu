@@ -69,12 +69,12 @@
 
     <div class="row">
 
-        <div class="col-sm-8 col-sm-offset-2">
-            <input class="form-control input-sm chat-input" id="inputsm" type="text"
+        <div class="col-sm-7 col-sm-offset-2">
+            <input class="form-control input-lg chat-input" id="inputlg" type="text"
                    placeholder="Type your message">
         </div>
         <div class="col-sm-2">
-            <button type="button" id="send" class="btn btn-primary btn-sm">Send</button>
+            <button type="button" id="send" class="btn btn-primary btn-lg">Send</button>
         </div>
 
         <div class="col-sm-8 col-sm-offset-2 chat-status">Status: <span>Idle</span></div>
