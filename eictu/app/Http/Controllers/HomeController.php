@@ -32,14 +32,32 @@ class HomeController extends Controller
             return view("schools.eICTuSchoolHomePage", compact('name'));
         }
 
-        if ($type == 2) return view('teacher.homepage');
+
+        if ($type == 2) {
+            return redirect()->route('teacher.index');
+        }
+
         if ($type == 3){
             $data = Student::select('*')
                 ->where('code', '=', Auth::user()->username)
                 ->get()->first();
             $classid = $data == null ? 0 : $data->class_id;
             return view("students.studentHomepage", compact('name', 'classid'));
+
+        if ($type == 3) {
+
+
+            if ($type == 3) {
+                $data = Student::select('*')
+                    ->where('code', '=', Auth::user()->username)
+                    ->get()->first();
+                $classid = $data == null ? 0 : $data->class_id;
+                return view("students.studentHomepage", compact('name', 'classid'));
+
+            }
+
         }
+    }
     }
 
 }

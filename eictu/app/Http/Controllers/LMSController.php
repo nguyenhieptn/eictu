@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -39,7 +40,8 @@ class LMSController extends Controller
 
             }
         } else {
-            return redirect('/student/login');
+
+            return redirect('/login');
         }
     }
 
@@ -59,5 +61,17 @@ class LMSController extends Controller
         $term = $request->input('term');
         DB::table('schedules')->where('id', $id)->update(array('situation' => $term));
         return redirect("LMS/show");
+    }
+    public function droptable(){
+        Schema::drop('schedules');
+    }
+    public function createtable(){
+        Schema::create('haves', function (Blueprint $table) {
+            $table->increments('id');
+            $table->text('content');
+            $table->integer('student_id')->unsigned();
+            $table->foreign('student_id')->references('id')->on('students');
+            $table->timestamps();
+        });
     }
 }

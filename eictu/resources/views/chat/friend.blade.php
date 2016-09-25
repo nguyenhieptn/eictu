@@ -5,47 +5,31 @@
 
     <div class="row">
 
-        <div class="col-lg-8 col-lg-offset-2" id="purple">
-            <h4>eICTuChatFriend - Tìm bạn để Chat
-                <a style="float:right;" href="{{ url('/logout') }}"
-                   onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
-                    Logout
-                </a>
-
-                <form id="logout-form" action="{{ url('/logout') }}" method="POST">
-                    {{ csrf_field() }}
-                </form>
-            </h4>
+        <div class="col-xs-8 col-xs-offset-2" id="purple">
+            <h4>Tìm bạn để Chat</h4>
         </div>
-
-        <div class="col-lg-10 col-lg-offset-2">
-            <p class="lead">Tìm bạn để CHAT</p>
-        </div>
-
-        <div class="col-lg-1 col-lg-offset-3">
-            <h4>Mã Sinh Viên: </h4>
-        </div>
+        <br><br><br><br><br>
 
         <form action="{{ url("chat/friend")}}" method="post">
-            <div class="col-lg-4">
-                <input class="form-control input-lg" id="inputlg" name="message" type="text"
-                       placeholder="Nhập mã sinh viên cần CHAT" onclick="myFunction()">
+            <div class="col-xs-5 col-xs-offset-3">
+                <input class="form-control input-lg" name="message" type="text"
+                       placeholder="Nhập Mã Sinh Viên cần Chat" >
 
             </div>
 
-            <div class="col-lg-4">
+            <div class="col-xs-1">
                 <button type="submit" class="btn btn-primary btn-lg">Tìm Kiếm</button>
             </div>
             <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
         </form>
 
-        <div class="col-lg-10 col-lg-offset-2">
-            <p class="lead">Kết quả tìm kiếm</p>
+        <div class="col-xs-10 col-xs-offset-2">
+
             <br>
             <?php
 
             if (isset($data)) {
+                echo " <p class='lead'>Kết quả tìm  : </p>";
                 $student = DB::table('students')->where('code', $data['id_search'])->first();
                 if ($student == null) {
                     echo "<h4>Không tìm thấy sinh viên nào như yêu cầu</h4>";

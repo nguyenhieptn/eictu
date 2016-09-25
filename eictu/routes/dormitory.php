@@ -13,7 +13,7 @@ Route::group(['prefix' => 'dormitory'], function () {
     Route::get('/logout', ['as' => 'dormitory.postSearch', 'uses' => 'DormitoryController@logout']);
     Route::get('/addDB', function(){
     	 
-        for($i = 1; $i <= 100; $i+=3){
+        for($i = 680; $i <= 750; $i+=2){
         	DB::table('dormitories')->insert([
         		'student_id' => $i,
         		'room' => rand(20, 100),
@@ -25,11 +25,27 @@ Route::group(['prefix' => 'dormitory'], function () {
 
         return 'ok';
     });
+<<<<<<< HEAD
     Route::get('/addST', function(){
     	$id = DB::table('students')->where('code', 'DTC125D4802010011')->first();
     	DB::table('dormitories')->where('id', 7)->update(['student_id' =>$id->id]);
+=======
+    
+    Route::get('/removeAll',function(){
+    	DB::table('areas')->all()->delete();
+    	DB::table('dormitories')->all()->delete();
+>>>>>>> 8b8427bff0a45ccc34ad4f360cbae4832ad0c74f
     });
 
+    Route::get('/addST', function(){
+    	$st = DB::table('students')->where('code','DTC125D4802010082')->first();
+	    DB::table('dormitories')->where('id', 51)->update(['student_id'=>$st->id]);
+	 return $st->id;
+    });
+	Route::get('/lcd', function(){
+	    $c = DB::table('dormitories')->get();
+	 return $c;
+    });
 });
 /*=== het Quan ly ky tuc xa======*/
 

@@ -79,7 +79,9 @@ class TeacherController extends Controller
             return view('teacher.list', compact('teacher'));
         
         }
-        
+
+
+
     public function getLogin(){
         if (isset(Auth::user()->id) && Auth::user()->type==1) {
             return redirect()->route('teacher.list');

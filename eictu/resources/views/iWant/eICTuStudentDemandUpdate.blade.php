@@ -1,7 +1,10 @@
 @extends('layouts.app')
-
+@section('title')
+Đăng tin - Danh sách những mong muốn
+@endsection
 @section('content')
 <div class="container">
+@if(Auth::check() && Auth::user()->type ==3)
     <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-xs-12">
       <form action="{{route('iwant.status')}}" role="form" method="post" accept-charset="utf-8">
@@ -9,11 +12,12 @@
         <div class="form-group {{$errors->has('content')? ' has-error': ''}}">
           <textarea placeholder="Bạn muốn gì, mọi người sẽ đáp ứng !" name="content" class="form-control" rows="3"></textarea>
         </div>
-        <button type="submit" class="btn btn-default">Đăng Tin</button>    
+        <button type="submit" class="btn btn-success">Đăng Tin</button>    
       </form>
       <hr>
     </div>
   </div>
+@endif  
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 ">
       <h4>Hiện có các lời kêu gọi/yêu cầu sau đây, mời bạn xem và trợ giúp nếu có thể:</h4>
@@ -21,11 +25,11 @@
       @if($data)
         @foreach($data as $want)
         <div class="col-xs-12">
-          <p style="font-weight: bold; font-size: 20px; color: black;"><span class="glyphicon glyphicon-play" style="color: #27ae60;">&nbsp;</span><a style="color: black;" href="{{route('iwant.detail', $want['id'])}}" title="">{{$want['content']}}</a></p>
+          <p style="font-size: 18px; color: black;"><span class="glyphicon glyphicon-play" style="color: #27ae60;">&nbsp;</span><a style="color: black;" href="{{route('iwant.detail', $want['id'])}}" title="">{{$want['content']}}</a></p>
         </div>
         @endforeach
     @else
-      <p>Khong ai them muon gi ca luon day !</p>
+      <p>Không ai thèm muốn gì luôn đấy !</p>
     @endif 
 
     <div class="pagination pull-right">
