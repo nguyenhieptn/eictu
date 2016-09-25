@@ -1,7 +1,5 @@
 @extends('layouts.app')
-@section('title')
-Thêm giáo viên vào trường
-@endsection
+
 @section('content')
     <div class="container">
         <div class="row">

@@ -40,8 +40,8 @@ eICTuStudentDormitorySearch - Tra cứu chỗ ở trong KTX
 						<div class="list">
 							<h3>
 								<i class="fa fa-caret-right"></i>
-								<span class="date_on">{!! $dormitory->start_on!!}</span> Phong {!! $dormitory->room!!},
-								 {!! $dormitory->building!!}, Khu 1<?php //echo $area->name ?>, KTX {!! $school->name !!}
+								<span class="date_on">{!! $dormitory->start_on!!}</span>{!! $student->name !!} Phòng {!! $dormitory->room!!}, nhà
+								 {!! $dormitory->building!!}, {{ $area->name }}, KTX {!! $school->name !!}
 							</h3>
 						</div>
 					@endif
