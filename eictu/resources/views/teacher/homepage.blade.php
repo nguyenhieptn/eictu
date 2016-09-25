@@ -1,5 +1,7 @@
 @extends('teacher.master')
-
+@section('title')
+Trang chu giao vien
+@endsection
 @section('content')
 <div class="container">
     <div class="row">

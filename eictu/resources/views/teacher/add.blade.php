@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+Them giao vien moi trung tuyen
+@endsection
 @section('content')
     <div class="container">
         <div class="row">
