@@ -20,9 +20,9 @@ eICTuStudentGoodsSearch - Danh sách đồ cũ đang rao
                                 <a href="{{url('iHave/detail', $item->id)}}"><?php echo $item->content;?></a>
                             </li>
                         @endforeach
-                        <?php echo "<li><center>".$data->render()."</center></li>"?>
+                        
                     </ul>
-                    {!!$data->render()!!}
+                    <center>{!!$data->render()!!}</center>
                 </div>
                 </div>
             </div>
