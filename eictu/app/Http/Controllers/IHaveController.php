@@ -47,7 +47,7 @@ class IHaveController extends Controller
 
     public function search()
     {
-        $data = DB::table('have')->orderBy('id','desc')->paginate(10);
+        $data = DB::table('have')->orderBy('id','desc')->paginate(15);
         return view("iHave.search",['data'=>$data]);
 
     }
