@@ -1,4 +1,4 @@
-@extends('teacher.master')
+@extends('layouts.app')
 @section('title')
 Trang chu giao vien
 @endsection
