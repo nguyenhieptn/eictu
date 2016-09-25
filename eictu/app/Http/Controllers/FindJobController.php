@@ -23,10 +23,10 @@ class FindJobController extends Controller
     public function getIndex()
     {
         if(Auth::check() && Auth::user()->type==3){
-            $datas = FindJob::orderby('id','DESC')->paginate(8);
+            $datas = FindJob::orderby('id','DESC')->paginate(50);
             return view('findjob.index')->with('datas', $datas);
         }else{
-             $datas = FindJob::orderby('id','DESC')->paginate(10);
+             $datas = FindJob::orderby('id','DESC')->paginate(50);
             return view('findjob.index')->with('datas', $datas);
         }
         
