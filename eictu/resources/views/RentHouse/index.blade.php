@@ -21,7 +21,7 @@
       <div class="row">
           <div class="col-md-12">
               <div class="panel panel-default">
-                  <div class="panel-heading">Đây là màn hình tìm kiếm thông tin nhà trọ của sinh viên bằng mã số sinh viên.</div>
+                  <div class="panel-heading">XXXXX Đây là màn hình tìm kiếm thông tin nhà trọ của sinh viên bằng mã số sinh viên.</div>
                   <div class="panel-body">
                     <form action="{{url("rentHouse")}}" method="get" class="form-horizontal" accept-charset="utf-8">
                         <div class="form-group" style="padding:8px;">
