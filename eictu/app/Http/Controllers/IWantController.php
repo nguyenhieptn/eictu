@@ -15,7 +15,7 @@ class IWantController extends Controller
     public function getStatus()
     {
 
-        $data = IWant::select('id', 'content')->orderBy('id','DESC')->paginate(15);
+        $data = IWant::select('id', 'content')->orderBy('id','DESC')->paginate(20);
         return view('iWant.eICTuStudentDemandUpdate', compact('data'));
     	
     }
@@ -32,9 +32,7 @@ class IWantController extends Controller
 
         $iwant->student_id       = $student->id;
         $iwant->save();
-        // Auth::student()->iwants()->create([
-        //     'content'=>$request->input('content'),
-        //     ]);
+      
 
         return redirect()->back();
     }

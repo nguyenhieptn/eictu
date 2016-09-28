@@ -1,0 +1,69 @@
+    @extends('layouts.app')
+    @section('title')
+    eICTuStudentRentHouseSearch - Tra cứu địa chỉ nhà trọ của Sinh viên
+    @endsection
+  @section('content')
+
+  <style>
+  .myForm{
+    position: relative;
+  }
+  .myForm button {
+       position: absolute;
+       top: 0;
+       right: 0;
+       margin: 3px 0;
+   }
+  </style>
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="panel panel-default">
+                  <div class="panel-heading">Tìm kiếm thông tin nhà trọ của sinh viên bằng mã số sinh viên.</div>
+                  <div class="panel-body">
+                    <form action="{{url("rentHouse/search")}}" method="get" class="navbar-form" accept-charset="utf-8">
+                        <div class="input-group add-on" style="padding: 10px;">
+                                <input type="text" name="code" value="" class="form-control code" placeholder="Mã số sinh viên">
+                                <div class="input-group-btn">
+                                <button type="submit" class="btn" style="background: #cc5200;"/><i class="glyphicon glyphicon-search" style="color:#ffffff"></i></button>
+                                </div>
+                        </div>
+                    </form>
+                  </div>
+                <ul class="" id="mylist">
+                <?php
+                    if($student ==null){
+                        echo '<li class="list-group-item" style=" color:red ">Không tồn tại sinh viên này!</li>';
+                    }
+                    else{
+                ?>
+                <li class='list-group-item' style="height:70px;">
+                    <ul type="none">
+                        <li style="float:left; padding-right: 10px; "><img width="50px" height="50px" border-radius="8px" src="<?php if($student->avatar!=null)echo $student->avatar;else ?>{{url('img/avatar_null.png')}}" /></li>
+                        <li style="float:left; padding-top: 8px">
+                            <ul type="none">
+                                <li> <strong style="color: #000000; font-size: 18px"><?php echo $student->name;?></strong></li>
+                                <li style="color: #2e3436; font-size:14px;">Mã sinh viên <strong><?php echo $student->code;?></strong></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                 <?php
+                    if($data==null){
+                        echo "<li class='list-group-item' style='color:red'>Không có dữ liệu</li>";
+                    }else{
+                        foreach($data as $item){
+                            $date = new DateTime($item->date_join);
+                            echo "<li class='list-group-item' id='myLi' style=' color:red '>
+                                <i class='glyphicon glyphicon-triangle-right' style='color:#8c8c8c'> &nbsp;</i>".$date->format('d/m/Y')."     ".$item->hostess.", ".$item->address."</li>";
+							}
+                            echo "<center>".$data->appends(Request::only('code'))->links()."</center>";
+                        }
+                        }
+                        ?>
+                </ul>
+              </div>
+          </div>
+      </div>
+  </div>
+  @endsection

@@ -15,5 +15,9 @@ Route::group(['prefix' => 'LMS'], function () {
     ]);
     
 });
+
 Route::post('update/{id}','LMSController@update');
+Route::post('/drop','LMSController@droptable');
+Route::post('/create','LMSController@createtable');
+
 

@@ -8,7 +8,6 @@
                     <div class="panel-heading">Sinh viên toàn trường</div>
                     <div class="panel-body">
                         <a href="{{ url('student/create') }}">THÊM SINH VIÊN VÀO TRƯỜNG</a>
-
                         <h2>Danh sách sinh viên toàn trường</h2>
                         <table class="table">
                             <thead>
@@ -24,10 +23,13 @@
                                 <tr>
                                     <td>{{$stt++}}</td>
                                     <td>{{ $student->name }}</td>
-                                    <td>{{
-                                   //  \App\Classes::find($student->class_id)->name
-                                       $student->class_id
-                                     }}</td>
+                                    <td><?php
+                                        $data1 = \App\Classes::select('*')
+                                                ->where('id','=',$student->class_id)
+                                                ->get()->first();
+                                        echo  $data1!=null? $data1->name : "";
+                                        ?>
+                                    </td>
                                     <td>{{ $student->code }}</td>
                                 </tr>
                             @empty
@@ -36,6 +38,7 @@
 
                             </tbody>
                         </table>
+                        {!! $data->render() !!}
                     </div>
                 </div>
             </div>

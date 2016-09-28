@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    <span>Thêm mới sinh viên</span>
+    <span>Th</span>
 @endsection
 @section('content')
     <div class="container">
