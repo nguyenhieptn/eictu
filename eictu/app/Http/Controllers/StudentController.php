@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Schema;
 
 class StudentController extends Controller
 {
@@ -53,7 +54,12 @@ class StudentController extends Controller
 
 //        $type = Auth::user()->type;
             if ($type == 1) {
-                $data = Student::paginate(20);
+
+                $userid= Auth::user()->id;
+                $school= School::where('user_id', $userid)->first();
+                $school_id = $school->id;
+
+                $data = Student::Where('school_id' , '=' ,$school_id )->paginate(20);
                 $stt = 1;
                 return view("students.index", compact('data', 'stt'));
             } else if ($type == 3) {
@@ -74,6 +80,18 @@ class StudentController extends Controller
         $data = School::select('*')->get();
         $majors= Major::select('*')->get();
         return view('students.create',compact('data','majors'));
+    }
+
+    /**
+     * @return string
+     */
+    public function AddingColum()
+    {
+        Schema::table('students',function ($table)
+        {
+            $table->string('location')->nullable() ;
+            $table->string('avata')->nullable();
+        });
     }
 
     //add
