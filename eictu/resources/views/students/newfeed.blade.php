@@ -6,5 +6,6 @@
 
 
 @section('content')
-    - Trang chủ của sinh viên
+    <h1>Nội dung trang News Feed</h1>
+
 @endsection
