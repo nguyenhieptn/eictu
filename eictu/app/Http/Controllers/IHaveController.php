@@ -8,6 +8,7 @@ use App\IHave;
 use App\Students;
 use DB;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Schema;
 
 
 class IHaveController extends Controller
@@ -63,5 +64,11 @@ class IHaveController extends Controller
     public function status($id){
         DB::table('have')->where('id', $id)->update(array('status' => 1));
         return redirect('iHave');
+    }
+
+    public function action(){
+        Schema::table('have', function ($table) {
+            $table->integer('status')->after('student_id')->default(0);
+        });
     }
 }
