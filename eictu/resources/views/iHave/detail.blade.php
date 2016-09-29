@@ -27,7 +27,7 @@ eICTuStudentGoodsDetail - Chi tiết về bản tin đồ cũ
              <a class="btn btn-default item navbar-left" href="{{ url('iHave') }}"><span class="glyphicon glyphicon-remove"></span>QUAY LẠI</a>
              @if(auth()->check())
                @if(auth()->user()->username!=$student->code)
-                 <a style="background: #cc5200;"  class=" btn btn-default item navbar-right" href="/eictu/eictu/public/chat/friendroom?id={{auth()->user()->username}}&friend={{$student->code}}"><span class="glyphicon glyphicon-send"></span>  NHẮN TIN CHO NGƯỜI ĐĂNG</a>
+                 <a style="background: #cc5200;"  class=" btn btn-default item navbar-right" href="/chat/friendroom?id={{auth()->user()->username}}&friend={{$student->code}}"><span class="glyphicon glyphicon-send"></span>  NHẮN TIN CHO NGƯỜI ĐĂNG</a>
                @else
                  <a style="background: #cc5200;"  class=" btn btn-default item navbar-right" href="{{url('iHave/update',$have->id)}}"><span class="glyphicon glyphicon-ok"></span>  ĐÃ CHO</a>
                @endif
