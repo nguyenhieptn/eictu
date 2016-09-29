@@ -48,7 +48,7 @@ class IHaveController extends Controller
 
     public function search()
     {
-        $data = DB::table('students')->leftjoin('have','have.student_id','=','students.id')->where('status',0)->orderBy('have.id','desc')->paginate(15);
+        $data = DB::table('students')->leftjoin('have','have.student_id','=','students.id')->where('status',0)->orderBy('have.id','desc')->paginate(10);
         return view("iHave.search",['data'=>$data]);
 
     }
