@@ -7,12 +7,12 @@ eICTuStudentGoodsSearch - Danh sách đồ cũ đang rao
     @if(Auth::check() && Auth::user()->type==3)
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-xs-12">
-          <form action="{{url('iHave')}}" role="form" method="post" accept-charset="utf-8">
+          <form  class="nav-form" action="{{url('iHave')}}" role="form" method="post" accept-charset="utf-8">
             <input type="hidden" name="_token" value="{{Session::token()}}">
-            <div class="input-group add-on">
-              <textarea style="padding: 10px;" placeholder="Mô tả tài sản cũ của bạn ở đây để cả thế giới biết.Cho đi chính là đã nhận về." name="content" class="form-control" rows="2"></textarea>
+            <div class="input-group add-on" style="padding: 10px; height: 70px" >
+              <textarea style="height: 70px" placeholder="Mô tả tài sản cũ của bạn ở đây để cả thế giới biết.Cho đi chính là đã nhận về." name="content" class="form-control" rows="2"></textarea>
               <div class="input-group-btn">
-                <button type="submit" class="btn" style="background: #ff7b07; color: #ffffff; height:62px;">ĐĂNG NGAY</button>
+                <button type="submit" class="btn" style="background: #ff7b07; color: #ffffff; height: 70px;border-radius: 0 8px 8px 0px;">ĐĂNG NGAY</button>
               </div>
             </div>
           </form>
@@ -28,7 +28,7 @@ eICTuStudentGoodsSearch - Danh sách đồ cũ đang rao
         @foreach($data as $item)
           <li style="height:80px; padding-top: 10px"><a style="height:70px;" class="list-group-item" href="{{url('iHave/detail', $item->id)}}">
             <ul type="none">
-              <li style="float: left;padding-right: 10px;"><img src="<?php echo $item->avatar; ?>" height="50px" width="50px"/></li>
+              <li style="float: left;padding-right: 10px;"><img src="<?php if($item->avatar!=null)echo $item->avatar;else ?>{{url('img/avatar_null.png')}}" height="50px" width="50px"/></li>
               <li>
                 <ul type="none">
                   <li><?php echo $item->name;?></li>
