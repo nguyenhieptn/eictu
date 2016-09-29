@@ -46,6 +46,14 @@ eICTuStudentDormitoryUpdate - Sinh viên cập nhật chỗ ở KTX
 					</div>
 				</form>
 			</div>
+			<div class="col-sm-8 col-sm-offset-2">
+			<h3>Lịch sử chuyển chỗ ở trong KTX của bạn</h3>
+			<?php 
+				$code = Auth::user()->username;
+	        	$student = DB::table('students')->where('code', $code)->first();
+        	?>
+				{!! Cache::get($student->id)!!}
+			</div>
 		</div>
 	</div>
 </div>
