@@ -89,8 +89,12 @@ class StudentController extends Controller
     {
         Schema::table('students',function ($table)
         {
+            $table->dropColumn('location');
+        });
+
+        Schema::table('wants',function ($table)
+        {
             $table->string('location')->nullable() ;
-            $table->string('avata')->nullable();
         });
     }
 
