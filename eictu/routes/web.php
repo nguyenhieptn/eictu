@@ -28,8 +28,9 @@ Route::get('/', function () {
                     ->where('code', '=', auth()->user()->username)
                     ->get()->first();
                 $classid = $data == null ? 0 : $data->class_id;
-                $name = auth()->user()->name;
-                return view("students.studentHomepage", compact('name', 'classid'));
+                $name = auth()->user()->name ;
+            $avatar = $data== null ? $data->avatar==null ? "/img/user-image01.png" : $data->avatar."" : "/img/user-image01.png";
+            return view("students.newfeed", compact('name', 'classid','avatar'));
         }
     }
 });

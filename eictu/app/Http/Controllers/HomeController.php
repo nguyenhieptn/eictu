@@ -42,22 +42,9 @@ class HomeController extends Controller
                 ->where('code', '=', Auth::user()->username)
                 ->get()->first();
             $classid = $data == null ? 0 : $data->class_id;
-            return view("students.studentHomepage", compact('name', 'classid'));
-
-        if ($type == 3) {
-
-
-            if ($type == 3) {
-                $data = Student::select('*')
-                    ->where('code', '=', Auth::user()->username)
-                    ->get()->first();
-                $classid = $data == null ? 0 : $data->class_id;
-                return view("students.studentHomepage", compact('name', 'classid'));
-
-            }
-
+            $avatar = $data== null ? $data->avatar==null ? "/img/user-image01.png" : $data->avatar."" : "/img/user-image01.png";
+            return view("layouts.student_app", compact('name'));
         }
-    }
     }
 
 }

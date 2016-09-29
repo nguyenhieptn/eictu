@@ -16,7 +16,7 @@
                 <div class="col-md-4">
                     <table>
                         <tr>
-                            <td ><img src="{{ url('img/user-image01.png')}}" id="topimg"/></td>
+                            <td ><img src="{{ url($avatar)}}" id="topimg"/></td>
                             <td id="toptext">{{$name}}</td>
                         </tr>
 
@@ -62,7 +62,7 @@
                             <td><a href="{{url('LMS/show')}}">Tiến độ học tập LMS</a></td>
                         </tr>
                         <tr>
-                            <td><img src="{{url('img/search.png')}}"/></td>
+                            <td><img src="{{url('img/frmPhanQuyen.png')}}"/></td>
                             <td><a href="#">Hồ sơ</a></td>
                         </tr>
                     </table>

@@ -68,7 +68,8 @@ class StudentController extends Controller
                     ->get()->first();
                 $classid = $data->class_id;
                 $name = Auth::user()->name;
-                return view("students.studentHomepage", compact('name', 'classid'));
+                $avatar = $data== null ? $data->avatar==null ? "/img/user-image01.png" : $data->avatar."" : "/img/user-image01.png";
+                return view("students.studentHomepage", compact('name', 'classid','avatar'));
             }
         }else{
             return redirect('students/login');
@@ -160,6 +161,14 @@ class StudentController extends Controller
         DB::table('students')->delete();
         DB::table('classes')->delete();
         return redirect()->back();
+    }
+
+    /**
+     * @return string
+     */
+    public function NewFeeds()
+    {
+        return view("students.newfeed");
     }
 
     public function impost()

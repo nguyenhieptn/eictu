@@ -15,6 +15,7 @@ Route::post('student/login','StudentController@login');
 Route::get('student/impost','StudentController@impost');
 Route::get('student/deleteall','StudentController@deleteall');
 Route::get('student/adding','StudentController@AddingColum');
+Route::get('student/newsfeed','StudentController@NewFeeds');
 /* end student section */
 
 
