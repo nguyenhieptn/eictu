@@ -25,13 +25,14 @@ class RentHouseController extends Controller
     public function search(Request $request)
     {
         $code = $request->input('code');
-        $data=array();
         $student=array();
+        $data=array();
         if($code!=null) {
             $student = DB::table('students')->where('code', $code)->first();
-            $data = DB::table('motels')->where('student_id', $student->id)->orderBy('date_join', 'desc')->paginate(5);
+            if($student!=null)
+                $data = DB::table('motels')->where('student_id', $student->id)->orderBy('date_join', 'desc')->paginate(5);
         }
-        return view("RentHouse.search", ['data' => $data,'student'=>$student]);
+        return view("RentHouse.search", ['code'=>$code,'data' => $data,'student'=>$student]);
     }
 
     public function create(){

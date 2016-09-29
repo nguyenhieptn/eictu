@@ -21,22 +21,20 @@
               <div class="panel panel-default">
                   <div class="panel-heading">Tìm kiếm thông tin nhà trọ của sinh viên bằng mã số sinh viên.</div>
                   <div class="panel-body">
-                    <form action="{{url("rentHouse/search")}}" method="get" class="navbar-form" accept-charset="utf-8">
+                    <form action="{{url("rentHouse/search")}}" method="post" class="navbar-form">
                         <div class="input-group add-on" style="padding: 10px;">
-                                <input type="text" name="code" value="" class="form-control code" placeholder="Mã số sinh viên">
+                                <input type="text" name="code" id="code" class="form-control code" placeholder="Mã số sinh viên">
                                 <div class="input-group-btn">
                                 <button type="submit" class="btn" style="background: #cc5200;"/><i class="glyphicon glyphicon-search" style="color:#ffffff"></i></button>
                                 </div>
+                                <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                         </div>
                     </form>
                   </div>
                 <ul class="" id="mylist">
-                <?php
-                    if($student ==null){
-                        echo '<li class="list-group-item" style=" color:red ">Không tồn tại sinh viên này!</li>';
-                    }
-                    else{
-                ?>
+                    @if($student ==null && $code!=null)
+                        <li class='list-group-item' style="color:red;" >Không tồn tại sinh viên!</li>
+                    @elseif($student!=null)
                 <li class='list-group-item' style="height:70px;">
                     <ul type="none">
                         <li style="float:left; padding-right: 10px; "><img width="50px" height="50px" border-radius="8px" src="<?php if($student->avatar!=null)echo $student->avatar;else ?>{{url('img/avatar_null.png')}}" /></li>
@@ -50,7 +48,7 @@
                 </li>
                  <?php
                     if($data==null){
-                        echo "<li class='list-group-item' style='color:red'>Không có dữ liệu</li>";
+                        echo "<li class='list-group-item' style='color:red'>Không có thông tin trọ</li>";
                     }else{
                         foreach($data as $item){
                             $date = new DateTime($item->date_join);
@@ -59,8 +57,9 @@
 							}
                             echo "<center>".$data->appends(Request::only('code'))->links()."</center>";
                         }
-                        }
+
                         ?>
+                        @endif
                 </ul>
               </div>
           </div>

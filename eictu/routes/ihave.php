@@ -1,7 +1,6 @@
 <?php
 Route::get('/iHave', 'IHaveController@search');
-Route::get('/iHave/update', 'IHaveController@update');
+Route::get('/iHave/update/{id}', 'IHaveController@status','id');
 Route::get('/iHave/detail/{id}', 'IHaveController@detail','id');
-Route::post('iHave/update', 'IHaveController@store');
-
+Route::post('iHave', 'IHaveController@store');
 ?>
