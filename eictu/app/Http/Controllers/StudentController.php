@@ -95,7 +95,7 @@ class StudentController extends Controller
 
         Schema::table('wants',function ($table)
         {
-            $table->string('location')->nullable() ;
+          //  $table->string('location')->nullable() ;
         });
     }
 
