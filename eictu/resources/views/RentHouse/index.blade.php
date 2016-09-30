@@ -1,6 +1,6 @@
 @extends('layouts.student_app')
 @section('title')
-eICTuStudentRentHouseHistory - Lịch sử nhà trọ
+eICTuStudentRentHouseHistory - Lịch sử nhà trọ a
 @endsection
   @section('content')
   <div class="container" style="width:100%">
