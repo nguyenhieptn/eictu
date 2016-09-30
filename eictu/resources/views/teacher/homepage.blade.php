@@ -25,7 +25,7 @@ Trang chu giao vien
   <div class="row">
     <div class="col-lg-9">
       <?php 
-      $newfeed = DB::table('newsfeed')->select('*')->get();
+      $newfeed = DB::table('newsfeed')->select('*')->orderBy('id', 'DESC')->get();
      ?>
      @if(!empty($newfeed))
       @foreach($newfeed as $item)
@@ -37,7 +37,7 @@ Trang chu giao vien
             <img src="{{url('{!! $student_id->name !!}')}}" alt="">
            </div>
            <div class="col-lg-1 ">
-            <h3>{!! $student_id->name !!} </h3>
+            <h3>{!! $student_id->name !!} <span>{!! $item->time !!}</span></h3>
             <p>{{$item->content}}</p>
            </div>
          </div>
