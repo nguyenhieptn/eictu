@@ -88,15 +88,11 @@ class StudentController extends Controller
      */
     public function AddingColum()
     {
-        Schema::table('students',function ($table)
-        {
-            $table->dropColumn('avata');
-            $table->string('avatar')->nullable() ;
-        });
-
-        Schema::table('wants',function ($table)
-        {
-          //  $table->string('location')->nullable() ;
+        Schema::create('newsfeed', function ($table) {
+            $table->increments('id');
+            $table->integer('student_id');
+            $table->string('content');
+            $table->timestamp('time');
         });
     }
 
