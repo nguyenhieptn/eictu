@@ -43,7 +43,6 @@ Chi tiết lời yêu cầu
 	      <p style="font-size: 15px;">{{$want->content}}</p>
 	    	</div>
 	    </div>
-
 	      
 	      <hr>
 	      <a href="{{route('iwant.status')}}" title="ĐÓng" class="btn btn-danger" style="color: white;">Đóng</a>
