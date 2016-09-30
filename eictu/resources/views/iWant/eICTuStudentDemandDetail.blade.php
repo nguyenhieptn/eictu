@@ -19,15 +19,6 @@ Chi tiết lời yêu cầu
                 -ms-border-radius: 4px;
                 -o-border-radius: 4px;
               }
-              img{
-                width: 100px;
-                height: 100px;
-                border-radius: 4px;
-                -moz-border-radius: 4px;
-                -webkit-border-radius: 4px;
-                -ms-border-radius: 4px;
-                -o-border-radius: 4px;
-              }
             </style>
     @if($want)
 	    <div class="col-lg-8  col-xs-12">
