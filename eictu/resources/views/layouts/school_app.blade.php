@@ -164,7 +164,11 @@
             </table>
         </div>
     </div>
+<<<<<<< HEAD
     <div class="col-md-9" >
+=======
+    <div class="col-md-9">
+>>>>>>> 8fe2620880be32da7153a6e0c287d1bd94933440
         @yield('content')
     </div>
 </div>
