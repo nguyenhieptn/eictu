@@ -95,10 +95,12 @@ class StudentController extends Controller
         Schema::table('newsfeed', function ($table) {
             $table->integer('type')->nullable();
         });
+
         Schema::table('teacher', function ($table) {
             $table->string('avatar')->nullable();
         });
-       // DB::statement('ALTER TABLE newsfeed MODIFY COLUMN content text');
+
+        DB::statement('ALTER TABLE newsfeed MODIFY COLUMN content text');
     }
 
     //add
