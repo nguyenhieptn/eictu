@@ -11,12 +11,11 @@
     top: 64px;
     min-height: 49px;
 }
-}
 
 .find-job .ta-post{
     -webkit-box-shadow: -1px 0px 9px 0px rgba(51,48,51,0.54);
--moz-box-shadow: -1px 0px 9px 0px rgba(51,48,51,0.54);
-box-shadow: -1px 0px 9px 0px rgba(51,48,51,0.54);
+    -moz-box-shadow: -1px 0px 9px 0px rgba(51,48,51,0.54);
+    box-shadow: -1px 0px 9px 0px rgba(51,48,51,0.54);
 }
 
 .find-job img{
@@ -40,7 +39,33 @@ box-shadow: -1px 0px 9px 0px rgba(51,48,51,0.54);
     color: #4a4848;
     font-size: 15px;
 }
+
+.find-job .pagination>li>a, .pagination>li>span{
+    border: none !important;
 }
+
+.find-job .pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover{
+    background: none !important;
+    color:#337ab7 !important;
+}
+@media (max-width:320px) {
+    /* For mobile phones: */
+ .find-job .btn-post{
+     position: absolute;
+    top: 89px;
+ }
+
+ .find-job .media-heading{
+    font-size: 12px;
+ }
+ .find-job .index-content{
+     font-size: 12px;
+ }
+ .find-job .date-post{
+    font-size: 10px;
+ }
+}
+
 
 
 /*END FIND JOB*/
