@@ -38,7 +38,7 @@ Trang chu giao vien
            </div>
            <div class="col-lg-1 ">
             <h3>{!! $student_id->name !!} <span>{!! $item->time !!}</span></h3>
-            <p>{{$item->content}}</p>
+            <p style="word-wrap:break-word;">{{$item->content}}</p>
            </div>
          </div>
       @endforeach  
