@@ -3,7 +3,7 @@
 Chi tiết lời yêu cầu
 @endsection
 @section('content')
-<div class="container">
+<div >
     <div class="row">
     <style type="text/css" media="screen">
               .boot{

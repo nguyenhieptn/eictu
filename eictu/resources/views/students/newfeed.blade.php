@@ -6,7 +6,9 @@
 
 
 @section('content')
+    <?php
+    // $newsfeed = \App\NewsFeed::orderBy('id', 'DESC')->paginate(20);
+    ?>
 
-    <h1>Nội dung trang News Feed</h1>
 
 @endsection

@@ -88,11 +88,13 @@ class StudentController extends Controller
      */
     public function AddingColum()
     {
-        Schema::create('newsfeed', function ($table) {
-            $table->increments('id');
-            $table->integer('student_id');
-            $table->string('content');
-            $table->timestamp('time');
+//        Schema::create('newsfeed', function ($table) {
+//            $table->increments('id');
+//            $table->integer('student_id');
+//        });
+
+        Schema::table('newsfeed', function ($table) {
+            $table->integer('type');
         });
     }
 
@@ -128,6 +130,7 @@ class StudentController extends Controller
         $student->school_id =$data['school_id'];
         $student->avatar  = Null;
         $student->address  = Null;
+
         $student->save();
        if ($student->save() == true) {
            $user = new User();
