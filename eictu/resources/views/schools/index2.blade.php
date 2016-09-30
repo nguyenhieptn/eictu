@@ -6,9 +6,9 @@
 @section('content')
     <div >
         <div class="row">
-            <div style="padding-left: 235px;" class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-body">
+            <div  class="col-md-9">
+                <div >
+                    <div >
                         <?php
                         $_majors =  DB::table('schools')
                                 ->select('name')
@@ -20,19 +20,23 @@
                             @if (!isset($_majors) || $_majors ==null)
                                 <tr>Chưa Ngành Nào</tr>
                             @else
+                                <div>
+                                    <ul class="list-group">
                                 @foreach ($_majors as $_l)
-                                    <tr>
-                                        <td> <img class="image" style=" width: 30px;  height: 30px;  float: left;margin: 20px;"  src="{{url('img/go-home.png')}}"></td>
-                                        <td><h3>{{ $_l->name}}</h3> </td>
 
 
-                                    </tr>
+                                                <li class="list-group-item" style="list-style: none; font-size: 23px;"> <img class="image" src="{{url('quanlytruong/images/go-home-128.png')}}"> {{ $_l->name}}</li>
+
 
                                 @endforeach
+
+                                            </ul>
+                                        </div>
                             @endif
                         </table>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     </div>
