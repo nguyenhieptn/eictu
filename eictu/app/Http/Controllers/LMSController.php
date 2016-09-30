@@ -59,8 +59,13 @@ class LMSController extends Controller
 
     public function update(Request $request, $id)
     {
+        $code = Auth::user()->username;
+        $student = DB::table('students')->where('code', $code)->first();
+        $datas = DB::table('studyprograms')->join('schedules', 'studyprograms.id', '=', 'schedules.studyprogram_id')->where('schedules.id', '=', $id)->first();
+        $cre=$datas->credit*15;
         $term = $request->input('term');
         DB::table('schedules')->where('id', $id)->update(array('situation' => $term));
+        DB::table('newsfeed')->insert(array('student_id' => $student->id,'content' => 'Vừa hoàn thành chương trình học của môn '.$datas->name.', '.$cre.' tiết/'.$datas->credit.' tín chỉ.'));
         return redirect("LMS/show");
     }
     public function droptable(){
