@@ -107,6 +107,9 @@ class StudentController extends Controller
 
  //       DB::statement('ALTER TABLE newsfeed MODIFY COLUMN content text');
 //
+        Schema::table('students', function ($table) {
+            $table->text('address')->nullable();
+        });
         $columns = Schema::getColumnListing('students'); // users table
        
         dd($columns );
