@@ -40,6 +40,7 @@ Route::group(['prefix' => 'dormitory'], function () {
 	    $c = DB::table('dormitories')->get();
 	 return $c;
     });
+    
 });
 /*=== het Quan ly ky tuc xa======*/
 
