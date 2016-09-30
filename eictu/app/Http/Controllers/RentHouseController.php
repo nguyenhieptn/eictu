@@ -17,35 +17,32 @@ class RentHouseController extends Controller
     //
     public function index()
     {
+        if(auth()->guest() || auth()->user()->type!=3){
+            return redirect('rentHouse/search');
+        }
         $code = auth()->user()->username;
         $student_id = DB::table('students')->where('code', $code)->value('id');
-        $data = DB::table('motels')->where('student_id', $student_id)->orderBy('date_join', 'desc')->paginate(5);
+        $data = DB::table('motels')->where('student_id', $student_id)->orderBy('date_join', 'desc')->paginate(10);
         return view("RentHouse.index", ['data' => $data]);
     }
     public function search(Request $request)
     {
         $code = $request->input('code');
-        $data=array();
         $student=array();
+        $data=array();
         if($code!=null) {
             $student = DB::table('students')->where('code', $code)->first();
-            $data = DB::table('motels')->where('student_id', $student->id)->orderBy('date_join', 'desc')->paginate(5);
+            if($student!=null)
+                $data = DB::table('motels')->where('student_id', $student->id)->orderBy('date_join', 'desc')->paginate(10);
         }
-        return view("RentHouse.search", ['data' => $data,'student'=>$student]);
+        return view("RentHouse.search", ['code'=>$code,'data' => $data,'student'=>$student]);
     }
 
     public function create(){
-        if(auth()->guest()){
-            echo '<script> alert("Bạn chưa đăng nhập");
-                window.history.back();
-            </script>';
-        }else
-        if( auth()->user()->type=="3") {
-            return view("RentHouse.create");
+        if(auth()->guest() || auth()->user()->type!=3){
+            return redirect('rentHouse/search');
         }else{
-            echo '<script> alert("Bạn không phải là sinh viên");
-                window.history.back();
-            </script>';
+            return view("RentHouse.create");
         }
     }
 
@@ -69,7 +66,7 @@ class RentHouseController extends Controller
         $renthouse->address=$data['address'];
         $renthouse->date_join=$data['date_join'];
         $renthouse->save();
-        $data = DB::table('motels')->where('student_id', $student_id)->orderBy('date_join', 'desc')->paginate(5);
+        $data = DB::table('motels')->where('student_id', $student_id)->orderBy('date_join', 'desc')->paginate(10);
         return view("RentHouse.index", ['data' => $data]);
     }
 }

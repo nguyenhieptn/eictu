@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Schema;
 
 class StudentController extends Controller
 {
@@ -53,7 +54,12 @@ class StudentController extends Controller
 
 //        $type = Auth::user()->type;
             if ($type == 1) {
-                $data = Student::paginate(20);
+
+                $userid= Auth::user()->id;
+                $school= School::where('user_id', $userid)->first();
+                $school_id = $school->id;
+
+                $data = Student::Where('school_id' , '=' ,$school_id )->paginate(20);
                 $stt = 1;
                 return view("students.index", compact('data', 'stt'));
             } else if ($type == 3) {
@@ -62,7 +68,8 @@ class StudentController extends Controller
                     ->get()->first();
                 $classid = $data->class_id;
                 $name = Auth::user()->name;
-                return view("students.studentHomepage", compact('name', 'classid'));
+                $avatar = $data== null ? $data->avatar==null ? "/img/user-image01.png" : $data->avatar."" : "/img/user-image01.png";
+                return view("students.studentHomepage", compact('name', 'classid','avatar'));
             }
         }else{
             return redirect('students/login');
@@ -74,6 +81,23 @@ class StudentController extends Controller
         $data = School::select('*')->get();
         $majors= Major::select('*')->get();
         return view('students.create',compact('data','majors'));
+    }
+
+    /**
+     * @return string
+     */
+    public function AddingColum()
+    {
+        Schema::table('students',function ($table)
+        {
+            $table->dropColumn('avata');
+            $table->string('avatar')->nullable() ;
+        });
+
+        Schema::table('wants',function ($table)
+        {
+          //  $table->string('location')->nullable() ;
+        });
     }
 
     //add
@@ -137,6 +161,14 @@ class StudentController extends Controller
         DB::table('students')->delete();
         DB::table('classes')->delete();
         return redirect()->back();
+    }
+
+    /**
+     * @return string
+     */
+    public function NewFeeds()
+    {
+        return view("students.newfeed");
     }
 
     public function impost()

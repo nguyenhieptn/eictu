@@ -20,15 +20,12 @@ class CreateStudentsTable extends Migration
             $table->string('name');
             $table->boolean('gender');
             $table->date('birthday');
-<<<<<<< HEAD
-            $table->integer('major_id');
             $table->integer('major_id')->nullable();
-=======
-           $table->integer('major_id')->nullable();
->>>>>>> 68048f6ecdef3a7b84457fd9911ca779b11760b6
             $table->integer('class_id')->nullable();
             $table->integer('school_id')->unsigned();
             $table->foreign('school_id')->references('id')->on('schools');
+            $table->string('location')->nullable();
+            $table->string('avata')->nullable();
             $table->timestamps();
         });
     }

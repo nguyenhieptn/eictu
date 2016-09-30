@@ -1,38 +1,39 @@
-@extends('layouts.app')
+@extends('layouts.student_app')
 @section('title')
 eICTuStudentGoodsDetail - Chi tiết về bản tin đồ cũ
 @endsection
 @section('content')
-	 <div class="container">
-     <div class="row">
-         <div class="col-md-12">
-             <div class="panel panel-default">
-                 
-                 <div class="panel-body">
-                    <div class="entry-content">
-                        <h4>Thông tin về đồ đạc:</h4>
-                        <div class="row">
-                             <div class="col-md-12">
-                                <div class="panel panel-default">
-                                    <div style="padding: 10px"><p>{{$have}}</p></div>
-                                </div>
-                             </div>
-                        </div>
-
-                    </div>
-                    
-                      <div class="entry-content">
-                        <h4>Thông tin Sinh viên:</h4>
-                          <ul>
-                            <li>Họ và tên: <strong style="color:red">{{$student}}</strong></li>
-                            <li>Địa chỉ: <strong style="color:red">{{$address}}</strong></li>
-                          </ul>
-                      </div>
-                     <div style="margin-top: 30px">
-                         <center><span  class="btn btn-default"> <a href="{{ url('iHave') }}"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>  ĐÓNG</a></span></center>
-                     </div>
-             </div>
+ <div class="container" style="width: 100%">
+   <div class="row">
+       <div class="panel panel-default">
+         <div class="panel" style="padding: 10px">
+           <ul type="none">
+             <li style="float:left; padding:0px 10px 0px 10px; "><img  @if($student->avatar!=null) src="{{$student->avatar}}" @else src="{{url('img/avatar_null.png')}}" @endif height="50px" width="50px"/></li>
+             <li style="float:left; padding-top: 8px">
+               <ul type="none">
+                 <li> <strong style="color: #000000; font-size: 18px">{{$student->name}}</strong></li>
+                 <li style="color: #2e3436; font-size:14px;">
+                    <span> @if ($student->gender==1) Nam @else Nữ @endif</span>
+                    <span>, đang ở @if($address!=null){{$address}}@else không xác định @endif</span>
+                 </li>
+               </ul>
+             </li>
+             <li style="clear:left; padding-top: 8px"> <p style="color: #000000; font-size: 18px">{{$have->content}}</p></li>
+           </ul>
          </div>
-     </div>
- </div></div>
+         <div class="panel" style="padding:0px 20px 20px 10px;">
+           <div style="margin-top: 30px;">
+             <a class="btn btn-default item navbar-left" href="{{ url('iHave') }}"><span class="glyphicon glyphicon-remove"></span>QUAY LẠI</a>
+             @if(auth()->check())
+               @if(auth()->user()->username!=$student->code)
+                 <a style="background: #cc5200;"  class=" btn btn-default item navbar-right" href="/chat/friendroom?id={{auth()->user()->username}}&friend={{$student->code}}"><span class="glyphicon glyphicon-send"></span>  NHẮN TIN CHO NGƯỜI ĐĂNG</a>
+               @else
+                 <a style="background: #cc5200;"  class=" btn btn-default item navbar-right" href="{{url('iHave/update',$have->id)}}"><span class="glyphicon glyphicon-ok"></span>  ĐÃ CHO</a>
+               @endif
+             @endif
+           </div>
+         </div>
+       </div>
+   </div>
+ </div>
 @endsection

@@ -11,9 +11,13 @@ use App\School;
 use App\Student;
 use DB;
 use Auth;
+use Cache;
+use Carbon\Carbon;
 
 class DormitoryController extends Controller
 {
+
+    private static $oldInfo = '';
     //
     public function getUpdate(){
        if(!Auth::guest()){
@@ -38,20 +42,25 @@ class DormitoryController extends Controller
         }
        }
        else
-        return redirect('/login');
+        return redirect('student/login');
     }
 
     public function postUpdate(UpdateSDRequest $req){
+       
         $data = $req->info;
         $data = explode(',', $data);
         $date = explode('/', $req->start_on);
         $date2 = $date['2'].'-'.$date[1].'-'.$date[0];
+
+        $dateX = date("d/m/Y", mktime(0, 0, 0, $date[1], $date[0], $date[2]));
+      
         $room = trim(str_replace('Phòng ', '', $data[0]));
         $building = trim(str_replace('Nhà ', '', $data[1]));
         $area = trim($data[2]);
 
         $code = Auth::user()->username;
         $student = DB::table('students')->where('code', $code)->first();
+        $school = DB::table('schools')->where('id', $student->school_id)->first();
         $a = DB::table('areas')->where('name', $area)->first();
         $up = DB::table('dormitories')->where('student_id', $student->id)->update([
             'room' => $room,
@@ -60,13 +69,35 @@ class DormitoryController extends Controller
             //'area_id'=> 1, //$a->id,
             'start_on'=> $date2
         ]);
-       return redirect()->back()->with('msg', 'Cập nhật thành công!');
+
+        //CACHE
+        $str = 'Ngày <strong>'.$req->start_on."</strong> <a>Chuyển tới chỗ ở mới</a> trong KTX tại Phòng ".$room." Nhà ".$building.", ".$area." KTX ".$school->name;
+        $id = $student->id;
+        $expiresAt = Carbon::now()->addDays(7);
+
+        if(!Cache::has($id)){
+
+            Cache::put($id, $str, $expiresAt);
+            Cache::put('_'.$id, $str, $expiresAt);
+        }
+        else{
+            //Cache::forget($id);
+            $ss = Cache::get($id);
+            $EX = explode($str, '<br>');
+            if($str == Cache::get('_'.$id)){
+                //Do nothing
+            }
+            else{
+                Cache::put($id, $ss.'<br>'.$str, $expiresAt);
+                Cache::put('_'.$id, $str, $expiresAt);
+            }
+        }
+        $oldInfo = $str;
+        
+        return redirect()->back()->with('msg', 'Cập nhật thành công!');
     }
     public function getSearch(){
-        if(!Auth::guest())
-    	   return view('dormitory.search');
-        else
-            return redirect('/login');
+    	return view('dormitory.search');
     }
 
     public function postSearch(){
