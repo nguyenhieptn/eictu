@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Auth;
 use App\IHave;
@@ -9,8 +7,6 @@ use App\Students;
 use DB;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Schema;
-
-
 class IHaveController extends Controller
 {
     public function update()
@@ -23,7 +19,6 @@ class IHaveController extends Controller
             </script>';
         }
     }
-
     public function store(Request $request)
     {
         $data=array();
@@ -38,22 +33,16 @@ class IHaveController extends Controller
         $have->content=$data['content'];
         $have->save();
         return redirect("iHave");
-
         //$ihave = new IHave();
         //$ihave->content = $request->input('content');
         //->student_id       = 1;
         //$ihave->save();
         //return redirect()->route('iHave.search');
     }
-
     public function search()
     {
-
-        $data = DB::table('have')->orderBy('id','desc')->paginate(20);
-
         $data = DB::table('students')->leftjoin('have','have.student_id','=','students.id')->where('status',0)->orderBy('have.id','desc')->paginate(10);
         return view("iHave.search",['data'=>$data]);
-
     }
     public function detail($id)
     {
@@ -63,12 +52,10 @@ class IHaveController extends Controller
         $address =DB::table('motels')->where('student_id', $student_id)->value('address');
         return view('iHave.detail', compact('have', 'student', 'address'));
     }
-
     public function status($id){
         DB::table('have')->where('id', $id)->update(array('status' => 1));
         return redirect('iHave');
     }
-
     public function action(){
         Schema::table('have', function ($table) {
             $table->integer('status')->after('student_id')->default(0);

@@ -36,7 +36,7 @@ eICTuStudentRentHouseSearch - Tra cứu địa chỉ nhà trọ của Sinh viên
                   </ul>
                 </li>
                 <?php
-                  if($data->count()==0){
+                  if($data==null){
                     echo "<li class='list-group-item' style='color:red'>Không có thông tin trọ</li>";
                   }else{
                     foreach($data as $item){
@@ -46,7 +46,6 @@ eICTuStudentRentHouseSearch - Tra cứu địa chỉ nhà trọ của Sinh viên
                     }
                     echo "<center>".$data->appends(Request::only('code'))->links()."</center>";
                   }
-
                 ?>
               @endif
             </ul>

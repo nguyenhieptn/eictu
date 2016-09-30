@@ -3,37 +3,6 @@
 eICTuStudentGoodsDetail - Chi tiết về bản tin đồ cũ
 @endsection
 @section('content')
-<<<<<<< HEAD
-	 <div class="container">
-     <div class="row">
-         <div class="col-md-12">
-             <div class="panel panel-default">
-                 
-                 <div class="panel-body">
-                    <div class="entry-content">
-                        <h4>Thông tin về đồ đạc:</h4>
-                        <div class="row">
-                             <div class="col-md-12">
-                                <div class="panel panel-default">
-                                    <div style="padding: 10px"><p>{{$have}}</p></div>
-                                </div>
-                             </div>
-                        </div>
-
-                    </div>
-                    
-                      <div class="entry-content">
-                        <h4>Thông tin Sinh viên:</h4>
-                          <ul style="padding-left: 70px;">
-                            <li>Họ và tên: <strong style="color:red">{{$student}}</strong></li>
-                            <li>Địa chỉ: <strong style="color:red">{{$address}}</strong></li>
-                          </ul>
-                      </div>
-                     <div style="margin-top: 30px">
-                         <center><span  class="btn btn-default"> <a href="{{ url('iHave') }}"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>  ĐÓNG</a></span></center>
-                     </div>
-             </div>
-=======
  <div class="container" style="width: 100%">
    <div class="row">
        <div class="panel panel-default">
@@ -44,14 +13,13 @@ eICTuStudentGoodsDetail - Chi tiết về bản tin đồ cũ
                <ul type="none">
                  <li> <strong style="color: #000000; font-size: 18px">{{$student->name}}</strong></li>
                  <li style="color: #2e3436; font-size:14px;">
-                    <span> @if ($student->gender==1) Nam @else Nữ @endif</span>
+                    <span> @if ($student->gender==1) "am @else Nữ @endif</span>
                     <span>, đang ở @if($address!=null){{$address}}@else không xác định @endif</span>
                  </li>
                </ul>
              </li>
              <li style="clear:left; padding-top: 8px"> <p style="color: #000000; font-size: 18px">{{$have->content}}</p></li>
            </ul>
->>>>>>> 148acc87ba9afaac362d3a0a22e2b05884b9b775
          </div>
          <div class="panel" style="padding:0px 20px 20px 10px;">
            <div style="margin-top: 30px;">
