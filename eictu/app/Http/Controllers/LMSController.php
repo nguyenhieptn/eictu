@@ -10,6 +10,7 @@ use DB;
 use App\Schedule;
 use Auth;
 
+use Illuminate\Database\Schema\Blueprint;
 class LMSController extends Controller
 {
     public function getshow()
@@ -66,11 +67,13 @@ class LMSController extends Controller
         Schema::drop('schedules');
     }
     public function createtable(){
-        Schema::create('haves', function (Blueprint $table) {
+        Schema::create('schedules', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('content');
             $table->integer('student_id')->unsigned();
             $table->foreign('student_id')->references('id')->on('students');
+            $table->integer('studyprogram_id')->unsigned();
+            $table->foreign('studyprogram_id')->references('id')->on('studyprograms');
+            $table->smallInteger('situation');
             $table->timestamps();
         });
     }

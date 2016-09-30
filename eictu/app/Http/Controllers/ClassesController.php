@@ -53,6 +53,8 @@ class ClassesController extends Controller
 		}else{
 			return redirect('schools/login');
 		}
+		
+		
 	}
 	
 	// tạo view trang phân lớp cho sinh viên
@@ -146,7 +148,7 @@ class ClassesController extends Controller
 				$_students =  DB::table('students')->select('code','name', 'birthday','gender')->where('class_id', '=', $classid)
 				->orderBy('code', 'asc')
 				->get();
-				$d="";
+				$d1="";
 				for($i=0;$i<count($_students);$i++)
 				{
 					for($sn=1;$sn<31;$sn++)
@@ -162,14 +164,30 @@ class ClassesController extends Controller
 							{
 								$gt="Nữ";
 							}
-							$d[] = array(
+							$d1[] = array(
 										'name'=>$_students[$i]->name,
 										'gender_text'=>$gt,
 										'birthday'=>$nsn[2]."/".$nsn[1],
-										'deadline'=>$sn." ngày nữa"
+										'deadline'=>$sn." ngày nữa",
+										'st'=>$sn
 									);
 						}
 					}
+				}
+				$d="";
+				if(count($d1)>0 && ($d1!=""))
+				{
+					for($j=1;$j<31;$j++)
+					{
+						for($i=0;$i<count($d1);$i++)
+						{
+							if($d1[$i]['st']==$j)
+							{
+								$d[]=$d1[$i];
+							}
+						}
+					}
+					
 				}
 				return view('classes.classmatersbirthday',['_classmatersbirthday' => $d,'_class'=>$_class]);			
 				

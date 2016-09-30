@@ -29,7 +29,7 @@ Route::get('/', function () {
                     ->get()->first();
                 $classid = $data == null ? 0 : $data->class_id;
                 $name = auth()->user()->name ;
-            $avatar = $data== null ? $data->avatar==null ? "/img/user-image01.png" : $data->avatar."" : "/img/user-image01.png";
+            $avatar = $data== null ? $data->avatar==null ? "/img/avatar.jpg" : $data->avatar."" : "/img/avatar.jpg";
             return view("students.newfeed", compact('name', 'classid','avatar'));
         }
     }

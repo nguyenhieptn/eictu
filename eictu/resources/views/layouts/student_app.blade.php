@@ -118,31 +118,34 @@
     </div><!-- /.container-fluid -->
 </nav>
 
-    <div class="container" style="margin-top: 100px;">
-        <div class="col-md-3" id="Left">
-            <div style="background-color: #ededed; position: fixed; height: 1000px;">
-                <?php
-                $data1 = \App\Student::select('*')
-                        ->where('code', '=', Auth::user()->username)
-                        ->get()->first();
-                $classid = $data1 == null ? 0 : $data1->class_id;
-                $avatar = $data1!= null ? $data1->avatar==null ? "/img/user-image01.png" : $data1->avatar."" : "/img/user-image01.png";
+    <div class="container" style="margin-top: 80px;">
+        <div class="col-md-3 col-sm-3" id="Left">
+            <div style="background-color: #ededed; position: fixed; height: 1000px;">        
+                   <div style="margin-top: 30px; margin-bottom: 30px;margin-left: 20px;">
+                         <?php
+                    $data1 = \App\Student::select('*')
+                            ->where('code', '=', Auth::user()->username)
+                            ->get()->first();
+                    $classid = $data1 == null ? 0 : $data1->class_id;
+                    $avatar = $data1!= null ? $data1->avatar==null ? "/img/avatar.jpg" : $data1->avatar."" : "/img/avatar.jpg";
+                    ?>
+                       <div style="margin-top: 30px; margin-bottom: 30px;margin-left: 20px;">
+                        <img src="{{ url($avatar)}}" width="50" height="50" /> -->
+                        <span >{{$data1->name}}</span>
+                        </div>
+                       
 
-                ?>
-                <div style="margin-top: 30px; margin-bottom: 30px;margin-left: 20px;">
-                    <img src="{{ url($avatar)}}" width="50" height="50" />
-                    <span >{{$data1->name}}</span>
-                </div>
-                <table style="text-align: left">
+                    </div>
+                    <table style="text-align: left">
 
-                    @if(count($classid)>0 && $classid !=null)
-                        <tr>
-                            <td><img src="{{url('img/Gift-128.png')}}"/></td>
-                            <td>
-                                <a href="{{route('classes.classmatersbirthday', $classid )}}">Sinh nhật bạn cùng lớp</a>
-                            </td>
-                        </tr>
-                    @endif
+                        @if(count($classid)>0 && $classid !=null)
+                            <tr>
+                                <td><img src="{{url('img/Gift-128.png')}}"/></td>
+                                <td>
+                                    <a href="{{route('classes.classmatersbirthday', $classid )}}">Sinh nhật bạn cùng lớp</a>
+                                </td>
+                            </tr>
+                        @endif
 
                     <tr>
                             <td><img src="{{url('img/newfeed.png')}}"/></td>
@@ -158,7 +161,7 @@
                     </tr>
                     <tr>
                         <td><img src="{{url('img/Candidate_Search-128.png')}}"/></td>
-                        <td><a href="{{url('findjob/index')}}">Tìm việc làm </a></td>
+                        <td><a href="">Tìm việc làm </a></td>
                     </tr>
                     <tr>
                         <td><img src="{{url('img/go-home-128.png')}}"/></td>
@@ -187,7 +190,7 @@
                 </table>
             </div>
         </div>
-        <div class="col-md-9" style="margin-top: 70px;">
+        <div class="col-md-9 col-sm-9">
             @yield('content')
         </div>
     </div>

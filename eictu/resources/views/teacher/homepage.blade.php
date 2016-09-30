@@ -1,5 +1,12 @@
+<<<<<<< HEAD
+@extends('layouts.app')
+@section('title')
+Trang chu giao vien
+@endsection
+=======
 @extends('teacher.master')
 
+>>>>>>> e73bc4abee071abd481332c508dcc1dee88f1d5c
 @section('content')
 <div class="container">
     <div class="row">

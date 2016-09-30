@@ -50,11 +50,31 @@
     margin-top: -50px;
 }
 
-.find-jo .pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+.find-job .pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
     border-radius: 25px;
     color: #fff !important;
 }
 
+/*FIND JOB NEW */
+.find-job .btn-post{
+    margin-top: 3px;
+    position: relative;
+    top: -72px;
+    height: 68px;
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+}
+
+.find-job .ta-post{
+    -webkit-box-shadow: -1px 0px 9px 0px rgba(51,48,51,0.54);
+-moz-box-shadow: -1px 0px 9px 0px rgba(51,48,51,0.54);
+box-shadow: -1px 0px 9px 0px rgba(51,48,51,0.54);
+}
+
+.find-job img{
+    width: 80px;
+    padding:2px;
+}
 
 /*END FIND JOB*/
 
