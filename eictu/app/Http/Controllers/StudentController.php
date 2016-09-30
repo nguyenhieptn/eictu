@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Classes;
 use App\Major;
+use App\NewsFeed;
 use App\School;
 use App\Student;
 use App\User;
@@ -92,15 +93,21 @@ class StudentController extends Controller
 //            $table->increments('id');
 //            $table->integer('student_id');
 //        });
+//
         Schema::table('newsfeed', function ($table) {
             $table->integer('type')->nullable();
         });
 
+        $columns = Schema::getColumnListing('newsfeed'); // users table
+        dd($columns);
         Schema::table('teacher', function ($table) {
             $table->string('avatar')->nullable();
         });
 
         DB::statement('ALTER TABLE newsfeed MODIFY COLUMN content text');
+//
+        $columns = Schema::getColumnListing('newsfeed'); // users table
+        dd($columns);
     }
 
     //add
