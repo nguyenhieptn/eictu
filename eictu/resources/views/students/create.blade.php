@@ -48,9 +48,9 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="control-label col-md-3" for="Birthday">Ngày sinh :</label>
+                                <label class="control-label col-md-3" for="birthday">Ngày sinh :</label>
                                 <div class="col-md-9">
-                                    <input type="date" class="form-control" id="Birthday" name="Birthday" >
+                                    <input type="date" class="form-control" id="birthday" name="birthday" >
                                 </div>
                             </div>
 
