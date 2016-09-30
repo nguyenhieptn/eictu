@@ -70,7 +70,7 @@
         </div>
         @endforeach
     @else
-      <p>Không ai thèm muốn gì luôn đấy !</p>
+      <p>Không ai thèm  muốn gì luôn đấy !</p>
     @endif 
 
     <div class="pagination pull-right">
