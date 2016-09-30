@@ -28,7 +28,7 @@ eICTuStudentGoodsSearch - Danh sách đồ cũ đang rao
         @foreach($data as $item)
           <li style="height:80px; padding-top: 10px"><a style="height:70px;" class="list-group-item" href="{{url('iHave/detail', $item->id)}}">
             <ul type="none" style="padding:0px;">
-              <li style="float: left;padding-right: 10px;"><img @if($item->avatar!=null) src="{{$item->avatar}}" @else src="{{url('img/avatar_null.png')}}" @endif height="50px" width="50px"/></li>
+              <li style="float:left; padding-right: 10px;"><img @if($item->avatar!=null) src="{{$item->avatar}}" @else src="{{url('img/avatar_null.png')}}" @endif height="50px" width="50px"/></li>
               <li>
                 <ul type="none">
                   <li>{{$item->name}}</li>
