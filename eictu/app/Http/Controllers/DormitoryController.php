@@ -88,15 +88,15 @@ class DormitoryController extends Controller
                 //Do nothing
             }
             else{
-                Cache::forget($id);
-               /* Cache::put($id, $str.'<br>'.$ss, $expiresAt);
+            //Cache::forget($id);
+               Cache::put($id, $str.'<br>'.$ss, $expiresAt);
                 Cache::put('_'.$id, $str, $expiresAt);
 
                 //Them vao bang newsfeed;
                 DB::table('newsfeed')->insert([
                     'student_id'=> $id,
                     'content'=>$str
-                    ]);*/
+                    ]);
             }
         }
         $oldInfo = $str;
