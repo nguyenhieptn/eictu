@@ -75,7 +75,7 @@ Chi tiết lời yêu cầu
 	      
 	      <hr>
 	      <a href="{{route('iwant.status')}}" title="ĐÓng" class="btn btn-danger" style="color: white;">Đóng</a>
-	      <a href="{{route('iwant.status')}}" title="Nhắn tin cho người đăng tin" class="btn btn-primary" style="color: white; margin-left: 470px; ">Nhắn tin cho người đăng tin</a>
+	      <a href="{{route('')}}" title="Nhắn tin cho người đăng tin" class="btn btn-primary" style="color: white; margin-left: 470px; ">Nhắn tin cho người đăng tin</a>
 	    </div> 
 	@endif    
   </div>
