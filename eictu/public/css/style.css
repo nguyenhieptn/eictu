@@ -2,67 +2,15 @@
 .find-job {
     font-size: 18px !important;
 }
-.find-job .list-group-item
-{
-    border: none !important;
-    border-bottom: 1px solid rgba(211, 224, 233, 0.25);
-}
-.find-job .pagination
-{
-    float: right;
-    margin:7px 0 !important;
-}
-.find-job .pagination li a,
-.find-job .pagination>li:first-child>a, .pagination>li:first-child>span
-{
-    border: none !important;
-    color: #333 !important;
 
-}
-.find-job .panel-default>.panel-heading {
-    background: #7ac1e8 !important;
-    color: #fff;
-}
-.find-job .panel-default>.panel-heading {
-    background-color: #2ecc71 !important;
-    color:#fff;
-}
-.find-job .btn-link-post{
-    margin: 0px;
-    border-radius: 0px !important;
-}
-.find-job .list-group {
-    margin: 26px 0 0 0;
-    padding:5px;
-    border: 1px solid #f7f2f2;
-}
-.find-job .glyphicon-triangle-right{
-    color: #727273 !important;
-    font-size: 12px !important;
-}
-.find-job .list-group-item a{
-    font-size: 15px !important;
-   /* font-weight:600;*/
-    color: #4980a9;
-
-}
-.find-job .panel-default>.panel-body-2{
-    margin-top: -50px;
-}
-
-.find-job .pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
-    border-radius: 25px;
-    color: #fff !important;
-}
-
-/*FIND JOB NEW */
 .find-job .btn-post{
-    margin-top: 3px;
-    position: relative;
-    top: -72px;
-    height: 68px;
+    position: absolute;
     border-top-left-radius: 0px !important;
     border-bottom-left-radius: 0px !important;
+    right: 32px;
+    top: 64px;
+    min-height: 49px;
+}
 }
 
 .find-job .ta-post{
@@ -74,6 +22,15 @@ box-shadow: -1px 0px 9px 0px rgba(51,48,51,0.54);
 .find-job img{
     width: 80px;
     padding:2px;
+}
+.find-job .panel-body {
+    padding-bottom: 0px !important;
+}
+.find-job .media{
+    padding:5px;
+    border-radius: 3px;
+    background: #fcfcfd;
+    border: 1px solid #eae8e8 ;
 }
 
 /*END FIND JOB*/

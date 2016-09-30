@@ -17,49 +17,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     @yield('css')
     <style type="text/css" media="screen">
-        /*.pagination ul li{
-            padding: 3px 10px;
-            margin: 3px;
-            font-size: 20px;
-            background: #bdc3c7;
-        }*/
-        #Left  table{
-            margin: 20px;
-        }
-
-        #Left table img{
-            width: 30px;
-            height: auto;
-            float: right;
-            margin-right: 20px;
-        }
-        #Left table #topimg {
-            width: 50px;
-            float: left;
-            margin-bottom: 20px;
-        }
-        #Left table td{
-            padding: 5px 0;
-            font-weight: bold;
-        }
-        #Left table td a{
-            text-decoration: none;
-            color: black;
-        }
-        #Left table td a:hover{
-            color:#FF2C21 ;
-        }
-        #Left table td a:checked{
-            color:#FF2C21 ;
-        }
-        #Left table td span {
-            color: #BFCDE3;
-            font-weight: bold;
-        }
-        #toptext{
-            font-weight: bold;
-            font-size: 20px;
-        }
+          img{width: }
     </style>
     <script>
         window.Laravel = <?php echo json_encode([
@@ -117,11 +75,10 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-
-    <div class="container" style="margin-top: 80px;">
-        <div class="col-md-3 col-sm-3" id="Left">
-            <div style="background-color: #ededed; position: fixed; height: 1000px;">        
-                   <div style="margin-top: 30px; margin-bottom: 30px;margin-left: 20px;">
+    <div class="container" style="margin-top:80px">
+        <div class="col-md-3 col-sm-3">
+            <div style="background-color: #ededed;">        
+                   <div>
                          <?php
                     $data1 = \App\Student::select('*')
                             ->where('code', '=', Auth::user()->username)
@@ -129,65 +86,25 @@
                     $classid = $data1 == null ? 0 : $data1->class_id;
                     $avatar = $data1!= null ? $data1->avatar==null ? "/img/avatar.jpg" : $data1->avatar."" : "/img/avatar.jpg";
                     ?>
-                       <div style="margin-top: 30px; margin-bottom: 30px;margin-left: 20px;">
-                        <img src="{{ url($avatar)}}" width="50" height="50" /> -->
-                        <span >{{$data1->name}}</span>
-                        </div>
-                       
-
+                    <div style="height:80px;line-height:80px; padding-left:10px">
+                        <img src="{{ url($avatar)}}" width="50" height="50" class="img-rounded"  />
+                        <span><strong>{{$data1->name}}</strong></span>
                     </div>
-                    <table style="text-align: left">
-
-                        @if(count($classid)>0 && $classid !=null)
-                            <tr>
-                                <td><img src="{{url('img/Gift-128.png')}}"/></td>
-                                <td>
-                                    <a href="{{route('classes.classmatersbirthday', $classid )}}">Sinh nhật bạn cùng lớp</a>
-                                </td>
-                            </tr>
-                        @endif
-
-                    <tr>
-                            <td><img src="{{url('img/newfeed.png')}}"/></td>
-                            <td><a href="{{url('student/newsfeed')}}">News Feed</a></td>
-                        </tr>
-                    <tr>
-                        <td><img src="{{url('img/Information.png')}}"/></td>
-                        <td><a href="{{route('iwant.status')}}">Tôi muốn <span>- I Want </span></a></td>
-                    </tr>
-                    <tr>
-                        <td><img src="{{url('img/i_information_more_find_out_info-128.png')}}"/></td>
-                        <td><a href="{{url('/iHave')}}">Chợ đồ cũ</a></td>
-                    </tr>
-                    <tr>
-                        <td><img src="{{url('img/Candidate_Search-128.png')}}"/></td>
-                        <td><a href="">Tìm việc làm </a></td>
-                    </tr>
-                    <tr>
-                        <td><img src="{{url('img/go-home-128.png')}}"/></td>
-                        <td><a href="{!! url('dormitory/search')!!}">Kí túc xá</a></td>
-                    </tr>
-                    <tr>
-                        <td><img src="{{url('img/go-home.png')}}"/></td>
-                        <td><a href="{{url('/rentHouse')}}">Nhà trọ sinh viên</a></td>
-                    </tr>
-                    <tr>
-                        <td><img src="{{url('img/Chat-2-128.png')}}"/></td>
-                        <td><a href="{{url('chat/classrooms')}}">Messages / CHAT</a></td>
-                    </tr>
-                    <tr>
-                        <td><img src="{{url('img/chat-128.png')}}"/></td>
-                        <td><a href="{{url('chat/friend')}}">Chát với bạn</a></td>
-                    </tr>
-                    <tr>
-                        <td><img src="{{url('img/search.png')}}"/></td>
-                        <td><a href="{{url('LMS/show')}}">Tiến độ học tập LMS</a></td>
-                    </tr>
-                    <tr>
-                        <td><img src="{{url('img/frmPhanQuyen.png')}}"/></td>
-                        <td><a href="#">Hồ sơ</a></td>
-                    </tr>
-                </table>
+                </div>
+                <div>
+                    <ul class="list-group">
+                      <li class="list-group-item"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> <a href="{{url('student/newsfeed')}}">News Feed</a></li>
+                      <li class="list-group-item"><a href="{{route('iwant.status')}}">Tôi muốn- I Want</a> </li> 
+                      <li class="list-group-item"><a href="{{url('/iHave')}}">Chợ đồ cũ</a></li> 
+                      <li class="list-group-item"><a href="{{url('/')}}"><a href="">Tìm việc làm </a></a></li> 
+                      <li class="list-group-item"><a href="{!! url('dormitory/search')!!}">Kí túc xá</a></li> 
+                      <li class="list-group-item"><a href="{{url('/rentHouse')}}">Nhà trọ sinh viên</a></li> 
+                      <li class="list-group-item"><a href="{{url('chat/classrooms')}}">Messages / CHAT</a></li>
+                      <li class="list-group-item"><a href="{{url('chat/friend')}}">Chát với bạn</a</li> 
+                      <li class="list-group-item"><a href="{{url('LMS/show')}}">Tiến độ học tập LMS</a></li> 
+                      <li class="list-group-item"><a href="#">Hồ sơ</a></li> 
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="col-md-9 col-sm-9">
