@@ -5,20 +5,23 @@
 @section('content')
 <div class="container">
 @if(Auth::check() && Auth::user()->type ==3)
-    <div class="row">
-    <div class="col-lg-8  col-xs-12">
-      <form action="{{route('iwant.status')}}" role="form" method="post" accept-charset="utf-8">
-        <input type="hidden" name="_token" value="{{Session::token()}}">
-        <div class="form-group {{$errors->has('content')? ' has-error': ''}}">
-          <textarea placeholder="Gõ bản tin đề nghị giúp đỡ của bạn vào đây…
-          Chúc bạn may mắn!" name="content" class="form-control" rows="3"></textarea>
-          <p>Bạn cần trợ giúp khẩn cấp? Hãy đăng tin lên ngay để bạn bè của bạn biét tin giúp đỡ.</p>
+  <div class="row">
+        <div class="col-lg-8 col-xs-12">
+          <form  class="nav-form" action="{{route('iwant.status')}}" role="form" method="post" accept-charset="utf-8">
+            <input type="hidden" name="_token" value="{{Session::token()}}">
+            <div class="input-group add-on" style="padding: 10px; height: 70px" >
+              <textarea style="height: 70px" placeholder="Gõ bản tin đề nghị giúp đỡ của bạn vào đây…
+          Chúc bạn may mắn!" name="content" class="form-control" rows="2"></textarea>
+
+              <div class="input-group-btn">
+                <button type="submit" class="btn" style="background: #ff7b07; color: #ffffff; height: 70px; border-radius: 0 8px 8px 0px; font-size: 20px; ">ĐĂNG NGAY</button>
+              </div>
+            </div>
+          </form>
+          <span>Bạn cần trợ giúp khẩn cấp? Hãy đăng tin lên ngay để bạn bè của bạn biét tin giúp đỡ.</span>
+          <hr>
         </div>
-        <button type="submit" class="btn btn-success">Đăng Tin</button>    
-      </form>
-      <hr>
-    </div>
-  </div>
+      </div>
 @endif  
   <div class="row">
     <div class="col-lg-8  ">
