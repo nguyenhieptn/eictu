@@ -6,6 +6,7 @@
 
 
 @section('content')
+
     <h1>Nội dung trang News Feed</h1>
 
 @endsection
