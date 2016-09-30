@@ -36,7 +36,7 @@ eICTuStudentRentHouseSearch - Tra cứu địa chỉ nhà trọ của Sinh viên
                   </ul>
                 </li>
                 <?php
-                  if($data==null){
+                  if($data->count()==0){
                     echo "<li class='list-group-item' style='color:red'>Không có thông tin trọ</li>";
                   }else{
                     foreach($data as $item){
