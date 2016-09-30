@@ -128,12 +128,13 @@
                 $classid = $data1 == null ? 0 : $data1->class_id;
                 $avatar = $data1!= null ? $data1->avatar==null ? "/img/user-image01.png" : $data1->avatar."" : "/img/user-image01.png";
 
+
                 ?>
-                <div style="margin-top: 30px; margin-bottom: 30px;margin-left: 20px;">
-                    <img src="{{ url($avatar)}}" width="50" height="50" />
+                   <div style="margin-top: 30px; margin-bottom: 30px;margin-left: 20px;">
+                    <img src="{{ url($avatar)}}" width="50" height="50" /> -->
                     <span >{{$data1->name}}</span>
-                </div>
-                <table style="text-align: left">
+                    </div>
+                    <table style="text-align: left">
 
                     @if(count($classid)>0 && $classid !=null)
                         <tr>
@@ -158,7 +159,7 @@
                     </tr>
                     <tr>
                         <td><img src="{{url('img/Candidate_Search-128.png')}}"/></td>
-                        <td><a href="{{url('findjob/index')}}">Tìm việc làm </a></td>
+                        <td><a href="">Tìm việc làm </a></td>
                     </tr>
                     <tr>
                         <td><img src="{{url('img/go-home-128.png')}}"/></td>
