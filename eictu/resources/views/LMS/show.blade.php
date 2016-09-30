@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.student_app')
 @section('title')
 eICTuLearningManageSystem - Quản lý việc học cho sinh viên {{$st->name}}
 @endsection
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-9">
                 <div class="panel panel-default">
 
                     
