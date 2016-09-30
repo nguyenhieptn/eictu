@@ -66,7 +66,7 @@ Trang chu giao vien
             <img src="{{url('{!! $student_id->name !!}')}}" alt="">
            </div>
            <div class="col-lg-9 ">
-            <h3>{!! $student_id->name !!} <span style="margin-left: 300px; ">{!! time_elapsed_string($item->time, true) !!}</span></h3>
+            <h3>{!! $student_id->name !!} <span style="margin-left: 300px; ">{!! time_elapsed_string($item->time) !!}</span></h3>
             <p style="word-wrap:break-word;">{{$item->content}}</p>
            </div>
          </div>
