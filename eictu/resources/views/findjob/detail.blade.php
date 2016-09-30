@@ -11,7 +11,7 @@
                                  <a href='' class='media-left' href='#'><img class='media-object'  class="img-rounded" src="<?php echo ($detail->avatar == null) ? "/img/user-image01.png" : $detail->avatar?>" alt=''></a>
                                  <div class='media-body'> 
                                      <h3 class='media-heading'><strong>{{$detail->name}}</strong></h3>
-                                     <p>  Ngày đăng : <strong><?php echo date("d-m-Y",strtotime($detail->created_at))?></strong></p>
+                                     <p>  Ngày đăng : <strong><?php echo date('d-m-Y',strtotime($detail->day))?></strong></p>
                                      <p>Nội Dung bản tin :<br/> {{$detail->content}}</p>
                                      <p>Giới tính: 
                                      <strong>

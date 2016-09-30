@@ -22,5 +22,26 @@ Route::group(['prefix' => 'findjob'], function () {
         'uses' => 'FindJobController@data'
     ]);
 
+    Route::get('/total',[
+        'as' => 'findjob.total',
+        'uses' => 'FindJobController@total'
+    ]);
+
+     Route::get('/del/{id}',[
+        'as' => 'findjob.del',
+        'uses' => 'FindJobController@del'
+    ]);
+
+    Route::get('/edit/{id}',[
+        'as' => 'findjob.edit',
+        'uses' => 'FindJobController@edit'
+    ]);
+
+    Route::post('/update/{id}',[
+        'as' => 'findjob.update',
+        'uses' => 'FindJobController@update'
+    ]);
+
+
 });
 
