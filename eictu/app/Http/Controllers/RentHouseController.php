@@ -66,16 +66,7 @@ class RentHouseController extends Controller
         $renthouse->address=$data['address'];
         $renthouse->date_join=$data['date_join'];
         $renthouse->save();
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $data=DB::table('motels')->where('student_id',$student_id) ->orderBy('date_join', 'desc')->paginate(5);
-        return redirect("rentHouse");
-=======
-        $data = DB::table('motels')->where('student_id', $student_id)->orderBy('date_join', 'desc')->paginate(5);
-=======
         $data = DB::table('motels')->where('student_id', $student_id)->orderBy('date_join', 'desc')->paginate(10);
->>>>>>> 148acc87ba9afaac362d3a0a22e2b05884b9b775
         return view("RentHouse.index", ['data' => $data]);
->>>>>>> e73bc4abee071abd481332c508dcc1dee88f1d5c
     }
 }
