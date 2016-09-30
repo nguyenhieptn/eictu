@@ -1,4 +1,4 @@
-@extends('layouts.app')		
+@extends('layouts.school_app')	
 		
 		<link rel="stylesheet" type="text/css" 
 			href="{!! url('classes_src/css/bootstrap.min.css')!!}">
@@ -12,7 +12,7 @@
 		<script src="{!! url('classes_src/js/classes.js')!!}"></script>
 	
 		@section('title')
-			Quản lý lớp học - Trang phân lớp cho sinh viên
+			Lớp học - Trang phân lớp cho sinh viên
 		@endsection		
 
 	
@@ -130,7 +130,7 @@ $(document).on('click', '.htsvpl', function () {
 	});		
 });
 </script>
-<div class="qllophoc_header">
+
 <!--
 	<header id="header" class="">
 		<div class="header-content">
@@ -154,13 +154,18 @@ $(document).on('click', '.htsvpl', function () {
 		</tr>
 	</table>
 -->
+<div >
+        <div class="row">
+            
+                <div class="panel panel-default">
 
-</div>
-<div class="qllophoc_content">
+                    <div class="panel-body">
+
+
 	 Danh sách sinh viên trúng tuyển chưa phân lớp.
-</div>
+
 	<input id = "tokenid" type=hidden name=_token value={{csrf_token()}} />	
-	<div class="dssv">	
+	
 		<table class="table" id="table_dssv1">		
 		</table>
 		<div id="pagination">			
@@ -178,8 +183,10 @@ $(document).on('click', '.htsvpl', function () {
 			
 		</form>
    </div>
-</div>
-</div>
+    </div>
+            </div>
+        </div>
+    </div>
 @endsection			
   
    

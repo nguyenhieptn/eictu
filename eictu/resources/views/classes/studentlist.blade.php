@@ -1,91 +1,31 @@
-@extends('layouts.app')
-		
-		<link rel="stylesheet" type="text/css" 
-			href="{!! url('classes_src/css/bootstrap.min.css')!!}">
-			
-		<link rel="stylesheet" type="text/css" 
-			href="{!! url('classes_src/css/classes.css')!!}">	
-			
-		<script src="{!! url('classes_src/js/jquery.min.js')!!}">
-		</script>
-		
-		<script src="{!! url('classes_src/js/classes.js')!!}"></script>
-		
-@section('title')
-	
-	Quản lý lớp học - Danh sách sinh viên trong lớp {{ $_class->name }} 
-	
-@endsection		
+@extends('layouts.school_app')
 
+@section('title')
+    Lớp Học
+@endsection
 @section('content')
-<div class="container">
-<div class="qllophoc_header">
-<!--
-	<header id="header" class="">
-		<div class="header-content">
-			<span class="title">eICTUclassstudentList - Sinh viên trong lớp học
-				@if(!Auth::guest())
-						<span class="pull-right">
-							<img src="{!! url('classes_src/images/logout.png')!!}" />
-							<a href="{{ route('classes.logout')}}">Logout</a>
-						</span>
-					@endif
-			</span>
-		</div>
-	</header>
-	-->
-	<!--
-	<table class="table_header" >
-		<tr>
-		  <td>eICTUclassstudentList - Sinh viên trong lớp học</td>
-		  <td align="right"><img src="{!! url('quanlylophoc/images/logout.png')!!}" />Logout</td>
-		</tr>
-	</table>
-	-->
-</div>
-<div class="qllophoc_content">
-	<div>
-		
-		<span style="display:inline;border:0px solid red;margin:0; padding:0px 0px;">
-			<img src="{!! url('classes_src/images/li.png')!!}" />
-		</span>
-		<!-- Bat popup
-	   <span style="display:inline;border:0px solid red;margin:0; padding:0px 0px">
-				<a href="{{ route('classes.studentjoinclass', $_class->id)}}" style=" text-decoration:none"target="popup" onclick="PopupCenter('{{ route('classes.studentjoinclass', $_class->id)}}', 'THÊM SINH VIÊN VÀO LỚP')" >	   
-					THÊM SINH VIÊN VÀO LỚP
-				</a
-	   </span>
-	   -->
-	   <span style="display:inline;border:0px solid red;margin:0; padding:0px 0px">
-				<a href="{{ route('classes.studentjoinclass',$_class->id)}}" >	   
+    <div >
+        <div class="row">
+            
+                <div class="panel panel-default">
+
+                    <div class="panel-body">
+                        <a class="btn btn-info" href="{{ route('classes.studentjoinclass',$_class->id)}}" >	   
 					THÊM SINH VIÊN VÀO LỚP
 				</a>
-	   </span>
-	</div>
+                        <br/>
+                        <br/>
+                        Danh sách sinh viên lớp <strong>{{ $_class->name }}</strong>
+                        <table class="table">
+                            <tr>
+                               <th>STT</th>
+                                <th>Mã sinh viên</th>
+								 <th>Họ tên</th>
+                            </tr>
 
-	<div class="dssv">
-	   <table class="table" >				
+                        @if (count($_students) === 0 )
 			<tr>
-				<td align="left" class="col-md-1" colspan="12" >
-					Danh sách sinh viên lớp {{ $_class->name }}
-				</td>
-			</tr>
-			<tr>
-				<tr>
-						<th>
-							STT
-						</th>
-						<th  >
-							Mã sinh viên
-						</th>
-						<th  colspan="10">
-							Họ tên
-						</th>							
-					</tr>
-			</tr>
-			@if (count($_students) === 0 )
-			<tr>
-				<td align="left" class="col-md-1" colspan="12" >
+				<td align="left">
 					Chưa có sinh viên
 				</td>
 			</tr>
@@ -112,8 +52,9 @@
 		@if (count($_students) >0 )
 			{{ $_students->links() }}
 		@endif
+  
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-</div>
-@endsection			
-
+@endsection

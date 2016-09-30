@@ -1,8 +1,15 @@
 @extends('layouts.student_app')
 @section('content')
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="{{url('/js/app-main.js')}}"></script>
 	<div class="panel panel-default find-job">
         <div class="panel-heading">Quản lý Bài đăng tìm việc </div>
         <div class="panel-body">
+         	@if(Session::has('success'))
+	            <div class="alert alert-success alx">
+	               {{Session::get('success')}}
+	            </div>
+        	@endif
           	<table class="table table-striped">
 			    <thead>
 			      <tr>

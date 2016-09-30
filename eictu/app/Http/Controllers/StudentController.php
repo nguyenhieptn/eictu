@@ -94,8 +94,9 @@ class StudentController extends Controller
 //        });
 
         Schema::table('newsfeed', function ($table) {
-            $table->integer('type');
+            $table->string('content');
         });
+       // DB::statement('ALTER TABLE newsfeed MODIFY COLUMN content text');
     }
 
     //add
