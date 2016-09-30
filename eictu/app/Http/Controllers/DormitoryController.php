@@ -71,7 +71,7 @@ class DormitoryController extends Controller
         ]);
 
         //CACHE
-        $str = 'Ngày <strong>'.$req->start_on."</strong> <a>Chuyển tới chỗ ở mới</a> trong KTX tại Phòng ".$room." Nhà ".$building.", ".$area." KTX ".$school->name;
+        $str = '<li class="item-update">Ngày <strong>'.$req->start_on."</strong> <a>Chuyển tới chỗ ở mới</a> trong KTX tại Phòng ".$room." Nhà ".$building.", ".$area." KTX ".$school->name.'</li>';
         $id = $student->id;
         $expiresAt = Carbon::now()->addDays(7);
 
@@ -88,6 +88,7 @@ class DormitoryController extends Controller
                 //Do nothing
             }
             else{
+                //Cache::forget($id);
                 Cache::put($id, $str.'<br>'.$ss, $expiresAt);
                 Cache::put('_'.$id, $str, $expiresAt);
 
