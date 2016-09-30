@@ -80,3 +80,7 @@ select.form-control{
 .none{
 	color: red;
 }
+li.item-update{
+	font-size: 18px;
+	color: #ff6666;
+}

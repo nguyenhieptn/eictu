@@ -13,7 +13,7 @@ eICTuStudentRentHouseHistory - Lịch sử nhà trọ
         </a>
     </div>
       <div class="row" style="padding-top: 30px;">
-          <div class="panel panel-default renthouse_list">
+          <div class="panel">
             <ul class="" id="mylist">
              <?php
                 if($data->count()==0){
@@ -21,8 +21,8 @@ eICTuStudentRentHouseHistory - Lịch sử nhà trọ
                 }else{
                     foreach($data as $item){
                         $date = new DateTime($item->date_join);
-                        echo "<li class='list-group-item' id='myLi' style=' color:red '>
-                            <i class='glyphicon glyphicon-triangle-right' style='color:#8c8c8c'> &nbsp;</i>".$date->format('d/m/Y').", ".$item->hostess.", ".$item->address."</li>";
+                        echo "<li class='list-group-item' id='myLi' style=' color:red; border:0px'>
+                            <i class='glyphicon glyphicon-triangle-right' style='color:#8c8c8c;padding-right: 10px;'></i>".$date->format('d/m/Y')."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$item->address."</li>";
                         }
                         echo "<center>".$data->appends(Request::only('code'))->links()."</center>";
                     }

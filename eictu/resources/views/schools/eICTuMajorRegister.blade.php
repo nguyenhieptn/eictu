@@ -1,16 +1,13 @@
-@extends('layouts.app')
+@extends('layouts.school_app')
 
 @section('title')
     Khai Báo Ngành Học Mới
 @endsection
 @section('content')
-    <div class="container">
+    <div >
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <link rel="stylesheet" type="text/css" href="{!! url('quanlytruong/css/trangthanhvien.css')!!}">
-                    <div class="thanhvien">eICTuMajorRegister - Khai Báo Ngành Học Mới
-                    </div>
                     <div >
 
 

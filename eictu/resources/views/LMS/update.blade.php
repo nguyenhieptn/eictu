@@ -1,25 +1,17 @@
-@extends('layouts.app')
+@extends('layouts.student_app')
 @section('title')
 eICTuLearningManageSystem Update - Cập nhật môn học
 @endsection
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-9">
                 <div class="panel panel-default">
-                @foreach ($datas as $val)
-<<<<<<< HEAD
-                    <div class="panel-heading" style="background:#328f31;color:#fff;font-weight:bold;">eICTuLearningManageSystem Update - Cập nhật môn học {{ $val->name }} cho sinh viên {{$st->name}}</div>
-                    <div class="panel-body">
-                        <p>Thông tin môn học:</p>
-                            <ul>
-=======
-                    
+                @foreach ($datas as $val)                   
                     <div class="panel-body">
                         <p>Thông tin môn học:</p>
                             <ul style="padding-left:30px;">
->>>>>>> 68048f6ecdef3a7b84457fd9911ca779b11760b6
-                        
+
                                 <li>
                                     <label class="lab-update">Tên môn học: {{ $val->name }}</label>
                                 </li>

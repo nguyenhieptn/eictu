@@ -5,7 +5,6 @@
  * Date: 19/09/2016
  * Time: 11:41 CH
  */
-
  ?>
  @extends('layouts.student_app')
 @section('title')
