@@ -14,7 +14,7 @@
 Route::get('findjob/index', 'FindJobController@getIndex');
 Route::get('/', function () {
     if(auth()->user()== null)
-    return view('schools.homepage');
+    return view('schools.index2');
     else
     {
         $type = auth()->user()->type;

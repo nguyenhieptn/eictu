@@ -1,9 +1,6 @@
-<<<<<<< HEAD
-@extends('layouts.app')
-=======
-@extends('teacher.master')
->>>>>>> e73bc4abee071abd481332c508dcc1dee88f1d5c
 
+@extends('layouts.app')
+@extends('teacher.master')
 @section('content')
     <div class="container">
         <div class="row">
