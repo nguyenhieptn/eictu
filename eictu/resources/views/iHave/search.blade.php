@@ -6,7 +6,7 @@ eICTuStudentGoodsSearch - Danh sách đồ cũ đang rao
 <div class="container" style="width: 100%">
     @if(Auth::check() && Auth::user()->type==3)
       <div class="row">
-        <div class="col-lg-12 col-xs-12">
+        <div class="col-lg-8 col-xs-12">
           <form  class="nav-form" action="{{url('iHave')}}" role="form" method="post" accept-charset="utf-8">
             <input type="hidden" name="_token" value="{{Session::token()}}">
             <div class="input-group add-on" style="padding: 10px; height: 70px" >

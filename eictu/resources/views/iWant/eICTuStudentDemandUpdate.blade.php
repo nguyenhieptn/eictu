@@ -1,3 +1,4 @@
+
 @extends('layouts.student_app')
 @section('title')
 Đăng tin - Danh sách những mong muốn
@@ -12,11 +13,12 @@
             <div class="input-group add-on" style="padding: 10px; height: 70px" >
               <textarea style="height: 70px" placeholder="Gõ bản tin đề nghị giúp đỡ của bạn vào đây…
           Chúc bạn may mắn!" name="content" class="form-control" rows="2"></textarea>
-
+          
               <div class="input-group-btn">
                 <button type="submit" class="btn" style="background: #ff7b07; color: #ffffff; height: 70px; border-radius: 0 8px 8px 0px; font-size: 20px; ">ĐĂNG NGAY</button>
               </div>
             </div>
+            <input type="text" name="location" value="" class="form-control" placeholder="Vị trí hiện tại của bạn">
           </form>
           <span>Bạn cần trợ giúp khẩn cấp? Hãy đăng tin lên ngay để bạn bè của bạn biét tin giúp đỡ.</span>
           <hr>
@@ -31,7 +33,7 @@
         @foreach($data as $want)
         <div class="col-xs-12">
         <?php 
-          $students = DB::table('students')->select('name','avata')->where('id', $want->student_id)->first();
+          $students = DB::table('students')->select('name','avatar')->where('id', $want->student_id)->first();
          ?>
          <style type="text/css" media="screen">
               .boot{
