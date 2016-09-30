@@ -61,8 +61,8 @@ Chi tiết lời yêu cầu
 	    		 <img src="$students->avatar" class="img-rounded" height="100px" width="100px" alt="">
 	    	</div>
 	    	<div class="col-lg-10">
-	    		<p><b style="color: #e74c3c; font-size: 20px;">{{$student->name}}</b><span style="margin-left: 200px;>{!! time_elapsed_string($want->created_at) !!}</span></p>
-			      <p style="color: #7f8c8d; font-size: 20px"></span></p>
+	    		<p><b style="color: #e74c3c; font-size: 20px;">{{$student->name}}</b><span style="margin-left: 200px;">{!! time_elapsed_string($want->created_at) !!}</span></p>
+			      <p style="color: #7f8c8d; font-size: 20px">
 			      @if($student->gender ==0)
 			      	Nữ
 			      @else
