@@ -25,15 +25,14 @@
                     echo "Hôm nay";
                  }elseif(date('d-m-Y',strtotime($item->created_at)) ==(date("d-m-Y")-1)){
                     echo "Hôm qua";
-
                  }else{
                   
-                    echo $item->created_at;
+                    echo date('d-m-Y',strtotime($item->created_at));
                  }
                 ?>
              </p>
              <h4 class='media-heading'><strong><a href="{{route('findjob.detail',$item->sid)}}">{{$item->name}}</a></strong></h4>
-             <p class="index-content"><?php echo substr($item->content, 0,150) ?></p></div>
+             <p class="index-content"><?php echo substr($item->content, 0,150) ?> ...</p></div>
              </div>
           @endforeach
            <div class="pull-right">{{$datas->render()}}</div> 
