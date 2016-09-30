@@ -5,6 +5,36 @@
 @endsection
 @section('content')
 <div class="container">
+<?php 
+function time_elapsed_string($datetime, $full = false) {
+    $now = new DateTime;
+    $ago = new DateTime($datetime);
+    $diff = $now->diff($ago);
+
+    $diff->w = floor($diff->d / 7);
+    $diff->d -= $diff->w * 7;
+
+    $string = array(
+        'y' => 'year',
+        'm' => 'month',
+        'w' => 'week',
+        'd' => 'day',
+        'h' => 'hour',
+        'i' => 'minute',
+        's' => 'second',
+    );
+    foreach ($string as $k => &$v) {
+        if ($diff->$k) {
+            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+        } else {
+            unset($string[$k]);
+        }
+    }
+
+    if (!$full) $string = array_slice($string, 0, 1);
+    return $string ? implode(', ', $string) . ' ago' : 'just now';
+}
+?>
 @if(Auth::check() && Auth::user()->type ==3)
 <!--   <div class="row">
         <div class="col-lg-8 col-xs-12">
@@ -81,7 +111,7 @@
             
            </div>
            <div class="col-lg-10 ">
-            <h3>{!! $students->name !!}</h3>
+            <h3>{!! $students->name !!}<span style="margin-left: 200px;">{!! time_elapsed_string($want->created_at) !!}</span></h3>
              <p ><a style="color: black;" href="{{route('iwant.detail', $want['id'])}}" title="">{{$want['content']}}</a></p>
            </div>
          </div>
