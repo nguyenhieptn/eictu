@@ -16,7 +16,6 @@
             @endif
         </div>
         <div class="panel-body panel-body-2" id="content-js">
-       <?php var_dump($datas)?>
         @foreach($datas as $data=>$item)
            <div class='media'>
              <a href='' class='media-left' href='#'><img class='media-object' src="<?php echo ($item->avatar== null) ? "/img/user-image01.png" : $data1->avatar ?>" alt=''></a>

@@ -18,8 +18,8 @@ class FindJobController extends Controller
     public function getIndex()
     {
         if(Auth::check() && Auth::user()->type==3){
-              $datas= DB::table('searchjobs')->join('users','searchjobs.student_id','users.id')->join('students','users.id','students.id')->orderby('searchjobs.id','DESC')->select('searchjobs.id as sid','users.name','searchjobs.content','searchjobs.created_at','students.avatar')->paginate(5);
-            return view('findjob.index')->with('datas',$datas);
+              $datas= DB::table('searchjobs')->join('users','searchjobs.student_id','users.id')->join('students','users.username','students.code')->orderby('searchjobs.id','DESC')->select('searchjobs.id as sid','users.name','searchjobs.content','searchjobs.created_at','students.avatar')->paginate(5);
+           return view('findjob.index')->with('datas',$datas);
         }else{
             $datas= DB::table('searchjobs')->join('users','searchjobs.student_id','users.id')->join('students','users.id','students.id')->orderby('searchjobs.id','DESC')->select('searchjobs.id as sid','users.name','searchjobs.content','searchjobs.created_at','students.avatar')->paginate(5);
             return view('findjob.index')->with('datas',$datas);
