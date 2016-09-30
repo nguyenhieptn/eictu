@@ -122,7 +122,6 @@
     <div class="col-md-3" id="Left">
         <div style="background-color: #ededed; position: fixed; height: 1000px;">
             <table style="text-align: left">
-
                 <tr>
                     <td>
                         <img src="{{url('img/li.png')}}"/>
@@ -164,11 +163,8 @@
             </table>
         </div>
     </div>
-<<<<<<< HEAD
+
     <div class="col-md-9" >
-=======
-    <div class="col-md-9">
->>>>>>> 8fe2620880be32da7153a6e0c287d1bd94933440
         @yield('content')
     </div>
 </div>

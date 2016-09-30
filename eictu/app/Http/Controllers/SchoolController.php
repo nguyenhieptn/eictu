@@ -113,9 +113,6 @@ class SchoolController extends Controller
 
     }
 
-
-
-
     public function eICTuClassList(){
 
         $_classes =  DB::table('classes')
@@ -132,6 +129,8 @@ class SchoolController extends Controller
             ->get();
         return view("schools.eICTuClassRegister",['_majors'=>$_majors]);
     }
+
+
 
 
 
@@ -222,6 +221,7 @@ class SchoolController extends Controller
         return redirect()->back()->with('global', ' Tên đăng nhập hoặc mật khẩu không đúng.');
 
     }
+
 
     public function logout(){
         Auth::logout();

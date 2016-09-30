@@ -196,49 +196,27 @@
         </div>
     </div>
     <div class="col-md-6"  id="Right">
-        <table style="text-align: left">
+          <?php
+        $_majors =  DB::table('schools')
+        ->select('name')
+        ->orderBy('id', 'asc')
+        ->get();
+            ?>
+        <table  style="text-align: left">
+
+            @if (!isset($_majors) || $_majors ==null)
+                <tr>Chưa Ngành Nào</tr>
+            @else
+                @foreach ($_majors as $_l)
+                    <tr>
+                       <td> <img class="image"  src="{{url('img/go-home.png')}}"></td>
+                        <td><h2>{{ $_l->name}}</h2> </td>
 
 
-            <tr>
-                <td>
-                    <img class="image"  src="{{url('img/go-home.png')}}"></td>
-                    <td><h2>Trường Đại học Ngoại Ngữ</h2>
+                    </tr>
 
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <img class="image" src="{{url('img/go-home.png')}}"></td>
-                <td><h2>Trường Đại học Công nghệ
-                        Thông tin và Truyền thông</h2>
-
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <img class="image"  src="{{url('img/go-home.png')}}"></td>
-                <td><h2>Trường Đại học Nông lâm
-                        Thái Nguyên</h2>
-
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <img class="image"  src="{{url('img/go-home.png')}}"></td>
-                <td><h2>Trường Đại học Y Dược
-                        Thái Nguyên</h2>
-
-                </td>
-            </tr>
-            <td>
-                <img class="image" src="{{url('img/go-home.png')}}"></td>
-            <td><h2>Trường Đại học Tại chức…</h2>
-
-            </td>
-
+                @endforeach
+            @endif
         </table>
     </div>
 </div>
