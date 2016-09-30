@@ -19,15 +19,15 @@ eICTuStudentRentHouseSearch - Tra cứu địa chỉ nhà trọ của Sinh viên
               </div>
             </form>
           </div>
-            <ul class="" id="mylist">
+            <ul style="padding:0px;">
               @if($student ==null && $code!=null)
                 <li class='list-group-item' style="color:red;" >Không tồn tại sinh viên!</li>
               @elseif($student!=null)
                 <li class='list-group-item' style="height:70px;border:0px;">
-                  <ul type="none">
+                  <ul type="none" style="padding:0px;">
                     <li style="float:left; padding-right: 10px; "><img width="50px" height="50px" border-radius="8px" src="<?php if($student->avatar!=null)echo $student->avatar;else ?>{{url('img/avatar_null.png')}}" /></li>
-                    <li style="float:left; padding-top: 8px">
-                      <ul type="none">
+                    <li style="float:left;">
+                      <ul type="none" style="padding:0px;">
                         <li> <strong style="color: #000000; font-size: 18px"><?php echo $student->name;?></strong></li>
                         <li style="color: #2e3436; font-size:14px;">Mã sinh viên <strong><?php echo $student->code;?></strong></li>
                       </ul>

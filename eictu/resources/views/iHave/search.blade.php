@@ -6,7 +6,7 @@ eICTuStudentGoodsSearch - Danh sách đồ cũ đang rao
 <div class="container" style="width: 100%">
     @if(Auth::check() && Auth::user()->type==3)
       <div class="row">
-        <div class="col-lg-12 col-xs-12">
+        <div class="col-lg-8 col-xs-12">
           <form  class="nav-form" action="{{url('iHave')}}" role="form" method="post" accept-charset="utf-8">
             <input type="hidden" name="_token" value="{{Session::token()}}">
             <div class="input-group add-on" style="padding: 10px; height: 70px" >
@@ -27,8 +27,8 @@ eICTuStudentGoodsSearch - Danh sách đồ cũ đang rao
       <ul type="none" class=" list-group " >
         @foreach($data as $item)
           <li style="height:80px; padding-top: 10px"><a style="height:70px;" class="list-group-item" href="{{url('iHave/detail', $item->id)}}">
-            <ul type="none">
-              <li style="float: left;padding-right: 10px;"><img @if($item->avatar!=null) src="{{$item->avatar}}" @else src="{{url('img/avatar_null.png')}}" @endif height="50px" width="50px"/></li>
+            <ul type="none" style="padding:0px;">
+              <li style="float:left; padding-right: 10px;"><img @if($item->avatar!=null) src="{{$item->avatar}}" @else src="{{url('img/avatar_null.png')}}" @endif height="50px" width="50px"/></li>
               <li>
                 <ul type="none">
                   <li>{{$item->name}}</li>

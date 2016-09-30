@@ -7,6 +7,7 @@ use Auth;
 use App\User;
 use App\IWant;
 use App\Student;
+use App\NewsFeed;
 use DB;
 use App\Http\Requests;
 
@@ -15,7 +16,10 @@ class IWantController extends Controller
     public function getStatus()
     {
 
-        $data = IWant::select('id', 'content')->orderBy('id','DESC')->paginate(20);
+        $data = IWant::select('id', 'content', 'student_id')->orderBy('id','DESC')->paginate(20);
+
+        
+
         return view('iWant.eICTuStudentDemandUpdate', compact('data'));
     	
     }
@@ -27,11 +31,18 @@ class IWantController extends Controller
             ]);
         $iwant = new IWant();
         $iwant->content = $request->content;
+        $iwant->location = $request->location;
         
         $student = Student::select('id')->where('code', Auth::user()->username)->first();
 
         $iwant->student_id       = $student->id;
         $iwant->save();
+        if ($iwant->save()) {
+            $new = new NewsFeed();
+            $new->student_id = $student->id;
+            $new->content = $request->content;
+            $new->save();
+        }
       
 
         return redirect()->back();

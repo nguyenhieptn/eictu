@@ -120,44 +120,53 @@
 
 <div class="container" style="margin-top: 100px;">
     <div class="col-md-3" id="Left">
-        <div style="background-color: #ededed; position: fixed; height: 450px;">
+        <div style="background-color: #ededed; position: fixed; height: 1000px;">
             <table style="text-align: left">
                 <tr>
-                    <td>
-                        <img src="{{url('img/gioithieu.png')}}"/>
-                        <a href="{{url('student/newsfeed')}}">Giới thiệu</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <img class="image" src="{{url('img/search.png')}}">
-                        <a class="link" href="{{ url('schools/eICTuMajorList') }}">Ngành Học</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <img class="image" src="{{url('img/lophoc.icon.png')}}">
-                        <a class="link" href="{{ url('schools/eICTuClassList') }}">Lớp Học</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <img class="image" src="{{url('img/lophoc.png')}}">
-                        <a class="link" href="{{ url('student') }}">Sinh Viên</a>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <img class="image" src="{{url('img/giaovien.ico')}}">
-                        <a class="link" href="{{route('teacher.list')}}">Giao Viên</a>
-                    </td>
+                    <td>Nếu Bạn là giáo viên,hãy chọn</td>
                 </tr>
 
                 <tr>
                     <td>
-                        <img class="image" src="{{url('img/hoso1.png')}}">
-                        <a class="link" href="{{route('teacher.list')}}">Hồ sơ trường</a>
+                        <img class="image" src="{{url('quanlytruong/images/giaovien.ico')}}">
+                        <a class="link" href="{{route('teacher.login')}}">Giáo Viên</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Nếu Bạn là Sinh Viên,hãy chọn</td>
+                </tr>
+                <tr>
+                    <td>
+                        <img class="image" src="{{url('quanlytruong/images/sinhvien.ico')}}">
+                        <a class="link" href="{{url('student/login')}}">Sinh Viên</a>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>Nếu Bạn là quản trị viên của trường học đã tham gia eictu,hãy chọn</td>
+                </tr>
+                <tr>
+                    <td>
+                        <img class="image" src="{{url('quanlytruong/images/go-home-128.png')}}">
+                        <a class="link" href="{{url('schools/login')}}">Trường Học</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Nếu trường đại học của bản chưa tham gia eictu, hãy bắt đầu </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img class="image" src="{{url('quanlytruong/images/register.png')}}">
+                        <a class="link" href="{{url('/schools/eICTuSchoolRegister')}}">Đăng Kí</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Nếu bạn cần tuyển sinh viên ngoài giờ hãy chọn </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img class="image" src="{{url('quanlytruong/images/job.png')}}">
+                        <a class="link" href="{{url('findjob/index')}}">Sinh Viên Tìm Việc</a>
                     </td>
                 </tr>
             </table>
