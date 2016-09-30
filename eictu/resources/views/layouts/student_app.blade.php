@@ -126,7 +126,7 @@
                         ->where('code', '=', Auth::user()->username)
                         ->get()->first();
                 $classid = $data1 == null ? 0 : $data1->class_id;
-                $avatar = $data1!= null ? $data1->avatar==null ? "/img/user-image01.png" : $data1->avatar."" : "/img/user-image01.png";
+                $avatar = $data1!= null ? $data1->avatar==null ? "/img/avatar.jpg" : $data1->avatar."" : "/img/avatar.jpg";
 
 
                 ?>
