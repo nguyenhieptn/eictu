@@ -120,30 +120,32 @@
 
     <div class="container" style="margin-top: 80px;">
         <div class="col-md-3 col-sm-3" id="Left">
-            <div style="background-color: #ededed; position: fixed; height: 1000px;">
-                <?php
-                $data1 = \App\Student::select('*')
-                        ->where('code', '=', Auth::user()->username)
-                        ->get()->first();
-                $classid = $data1 == null ? 0 : $data1->class_id;
-                $avatar = $data1!= null ? $data1->avatar==null ? "/img/avatar.jpg" : $data1->avatar."" : "/img/avatar.jpg";
-
-
-                ?>
+            <div style="background-color: #ededed; position: fixed; height: 1000px;">        
                    <div style="margin-top: 30px; margin-bottom: 30px;margin-left: 20px;">
-                    <img src="{{ url($avatar)}}" width="50" height="50" /> -->
-                    <span >{{$data1->name}}</span>
+                         <?php
+                    $data1 = \App\Student::select('*')
+                            ->where('code', '=', Auth::user()->username)
+                            ->get()->first();
+                    $classid = $data1 == null ? 0 : $data1->class_id;
+                    $avatar = $data1!= null ? $data1->avatar==null ? "/img/avatar.jpg" : $data1->avatar."" : "/img/avatar.jpg";
+                    ?>
+                       <div style="margin-top: 30px; margin-bottom: 30px;margin-left: 20px;">
+                        <img src="{{ url($avatar)}}" width="50" height="50" /> -->
+                        <span >{{$data1->name}}</span>
+                        </div>
+                       
+
                     </div>
                     <table style="text-align: left">
 
-                    @if(count($classid)>0 && $classid !=null)
-                        <tr>
-                            <td><img src="{{url('img/Gift-128.png')}}"/></td>
-                            <td>
-                                <a href="{{route('classes.classmatersbirthday', $classid )}}">Sinh nhật bạn cùng lớp</a>
-                            </td>
-                        </tr>
-                    @endif
+                        @if(count($classid)>0 && $classid !=null)
+                            <tr>
+                                <td><img src="{{url('img/Gift-128.png')}}"/></td>
+                                <td>
+                                    <a href="{{route('classes.classmatersbirthday', $classid )}}">Sinh nhật bạn cùng lớp</a>
+                                </td>
+                            </tr>
+                        @endif
 
                     <tr>
                             <td><img src="{{url('img/newfeed.png')}}"/></td>

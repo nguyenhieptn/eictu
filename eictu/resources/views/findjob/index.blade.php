@@ -4,7 +4,7 @@
         <div class="panel-heading">Trang tin tìm việc làm của Sinh viên </div>
         <div class="panel-body">
            @if(Auth::check() && Auth::user()->type ==3)
-            <form action="" method="post">
+            <form action="{{route('findjob.post.add')}}" method="post">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group">
                    <!-- <p class="errors"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> <span class="text-danger"></span> </p> -->
@@ -16,6 +16,7 @@
             @endif
         </div>
         <div class="panel-body panel-body-2" id="content-js">
+       <?php var_dump($datas)?>
         @foreach($datas as $data=>$item)
            <div class='media'>
              <a href='' class='media-left' href='#'><img class='media-object' src="<?php echo ($item->avatar== null) ? "/img/user-image01.png" : $data1->avatar ?>" alt=''></a>

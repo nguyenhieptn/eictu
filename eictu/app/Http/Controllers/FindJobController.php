@@ -32,8 +32,8 @@ class FindJobController extends Controller
 
      public function addPost(Request $request)
     {
-       if($request->ajax()){
-                $input = $request->all();
+
+            $input = $request->all();
             $rule = [
                 'content' => 'required'
             ];
@@ -42,24 +42,17 @@ class FindJobController extends Controller
             ];
             $validator = Validator::make($input, $rule, $message);
             if ($validator->fails()) {
-                return response()->json([
-                    'errors'=>true,
-                    'messages'=>$validator->errors()
-                    ]);
-            }else{
+                return redirect()->back();
+             }else{
                 FindJob::create([
                     'content' => $input['content'],
                     'student_id' => Auth::user()->id
                 ]);
-                return response()->json([
-                    'errors'=>false,
-                    'messages'=>'Đăng tin Thành công !'
-                    ]);
-                  }
+                return "them thanh cong";
+             }
 
-            }
+      }
           
-            }
 
     public function getDetail($id)
     {
