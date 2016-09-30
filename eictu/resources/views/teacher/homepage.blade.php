@@ -36,7 +36,7 @@ Trang chu giao vien
            <div class="col-lg-2">
             <img src="{{url('{!! $student_id->name !!}')}}" alt="">
            </div>
-           <div class="col-lg-8 ">
+           <div class="col-lg-9 ">
             <h3>{!! $student_id->name !!} <span>{!! $item->time !!}</span></h3>
             <p style="word-wrap:break-word;">{{$item->content}}</p>
            </div>
