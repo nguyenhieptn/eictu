@@ -107,16 +107,16 @@ class StudentController extends Controller
 
  //       DB::statement('ALTER TABLE newsfeed MODIFY COLUMN content text');
 //
-    //    $columns = Schema::getColumnListing('newsfeed'); // users table
+        $columns = Schema::getColumnListing('students'); // users table
        
-    //    dd($columns2 );
-         $student = Student::select('*')->get();
+        dd($columns );
+      /*   $student = Student::select('*')->get();
        foreach ($student as $st)
        {
            echo $st->code." | ";
            echo $st->name." | ";
            echo $st->avatar."|---------";
-       }
+       }*/
     }
 
     //add
