@@ -126,6 +126,8 @@ class StudentController extends Controller
         $student->major_id  = $data['major_id'];
         $student->class_id  = Null;
         $student->school_id =$data['school_id'];
+        $student->avatar  = Null;
+        $student->address  = Null;
         $student->save();
        if ($student->save() == true) {
            $user = new User();
