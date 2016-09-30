@@ -32,6 +32,9 @@ class SchoolController extends Controller
 
     public function newstore(Request $request)
     {
+       if(Input::get('hoten')==null||Input::get('taikhoan')==null||Input::get('matkhau')==null||Input::get('viettat')==null|| Input::get('tendaydu')==null){
+           echo "Bạn chưa nhập đầy đủ";
+       }else{
         $data = array();
         $data['name']       = $request->input('hoten');
         $data['username']       = $request->input('taikhoan');
@@ -63,6 +66,7 @@ class SchoolController extends Controller
                DB::table('schools')->insert(['code' => Input::get('viettat'), 'name' =>  Input::get('tendaydu'),'user_id' =>  $userid]);
             return view("schools.login");
         }
+       }
     }
 
     public function store(Request $request)
@@ -93,7 +97,7 @@ class SchoolController extends Controller
     }
 
     public function eICTuSchoolRegister(){
-        return view("schools.eICTuSchoolRegister");
+        return view("schools.eICTuSchoolRegister");//
     }
 
     public function eICTuSchoolAdminLogin(){

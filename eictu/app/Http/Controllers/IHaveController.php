@@ -6,6 +6,7 @@ use App\IHave;
 use App\Students;
 use DB;
 use App\Http\Requests;
+use App\NewsFeed;
 use Illuminate\Support\Facades\Schema;
 class IHaveController extends Controller
 {
@@ -32,12 +33,13 @@ class IHaveController extends Controller
         $have->student_id=$data['student_id'];
         $have->content=$data['content'];
         $have->save();
+
+        $news = new NewsFeed();
+        $news->content=$data['content'];
+        $news->student_id=$data['student_id'];
+        $news->save();
+
         return redirect("iHave");
-        //$ihave = new IHave();
-        //$ihave->content = $request->input('content');
-        //->student_id       = 1;
-        //$ihave->save();
-        //return redirect()->route('iHave.search');
     }
     public function search()
     {

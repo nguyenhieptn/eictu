@@ -22,7 +22,7 @@ eICTuStudentRentHouseHistory - Lịch sử nhà trọ
                     foreach($data as $item){
                         $date = new DateTime($item->date_join);
                         echo "<li class='list-group-item' id='myLi' style=' color:red '>
-                            <i class='glyphicon glyphicon-triangle-right' style='color:#8c8c8c'> &nbsp;</i>".$date->format('d/m/Y').", ".$item->hostess.", ".$item->address."</li>";
+                            <i class='glyphicon glyphicon-triangle-right' style='color:#8c8c8c'> &nbsp;</i>".$date->format('d/m/Y')."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$item->address."</li>";
                         }
                         echo "<center>".$data->appends(Request::only('code'))->links()."</center>";
                     }

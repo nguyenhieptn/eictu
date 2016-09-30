@@ -1,11 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.school_app')
 @section('title')
-    <span>Th</span>
+    <span>Them sinh vien</span>
 @endsection
 @section('content')
-    <div class="container">
         <div class="row">
-            <div class="col-md-offset-2 col-md-8">
+            <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">Hãy nhập đầy đủ thông tin cho sinh viên mới trúng tuyển vào mẫu sau:</div>
                     <div class="panel-body">
@@ -66,7 +65,6 @@
         </div>
 
 
-    </div>
 
 
 @endsection
