@@ -93,9 +93,10 @@ class StudentController extends Controller
 //            $table->integer('student_id');
 //        });
 
-        Schema::table('newsfeed', function ($table) {
-            $table->integer('type')->nullable();
-        });
+//        Schema::table('newsfeed', function ($table) {
+//            $table->string('content');
+//        });
+        DB::statement('ALTER TABLE newsfeed MODIFY COLUMN content text');
     }
 
     //add
