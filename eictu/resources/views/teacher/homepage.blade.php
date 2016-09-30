@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.school_app')
 @section('title')
 Trang chu giao vien
 @endsection
