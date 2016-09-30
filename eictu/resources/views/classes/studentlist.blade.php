@@ -1,5 +1,5 @@
 @extends('layouts.school_app')
-<--
+<!--
 @extends('layouts.app')
 -->
 		<link rel="stylesheet" type="text/css" 
