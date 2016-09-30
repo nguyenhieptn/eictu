@@ -42,7 +42,7 @@ class HomeController extends Controller
                 ->where('code', '=', Auth::user()->username)
                 ->get()->first();
             $classid = $data == null ? 0 : $data->class_id;
-            $avatar = $data== null ? $data->avatar==null ? "/img/user-image01.png" : $data->avatar."" : "/img/user-image01.png";
+            $avatar = $data== null ? $data->avatar==null ? "/img/avatar.jpg" : $data->avatar."" : "/img/avatar.jpg";
             return view("layouts.student_app", compact('name'));
         }
     }

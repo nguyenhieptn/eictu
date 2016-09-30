@@ -68,7 +68,7 @@ class StudentController extends Controller
                     ->get()->first();
                 $classid = $data->class_id;
                 $name = Auth::user()->name;
-                $avatar = $data== null ? $data->avatar==null ? "/img/user-image01.png" : $data->avatar."" : "/img/user-image01.png";
+                $avatar = $data== null ? $data->avatar==null ? "/img/avatar.jpg" : $data->avatar."" : "/img/avatar.jpg";
                 return view("students.studentHomepage", compact('name', 'classid','avatar'));
             }
         }else{
