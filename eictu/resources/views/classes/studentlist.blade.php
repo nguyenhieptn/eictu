@@ -1,5 +1,7 @@
+@extends('layouts.school_app')
+<!--
 @extends('layouts.app')
-		
+-->
 		<link rel="stylesheet" type="text/css" 
 			href="{!! url('classes_src/css/bootstrap.min.css')!!}">
 			
