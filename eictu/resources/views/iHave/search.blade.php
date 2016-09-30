@@ -31,7 +31,19 @@ eICTuStudentGoodsSearch - Danh sách đồ cũ đang rao
               <li style="float:left; padding-right: 10px;"><img @if($item->avatar!=null) src="{{$item->avatar}}" @else src="{{url('img/avatar_null.png')}}" @endif height="50px" width="50px"/></li>
               <li>
                 <ul type="none">
-                  <li>{{$item->name}}</li>
+                  <li>{{$item->name}}
+                    <p class="pull-right date-post">
+                       @if(date('d-m-Y',strtotime($item->created_at)) == date("d-m-Y",time()))
+                         {{date('H:i',strtotime($item->created_at))}}
+                       @elseif(date('d-m-Y',strtotime($item->created_at)) ==(date("d-m-Y",time()-86400)))
+                         Hôm qua
+                       @elseif(date('d-m-Y',strtotime($item->created_at)) ==(date("d-m-Y",time()-2*86400)))
+                         Hôm kia
+                       @else
+                         {{date('d-m-Y',strtotime($item->created_at))}}
+                     @endif
+                     </p>
+                  </li>
                   <li>{{str_limit($item->content,100,'...')}}</li>
                 </ul>
               </li>
