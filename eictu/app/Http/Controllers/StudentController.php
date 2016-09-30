@@ -94,7 +94,7 @@ class StudentController extends Controller
 //        });
 
         Schema::table('newsfeed', function ($table) {
-            $table->integer('type');
+            $table->integer('type')->nullable();
         });
     }
 
