@@ -13,7 +13,7 @@ eICTuStudentGoodsDetail - Chi tiết về bản tin đồ cũ
                <ul type="none">
                  <li> <strong style="color: #000000; font-size: 18px">{{$student->name}}</strong></li>
                  <li style="color: #2e3436; font-size:14px;">
-                    <span> @if ($student->gender==1) "am @else Nữ @endif</span>
+                    <span> @if ($student->gender==1) Nam @else Nữ @endif</span>
                     <span>, đang ở @if($address!=null){{$address}}@else không xác định @endif</span>
                  </li>
                </ul>
