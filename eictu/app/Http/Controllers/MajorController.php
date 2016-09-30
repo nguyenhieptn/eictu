@@ -29,6 +29,18 @@ class MajorController extends Controller
         //return view("major.index");
     }
 
+    public function indexmajor()
+    {
+        //echo "hallo I'm index";
+        $_majors = DB::table('majors')
+            ->select('id', 'code', 'name')
+            ->get();
+
+        return view('major.indexparent', ['_majors' => $_majors]);
+
+        //return view("major.index");
+    }
+
     public function create()
     {
 
@@ -55,7 +67,7 @@ class MajorController extends Controller
 
     public function createsubjectpost($majorid)
     {
-       // echo $majorid;
+        // echo $majorid;
         DB::table('studyprograms')
             ->insert(['code' => Input::get('code'), 'name' => Input::get('name'), 'term' => Input::get('term'),
                 'credit' => Input::get('credit'), 'major_id' => Input::get('major_id')]);
@@ -89,6 +101,29 @@ class MajorController extends Controller
         //if ($_major == null) return "The class is not available";
         //return Input::get('code');
         return view('major.subjects', ['programs' => $_programs, 'major' => $_major]);
+        //return view('major.subjects', ['programs' => $_programs]);
+
+    }
+
+    public function indexsubject($subid)
+    {
+        //echo $subid;
+        $_major = DB::table('majors')
+            ->select('id', 'name')
+            ->where('id', $subid)
+            ->get()->first();
+
+        $_programs = DB::table('studyprograms')
+            ->select('code', 'name', 'term', 'credit')
+            ->where('major_id', $subid)
+            ->get();
+        $_cost = DB::table('studyprograms')
+            ->where('major_id', $subid)
+            ->sum('credit');
+        $_sum = $_cost * 240000;
+        //if ($_major == null) return "The class is not available";
+        //return Input::get('code');
+        return view('major.subjectsparent', ['programs' => $_programs, 'major' => $_major, 'sum' => $_sum]);
         //return view('major.subjects', ['programs' => $_programs]);
 
     }

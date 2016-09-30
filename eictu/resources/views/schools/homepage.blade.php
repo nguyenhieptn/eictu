@@ -24,7 +24,11 @@
             background: #bdc3c7;
         }*/
         #Left  table{
-            margin: 20px;
+
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-bottom: 20px;
+            margin-top: 20px;
         }
 
         #Left table img{
@@ -56,6 +60,7 @@
             color: #BFCDE3;
             font-weight: bold;
         }
+
         #toptext{
             font-weight: bold;
             font-size: 20px;
@@ -86,9 +91,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{!! url('/')!!}" style="font-size: 22px;"><strong>eICTU</strong></a>
+             <a class="navbar-brand" href="{!! url('/')!!}" style="font-size: 22px;"><strong>eICTU</strong></a>
+            <div class="navbar-brand"> Hệ sinh thái dành cho các trường đại học</div>
         </div>
-
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
@@ -126,9 +131,10 @@
     </div><!-- /.container-fluid -->
 </nav>
 
-<div class="container" style="margin-top: 100px;">
+<div class="container" style="margin-top: 60px; ">
     <div class="col-md-6" id="Left">
-        <div  style="background-color: #ededed; position: fixed; height: 1000px;">
+        <div  style="background-color: #ededed; position: fixed; height: 468px;">
+            <link rel="stylesheet" type="text/css" href="{!! url('quanlytruong/css/trangthanhvien.css')!!}">
             <table style="text-align: left">
                 <tr>
                     <td>Nếu Bạn là giáo viên,hay chọn</td>
@@ -136,7 +142,7 @@
 
                 <tr>
                     <td>
-                        <img class="image" src="{{url('quanlytruong/images/li.png')}}">
+                        <img class="image" src="{{url('quanlytruong/images/giaovien.ico')}}">
                         <a class="link" href="{{route('teacher.login')}}">Giáo Viên</a>
                     </td>
                 </tr>
@@ -145,7 +151,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <img class="image" src="{{url('quanlytruong/images/li.png')}}">
+                        <img class="image" src="{{url('quanlytruong/images/sinhvien.ico')}}">
                         <a class="link" href="{{url('student/login')}}">Sinh Viên</a>
 
                     </td>
@@ -155,7 +161,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <img class="image" src="{{url('quanlytruong/images/li.png')}}">
+                        <img class="image" src="{{url('quanlytruong/images/go-home-128.png')}}">
                         <a class="link" href="{{url('schools/login')}}">Trường Học</a>
                     </td>
                 </tr>
@@ -164,7 +170,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <img class="image" src="{{url('quanlytruong/images/li.png')}}">
+                        <img class="image" src="{{url('quanlytruong/images/register.png')}}">
                         <a class="link" href="{{url('/schools/eICTuSchoolRegister')}}">Đăng Kí</a>
                     </td>
                 </tr>
@@ -173,8 +179,17 @@
                 </tr>
                 <tr>
                     <td>
-                        <img class="image" src="{{url('quanlytruong/images/li.png')}}">
+                        <img class="image" src="{{url('quanlytruong/images/job.png')}}">
                         <a class="link" href="{{url('findjob/index')}}">Sinh Viên Tìm Việc</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Nếu Bạn muốn xem thông tin ngành học </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img class="image" src="{{url('quanlytruong/images/thongtin.png')}}">
+                        <a class="link" href="{{url('indexmajor')}}">Thông Tin Các Ngành</a>
                     </td>
                 </tr>
             </table>
@@ -195,7 +210,8 @@
             <tr>
                 <td>
                     <img class="image" src="{{url('img/go-home.png')}}"></td>
-                <td><h2>Trường Đại học Ngoại Ngữ</h2>
+                <td><h2>Trường Đại học Công nghệ
+                        Thông tin và Truyền thông</h2>
 
                 </td>
             </tr>
@@ -203,7 +219,8 @@
             <tr>
                 <td>
                     <img class="image"  src="{{url('img/go-home.png')}}"></td>
-                <td><h2>Trường Đại học Ngoại Ngữ</h2>
+                <td><h2>Trường Đại học Nông lâm
+                        Thái Nguyên</h2>
 
                 </td>
             </tr>
@@ -211,13 +228,14 @@
             <tr>
                 <td>
                     <img class="image"  src="{{url('img/go-home.png')}}"></td>
-                <td><h2>Trường Đại học Ngoại Ngữ</h2>
+                <td><h2>Trường Đại học Y Dược
+                        Thái Nguyên</h2>
 
                 </td>
             </tr>
             <td>
                 <img class="image" src="{{url('img/go-home.png')}}"></td>
-            <td><h2>Trường Đại học Ngoại Ngữ</h2>
+            <td><h2>Trường Đại học Tại chức…</h2>
 
             </td>
 

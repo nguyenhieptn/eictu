@@ -164,7 +164,7 @@
             </table>
         </div>
     </div>
-    <div class="col-md-9" style="margin-top: 70px;">
+    <div class="col-md-9" >
         @yield('content')
     </div>
 </div>

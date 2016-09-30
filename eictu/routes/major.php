@@ -16,5 +16,8 @@ Route::get('major/createsubject/{majorid}', 'MajorController@createsubject');
 Route::post('major/createsubject/data/{majorid}', 'MajorController@createsubjectpost');
 Route::post('/major', 'MajorController@createmajor');
 
+Route::get('indexmajor/subjects/{subid}', 'MajorController@indexsubject');
+Route::get('indexmajor', 'MajorController@indexmajor');
+
 
 
