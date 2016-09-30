@@ -1,4 +1,6 @@
 @extends('layouts.app')
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="{{ url('js/findJob.js')}}"></script>
 @section('content')
     <div class="container find-job">
         <div class="row">
@@ -7,31 +9,20 @@
                     <div class="panel-heading">Trang tin tìm việc làm của Sinh viên </div>
                     <div class="panel-body">
                        @if(Auth::check() && Auth::user()->type ==3)
-                        <form action="{{route('findjob.post.add')}}" method="post">
+                        <form action="" method="post">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="form-group">
-                                <label for="exampleInputEmail2"> Đăng tin tìm việc </label>
-                                   @if(count($errors)>0)
-                                      <span class="text-danger"> <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> {{ $errors->first('content') }}</span> 
-                                    @endif
-                                <textarea class="form-control" cols="30" rows="3" name="content"> </textarea>
-                                <button type="submit" class="btn btn-success pull-right" style="margin-top:3px"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Đăng Tin</button>
+                               <p class="success"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> <span class="text-success"></span> </p>
+                               <p class="errors"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> <span class="text-danger"></span> </p>
+                                <textarea class="form-control ta-post" cols="30" rows="3" name="content" id="content"> </textarea>
+                                <span style="font-size:13px;color:#899090;font-style: italic;">Bạn nên nói rõ những việc bạn có thể làm, chất lượng, trình độ cũng như mức lương đòi hỏi …</span>
+                                <button type="submit" class="btn btn-success pull-right btn-post"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Đăng Tin</button>
                             </div>
                         </form>
                         @endif
                     </div>
-                    <div class="panel-body panel-body-2">
-                        <ul class="find-job list-group">
-                         <center> <h4 style="color:#e25252; font-weight:bold;margin-bottom:0 !important">[ Các bản tin của sinh viên tìm việc]</h4></center>
-                            @foreach($datas as $data=>$item)
-                                <li class="list-group-item">
-                                    <span class="glyphicon glyphicon-triangle-right"aria-hidden="true"></span>
-                                    <a href="{{route('findjob.detail',$item['id'])}}"><?php echo substr($item['content'], 0, 140)."[..]"?></a>
-                                </li>
-                            @endforeach
-                        </ul>
-                        {!!$datas->render()!!}
-                    </div>
+                    <div class="panel-body panel-body-2" id="content-js"></div>
+                     <div class="ajax-loading"><center id ="end"><img src="{{ asset('img/loader_medium.gif') }}" /></center></div>
                 </div>
             </div>
         </div>

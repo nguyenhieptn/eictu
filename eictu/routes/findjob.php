@@ -17,5 +17,10 @@ Route::group(['prefix' => 'findjob'], function () {
         'uses' => 'FindJobController@getDetail'
     ]);
 
+    Route::get('/data',[
+        'as' => 'findjob.data',
+        'uses' => 'FindJobController@data'
+    ]);
+
 });
 

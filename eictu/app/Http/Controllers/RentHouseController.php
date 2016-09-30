@@ -15,13 +15,23 @@ use App\Http\Requests;
 class RentHouseController extends Controller
 {
     //
-    public function index(Request $request)
+    public function index()
     {
-        $code = $request->input('code');
+        $code = auth()->user()->username;
         $student_id = DB::table('students')->where('code', $code)->value('id');
         $data = DB::table('motels')->where('student_id', $student_id)->orderBy('date_join', 'desc')->paginate(5);
-        $name=DB::table('students')->where('code', $code)->value('name');
-        return view("RentHouse.index", ['data' => $data,'name'=>'Kết quả tìm kiếm: '.$name]);
+        return view("RentHouse.index", ['data' => $data]);
+    }
+    public function search(Request $request)
+    {
+        $code = $request->input('code');
+        $data=array();
+        $student=array();
+        if($code!=null) {
+            $student = DB::table('students')->where('code', $code)->first();
+            $data = DB::table('motels')->where('student_id', $student->id)->orderBy('date_join', 'desc')->paginate(5);
+        }
+        return view("RentHouse.search", ['data' => $data,'student'=>$student]);
     }
 
     public function create(){
@@ -59,7 +69,12 @@ class RentHouseController extends Controller
         $renthouse->address=$data['address'];
         $renthouse->date_join=$data['date_join'];
         $renthouse->save();
+<<<<<<< HEAD
         $data=DB::table('motels')->where('student_id',$student_id) ->orderBy('date_join', 'desc')->paginate(5);
         return redirect("rentHouse");
+=======
+        $data = DB::table('motels')->where('student_id', $student_id)->orderBy('date_join', 'desc')->paginate(5);
+        return view("RentHouse.index", ['data' => $data]);
+>>>>>>> e73bc4abee071abd481332c508dcc1dee88f1d5c
     }
 }

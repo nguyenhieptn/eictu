@@ -9,7 +9,7 @@ Route::group(['prefix' => 'dormitory'], function () {
 	Route::post('/update', 'DormitoryController@postUpdate');
     Route::get('/search', ['as' => 'dormitory.getSearch', 'uses' => 'DormitoryController@getSearch']);
     Route::get('/query', ['as' => 'dormitory.postSearch', 'uses' => 'DormitoryController@postSearch']);
-
+	
     Route::get('/logout', ['as' => 'dormitory.postSearch', 'uses' => 'DormitoryController@logout']);
     Route::get('/addDB', function(){
     	 

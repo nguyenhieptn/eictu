@@ -23,37 +23,61 @@ class FindJobController extends Controller
     public function getIndex()
     {
         if(Auth::check() && Auth::user()->type==3){
-            $datas = FindJob::orderby('id','DESC')->paginate(50);
-            return view('findjob.index')->with('datas', $datas);
+            return view('findjob.index');
         }else{
-             $datas = FindJob::orderby('id','DESC')->paginate(50);
-            return view('findjob.index')->with('datas', $datas);
+            return view('findjob.index');
         }
         
     }
+    public function data(Request $request){
+         if(Auth::check() && Auth::user()->type==3){
+           
+           $datas= DB::table('searchjobs')->join('users','searchjobs.student_id','users.id')->join('students','users.id','students.id')->orderby('searchjobs.id','DESC')->select('searchjobs.id as sid','users.name','searchjobs.content','searchjobs.created_at')->paginate(6);
+           $html = "";
+           foreach ($datas as $key) {
+              $html .= "<div class='media'><a href='detail/".$key->sid."'class='media-left' href='#'><img class='media-object' src='../upload/icon.png' alt=''></a><div class='media-body'> <h4 class='media-heading'>".$key->name."</h4><p>".$key->content."</></div></div>";
+           }
+           if($request->ajax()){
+              return response($html);
+           }
+      
+         }
+        }
 
     /**
      * @return string
      */
-    public function addPost(Request $request)
+
+     public function addPost(Request $request)
     {
-        $input = $request->all();
-        $rule = [
-            'content' => 'required'
-        ];
-        $message = [
-            'content.required' => 'vui lòng nhập nội dung bản tin'
-        ];
-        $validator = Validator::make($input, $rule, $message);
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator->errors());
-        }
-        FindJob::create([
-            'content' => $input['content'],
-            'student_id' => Auth::user()->id
-        ]);
-        return redirect()->route('findjob.index');
-    }
+       if($request->ajax()){
+                $input = $request->all();
+            $rule = [
+                'content' => 'required'
+            ];
+            $message = [
+                'content.required' => 'vui lòng nhập nội dung bản tin'
+            ];
+            $validator = Validator::make($input, $rule, $message);
+            if ($validator->fails()) {
+                return response()->json([
+                    'errors'=>true,
+                    'messages'=>$validator->errors()
+                    ]);
+            }else{
+                FindJob::create([
+                    'content' => $input['content'],
+                    'student_id' => Auth::user()->id
+                ]);
+                return response()->json([
+                    'errors'=>false,
+                    'messages'=>'Đăng tin Thành công !'
+                    ]);
+                  }
+
+            }
+          
+            }
 
     public function getDetail($id)
     {
