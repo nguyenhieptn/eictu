@@ -7,17 +7,11 @@ eICTuLearningManageSystem - Quản lý việc học cho sinh viên {{$st->name}}
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-<<<<<<< HEAD
 
                     
                     <div class="panel-body">
                     <p>{{ $row2 }}/{{$row1 }} môn đã học tương đương với {{round($row2*100/$row1,2)}}% số môn</p>
 
-=======
-                    <div class="panel-heading" style="background:#328f31;color:#fff;font-weight:bold;">eICTuLearningManageSystem - Quản lý việc học cho sinh viên {{$st->name}}</div>
-                    <div class="panel-body">
-                    <p>{{ $row2 }}/{{$row1 }} môn đã học tương đương với {{$row2*100/$row1}}% số môn</p>
->>>>>>> e73bc4abee071abd481332c508dcc1dee88f1d5c
                     <p>{{ number_format($sth2) }}/{{number_format($sth1) }} tiết đã học tương đương với {{round($sth2*100/$sth1,2)}}% số tiết</p>
                     <p>{{ number_format($sum2) }}đ/{{number_format($sum1) }}đ học phí đã đóng tương đương với {{round($sum2*100/$sum1,2)}}% học phí</p>
                         <table class="table">

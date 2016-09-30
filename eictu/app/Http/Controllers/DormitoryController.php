@@ -52,7 +52,7 @@ class DormitoryController extends Controller
         $date = explode('/', $req->start_on);
         $date2 = $date['2'].'-'.$date[1].'-'.$date[0];
 
-        $dateX = date("d/m/Y", mktime(0, 0, 0, $date[1], $date[0], $date[2]));
+        //$dateX = date("d/m/Y", mktime(0, 0, 0, $date[1], $date[0], $date[2]));
       
         $room = trim(str_replace('Phòng ', '', $data[0]));
         $building = trim(str_replace('Nhà ', '', $data[1]));
@@ -71,7 +71,9 @@ class DormitoryController extends Controller
         ]);
 
         //CACHE
-        $str = 'Ngày <strong>'.$req->start_on."</strong> <a>Chuyển tới chỗ ở mới</a> trong KTX tại Phòng ".$room." Nhà ".$building.", ".$area." KTX ".$school->name;
+        $str = '<li class="item-update">Ngày <strong>'.$req->start_on."</strong> <a>Chuyển tới chỗ ở mới</a> trong KTX tại Phòng ".$room." Nhà ".$building.", ".$area." KTX ".$school->name.'</li>';
+        $str1 = "Chuyển tới chỗ ở mới</a> trong KTX tại Phòng ".$room." Nhà ".$building.", ".$area." KTX ".$school->name;
+
         $id = $student->id;
         $expiresAt = Carbon::now()->addDays(7);
 
@@ -88,8 +90,15 @@ class DormitoryController extends Controller
                 //Do nothing
             }
             else{
-                Cache::put($id, $ss.'<br>'.$str, $expiresAt);
+            //Cache::forget($id);
+               Cache::put($id, $str.'<br>'.$ss, $expiresAt);
                 Cache::put('_'.$id, $str, $expiresAt);
+
+                //Them vao bang newsfeed;
+                DB::table('newsfeed')->insert([
+                    'student_id'=> $id,
+                    'content'=>$str1
+                    ]);
             }
         }
         $oldInfo = $str;

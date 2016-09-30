@@ -3,7 +3,6 @@
 eICTuStudentRentHouseSearch - Tra cứu địa chỉ nhà trọ của Sinh viên
 @endsection
   @section('content')
-
   <div class="container" style="width:100%">
     <div class="row">
       <div class="col-md-12">
@@ -24,7 +23,7 @@ eICTuStudentRentHouseSearch - Tra cứu địa chỉ nhà trọ của Sinh viên
               @if($student ==null && $code!=null)
                 <li class='list-group-item' style="color:red;" >Không tồn tại sinh viên!</li>
               @elseif($student!=null)
-                <li class='list-group-item' style="height:70px;">
+                <li class='list-group-item' style="height:70px;border:0px;">
                   <ul type="none">
                     <li style="float:left; padding-right: 10px; "><img width="50px" height="50px" border-radius="8px" src="<?php if($student->avatar!=null)echo $student->avatar;else ?>{{url('img/avatar_null.png')}}" /></li>
                     <li style="float:left; padding-top: 8px">
@@ -36,17 +35,16 @@ eICTuStudentRentHouseSearch - Tra cứu địa chỉ nhà trọ của Sinh viên
                   </ul>
                 </li>
                 <?php
-                  if($data->count()==0){
+                  if($data==null){
                     echo "<li class='list-group-item' style='color:red'>Không có thông tin trọ</li>";
                   }else{
                     foreach($data as $item){
                       $date = new DateTime($item->date_join);
-                      echo "<li class='list-group-item' id='myLi' style=' color:red '>
-                        <i class='glyphicon glyphicon-triangle-right' style='color:#8c8c8c'> &nbsp;</i>".$date->format('d/m/Y')."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$item->hostess."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$item->address."</li>";
+                      echo "<li class='list-group-item' id='myLi' style=' color:red;border:0px; '>
+                        <i class='glyphicon glyphicon-triangle-right' style='color:#8c8c8c;padding-right: 10px;'> </i>".$date->format('d/m/Y')."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$item->address."</li>";
                     }
                     echo "<center>".$data->appends(Request::only('code'))->links()."</center>";
                   }
-
                 ?>
               @endif
             </ul>

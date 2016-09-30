@@ -24,4 +24,8 @@ Route::get('major/subjects/{subid}', 'MajorController@subject');
 Route::get('major/createsubject/{majorid}', 'MajorController@createsubject');
 Route::post('major/createsubject/data/{majorid}', 'MajorController@createsubjectpost');
 
+
 /* end school section */
+Route::get('indexmajor/subjects/{subid}', 'MajorController@indexsubject');
+Route::get('indexmajor', 'MajorController@indexmajor');
+

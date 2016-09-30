@@ -1,44 +1,19 @@
-@extends('layouts.app')
+@extends('layouts.school_app')
 @section('title')
     Trường Học
 @endsection
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <link rel="stylesheet" type="text/css" href="{!! url('quanlytruong/css/eICTuHomePage.css')!!}">
-                    <div class="trangchu" >eICTuSchoolHomePage- Trường Học
-                    </div>
-
-                    <div class="body">
-                        Đây là trang chủ của quản trị trường học.
-                        <br/>
-                        <br/>
-                        Để quản trị ngành học, chọn mục.
-                        <br/>
-                        <img class="image" src="{{url('quanlytruong/images/li.png')}}"> <a class="link" href="{{ url('schools/eICTuMajorList') }}">Ngành Học</a>
-                        <br />
-                        <br/>
-                        Để quản trị lớp học, chọn mục.
-                        <br />
-                        <img class="image" src="{{url('quanlytruong/images/li.png')}}"> <a class="link" href="{{ url('schools/eICTuClassList') }}">Lớp Học</a>
-                        <br />
-                        <br/>
-                        Để quản trị sinh viên, chọn mục.
-                        <br />
-                        <img class="image" src="{{url('quanlytruong/images/li.png')}}"> <a class="link" href="{{ url('student') }}">Sinh Viên</a>
-
-                        <br/>
-                        Để quản trị giao viên, chọn mục.
-                        <br />
-                        <img class="image" src="{{url('quanlytruong/images/li.png')}}"> <a class="link" href="{{route('teacher.list')}}">Giao Viên</a>
-                        
-                         <br/>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+   <span>Hiển thị nội dung giới thiệu về trường ở đây. Hiển
+thị nội dung giới thiệu về trường ở đây.Hiển thị nội
+dung giới thiệu về trường ở đây.Hiển thị nội dung
+giới thiệu về trường ở đây.Hiển thị nội dung giới
+thiệu về trường ở đây.Hiển thị nội dung giới thiệu về
+trường ở đây.
+Hiển thị nội dung giới thiệu về trường ở đây.Hiển thị
+nội dung giới thiệu về trường ở đây.Hiển thị nội
+dung giới thiệu về trường ở đây.Hiển thị nội dung
+giới thiệu về trường ở đây.Hiển thị nội dung giới
+thiệu về trường ở đây.Hiển thị nội dung giới thiệu về
+trường ở đây.Hiển thị nội dung giới thiệu về trường
+ở đây.</span>
 @endsection
