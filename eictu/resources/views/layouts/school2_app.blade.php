@@ -82,11 +82,11 @@
             <div>
                 <ul class="list-group">
 
-                    <li class="list-group-item">Nếu Bạn là giáo viên,hay chọn<br/>  <img class="image" src="{{url('quanlytruong/images/giaovien.ico')}}"><a class="link" href="{{route('teacher.login')}}">Giáo Viên</a> </li>
-                    <li class="list-group-item">Nếu Bạn là Sinh Viên,hay chọn<br/> <img class="image" src="{{url('quanlytruong/images/sinhvien.ico')}}"><a class="link" href="{{url('student/login')}}">Sinh Viên</a></li>
-                    <li class="list-group-item">Nếu Bạn là quản trị viên của trường học đã tham gia eictu,hãy chọn <br/><img class="image" src="{{url('quanlytruong/images/go-home-128.png')}}"><a class="link" href="{{url('schools/login')}}">Trường Học</a></li>
-                    <li class="list-group-item">Nếu trường đại học của bản chưa tham gia eictu, hãy bắt đầu <br/><img class="image" src="{{url('quanlytruong/images/register.png')}}"> <a class="link" href="{{url('/schools/eICTuSchoolRegister')}}">Đăng Kí</a></li>
-                    <li class="list-group-item">Nếu bạn cần tuyển sinh viên ngoài giờ chọn<br/> <img class="image" src="{{url('quanlytruong/images/job.png')}}"> <a class="link" href="{{url('findjob/index')}}">Tìm Việc</a></li>
+                    <li class="list-group-item" style="background:scroll;">Nếu Bạn là giáo viên,hay chọn<br/>  <img class="image" src="{{url('quanlytruong/images/giaovien.ico')}}"><a class="link" href="{{route('teacher.login')}}">Giáo Viên</a> </li>
+                    <li class="list-group-item"style="background:scroll;">Nếu Bạn là Sinh Viên,hay chọn<br/> <img class="image" src="{{url('quanlytruong/images/sinhvien.ico')}}"><a class="link" href="{{url('student/login')}}">Sinh Viên</a></li>
+                    <li class="list-group-item"style="background:scroll;">Nếu Bạn là quản trị viên của trường học đã tham gia eictu,hãy chọn <br/><img class="image" src="{{url('quanlytruong/images/go-home-128.png')}}"><a class="link" href="{{url('schools/login')}}">Trường Học</a></li>
+                    <li class="list-group-item" style="background:scroll;">Nếu trường đại học của bản chưa tham gia eictu, hãy bắt đầu <br/><img class="image" src="{{url('quanlytruong/images/register.png')}}"> <a class="link" href="{{url('/schools/eICTuSchoolRegister')}}">Đăng Kí</a></li>
+                    <li class="list-group-item"style="background:scroll;">Nếu bạn cần tuyển sinh viên ngoài giờ chọn<br/> <img class="image" src="{{url('quanlytruong/images/job.png')}}"> <a class="link" href="{{url('findjob/index')}}">Tìm Việc</a></li>
 
                 </ul>
             </div>
