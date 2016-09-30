@@ -30,6 +30,7 @@ class IWantController extends Controller
             ]);
         $iwant = new IWant();
         $iwant->content = $request->content;
+        $iwant->location = $request->location;
         
         $student = Student::select('id')->where('code', Auth::user()->username)->first();
 
