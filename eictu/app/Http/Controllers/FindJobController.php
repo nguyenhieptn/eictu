@@ -15,35 +15,17 @@ use DB;
 class FindJobController extends Controller
 {
 
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
-
     public function getIndex()
     {
         if(Auth::check() && Auth::user()->type==3){
-            return view('findjob.index');
+              $datas= DB::table('searchjobs')->join('users','searchjobs.student_id','users.id')->join('students','users.id','students.id')->orderby('searchjobs.id','DESC')->select('searchjobs.id as sid','users.name','searchjobs.content','searchjobs.created_at','students.avatar')->paginate(5);
+            return view('findjob.index')->with('datas',$datas);
         }else{
-            return view('findjob.index');
+            $datas= DB::table('searchjobs')->join('users','searchjobs.student_id','users.id')->join('students','users.id','students.id')->orderby('searchjobs.id','DESC')->select('searchjobs.id as sid','users.name','searchjobs.content','searchjobs.created_at','students.avatar')->paginate(5);
+            return view('findjob.index')->with('datas',$datas);
         }
         
     }
-    public function data(Request $request){
-         if(Auth::check() && Auth::user()->type==3){
-           
-           $datas= DB::table('searchjobs')->join('users','searchjobs.student_id','users.id')->join('students','users.id','students.id')->orderby('searchjobs.id','DESC')->select('searchjobs.id as sid','users.name','searchjobs.content','searchjobs.created_at')->paginate(6);
-           $html = "";
-           foreach ($datas as $key) {
-              $html .= "<div class='media'><a href='detail/".$key->sid."'class='media-left' href='#'><img class='media-object' src='../upload/icon.png' alt=''></a><div class='media-body'> <h4 class='media-heading'>".$key->name."</h4><p>".$key->content."</></div></div>";
-           }
-           if($request->ajax()){
-              return response($html);
-           }
-      
-         }
-        }
-
     /**
      * @return string
      */

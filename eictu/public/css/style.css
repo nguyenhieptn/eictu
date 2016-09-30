@@ -89,22 +89,29 @@ body{
 }
 .wrapper{
     width:900px;
+    height: auto;
     margin:0 auto;
+    margin-top: 20px;
 }
 .wrapper h1{
     padding: 30px 20px;
 }
 .pagewrapper{
-    width: 100%;
+    width: 900px;
+    height: auto;
     margin: 0px auto;
 
 }
 .pagewrapper .top{
-    width: 70%;
+    width: 898px;
+    height: auto;
     float: left;
     background: #FF2C21;
     font-size: 20px;
     color: white;
+    position: fixed;
+    margin-bottom: 100px;
+    z-index: 0;
 }
 .top span {
     float: left;
@@ -116,7 +123,8 @@ body{
     background-image: url("img/exit.png");
     background-repeat: no-repeat;
     background-position:left;
-    width: 10%;
+    width: 90px;
+    height: auto;
     padding: 15px 2.56%;
 }
 .top>div a{
@@ -129,8 +137,9 @@ body{
     color:black
 }
 .pagewrapper .content{
-    width: 100%;
+    width: 900px;
     float: left;
+    height: auto;
     border: 1px solid #BFBFBF;
 }
 .content p{
@@ -139,18 +148,21 @@ body{
 
 }
 .content form {
-    width: 100%;
+    width: 900px;
     padding: 15px 20%;
+    height: auto;
 }
 .content form img{
-    width:75% !important;
+    width:6750px !important;
+    height: auto;
 }
 .content form td{
     font-size:25px;
     font-weight:bold;
 }
 .content form input{
-    width: 100%;
+    width: 900px;
+    height: auto;
     padding: 0 20px;
     font-size: 25px;
 
@@ -163,7 +175,8 @@ body{
 }
 #sb{
     border: 0;
-    width: 53%;
+    width: 4770px;
+    height: auto;
     padding: 8px 10px;
     background-color: black;
     color: white;
@@ -174,24 +187,28 @@ body{
 
 }
 .content1{
-    width: 69.9%;
+    width: 898px;
+    height: auto;
     float: left;
-    border: 1px solid #BFBFBF;
-
+    /*border: 1px solid #BFBFBF;*/
+    z-index: -1;
 }
 .content1 table{
     margin: 20px;
+    margin-top: 140px;
+    position: fixed;
 }
 
 .content1 table img{
-    width: 20%;
-    float: right;
-    margin-right: 50px;
-}
-.content1 table #topimg{
-    width: 50%;
+    width: 30px;
+    height: auto;
     float: right;
     margin-right: 20px;
+}
+.content1 table #topimg {
+    width: 50px;
+    float: left;
+    margin-bottom: 20px;
 }
 .content1 table td{
     padding: 5px 0;

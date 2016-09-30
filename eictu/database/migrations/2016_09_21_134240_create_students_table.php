@@ -24,6 +24,8 @@ class CreateStudentsTable extends Migration
             $table->integer('class_id')->nullable();
             $table->integer('school_id')->unsigned();
             $table->foreign('school_id')->references('id')->on('schools');
+            $table->string('location')->nullable();
+            $table->string('avatar')->nullable();
             $table->timestamps();
         });
     }

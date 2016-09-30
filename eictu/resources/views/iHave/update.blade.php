@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @extends('layouts.app')
 @section('title')
 eICTuStudentGoodsUpdate - Đăng tin đồ cũ
@@ -29,3 +30,5 @@ eICTuStudentGoodsUpdate - Đăng tin đồ cũ
         </div>
     </div>
 @endsection
+=======
+>>>>>>> 148acc87ba9afaac362d3a0a22e2b05884b9b775
