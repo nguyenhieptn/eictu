@@ -109,7 +109,7 @@ class StudentController extends Controller
 //
         $columns = Schema::getColumnListing('newsfeed'); // users table
        
-        dd($columns1 );
+        dd($columns2 );
     }
 
     //add
