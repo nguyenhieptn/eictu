@@ -42,7 +42,7 @@ class DormitoryController extends Controller
         }
        }
        else
-        return redirect('/login');
+        return redirect('student/login');
     }
 
     public function postUpdate(UpdateSDRequest $req){
@@ -71,7 +71,7 @@ class DormitoryController extends Controller
         ]);
 
         //CACHE
-        $str = 'Ngày bắt đầu ở <strong>'.$req->start_on."</strong> Phòng ".$room." Nhà ".$building.", ".$area." KTX ".$school->name;
+        $str = 'Ngày <strong>'.$req->start_on."</strong> <a>Chuyển tới chỗ ở mới</a> trong KTX tại Phòng ".$room." Nhà ".$building.", ".$area." KTX ".$school->name;
         $id = $student->id;
         $expiresAt = Carbon::now()->addDays(7);
 
@@ -97,10 +97,7 @@ class DormitoryController extends Controller
         return redirect()->back()->with('msg', 'Cập nhật thành công!');
     }
     public function getSearch(){
-        if(!Auth::guest())
-    	   return view('dormitory.search');
-        else
-            return redirect('/login');
+    	return view('dormitory.search');
     }
 
     public function postSearch(){
