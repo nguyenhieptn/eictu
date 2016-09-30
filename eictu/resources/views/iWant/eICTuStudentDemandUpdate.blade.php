@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.student_app')
 @section('title')
 Đăng tin - Danh sách những mong muốn
 @endsection
@@ -6,11 +6,13 @@
 <div class="container">
 @if(Auth::check() && Auth::user()->type ==3)
     <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-xs-12">
+    <div class="col-lg-8  col-xs-12">
       <form action="{{route('iwant.status')}}" role="form" method="post" accept-charset="utf-8">
         <input type="hidden" name="_token" value="{{Session::token()}}">
         <div class="form-group {{$errors->has('content')? ' has-error': ''}}">
-          <textarea placeholder="Bạn muốn gì, mọi người sẽ đáp ứng !" name="content" class="form-control" rows="3"></textarea>
+          <textarea placeholder="Gõ bản tin đề nghị giúp đỡ của bạn vào đây…
+          Chúc bạn may mắn!" name="content" class="form-control" rows="3"></textarea>
+          <p>Bạn cần trợ giúp khẩn cấp? Hãy đăng tin lên ngay để bạn bè của bạn biét tin giúp đỡ.</p>
         </div>
         <button type="submit" class="btn btn-success">Đăng Tin</button>    
       </form>
@@ -19,13 +21,52 @@
   </div>
 @endif  
   <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 ">
+    <div class="col-lg-8  ">
       <h4>Hiện có các lời kêu gọi/yêu cầu sau đây, mời bạn xem và trợ giúp nếu có thể:</h4>
       <hr>
       @if($data)
         @foreach($data as $want)
         <div class="col-xs-12">
-          <p style="font-size: 18px; color: black;"><span class="glyphicon glyphicon-play" style="color: #27ae60;">&nbsp;</span><a style="color: black;" href="{{route('iwant.detail', $want['id'])}}" title="">{{$want['content']}}</a></p>
+        <?php 
+          $students = DB::table('students')->select('name','avata')->where('id', $want->student_id)->first();
+         ?>
+         <style type="text/css" media="screen">
+              .boot{
+
+                margin-top:10px; 
+                padding-top: 5px;
+                padding-bottom: 5px;
+                background: #ecf0f1;
+
+                border-radius: 4px;
+                -moz-border-radius: 4px;
+                -webkit-border-radius: 4px;
+                -ms-border-radius: 4px;
+                -o-border-radius: 4px;
+              }
+              img{
+                width: 100px;
+                height: 100px;
+                border-radius: 4px;
+                -moz-border-radius: 4px;
+                -webkit-border-radius: 4px;
+                -ms-border-radius: 4px;
+                -o-border-radius: 4px;
+              }
+            </style>
+         <div class="row boot">
+           <div class="col-lg-2">
+            <img src="$students->avatar" class="img-rounded" alt="">
+            
+           </div>
+           <div class="col-lg-10 ">
+            <h3>{!! $students->name !!}</h3>
+             <p ><a style="color: black;" href="{{route('iwant.detail', $want['id'])}}" title="">{{$want['content']}}</a></p>
+           </div>
+         </div>
+         
+          
+          
         </div>
         @endforeach
     @else
