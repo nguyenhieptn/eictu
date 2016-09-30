@@ -32,6 +32,16 @@ box-shadow: -1px 0px 9px 0px rgba(51,48,51,0.54);
     background: #fcfcfd;
     border: 1px solid #eae8e8 ;
 }
+.find-job .date-post{
+    font-size: 13px;
+    color: #a8b1d6;
+}
+.find-job .index-content{
+    color: #4a4848;
+    font-size: 15px;
+}
+}
+
 
 /*END FIND JOB*/
 

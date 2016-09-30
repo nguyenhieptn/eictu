@@ -19,19 +19,21 @@
            <div class='media'>
              <a href='' class='media-left' href='#'><img class='media-object'  class="img-rounded" src="<?php echo ($item->avatar== null) ? "/img/user-image01.png" : $data1->avatar ?>" alt=''></a>
              <div class='media-body'> 
-               <p class="pull-right">
-               <?php 
-               if(date('d-m-Y',strtotime($item->created_at)) == date("d-m-Y")){
-                  echo "Hôm nay";
-               }elseif(date('d-m-Y',strtotime($item->created_at)) ==(date("d-m-Y")-1)){
-                  echo "Hôm qua";
-               }else{
-                  echo "date('d-m-Y',strtotime($item->created_at)";
-               }
-              ?>
+               <p class="pull-right date-post">
+                 <?php 
+                 if(date('d-m-Y',strtotime($item->created_at)) == date("d-m-Y")){
+                    echo "Hôm nay";
+                 }elseif(date('d-m-Y',strtotime($item->created_at)) ==(date("d-m-Y")-1)){
+                    echo "Hôm qua";
+
+                 }else{
+                  
+                    echo $item->created_at;
+                 }
+                ?>
              </p>
              <h4 class='media-heading'><strong><a href="{{route('findjob.detail',$item->sid)}}">{{$item->name}}</a></strong></h4>
-             <p>{{$item->content}}</p></div>
+             <p class="index-content"><?php echo substr($item->content, 0,150) ?></p></div>
              </div>
           @endforeach
            <div class="pull-right">{{$datas->render()}}</div> 
