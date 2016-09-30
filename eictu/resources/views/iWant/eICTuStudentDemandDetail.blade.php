@@ -1,4 +1,3 @@
-
 @extends('layouts.student_app')
 @section('title')
 Chi tiết lời yêu cầu
@@ -39,11 +38,24 @@ Chi tiết lời yêu cầu
 			      	Nam
 			      @endif
 			      	,
-			      	{{$want->location}}
+			      	<?php 
+			      		if (empty($want->location)) {
+			      			if (isset($address)) {
+				      			echo " Xóm trọ ông/bà :".$address->hostess." , ".$address->address;
+				      		}elseif (isset($address2)) {
+				      			echo  "Phòng số :".$address2->room." , Tòa nhà :".$address2->building." , Khu :".$area->name;
+				      		}else{
+				      			echo "Không xác định được địa chỉ hiện tại của sinh viên";
+				      		}
+			      		}else{
+			      			echo $want->location;
+			      		}
+			      	 ?>
 
 	      <p style="font-size: 15px;">{{$want->content}}</p>
 	    	</div>
 	    </div>
+
 	      
 	      <hr>
 	      <a href="{{route('iwant.status')}}" title="ĐÓng" class="btn btn-danger" style="color: white;">Đóng</a>
