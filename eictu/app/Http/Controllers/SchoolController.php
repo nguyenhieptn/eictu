@@ -97,7 +97,7 @@ class SchoolController extends Controller
     }
 
     public function eICTuSchoolRegister(){
-        return view("schools.eICTuSchoolRegister");
+        return view("schools.eICTuSchoolRegister");//
     }
 
     public function eICTuSchoolAdminLogin(){

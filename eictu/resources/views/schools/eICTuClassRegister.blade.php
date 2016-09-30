@@ -1,16 +1,13 @@
-@extends('layouts.app')
+@extends('layouts.school_app')
 
 @section('title')
     Khai Báo Lớp Học
 @endsection
 @section('content')
-    <div class="container">
+    <div >
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <link rel="stylesheet" type="text/css" href="{!! url('quanlytruong/css/trangthanhvien.css')!!}">
-                    <div class="thanhvien">eICTuClassRegister - Khai Báo Lớp Học
-                    </div>
                     <div class="panel-body">
                         Hãy Nhập đủ thông tin cho lớp học mới vào mẫu sau:
                         <form action="{{ url("schools/dangkylop")}}" method="post" class="form-horizontal">

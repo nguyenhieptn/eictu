@@ -1,18 +1,15 @@
-@extends('layouts.app')
+@extends('layouts.school_app')
 
 @section('title')
     Ngành Học
 @endsection
 @section('content')
-    <div class="container">
+    <div >
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <link rel="stylesheet" type="text/css" href="{!! url('quanlytruong/css/trangthanhvien.css')!!}">
-                    <div class="thanhvien">eICTuMajorRegister - Ngành Học
-                    </div>
                     <div class="panel-body">
-                        <a href="{{ url('schools/eICTuMajorRegister') }}">THÊM NGÀNH MỚI</a>
+                        <a class="btn btn-info" href="{{ url('schools/eICTuMajorRegister') }}">THÊM NGÀNH MỚI</a>
                         <br/>
                         <br/>
                         Danh Mục Ngành Học:
