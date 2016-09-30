@@ -1,7 +1,9 @@
-@extends('layouts.school_app')
+@extends('teacher.master')
+
 @section('title')
 Trang chu giao vien
 @endsection
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -21,22 +23,26 @@ Trang chu giao vien
   </div>
 
   <div class="row">
-    <div class="col-xs-10">
+    <div class="col-lg-9">
       <?php 
-      $teacher = DB::table('teacher')->select('name')->where('code', Auth::user()->username)->first();
+      $newfeed = DB::table('newsfeed')->select('*')->get();
      ?>
-
-       
-     @if( $teacher)
-      <h2>Giảng viên :{{$teacher->name}}</h2>
-      <ul style="list-style: none; font-size: 20px;">
-      <li><span class="glyphicon glyphicon-play" style="color: #2c3e50;">&nbsp;</span><a href="{{route('dormitory.getSearch')}}" title="" >Nơi ở của sinh viên trong KTX</a></li>
-      <li><span class="glyphicon glyphicon-play" style="color: #2c3e50;">&nbsp; </span><a href="{{url('rentHouse')}}" title="" >Nơi ở của sinh ngoài phòng trọ</a></li>
-      <li><span class="glyphicon glyphicon-play" style="color: #2c3e50;">&nbsp;</span><a href="{{url('/chat/classlist')}}" title="" >Chat với lớp</a></li>
-    </ul>
-     @endif
-
-    
+     @if(!empty($newfeed))
+      @foreach($newfeed as $item)
+          <?php 
+            $student_id = DB::table('students')->where('id',$item->student_id )->first();
+           ?>
+         <div class="row boot">
+           <div class="col-lg-2">
+            <img src="{{url('{!! $student_id->name !!}')}}" alt="">
+           </div>
+           <div class="col-lg-1 ">
+            <h3>{!! $student_id->name !!} </h3>
+            <p>{{$item->content}}</p>
+           </div>
+         </div>
+      @endforeach  
+    @endif
     </div>
     
   </div>
