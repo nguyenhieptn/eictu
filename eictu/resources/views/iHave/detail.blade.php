@@ -7,10 +7,10 @@ eICTuStudentGoodsDetail - Chi tiết về bản tin đồ cũ
    <div class="row">
        <div class="panel panel-default">
          <div class="panel" style="padding: 10px">
-           <ul type="none">
+           <ul type="none" style="padding:0px;">
              <li style="float:left; padding:0px 10px 0px 10px; "><img  @if($student->avatar!=null) src="{{$student->avatar}}" @else src="{{url('img/avatar_null.png')}}" @endif height="50px" width="50px"/></li>
-             <li style="float:left; padding-top: 8px">
-               <ul type="none">
+             <li style="float:left;">
+               <ul type="none" style="padding:0px;">
                  <li> <strong style="color: #000000; font-size: 18px">{{$student->name}}</strong></li>
                  <li style="color: #2e3436; font-size:14px;">
                     <span> @if ($student->gender==1) Nam @else Nữ @endif</span>

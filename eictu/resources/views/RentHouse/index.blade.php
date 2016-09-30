@@ -14,7 +14,7 @@ eICTuStudentRentHouseHistory - Lịch sử nhà trọ
     </div>
       <div class="row" style="padding-top: 30px;">
           <div class="panel">
-            <ul class="" id="mylist">
+            <ul style="padding:0px;">
              <?php
                 if($data->count()==0){
                     echo "<li class='list-group-item' style='color:red'>Không có dữ liệu</li>";
