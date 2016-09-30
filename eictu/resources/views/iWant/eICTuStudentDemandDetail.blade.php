@@ -25,7 +25,7 @@ Chi tiết lời yêu cầu
 	    <div class="row boot">
 	    	<div class="col-lg-2">
 	    		<?php 
-	    			$students = DB::table('students')->select('name','avata')->where('id', $want->student_id)->first();
+	    			$students = DB::table('students')->select('name','avatar')->where('id', $want->student_id)->first();
 	    		 ?>
 	    		 <img src="$students->avatar" class="img-rounded" height="100px" width="100px" alt="">
 	    	</div>
