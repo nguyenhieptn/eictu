@@ -34,7 +34,7 @@
                                     <!-- để lấy Ma sv $detail->code -->
                                     <div class="col-md-10">
                                           <form action="{{ url('findjob/index') }}">
-                                            <Button class="btn btn-danger"><span class="glyphicon glyphicon-send" aria-hidden="true"></span> Sent Message </a></Button></center>
+                                            <Button class="btn btn-danger"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Sent Message </a></Button></center>
                                          </form>
                                     </div>
                          

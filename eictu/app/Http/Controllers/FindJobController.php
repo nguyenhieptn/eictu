@@ -93,7 +93,7 @@ class FindJobController extends Controller
                  $fb->student_id =Auth::user()->id;
                 $fb->save();
                Session::flash('success', 'Cập nhật dữ liệu thành công ! ');
-                return redirect('findjob/index');
+                return redirect('findjob/total');
              }
 
     }
