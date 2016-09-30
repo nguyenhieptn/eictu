@@ -33,7 +33,7 @@
         @foreach($data as $want)
         <div class="col-xs-12">
         <?php 
-          $students = DB::table('students')->select('name','avata')->where('id', $want->student_id)->first();
+          $students = DB::table('students')->select('name','avatar')->where('id', $want->student_id)->first();
          ?>
          <style type="text/css" media="screen">
               .boot{
