@@ -48,7 +48,7 @@ class FindJobController extends Controller
                     'content' => $input['content'],
                     'student_id' => Auth::user()->id
                 ]);
-                return "them thanh cong";
+                return redirect('findjob/index');
              }
 
       }
