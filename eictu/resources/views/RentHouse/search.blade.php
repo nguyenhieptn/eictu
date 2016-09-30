@@ -1,20 +1,20 @@
-@extends('layouts.app')
+@extends('layouts.student_app')
 @section('title')
 eICTuStudentRentHouseSearch - Tra cứu địa chỉ nhà trọ của Sinh viên
 @endsection
   @section('content')
 
-  <div class="container">
+  <div class="container" style="width:100%">
     <div class="row">
       <div class="col-md-12">
         <div class="panel panel-default">
           <div class="panel-heading">Tìm kiếm thông tin nhà trọ của sinh viên bằng mã số sinh viên.</div>
           <div class="panel-body">
             <form action="{{url("rentHouse/search")}}" method="post" class="navbar-form">
-              <div class="input-group add-on" style="padding: 10px;">
-                <input type="text" name="code" id="code" class="form-control code" placeholder="Mã số sinh viên">
+              <div class="input-group add-on" style="padding: 10px;height:50px;">
+                <input style="padding: 15px;width: 300px; height: 50px" type="text" name="code" id="code" class="form" placeholder="Mã số sinh viên">
                 <div class="input-group-btn">
-                    <button type="submit" class="btn" style="background: #cc5200;"/><i class="glyphicon glyphicon-search" style="color:#ffffff"></i></button>
+                    <button type="submit" class="btn" style="background: #cc5200; padding: 15px; height:50px; width:100px; border-radius: 0px 8px 8px 0px"/><i class="glyphicon glyphicon-search" style="color:#ffffff"></i></button>
                 </div>
                 <input type="hidden" name="_token" value="{{csrf_token()}}"/>
               </div>
@@ -42,7 +42,7 @@ eICTuStudentRentHouseSearch - Tra cứu địa chỉ nhà trọ của Sinh viên
                     foreach($data as $item){
                       $date = new DateTime($item->date_join);
                       echo "<li class='list-group-item' id='myLi' style=' color:red '>
-                        <i class='glyphicon glyphicon-triangle-right' style='color:#8c8c8c'> &nbsp;</i>".$date->format('d/m/Y')."     ".$item->hostess.", ".$item->address."</li>";
+                        <i class='glyphicon glyphicon-triangle-right' style='color:#8c8c8c'> &nbsp;</i>".$date->format('d/m/Y')."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$item->hostess."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$item->address."</li>";
                     }
                     echo "<center>".$data->appends(Request::only('code'))->links()."</center>";
                   }

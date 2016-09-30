@@ -1,11 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.student_app')
 @section('title')
 eICTuStudentGoodsDetail - Chi tiết về bản tin đồ cũ
 @endsection
 @section('content')
- <div class="container">
+ <div class="container" style="width: 100%">
    <div class="row">
-     <div class="col-md-12">
        <div class="panel panel-default">
          <div class="panel" style="padding: 10px">
            <ul type="none">
@@ -15,7 +14,7 @@ eICTuStudentGoodsDetail - Chi tiết về bản tin đồ cũ
                  <li> <strong style="color: #000000; font-size: 18px">{{$student->name}}</strong></li>
                  <li style="color: #2e3436; font-size:14px;">
                     <span> @if ($student->gender==1) "am @else Nữ @endif</span>
-                    <span>, đang ở {{$address}}</span>
+                    <span>, đang ở @if($address!=null){{$address}}@else không xác định @endif</span>
                  </li>
                </ul>
              </li>
@@ -35,7 +34,6 @@ eICTuStudentGoodsDetail - Chi tiết về bản tin đồ cũ
            </div>
          </div>
        </div>
-      </div>
    </div>
  </div>
 @endsection
