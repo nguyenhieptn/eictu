@@ -1,38 +1,48 @@
-@extends('layouts.app')
+@extends('layouts.student_app')
 @section('content')
-	 <div class="container find-job">
-     <div class="row">
+     <div class="row find-job" >
          <div class="col-md-12">
              <div class="panel panel-default">
                  <div class="panel-heading">Bản tin tìm việc chi tiết của sinh viên</div>
                  <div class="panel-body">
-                    <div class="entry-content">
-                        <h4><strong>Nội dung bản tin của sinh viên: </strong></h4>
-                        <p>{{$detail->content }}</p>
-                    </div>
                     </hr>
                       <div class="entry-content">
-                        <h4>Thông tin Sinh viên</h4>
-                          <ul style="margin-left:30px">
-                            <li>Họ và tên: <strong>{{$student->name}}</strong></li>
-                            <li>Giới tính:<strong>
-                                @if($student->gender==1)
-                                    {{ "Nam" }}
-                                @else
-                                    {{ "Nữ" }}
-                                 @endif
-                                </strong></li>
-                              <li>Ngày đăng : <strong><?php echo date("F j, Y",strtotime($detail->created_at))?></strong></li>
-                          </ul>
-                      </div>
-                     <div style="margin-top: 30px">
-                     <form action="{{ url('findjob/index') }}">
-                        <center><Button class="btn btn-danger"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>  ĐÓNG</a></Button></center>
-                     </form>
+                            <div class='media' style="margin-bottom:15px">
+                                 <a href='' class='media-left' href='#'><img class='media-object'  class="img-rounded" src="<?php echo ($detail->avatar == null) ? "/img/user-image01.png" : $detail->avatar?>" alt=''></a>
+                                 <div class='media-body'> 
+                                     <h3 class='media-heading'><strong>{{$detail->name}}</strong></h3>
+                                     <p>  Ngày đăng : <strong><?php echo date("d-m-Y",strtotime($detail->created_at))?></strong></p>
+                                     <p>Nội Dung bản tin :<br/> {{$detail->content}}</p>
+                                     <p>Giới tính: 
+                                     <strong>
+                                            @if($detail->gender==1)
+                                                {{ "Nam" }}
+                                            @else
+                                                {{ "Nữ" }}
+                                             @endif
+                                    </strong></p>
+                                 </div>
+                            
+                                <div class ="col-md-12 " style="margin-top: 30px">
+                                    <div class="col-md-2">
+                                          <form action="{{ url('findjob/index') }}">
+                                            <Button class="btn btn-danger"><span class="glyphicon glyphicon-send" aria-hidden="true"></span> Back </a></Button></center>
+                                         </form>
+                                    </div>
+
+                                    <!-- SENT MESSAGE  -->
+                                    <!-- để lấy Ma sv $detail->code -->
+                                    <div class="col-md-10">
+                                          <form action="{{ url('findjob/index') }}">
+                                            <Button class="btn btn-danger"><span class="glyphicon glyphicon-send" aria-hidden="true"></span> Sent Message </a></Button></center>
+                                         </form>
+                                    </div>
                          
-                     </div>
+                            </div>
+
+                      </div>
+                   
              </div>
          </div>
      </div>
- </div>
 @endsection

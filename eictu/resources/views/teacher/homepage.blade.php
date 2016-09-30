@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 
 @extends('layouts.app')
 @section('title')
 Trang chu giao vien
 @endsection
 @extends('teacher.master')
+=======
+@extends('teacher.master')
+
+>>>>>>> 2f06d9fba0b9e0b473a43dd3282b366bf2b0e006
 @section('content')
 <div class="container">
     <div class="row">
@@ -25,7 +30,7 @@ Trang chu giao vien
   <div class="row">
     <div class="col-xs-10">
       <?php 
-      $teacher = DB::table('teachers')->select('name')->where('code', Auth::user()->username)->first();
+      $teacher = DB::table('teacher')->select('name')->where('code', Auth::user()->username)->first();
      ?>
 
        
