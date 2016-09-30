@@ -94,7 +94,7 @@ class DormitoryController extends Controller
                 //Them vao bang newsfeed;
                 DB::table('newsfeed')->insert([
                     'student_id'=> $id,
-                    'content'=>$str;
+                    'content'=>$str
                     ]);
             }
         }
