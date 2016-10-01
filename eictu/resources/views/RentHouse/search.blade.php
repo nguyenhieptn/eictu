@@ -1,4 +1,6 @@
+@if(Auth::check() && Auth::user()->type==2)
 @extends('teacher.master')
+@endif
 
 @section('title')
 eICTuStudentRentHouseSearch - Tra cứu địa chỉ nhà trọ của Sinh viên
