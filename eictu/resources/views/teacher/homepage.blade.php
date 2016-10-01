@@ -64,7 +64,7 @@ function time_elapsed_string($datetime, $full = false) {
           
           <div class="col-lg-2">
                @foreach($students as $student)
-                {{$student->avatar}}
+                <img src="{!!asset('/upload/avatar/'.$student->avatar)!!}" height="100px" width="100px" />
                @endforeach
             <h4>
                 @foreach($students as $student)
