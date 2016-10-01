@@ -65,7 +65,7 @@ class LMSController extends Controller
         $cre=$datas->credit*15;
         $term = $request->input('term');
         DB::table('schedules')->where('id', $id)->update(array('situation' => $term));
-        DB::table('newsfeed')->insert(array('student_id' => $student->id,'content' => 'Vừa hoàn thành chương trình học của môn '.$datas->name.', '.$cre.' tiết/'.$datas->credit.' tín chỉ.'));
+        DB::table('newsfeed')->insert(array('student_id' => $student->id,'content' => 'Vừa hoàn thành chương trình học của môn '.$datas->name.', '.$cre.' tiết/'.$datas->credit.' tín chỉ.','type' => '6'));
         return redirect("LMS/show");
     }
     public function droptable(){

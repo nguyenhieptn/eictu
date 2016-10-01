@@ -5,8 +5,38 @@
 @endsection
 @section('content')
 <div class="container">
+<?php 
+function time_elapsed_string($datetime, $full = false) {
+    $now = new DateTime;
+    $ago = new DateTime($datetime);
+    $diff = $now->diff($ago);
+
+    $diff->w = floor($diff->d / 7);
+    $diff->d -= $diff->w * 7;
+
+    $string = array(
+        'y' => 'year',
+        'm' => 'month',
+        'w' => 'week',
+        'd' => 'day',
+        'h' => 'hour',
+        'i' => 'minute',
+        's' => 'second',
+    );
+    foreach ($string as $k => &$v) {
+        if ($diff->$k) {
+            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+        } else {
+            unset($string[$k]);
+        }
+    }
+
+    if (!$full) $string = array_slice($string, 0, 1);
+    return $string ? implode(', ', $string) . ' ago' : 'just now';
+}
+?>
 @if(Auth::check() && Auth::user()->type ==3)
-  <div class="row">
+<!--   <div class="row">
         <div class="col-lg-8 col-xs-12">
           <form  class="nav-form" action="{{route('iwant.status')}}" role="form" method="post" accept-charset="utf-8">
             <input type="hidden" name="_token" value="{{Session::token()}}">
@@ -23,7 +53,23 @@
           <span>Bạn cần trợ giúp khẩn cấp? Hãy đăng tin lên ngay để bạn bè của bạn biét tin giúp đỡ.</span>
           <hr>
         </div>
-      </div>
+      </div> -->
+        <div class="row">
+    <div class="col-lg-8 col-xs-12">
+      <form action="{{route('iwant.status')}}" role="form" method="post" accept-charset="utf-8">
+        <input type="hidden" name="_token" value="{{Session::token()}}">
+        <div class="form-group {{$errors->has('content')? ' has-error': ''}}">
+          <textarea placeholder="Gõ bản tin đề nghị giúp đỡ của bạn vào đây…Chúc bạn may mắn!" name="content" class="form-control" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <input type="text" name="location" class="form-control" placeholder="Vị trí hiện tại của bạn">
+        </div>
+        <p><span>Bạn cần trợ giúp khẩn cấp? Hãy đăng tin lên ngay để bạn bè của bạn biét tin giúp đỡ.</span></p>
+        <button type="submit" class="btn btn-success">Đăng Tin</button>    
+      </form>
+      <hr>
+    </div>
+  </div>
 @endif  
   <div class="row">
     <div class="col-lg-8  ">
@@ -65,7 +111,7 @@
             
            </div>
            <div class="col-lg-10 ">
-            <h3>{!! $students->name !!}</h3>
+            <h3>{!! $students->name !!}</h3><span style="margin-left: 150px;">{!! time_elapsed_string($want->created_at)!!}</span>
              <p ><a style="color: black;" href="{{route('iwant.detail', $want['id'])}}" title="">{{$want['content']}}</a></p>
            </div>
          </div>

@@ -56,6 +56,7 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{url('findjob/total')}}">Quản lý Bài Đăng tìm việc</a></li>
                             <li>
                                 <a href="{{ url('/dormitory/logout') }}"
                                    onclick="event.preventDefault();
@@ -76,6 +77,7 @@
     </div><!-- /.container-fluid -->
 </nav>
     <div class="container" style="margin-top:80px">
+    @if(Auth::check())
         <div class="col-md-3 col-sm-3">
             <div style="background-color: #ededed;">        
                    <div>
@@ -93,23 +95,40 @@
                 </div>
                 <div>
                     <ul class="list-group">
-                      <li class="list-group-item"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> <a href="{{url('student/newsfeed')}}">News Feed</a></li>
+                      <li class="list-group-item"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> 
+                      <a href="{{url('student/newsfeed')}}">News Feed</a></li>
+                      @if(count($classid)>0 && $classid !=null)
+                            <li class="list-group-item">
+                                    <a href="{{route('classes.classmatersbirthday', $classid )}}">Sinh nhật bạn cùng lớp</a>
+                            </li>
+                        @endif
                       <li class="list-group-item"><a href="{{route('iwant.status')}}">Tôi muốn- I Want</a> </li> 
                       <li class="list-group-item"><a href="{{url('/iHave')}}">Chợ đồ cũ</a></li> 
-                      <li class="list-group-item"><a href="{{url('/')}}"><a href="">Tìm việc làm </a></a></li> 
+                      <li class="list-group-item"><a href="{{url('/findjob/index')}}">Tìm việc làm </a></li> 
                       <li class="list-group-item"><a href="{!! url('dormitory/search')!!}">Kí túc xá</a></li> 
                       <li class="list-group-item"><a href="{{url('/rentHouse')}}">Nhà trọ sinh viên</a></li> 
                       <li class="list-group-item"><a href="{{url('chat/classrooms')}}">Messages / CHAT</a></li>
                       <li class="list-group-item"><a href="{{url('chat/friend')}}">Chát với bạn</a</li> 
                       <li class="list-group-item"><a href="{{url('LMS/show')}}">Tiến độ học tập LMS</a></li> 
-                      <li class="list-group-item"><a href="#">Hồ sơ</a></li> 
+                      <li class="list-group-item"><a href="#" class=" dropdown-toggle" data-toggle="dropdown" >Hồ sơ</a>
+                          <span class="caret"></span></button>
+                          <ul class="dropdown-menu">
+                            <li><a href="#">Upload Hình</a></li>
+                          </ul>
+                      </li> 
                     </ul>
                 </div>
             </div>
         </div>
-        <div class="col-md-9 col-sm-9">
+         <div class="col-md-9 col-sm-9">
             @yield('content')
         </div>
+        @else
+          <div class="col-md-12 col-sm-12">
+            @yield('content')
+        </div>
+        @endif
+       
     </div>
 <script src="{{ url("/js/app.js") }}"></script>
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>

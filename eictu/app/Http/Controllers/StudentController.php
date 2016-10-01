@@ -88,12 +88,38 @@ class StudentController extends Controller
      */
     public function AddingColum()
     {
-        Schema::create('newsfeed', function ($table) {
-            $table->increments('id');
-            $table->integer('student_id');
-            $table->string('content');
-            $table->timestamp('time');
+//        Schema::create('newsfeed', function ($table) {
+//            $table->increments('id');
+//            $table->integer('student_id');
+//        });
+
+  //  Schema::table('newsfeed', function ($table) {
+   //         $table->integer('type')->nullable();
+   //     });
+
+     //   $columns1 = Schema::getColumnListing('newsfeed'); // users table
+       
+   //     Schema::table('teacher', function ($table) {
+   //         $table->string('avatar')->nullable();
+  //      });
+
+     //   $columns2 = Schema::getColumnListing('teacher'); // users table
+
+ //       DB::statement('ALTER TABLE newsfeed MODIFY COLUMN content text');
+//
+        Schema::table('students', function ($table) {
+            $table->text('address')->nullable();
         });
+        $columns = Schema::getColumnListing('students'); // users table
+       
+        dd($columns );
+      /*   $student = Student::select('*')->get();
+       foreach ($student as $st)
+       {
+           echo $st->code." | ";
+           echo $st->name." | ";
+           echo $st->avatar."|---------";
+       }*/
     }
 
     //add
@@ -128,6 +154,7 @@ class StudentController extends Controller
         $student->school_id =$data['school_id'];
         $student->avatar  = Null;
         $student->address  = Null;
+
         $student->save();
        if ($student->save() == true) {
            $user = new User();

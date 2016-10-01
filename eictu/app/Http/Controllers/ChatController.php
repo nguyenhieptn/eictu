@@ -55,7 +55,7 @@ class ChatController extends Controller
         $class_id = $student->class_id;
         $class = DB::table('classes')->where('id', $class_id)->first();
         $class_name = $class->name;
-        return redirect("chat/classroom?c=".$class_name."&id=".$code);
+        return redirect("chat/classroom?c=".$class_name);
     }
 
     public function classlist()

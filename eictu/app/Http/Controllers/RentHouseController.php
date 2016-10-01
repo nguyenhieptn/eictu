@@ -62,8 +62,9 @@ class RentHouseController extends Controller
         $renthouse->save();
 
         $news=new NewsFeed();
-        $news->content='<span style="color: red;text-decoration: underline;">Chuyển nhà tới chỗ ở mới tại</span>'.$data['address'];
+        $news->content='Chuyển nhà tới chỗ ở mới tại '.$data['address'];
         $news->student_id=$data['student_id'];
+        $news->type=8;
         $news->save();
 
         $data = DB::table('motels')->where('student_id', $student_id)->orderBy('date_join', 'desc')->paginate(10);

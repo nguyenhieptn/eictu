@@ -37,13 +37,14 @@ class IHaveController extends Controller
         $news = new NewsFeed();
         $news->content=$data['content'];
         $news->student_id=$data['student_id'];
+        $news->type=10;
         $news->save();
 
         return redirect("iHave");
     }
     public function search()
     {
-        $data = DB::table('students')->leftjoin('have','have.student_id','=','students.id')->where('status',0)->orderBy('have.id','desc')->paginate(10);
+        $data = DB::table('students')->leftjoin('have','have.student_id','=','students.id')->where('status',0)->orderBy('have.id','desc')->get();
         return view("iHave.search",['data'=>$data]);
     }
     public function detail($id)

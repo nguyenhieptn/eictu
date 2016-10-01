@@ -3,9 +3,9 @@
     <?php
     $user_id = Auth::user()->username;
     $type = Auth::user()->type;
-            if ($type != 2 || $type != 1){
-                redirect('chat/error');
-            }
+    if ($type != 2 || $type != 1){
+        redirect('chat/error');
+    }
     ?>
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2" id="purple">
@@ -24,7 +24,7 @@
                 foreach ($classes as $class) {
                     $class_name = $class->name;
 
-                    echo "<li id='cla'><a href='classroom?c=$class_name&id=$user_id'>$class_name</a></li>";
+                    echo "<li id='cla'><a href='classroom?c=$class_name>$class_name</a></li>";
                 }
                 ?>
             </ol>

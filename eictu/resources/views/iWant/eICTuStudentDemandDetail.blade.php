@@ -3,7 +3,7 @@
 Chi tiết lời yêu cầu
 @endsection
 @section('content')
-<div class="container">
+<div >
     <div class="row">
     <style type="text/css" media="screen">
               .boot{
@@ -20,8 +20,39 @@ Chi tiết lời yêu cầu
                 -o-border-radius: 4px;
               }
             </style>
+
+            <?php 
+            	function time_elapsed_string($datetime, $full = false) {
+				    $now = new DateTime;
+				    $ago = new DateTime($datetime);
+				    $diff = $now->diff($ago);
+
+				    $diff->w = floor($diff->d / 7);
+				    $diff->d -= $diff->w * 7;
+
+				    $string = array(
+				        'y' => 'year',
+				        'm' => 'month',
+				        'w' => 'week',
+				        'd' => 'day',
+				        'h' => 'hour',
+				        'i' => 'minute',
+				        's' => 'second',
+				    );
+				    foreach ($string as $k => &$v) {
+				        if ($diff->$k) {
+				            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+				        } else {
+				            unset($string[$k]);
+				        }
+				    }
+
+				    if (!$full) $string = array_slice($string, 0, 1);
+				    return $string ? implode(', ', $string) . ' ago' : 'just now';
+				}
+             ?>
     @if($want)
-	    <div class="col-lg-8  col-xs-12">
+	    <div class="col-lg-12  col-xs-12">
 	    <div class="row boot">
 	    	<div class="col-lg-2">
 	    		<?php 
@@ -30,7 +61,7 @@ Chi tiết lời yêu cầu
 	    		 <img src="$students->avatar" class="img-rounded" height="100px" width="100px" alt="">
 	    	</div>
 	    	<div class="col-lg-10">
-	    		<p><b style="color: #e74c3c; font-size: 20px;">{{$student->name}}</b></p>
+	    		<p><b style="color: #e74c3c; font-size: 20px;">{{$student->name}}</b><span style="margin-left: 200px;">{!! time_elapsed_string($want->created_at) !!}</span></p>
 			      <p style="color: #7f8c8d; font-size: 20px">
 			      @if($student->gender ==0)
 			      	Nữ
@@ -39,25 +70,18 @@ Chi tiết lời yêu cầu
 			      @endif
 			      	,
 			      	<?php 
-
-	      		if (isset($address)) {
-	      			echo " Xóm trọ ông/bà :".$address->hostess." , ".$address->address;
-	      		}elseif (isset($address2)) {
-	      			echo  "Phòng số :".$address2->room." , Tòa nhà :".$address2->building." , Khu : 1";
-	      		}else{
-	      			echo "Không xác định được địa chỉ hiện tại của sinh viên";
-	      		}
-	      		
-	      		// if (isset($address) || isset($address2)) {
-	      		// 	if (strtotime($address->date_join) > strtotime($address2->start_on)) {
-	        //     	echo " Xóm trọ ông/bà :".$address->hostess." , ".$address->address;
-		       //    }else{
-		       //    	$area = DB::table('areas')->where('id', $address2->area_id)->first();
-		       //    	echo  "Phòng số :".$address2->room." , Tòa nhà :".$address2->building." , Khu :".$area->name;
-		       //    }
-	      			
-	      		
-	      ?>
+			      		if (empty($want->location)) {
+			      			if (isset($address)) {
+				      			echo " Xóm trọ ông/bà :".$address->hostess." , ".$address->address;
+				      		}elseif (isset($address2)) {
+				      			echo  "Phòng số :".$address2->room." , Tòa nhà :".$address2->building." , Khu :".$area->name;
+				      		}else{
+				      			echo "Không xác định được địa chỉ hiện tại của sinh viên";
+				      		}
+			      		}else{
+			      			echo $want->location;
+			      		}
+			      	 ?>
 
 	      <p style="font-size: 15px;">{{$want->content}}</p>
 	    	</div>
