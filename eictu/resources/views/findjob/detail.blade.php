@@ -33,8 +33,14 @@
                                     <!-- SENT MESSAGE  -->
                                     <!-- để lấy Ma sv $detail->code -->
                                     <div class="col-md-10">
-                                          <form action="{{ url('findjob/index') }}">
-                                            <Button class="btn btn-danger"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Sent Message </a></Button></center>
+                                        {{--action="{{ url('chat_guest/guest') }}" method="post"--}}
+                                          <form >
+                                            <Button class="btn btn-danger"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+                                                <?php
+                                                    $student_id = $detail->code;
+                                                    echo '<a href="guest?id=$student_id"> Sent Message </a>';
+                                                ?>
+                                            </Button>
                                          </form>
                                     </div>
                          
