@@ -24,7 +24,7 @@
             
                 <div class="panel panel-default">
 <div class="panel-heading">
-						<strong>Danh sách Sinh viên trúng tuyển chưa phân lớp.</strong>
+						<strong>Danh sách sinh viên trúng tuyển chưa phân lớp.</strong>
 			</div>
                     <div class="panel-body">
                        <form method="post" 

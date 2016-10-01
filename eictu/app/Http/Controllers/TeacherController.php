@@ -17,17 +17,17 @@ class TeacherController extends Controller
 
     public function index(){
     	// $teacher = Teacher::select('name')->where('code', Auth::user()->username)->first();
-       
+       if ( Auth::user()->type <= 2) {
+            return view('teacher.homepage');
+        }else{
+            return view('student.index');
+        }
 
           return view('teacher.homepage');
        
 
           // return view('teacher.homepage');
-        if ( Auth::user()->type <= 2) {
-            return view('teacher.homepage');
-        }else{
-            return view('student.index');
-        }
+        
     	
     }
 
