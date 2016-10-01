@@ -60,7 +60,7 @@ function time_elapsed_string($datetime, $full = false) {
        <?php 
             $students = DB::table('students')->where('id', $item->student_id)->get();
              foreach($students as $student){
-                echo $student['name'];
+                echo $student->name;
              }
            ?>
           
