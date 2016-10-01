@@ -40,51 +40,7 @@
                 -o-border-radius: 4px;
               }*/
             </style>
-    <style type="text/css" media="screen">
-        /*.pagination ul li{
-            padding: 3px 10px;
-            margin: 3px;
-            font-size: 20px;
-            background: #bdc3c7;
-        }*/
-        #Left  table{
-            margin: 20px;
-        }
 
-        #Left table img{
-            width: 30px;
-            height: auto;
-            float: left;
-            margin-left: 50px;
-        }
-        #Left table #topimg {
-            width: 50px;
-            float: left;
-            margin-bottom: 20px;
-        }
-        #Left table td{
-            padding: 5px 0;
-            font-weight: bold;
-        }
-        #Left table td a{
-            text-decoration: none;
-            color: black;
-        }
-        #Left table td a:hover{
-            color:#FF2C21 ;
-        }
-        #Left table td a:checked{
-            color:#FF2C21 ;
-        }
-        #Left table td span {
-            color: #BFCDE3;
-            font-weight: bold;
-        }
-        #toptext{
-            font-weight: bold;
-            font-size: 20px;
-        }
-    </style>
     <script>
         window.Laravel = <?php echo json_encode([
                 'csrfToken' => csrf_token(),
@@ -144,53 +100,15 @@
 </nav>
 
 <div class="container" style="margin-top: 100px;">
-    <div class="col-md-3" id="Left">
-        <div style="background-color: #ededed; position: fixed; height: 450px;">
-            <table style="text-align: left">
-                <tr>
-                    <td>
-                    <?php 
-                    if (isset(Auth::user()->id)) {
-                       $avatar = DB::table('teacher')->where('code',Auth::user()->username )->first();
-                    }
-                     ?>
-                        <a href="{{route('teacher.avatar')}}" title=""><img src="{!!asset('/upload/avatar/'.$avatar->avatar)!!}" width="60px" height="60px" /></a>
-                        <a href="{{url('student/newsfeed')}}" style="text-transform:uppercase;">
-                            @if(Auth::user()->id)
-                                {{Auth::user()->name}}
-                            @endif
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <a class="link" href="{{ route('teacher.index') }}"><span class="glyphicon glyphicon-play" style="color: #2c3e50;">&nbsp;</span>New Feed</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <a class="link" href="{{route('dormitory.getSearch')}}"><span class="glyphicon glyphicon-play" style="color: #2c3e50;">&nbsp;</span>Ký túc xá</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <a class="link" href="{{url('rentHouse')}}"><span class="glyphicon glyphicon-play" style="color: #2c3e50;">&nbsp;</span>Nhà trọ sinh viên</a>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <a class="link" href="{{url('/iHave')}}"><span class="glyphicon glyphicon-play" style="color: #2c3e50;">&nbsp;</span>Chợ đồ cũ</a>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <a class="link" href="{{url('/chat/classlist')}}"><span class="glyphicon glyphicon-play" style="color: #2c3e50;">&nbsp;</span>Message/CHAT</a>
-                    </td>
-                </tr>
-            </table>
-        </div>
+    <div class="row">
+    <div class="col-lg-4 col-lg-offset-3 control-group">
+        <form action="{{route('teacher.avatar')}}" method="post" role="form" accept-charset="utf-8" enctype="multipart/form-data">
+            <input type="hidden" name="_token" value="{{Session::token()}}">
+            <input type="file" class="form-control" name="image" value="" placeholder="">
+            <button type="submit" class="btn btn-success" >Upload</button>
+        </form>
+    </div>
+       
     </div>
 
     <div class="col-md-9" >
