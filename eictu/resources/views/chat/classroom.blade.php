@@ -45,15 +45,6 @@
     <div class="row">
         <div class="col-sm-12" id="purple">
             <h4>Phòng Chat của lớp <span><?php echo $class_room;?></span>
-                {{--<a style="float:right;" href="{{ url('/logout') }}"--}}
-                {{--onclick="event.preventDefault();--}}
-                {{--document.getElementById('logout-form').submit();">--}}
-                {{--Logout--}}
-                {{--</a>--}}
-
-                {{--<form id="logout-form" action="{{ url('/logout') }}" method="POST">--}}
-                {{--{{ csrf_field() }}--}}
-                {{--</form>--}}
             </h4>
         </div>
         <div class="col-sm-12">
