@@ -6,9 +6,6 @@
 @section('content')
     <div >
         <div class="row">
-            <div  class="col-md-9">
-                <div >
-                    <div >
                         <?php
                         $newsfeeds = \App\NewsFeed::where('type','7')->orwhere('type','10')->orderBy('time', 'DESC')->paginate(30);
                         ?>
@@ -25,7 +22,7 @@
                                 <div class="col-md-3">
                                     <img src="{{$student_avatar}}" width="150" height="150" >
                                 </div>
-                                <div class="col-md-7" style="padding-top:20px; padding-left: 20px">
+                                <div class="col-md-7" style="padding-top:20px; mso-padding-left:20px ">
                                     <strong>{{$student_name}}</strong>
 
                                     <p style="word-wrap:break-word;">{{$newsfeed->content}}</p>
@@ -39,10 +36,6 @@
                         @endforelse
 
                         {!! $newsfeeds->render() !!}
-                    </div>
-                </div>
-            </div>
-            </div>
         </div>
     </div>
 @endsection
