@@ -1,7 +1,7 @@
-@if(auth()->check() && auth()->user()->type ==32)
+@if(auth()->check() && auth()->user()->type ==3)
 @extends('layouts.student_app')
 @else
-@extends('teacher.master')
+@extends('..teacher.master')
 @endif
 
 @section('title')
