@@ -26,7 +26,7 @@ eICTuStudentRentHouseSearch - Tra cứu địa chỉ nhà trọ của Sinh viên
               @elseif($student!=null)
                 <li class='list-group-item' style="height:70px;border:0px;">
                   <ul type="none" style="padding:0px;">
-                    <li style="float:left; padding-right: 10px; "><img width="50px" height="50px" border-radius="8px" src="<?php if($student->avatar!=null)echo $student->avatar;else ?>{{url('img/avatar_null.png')}}" /></li>
+                    <li style="float:left; padding-right: 10px; "><img width="50px" height="50px" border-radius="8px" @if($student->avatar!=null) src="{{$student->avatar}} @else src="{{url('img/avatar_null.png')}} @endif" /></li>
                     <li style="float:left;">
                       <ul type="none" style="padding:0px;">
                         <li> <strong style="color: #000000; font-size: 18px"><?php echo $student->name;?></strong></li>
