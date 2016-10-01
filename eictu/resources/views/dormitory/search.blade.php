@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.student_app')
 @section('title')
 eICTuStudentDormitorySearch - Tra cứu chỗ ở trong KTX
 @endsection
