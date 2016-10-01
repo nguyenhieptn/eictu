@@ -5,7 +5,7 @@
 @endsection
 @section('content')
     <?php
-     $newsfeeds = \App\NewsFeed::orderBy('time', 'DESC')->paginate(2);
+     $newsfeeds = \App\NewsFeed::orderBy('time', 'DESC')->paginate(5);
     ?>
     @forelse ( $newsfeeds as $newsfeed)
         <div class="row" style="margin: 20px;">
