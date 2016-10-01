@@ -163,21 +163,7 @@
                         </a>
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                    <?php
-                    if (isset(Auth::user()->id)) {
-                       $avatar = DB::table('teacher')->where('code',Auth::user()->username )->first();
-                    }
-                     ?>
-                        <a href="{{route('teacher.avatar')}}" title=""><img src="{!!asset('/upload/avatar/'.$avatar->avatar)!!}" width="60px" height="60px" /></a>
-                        <a href="{{url('student/newsfeed')}}" style="text-transform:uppercase;">
-                            @if(Auth::user()->id)
-                                {{Auth::user()->name}}
-                            {@endif
-                        </a>
-                        </td>
-                        </tr>
+                
                 <tr>
                     <td>
                         <a class="link" href="{{ route('teacher.index') }}"><span class="glyphicon glyphicon-play" style="color: #2c3e50;">&nbsp;</span>New Feed</a>
