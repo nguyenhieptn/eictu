@@ -55,25 +55,7 @@ function time_elapsed_string($datetime, $full = false) {
 
 
      ?>
-     @if(!empty($feed))
-       @foreach($feed as $item)
-       <div class="row boot">
-       <?php 
-            $students = DB::table('students')->where('id', $item->student_id)->first();
-           ?>
-          <div class="col-lg-2">
-            
-            
-          </div>
-          <div class="col-lg-10 ">
-          
-            <h3><b style="color: black;">{!! $students->name !!}</b><span style="margin-left: 150px;">{!! time_elapsed_string($item->time)!!}</span></h3>
-             <p ><a style="color: black;" >{{$item->content}}</a></p>
-          </div>
-        </div>
-         
-       @endforeach
-      @endif
+     
     
     </div>
     
