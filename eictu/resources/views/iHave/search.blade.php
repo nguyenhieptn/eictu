@@ -5,7 +5,7 @@
     elseif(Auth::check() && Auth::user()->type==2)
     $file='teacher.master';
 ?>
-    @extends($file);
+@extends($file);
 @section('title')
 eICTuStudentGoodsSearch - Danh sách đồ cũ đang rao
 @endsection
