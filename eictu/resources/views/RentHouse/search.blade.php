@@ -1,5 +1,9 @@
-@extends('layouts.student_app')
-
+<?php
+if(auth()->check() && auth()->user()->type==3)
+echo "@extends('layouts.student_app')";
+elseif(Auth::check() && Auth::user()->type==2)
+echo "@extends('teacher.master')";
+?>
 @section('title')
 eICTuStudentRentHouseSearch - Tra cứu địa chỉ nhà trọ của Sinh viên
 @endsection
