@@ -94,20 +94,68 @@ class StudentController extends Controller
 //            $table->integer('student_id');
 //        });
 //
-        Schema::table('newsfeed', function ($table) {
-            $table->integer('type')->nullable();
-        });
-
-        $columns = Schema::getColumnListing('newsfeed'); // users table
-        dd($columns);
-        Schema::table('teacher', function ($table) {
-            $table->string('avatar')->nullable();
-        });
-
-        DB::statement('ALTER TABLE newsfeed MODIFY COLUMN content text');
+//        Schema::table('newsfeed', function ($table) {
+//            $table->integer('type')->nullable();
+//        });
 //
-        $columns = Schema::getColumnListing('newsfeed'); // users table
-        dd($columns);
+//        $columns1 = Schema::getColumnListing('newsfeed'); // users table
+//        dd($columns1);
+//        Schema::table('teacher', function ($table) {
+//            $table->string('avatar')->nullable();
+//        });
+
+        $columns = Schema::getColumnListing('students'); // users table
+
+        dd($columns );
+//
+//        DB::statement('ALTER TABLE newsfeed MODIFY COLUMN content text');
+////
+//        $columns = Schema::getColumnListing('newsfeed'); // users table
+//        $student = Student::select('*')->get();
+//        foreach ($student as $st)
+//        {
+//            echo $st->code." | ";
+//            echo $st->name." | ";
+//            echo $st->avatar."|---------";
+//        }
+//       // dd($student);
+    }
+
+    /**
+     * @return string
+     */
+
+    public  function  profile()
+    {
+        $data = School::select('*')->get();
+        $majors= Major::select('*')->get();
+        return view('students.profile',compact('data','majors'));
+    }
+
+    public function EditStudent(Request $request)
+    {
+//        $data = array();
+//        $data['code']       = $request->input('Code');
+//        $data['name']       = $request->input('Name');
+//        $data['gender']     = $request->input('gender');
+//        $data['birthday']   = $request->input('birthday');
+//        $data['major_id']   = $request->input('Major_Id');
+//
+//        // lấy mã trường do quản trị viên quản lý
+//        $userid= Auth::user()->id;
+//        $school= School::where('user_id', $userid)->first();
+//        $data['school_id']  = $school->id;
+//
+//        $this->validate($request, [
+//            'Code'    => 'required',
+//            'Name'    => 'required'
+//        ]);
+
+        $imageName = '11.' . $request->file('image');
+        $request->file('image')->move(
+            base_path() . '/public/img/', $imageName
+        );
+
     }
 
     //add
@@ -142,7 +190,6 @@ class StudentController extends Controller
         $student->school_id =$data['school_id'];
         $student->avatar  = Null;
         $student->address  = Null;
-
         $student->save();
        if ($student->save() == true) {
            $user = new User();

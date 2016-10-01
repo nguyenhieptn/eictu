@@ -101,13 +101,14 @@
                       <li class="list-group-item"><a href="{!! url('dormitory/search')!!}">Kí túc xá</a></li> 
                       <li class="list-group-item"><a href="{{url('/rentHouse')}}">Nhà trọ sinh viên</a></li> 
                       <li class="list-group-item"><a href="{{url('chat/classrooms')}}">Messages / CHAT</a></li>
-                      <li class="list-group-item"><a href="{{url('chat/friend')}}">Chát với bạn</a</li> 
+                      <li class="list-group-item"><a href="{{url('chat/friend')}}">Chát với bạn</a></li>
                       <li class="list-group-item"><a href="{{url('LMS/show')}}">Tiến độ học tập LMS</a></li> 
                       <li class="list-group-item"><a href="#" class=" dropdown-toggle" data-toggle="dropdown" >Hồ sơ</a>
                           <span class="caret"></span></button>
                           <ul class="dropdown-menu">
-                            <li><a href="#">Upload Hình</a></li>
-                            <li><a href="{{url('findjob/total')}}">Quản lý Bài Đăng tìm việc</a></li>
+                              <li><a href="{{url("student/profile")}}">Hồ sơ sinh viên</a> </li>
+                           <li><a href="#">Upload Hình</a></li>
+                           <li><a href="{{url('findjob/total')}}">Quản lý Bài Đăng tìm việc</a></li>
                           </ul>
                       </li> 
                     </ul>
@@ -124,8 +125,12 @@
         @endif
        
     </div>
+
 <script src="{{ url("/js/app.js") }}"></script>
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstit rap/3.3.1/js/bootstrap.min.js"></script>
+
+
+    @yield('script')
 </body>
 </html>
