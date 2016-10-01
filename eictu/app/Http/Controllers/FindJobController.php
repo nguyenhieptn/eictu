@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Session;
 use Validator;
 use App\FindJob;
 use DB;
+use App\NewsFeed;
 
 class FindJobController extends Controller
 {
@@ -18,10 +19,10 @@ class FindJobController extends Controller
     public function getIndex()
     {
         if(Auth::check() && Auth::user()->type==3){
-              $datas= DB::table('searchjobs')->join('users','searchjobs.student_id','users.id')->join('students','users.username','students.code')->orderby('searchjobs.id','DESC')->select('searchjobs.id as sid','users.name','searchjobs.content','searchjobs.created_at','students.avatar')->paginate(4);
+              $datas= DB::table('searchjobs')->join('users','searchjobs.student_id','users.id')->join('students','users.username','students.code')->orderby('searchjobs.created_at','DESC')->select('searchjobs.id as sid','users.name','searchjobs.content','searchjobs.created_at','students.avatar')->paginate(4);
             return view('findjob.index')->with('datas',$datas);
         }else{
-           $datas= DB::table('searchjobs')->join('users','searchjobs.student_id','users.id')->join('students','users.username','students.code')->orderby('searchjobs.id','DESC')->select('searchjobs.id as sid','users.name','searchjobs.content','searchjobs.created_at','students.avatar')->paginate(4);
+           $datas= DB::table('searchjobs')->join('users','searchjobs.student_id','users.id')->join('students','users.username','students.code')->orderby('searchjobs.created_at','DESC')->select('searchjobs.id as sid','users.name','searchjobs.content','searchjobs.created_at','students.avatar')->paginate(4);
            return view('findjob.index')->with('datas',$datas);
         }
         
@@ -41,6 +42,11 @@ class FindJobController extends Controller
                 return redirect()->back()->with('err',$validator->errors());
              }else{
                 FindJob::create([
+                    'content' => $input['content'],
+                    'student_id' => Auth::user()->id
+                ]);
+
+                NewsFeed::create([
                     'content' => $input['content'],
                     'student_id' => Auth::user()->id
                 ]);

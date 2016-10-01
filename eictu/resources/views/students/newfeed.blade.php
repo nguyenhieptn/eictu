@@ -3,8 +3,6 @@
 @section('title')
     - Trang chủ của sinh viên
 @endsection
-
-
 @section('content')
     <?php
      $newsfeeds = \App\NewsFeed::orderBy('time', 'DESC')->paginate(20);
