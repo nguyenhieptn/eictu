@@ -131,10 +131,11 @@ class ClassesController extends Controller
 			if(Auth::user()->type==1)
 			{
 				$arrCode = Input::get('arrCode');
+				if($arrCode !=null)
 				foreach($arrCode as $code)
 				{
 					DB::table('students')->where('code', $code)->update(['class_id' => $classid]);
-				}
+				}	
 				
 				return redirect()->back();
 			}else{
