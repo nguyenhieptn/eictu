@@ -45,7 +45,6 @@ class FindJobController extends Controller
                     'content' => $input['content'],
                     'student_id' => Auth::user()->id
                 ]);
-
                 NewsFeed::create([
                     'content' => $input['content'],
                     'student_id' => Auth::user()->id
