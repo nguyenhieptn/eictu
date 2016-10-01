@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
 use DB;
@@ -9,7 +10,8 @@ use App\Major;
 use App\User;
 use App\Teacher;
 use App\Http\Requests;
-
+use File;
+use Illuminate\Support\Facades\Input;
 class TeacherController extends Controller
 {
 
@@ -94,7 +96,28 @@ class TeacherController extends Controller
         }
         
     }
-    
+    public function get_avatar()
+    {
+        return view('teacher.avatar');
+    }
+    public function change_avatar(Request $request){
+        if (Input::hasFile('image')) {
+        $extension = $request->file('image')->guessClientExtension();
+        $image_name = rand(5,1000000000).$extension.$request->file('image')->getClientOriginalName();
+        // $teacher = new Teacher();
+        // $teacher->avatar = $image_name;
+        // $request->file('image')->move('resources/upload/images/',$image_name );
+        // $teacher->save();
+        // return redirect()->back();
+
+        Teacher::where('code', Auth::user()->username)
+          ->update(['avatar' => $image_name]);
+          Input::file('image')->move('upload/avatar/', $image_name);
+          // file('image')->move('resources/upload/images/',$image_name );
+          return redirect()->route('teacher.index');
+        }
+    }
+        
 
 
 }

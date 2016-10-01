@@ -1,9 +1,5 @@
 @extends('teacher.master')
 
-@section('title')
-Trang chu giao vien
-@endsection
-
 @section('content')
 <div class="container">
     <div class="row">
@@ -21,57 +17,24 @@ Trang chu giao vien
     @endif  
     	
   </div>
-<?php
-    function time_elapsed_string($datetime, $full = false) {
-    $now = new DateTime;
-    $ago = new DateTime($datetime);
-    $diff = $now->diff($ago);
 
-    $diff->w = floor($diff->d / 7);
-    $diff->d -= $diff->w * 7;
-
-    $string = array(
-        'y' => 'year',
-        'm' => 'month',
-        'w' => 'week',
-        'd' => 'day',
-        'h' => 'hour',
-        'i' => 'minute',
-        's' => 'second',
-    );
-    foreach ($string as $k => &$v) {
-        if ($diff->$k) {
-            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
-        } else {
-            unset($string[$k]);
-        }
-    }
-
-    if (!$full) $string = array_slice($string, 0, 1);
-    return $string ? implode(', ', $string) . ' ago' : 'just now';
-}
-?> 
   <div class="row">
-    <div class="col-lg-9">
+    <div class="col-xs-10">
       <?php 
-      $newfeed = DB::table('newsfeed')->select('*')->orderBy('id', 'DESC')->get();
+      $teacher = DB::table('teacher')->select('name')->where('code', Auth::user()->username)->first();
      ?>
-     @if(!empty($newfeed))
-      @foreach($newfeed as $item)
-          <?php 
-            $student_id = DB::table('students')->where('id',$item->student_id )->first();
-           ?>
-         <div class="row boot">
-           <div class="col-lg-2">
-            <img src="{{url('{!! $student_id->name !!}')}}" alt="">
-           </div>
-           <div class="col-lg-9 ">
-            <h3>{!! $student_id->name !!} <span style="margin-left: 200px; ">{!! time_elapsed_string($item->time) !!}</span></h3>
-            <p style="word-wrap:break-word;">{{$item->content}}</p>
-           </div>
-         </div>
-      @endforeach  
-    @endif
+
+       
+     @if( $teacher)
+      <h2>Giảng viên :{{$teacher->name}}</h2>
+      <ul style="list-style: none; font-size: 20px;">
+      <li><span class="glyphicon glyphicon-play" style="color: #2c3e50;">&nbsp;</span><a href="{{route('dormitory.getSearch')}}" title="" >Nơi ở của sinh viên trong KTX</a></li>
+      <li><span class="glyphicon glyphicon-play" style="color: #2c3e50;">&nbsp; </span><a href="{{url('rentHouse')}}" title="" >Nơi ở của sinh ngoài phòng trọ</a></li>
+      <li><span class="glyphicon glyphicon-play" style="color: #2c3e50;">&nbsp;</span><a href="{{url('/chat/classlist')}}" title="" >Chat với lớp</a></li>
+    </ul>
+     @endif
+
+    
     </div>
     
   </div>
