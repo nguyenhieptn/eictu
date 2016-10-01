@@ -59,13 +59,18 @@ function time_elapsed_string($datetime, $full = false) {
        <div class="row boot">
        <?php 
             $students = DB::table('students')->where('id', $item->student_id)->get();
-             foreach($students as $student){
-                echo $student->name;
-             }
+            
            ?>
           
           <div class="col-lg-2">
-            <h4>{{$item->time}}</h4>
+           @foreach($students as $student)
+            {{$student->avatar}}
+           @endforeach
+            <h4>
+                @foreach($students as $student)
+                {{$student->name}}
+               @endforeach
+            {{$item->time}}</h4>
           </div>
           <div class="col-lg-10 ">
           
