@@ -88,7 +88,7 @@
             <link rel="stylesheet" type="text/css" href="{!! url('quanlytruong/css/eICTuHomePage.css')!!}">
             <div>
                 <ul class="list-group">
-                @if(Auth::user()->id)
+                    @if(Auth::user()->id)
                 <?php 
                      if (isset(Auth::user()->id)) {
                        $avatar = DB::table('teacher')->where('code',Auth::user()->username )->first();
