@@ -3,7 +3,7 @@
 eICTuStudentRentHouseHistory - Lịch sử nhà trọ
 @endsection
   @section('content')
-  <div class="container" style="width:100%">
+  <div class="container" style="width:100%;padding-top:10px">
     <div class="row">
         <a class="btn btn-info" style="background:#cc5200;color: #ffffff;" href="{{"rentHouse/create"}}">
           <strong class="redirect"><i class="glyphicon glyphicon-plus"/>&nbsp;</i>CẬP NHẬT NHÀ TRỌ MỚI</strong>
@@ -12,7 +12,7 @@ eICTuStudentRentHouseHistory - Lịch sử nhà trọ
           <strong class="redirect"><i class="glyphicon glyphicon-search"/>&nbsp;</i>BẠN TÔI TRỌ Ở ĐÂU?</strong>
         </a>
     </div>
-      <div class="row" style="padding-top: 30px;">
+      <div class="row" style="padding-top: 20px;">
           <div class="panel">
             <ul style="padding:0px;">
              <?php
