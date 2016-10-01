@@ -17,73 +17,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     @yield('css')
     <style type="text/css" media="screen">
-              .boot{
-
-                margin-top:10px; 
-                padding-top: 5px;
-                padding-bottom: 5px;
-                background: #ecf0f1;
-
-                border-radius: 4px;
-                -moz-border-radius: 4px;
-                -webkit-border-radius: 4px;
-                -ms-border-radius: 4px;
-                -o-border-radius: 4px;
-              }
-          /*    img{
-                width: 100px;
-                height: 100px;
-                border-radius: 4px;
-                -moz-border-radius: 4px;
-                -webkit-border-radius: 4px;
-                -ms-border-radius: 4px;
-                -o-border-radius: 4px;
-              }*/
-            </style>
-    <style type="text/css" media="screen">
-        /*.pagination ul li{
-            padding: 3px 10px;
-            margin: 3px;
-            font-size: 20px;
-            background: #bdc3c7;
-        }*/
-        #Left  table{
-            margin: 20px;
-        }
-
-        #Left table img{
-            width: 30px;
-            height: auto;
-            float: left;
-            margin-left: 50px;
-        }
-        #Left table #topimg {
-            width: 50px;
-            float: left;
-            margin-bottom: 20px;
-        }
-        #Left table td{
-            padding: 5px 0;
-            font-weight: bold;
-        }
-        #Left table td a{
-            text-decoration: none;
-            color: black;
-        }
-        #Left table td a:hover{
-            color:#FF2C21 ;
-        }
-        #Left table td a:checked{
-            color:#FF2C21 ;
-        }
-        #Left table td span {
-            color: #BFCDE3;
-            font-weight: bold;
-        }
-        #toptext{
-            font-weight: bold;
-            font-size: 20px;
-        }
+        img{width: }
     </style>
     <script>
         window.Laravel = <?php echo json_encode([
@@ -117,7 +51,6 @@
                     <li><a href="{{ url('/login') }}" style="font-size:15px">Đăng Nhập</a></li>
                 @else
                     <li class="dropdown">
-                    
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
@@ -142,60 +75,31 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-
-<div class="container" style="margin-top: 100px;">
-    <div class="col-md-3" id="Left">
-        <div style="background-color: #ededed; position: fixed; height: 450px;">
-            <table style="text-align: left">
-                <tr>
-                    <td>
-                    <?php 
-                    if (isset(Auth::user()->id)) {
+<div class="container" style="margin-top:56px">
+    <div class="col-md-3 col-sm-3">
+        <div style="background-color: #ededed;">
+            <link rel="stylesheet" type="text/css" href="{!! url('quanlytruong/css/eICTuHomePage.css')!!}">
+            <div>
+                <ul class="list-group">
+                @if(Auth::user()->id)
+                <?php 
+                     if (isset(Auth::user()->id)) {
                        $avatar = DB::table('teacher')->where('code',Auth::user()->username )->first();
                     }
-                     ?>
-                        <a href="{{route('teacher.avatar')}}" title=""><img src="{!!asset('/upload/avatar/'.$avatar->avatar)!!}" width="60px" height="60px" /></a>
-                      
-                        <a href="" style="text-transform:uppercase;">
-                            @if(Auth::user()->id)
-                                {{Auth::user()->name}}
-                            @endif
-                        </a>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td>
-                        <a class="link" href="{{ route('teacher.index') }}"><span class="glyphicon glyphicon-play" style="color: #2c3e50;">&nbsp;</span>New Feed</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <a class="link" href="{{route('dormitory.getSearch')}}"><span class="glyphicon glyphicon-play" style="color: #2c3e50;">&nbsp;</span>Ký túc xá</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <a class="link" href="{{url('rentHouse')}}"><span class="glyphicon glyphicon-play" style="color: #2c3e50;">&nbsp;</span>Nhà trọ sinh viên</a>
+                 ?>
+                    <li class="list-group-item" style="background:scroll; text-transform: uppercase;"> {{Auth::user()->name}}<br/>  <a href="{{route('teacher.avatar')}}" title=""><img class="image" src="{!!asset('/upload/avatar/'.$avatar->avatar)!!}"></a><a class="" href="">Giáo Viên</a> </li>
+                @endif
+                    <li class="list-group-item"style="background:scroll;"><br/> <a class="link" href="">News Feed</a></li>
+                    <li class="list-group-item"style="background:scroll;"><br/><a class="link" href="{{route('dormitory.getSearch')}}">KY TUC XA</a></li>
+                    <li class="list-group-item" style="background:scroll;"><br/><a class="link" href="{{url('rentHouse')}}">NHA TRO SINH VIEN</a></li>
+                    <li class="list-group-item"style="background:scroll;"><br/>  <a class="link" href="{{url('findjob/index')}}">CHO DO CU</a></li>
+                    <li class="list-group-item"style="background:scroll;"><br/> <a class="link" href="{{url('findjob/index')}}">MESSAGE/CHAT</a></li>
 
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <a class="link" href="{{url('/iHave')}}"><span class="glyphicon glyphicon-play" style="color: #2c3e50;">&nbsp;</span>Chợ đồ cũ</a>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <a class="link" href="{{url('/chat/classlist')}}"><span class="glyphicon glyphicon-play" style="color: #2c3e50;">&nbsp;</span>Message/CHAT</a>
-                    </td>
-                </tr>
-            </table>
+                </ul>
+            </div>
         </div>
     </div>
-
-    <div class="col-md-9" >
+    <div class="col-md-9 col-sm-9">
         @yield('content')
     </div>
 </div>
