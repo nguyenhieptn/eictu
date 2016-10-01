@@ -33,11 +33,12 @@
                                     <!-- SENT MESSAGE  -->
                                     <!-- để lấy Ma sv $detail->code -->
                                     <div class="col-md-10">
-                                          <form action="{{route('chatguest.guest', $detail->code ) }}" >
-                                            <Button class="btn btn-danger"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
-                                                Sent Message
-                                            </Button>
-                                         </form>
+                                          {{--<form action="{{route('chatguest.guest', $detail->code ) }}" >--}}
+                                            {{--<Button class="btn btn-danger"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>--}}
+                                                {{--Sent Message--}}
+                                            {{--</Button>--}}
+                                         {{--</form>--}}
+                                        <a href="{{route('chatguest.guest', $detail->code ) }}">Send me</a>
                                     </div>
                          
                             </div>
