@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ef06d8a-2426-4672-a780-b2aa5ba481e0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/eictu/app/Http/Controllers/ChatGuestController" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/eictu/resources/views/chat_guest/guest.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/eictu/resources/views/chat_guest/guestroom.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eictu/resources/views/Teacher/add.blade.php" afterPath="$PROJECT_DIR$/eictu/resources/views/Teacher/add.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eictu/resources/views/Teacher/homepage.blade.php" afterPath="$PROJECT_DIR$/eictu/resources/views/Teacher/homepage.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eictu/resources/views/Teacher/list.blade.php" afterPath="$PROJECT_DIR$/eictu/resources/views/Teacher/list.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eictu/resources/views/findjob/detail.blade.php" afterPath="$PROJECT_DIR$/eictu/resources/views/findjob/detail.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eictu/routes/chat.php" afterPath="$PROJECT_DIR$/eictu/routes/chat.php" />
     </list>
     <ignored path="eictu.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,8 +58,8 @@
       <file leaf-file-name="detail.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/eictu/resources/views/findjob/detail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="36" column="49" selection-start-line="36" selection-start-column="49" selection-end-line="36" selection-end-column="49" />
+            <state relative-caret-position="289">
+              <caret line="35" column="48" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="100" />
               <folding />
             </state>
           </provider>
@@ -500,12 +492,12 @@
       <option name="presentableId" value="Default" />
       <updated>1475234649931</updated>
       <workItem from="1475276505636" duration="18000" />
-      <workItem from="1475284709660" duration="2510000" />
+      <workItem from="1475284709660" duration="2614000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2528000" />
+    <option name="totallyTimeSpent" value="2632000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="17" y="30" width="1320" height="738" extended-state="0" />
@@ -808,8 +800,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/eictu/resources/views/findjob/detail.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="36" column="49" selection-start-line="36" selection-start-column="49" selection-end-line="36" selection-end-column="49" />
+        <state relative-caret-position="289">
+          <caret line="35" column="48" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="100" />
           <folding />
         </state>
       </provider>
