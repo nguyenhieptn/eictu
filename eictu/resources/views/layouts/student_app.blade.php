@@ -56,6 +56,7 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{url('findjob/total')}}">Quản lý Bài Đăng tìm việc</a></li>
                             <li>
                                 <a href="{{ url('/dormitory/logout') }}"
                                    onclick="event.preventDefault();
@@ -107,7 +108,6 @@
                           <span class="caret"></span></button>
                           <ul class="dropdown-menu">
                             <li><a href="#">Upload Hình</a></li>
-                            <li><a href="{{url('findjob/total')}}">Quản lý Bài Đăng tìm việc</a></li>
                           </ul>
                       </li> 
                     </ul>
