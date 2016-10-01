@@ -1,4 +1,4 @@
-@extends('/layouts.app')
+@extends('/layouts.student_app')
 @section('content')
 
     <?php
@@ -45,15 +45,15 @@
 
 
     <div class="row">
-        <div class="col-sm-8 col-sm-offset-2" id="purple">
+        <div class="col-sm-12" id="purple">
             <h4>Phòng Chat với <span><?php echo $namefriend;?></span></h4>
         </div>
-        <div class="col-sm-8 col-sm-offset-2">
+        <div class="col-sm-12">
             <input type="hidden" class="chat-classs" value="<?php echo $class_name;?>"/>
             <input type="hidden" class="chat-friend" value="<?php echo $friend;?>"/>
             <input type="hidden" disabled="disabled" class="chat-name" value="<?php echo $id;?>"/>
         </div>
-        <div class="col-sm-8 col-sm-offset-2">
+        <div class="col-sm-12">
             <div class="col-sm-4 list-room">
                 <div class="room-list"></div>
             </div>
@@ -66,14 +66,14 @@
     </div>
 
     <div class="row  message">
-        <div class="col-sm-7 col-sm-offset-2">
+        <div class="col-sm-10">
             <textarea class="form-control" rows="3" id="comment" placeholder="Nhập mã nội dung Chat"></textarea>
             {{--<input class="form-control input-lg chat-input" id="inputlg" type="text" placeholder="Type your message">--}}
         </div>
         <div class="col-sm-2">
             <button type="submit" class="btn btn-primary btn-lg" id="send">Send</button>
         </div>
-        <div class="col-sm-8 col-sm-offset-2 chat-status">Status: <span>Idle</span></div>
+        <div class="col-sm-8 chat-status">Status: <span>Idle</span></div>
     </div>
 
     <script src="http://127.0.0.1:8088/socket.io/socket.io.js"></script>
@@ -108,7 +108,20 @@
             } catch (e) {
                 //set status to warn user
             }
+            var name = chatName.value,
+                    room = chatFriend.value;
+
+            socket.emit('input-one', {
+                name: name,
+                room: room
+            });
+
+
             var rooms, room_link;
+            var arr_room = [];
+            var dem = 0;
+            var fLen = 0;
+
             if (socket !== undefined) {
 
                 socket.on('listroom', function (data) {
@@ -126,7 +139,7 @@
 
 //                        room_link.href = 'chatClassRoom.php?c=' + data[y].name + '&id=' + data[y].name;
 
-                        if (str.length < 10){
+                        if (str.length < 10) {
                             room_link.innerHTML = "<h4>[G] " + str + "</h4>";
                             room_link.href = 'classrooms';
                         } else if (str1 == name) {
@@ -148,6 +161,7 @@
                 //Lisen for output
                 socket.on('output', function (data) {
                     if (data.length) {
+
                         for (var x = 0; x < data.length; x = x + 1) {
                             if ((data[x].room == chatFriend.value && data[x].name == chatName.value) || (data[x].name == chatFriend.value && data[x].room == chatName.value)) {
                                 var message = document.createElement('div');
@@ -207,6 +221,68 @@
                                 messages.insertBefore(message, messages.firstChild);
                             }
                         }
+
+                        for (var y = 0; y < data.length; y = y + 1) {
+                            if (data[y].name == chatName.value) {
+                                dem = 0;
+                                fLen = arr_room.length;
+                                for (var i = 0; i < fLen; i++) {
+                                    if (arr_room[i] == data[y].room) {
+                                        dem = dem + 1;
+                                    }
+                                }
+                                if (dem == 0) {
+                                    arr_room.push(data[y].room);
+                                }
+                            }
+                            if (data[y].room == chatName.value) {
+                                dem = 0;
+                                fLen = arr_room.length;
+                                for (var i = 0; i < fLen; i++) {
+                                    if (arr_room[i] == data[y].name) {
+                                        dem = dem + 1;
+                                    }
+                                }
+                                if (dem == 0) {
+                                    arr_room.push(data[y].name);
+                                }
+                            }
+                        }
+                    }
+
+                    while (list_room.firstChild) {
+                        list_room.removeChild(list_room.firstChild);
+                    }
+
+                    rooms = document.createElement("div")
+                    room_link = document.createElement("a");
+                    room_link.setAttribute("id", "room-link");
+                    room_link.innerHTML = "<h4>" + chatClass.value + "</h4>";
+                    room_link.href = 'classrooms';
+
+                    rooms.setAttribute("class", "room-list");
+                    rooms.appendChild(room_link);
+
+                    list_room.appendChild(rooms);
+                    list_room.insertBefore(rooms, list_room.firstChild);
+
+                    for (var z = 0; z < arr_room.length; z++) {
+                        rooms = document.createElement("div")
+                        room_link = document.createElement("a");
+                        room_link.setAttribute("id", "room-link");
+
+                        if (arr_room[z].length < 10 ) {
+                            room_link.href = 'classrooms';
+                        } else {
+                            room_link.innerHTML = "<h4>" + arr_room[z] + "</h4>";
+                            room_link.href = 'friendroom?id=' + chatName.value + '&friend=' + arr_room[z];
+                        }
+
+                        rooms.setAttribute("class", "room-list");
+                        rooms.appendChild(room_link);
+
+                        list_room.appendChild(rooms);
+                        list_room.insertBefore(rooms, list_room.firstChild);
                     }
                 });
 
@@ -228,13 +304,6 @@
                         nd = "";
                 var button = document.getElementById("send");
 
-
-                //Load
-                socket.emit('load', {
-                    name: name,
-                    friend: friend,
-                    class_name: class_name
-                });
 
                 button.onclick = function () {
                     today = new Date();
