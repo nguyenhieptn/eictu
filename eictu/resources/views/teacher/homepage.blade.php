@@ -63,9 +63,9 @@ function time_elapsed_string($datetime, $full = false) {
            ?>
           
           <div class="col-lg-2">
-           @foreach($students as $student)
-            {{$student->avatar}}
-           @endforeach
+               @foreach($students as $student)
+                {{$student->avatar}}
+               @endforeach
             <h4>
                 @foreach($students as $student)
                 {{$student->name}}
