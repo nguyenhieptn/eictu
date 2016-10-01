@@ -66,7 +66,7 @@ function time_elapsed_string($datetime, $full = false) {
                 <img src="{!!asset('/upload/avatar/'.$st->avatar)!!}" height="100px" width="100px" />
             <h4>
                 {{$st->name}}
-            {{$item->time}}</h4>
+           </h4>
           </div>
           <div class="col-lg-10 ">
           
