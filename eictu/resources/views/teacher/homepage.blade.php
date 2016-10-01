@@ -1,3 +1,4 @@
+
 @extends('teacher.master')
 
 @section('content')
@@ -50,7 +51,7 @@ function time_elapsed_string($datetime, $full = false) {
   <div class="row">
     <div class="col-xs-8">
       <?php 
-      $feed = DB::table('newsfeed')->select('*')->get();
+      $feed = DB::table('newsfeed')->select('*')->orderBy('id', 'DESC')->get();
 
 
      ?>
