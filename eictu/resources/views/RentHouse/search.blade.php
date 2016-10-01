@@ -4,7 +4,7 @@
     elseif(Auth::user()->type==2)
     $file='teacher.master';
 ?>
-    @extends({{$file}});
+    @extends('{{$file}}');
 
 @section('title')
 eICTuStudentRentHouseSearch - Tra cứu địa chỉ nhà trọ của Sinh viên
