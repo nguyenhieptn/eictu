@@ -16,7 +16,6 @@ class TeacherController extends Controller
 {
 
     public function index(){
-    	// $teacher = Teacher::select('name')->where('code', Auth::user()->username)->first();
        if (isset(Auth::user()->id) && Auth::user()->type <= 2) {
             return view('teacher.homepage');
         }else{
