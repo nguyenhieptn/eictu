@@ -147,6 +147,7 @@
     <div class="col-md-3" id="Left">
         <div style="background-color: #ededed; position: fixed; height: 450px;">
             <table style="text-align: left">
+<<<<<<< HEAD
                 <tr>
                     <td>
                     <?php 
@@ -163,6 +164,23 @@
                         </a>
                     </td>
                 </tr>
+=======
+                {{--<tr>--}}
+                    {{--<td>--}}
+                    {{--<?php--}}
+                    {{--if (isset(Auth::user()->id)) {--}}
+                       {{--$avatar = DB::table('teacher')->where('code',Auth::user()->username )->first();--}}
+                    {{--}--}}
+                     {{--?>--}}
+                        {{--<a href="{{route('teacher.avatar')}}" title=""><img src="{!!asset('/upload/avatar/'.$avatar->avatar)!!}" width="60px" height="60px" /></a>--}}
+                        {{--<a href="{{url('student/newsfeed')}}" style="text-transform:uppercase;">--}}
+                            {{--@if(Auth::user()->id)--}}
+                                {{--{{Auth::user()->name}}--}}
+                            {{--@endif--}}
+                        {{--</a>--}}
+                    {{--</td>--}}
+                {{--</tr>--}}
+>>>>>>> 14371dbd7f72b2ed2a4dbba5bda0eca5a1fc2ea4
                 <tr>
                     <td>
                         <a class="link" href="{{ route('teacher.index') }}"><span class="glyphicon glyphicon-play" style="color: #2c3e50;">&nbsp;</span>New Feed</a>

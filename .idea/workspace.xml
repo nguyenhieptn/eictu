@@ -9,8 +9,19 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eictu/resources/views/Teacher/list.blade.php" afterPath="$PROJECT_DIR$/eictu/resources/views/Teacher/list.blade.php" />
 =======
     <list default="true" id="0ef06d8a-2426-4672-a780-b2aa5ba481e0" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/eictu/routes/chatguest.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+<<<<<<< HEAD
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eictu/app/Http/Controllers/ChatGuestController" afterPath="$PROJECT_DIR$/eictu/app/Http/Controllers/ChatGuestController" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eictu/resources/views/chat/classroom.blade.php" afterPath="$PROJECT_DIR$/eictu/resources/views/chat/classroom.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eictu/resources/views/findjob/detail.blade.php" afterPath="$PROJECT_DIR$/eictu/resources/views/findjob/detail.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eictu/resources/views/teacher/master.blade.php" afterPath="$PROJECT_DIR$/eictu/resources/views/teacher/master.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eictu/routes/chat.php" afterPath="$PROJECT_DIR$/eictu/routes/chat.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/eictu/resources/views/chat_guest/guest.blade.php" afterPath="$PROJECT_DIR$/eictu/resources/views/chatguest/guest.blade.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/eictu/resources/views/chat_guest/guestroom.blade.php" afterPath="$PROJECT_DIR$/eictu/resources/views/chatguest/guestroom.blade.php" />
+=======
 >>>>>>> b85ea27ae0767ef1ee888e98e8a3177e28f0e741
+>>>>>>> d9b8da828a13e5d79c3e44da7b52c6cf65beb0d3
     </list>
     <ignored path="eictu.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,6 +42,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
+      <file leaf-file-name="ChatGuestController" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/eictu/app/Http/Controllers/ChatGuestController">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="15" column="36" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+=======
 <<<<<<< HEAD
       <file leaf-file-name="index2.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/eictu/resources/views/schools/index2.blade.php">
@@ -54,11 +72,19 @@
             <state relative-caret-position="518">
               <caret line="325" column="5" selection-start-line="325" selection-start-column="5" selection-end-line="325" selection-end-column="5" />
 >>>>>>> b85ea27ae0767ef1ee888e98e8a3177e28f0e741
+>>>>>>> d9b8da828a13e5d79c3e44da7b52c6cf65beb0d3
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="friend.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/eictu/resources/views/chat/friend.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="30" column="31" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="31" />
+=======
 <<<<<<< HEAD
       <file leaf-file-name="add.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/eictu/resources/views/Teacher/add.blade.php">
@@ -72,11 +98,16 @@
             <state relative-caret-position="518">
               <caret line="338" column="0" selection-start-line="338" selection-start-column="0" selection-end-line="338" selection-end-column="0" />
 >>>>>>> b85ea27ae0767ef1ee888e98e8a3177e28f0e741
+>>>>>>> d9b8da828a13e5d79c3e44da7b52c6cf65beb0d3
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="guest.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/eictu/resources/views/chatguest/guest.blade.php">
+=======
 <<<<<<< HEAD
       <file leaf-file-name="list.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/eictu/resources/views/Teacher/list.blade.php">
@@ -84,25 +115,41 @@
       <file leaf-file-name="classlist.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/eictu/resources/views/chat/classlist.blade.php">
 >>>>>>> b85ea27ae0767ef1ee888e98e8a3177e28f0e741
+>>>>>>> d9b8da828a13e5d79c3e44da7b52c6cf65beb0d3
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+            <state relative-caret-position="136">
+              <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
 <<<<<<< HEAD
+      <file leaf-file-name="ClassesController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/eictu/app/Http/Controllers/ClassesController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-493">
+              <caret line="150" column="12" selection-start-line="150" selection-start-column="12" selection-end-line="150" selection-end-column="12" />
+=======
+<<<<<<< HEAD
       <file leaf-file-name="student_app.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/eictu/resources/views/layouts/student_app.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> d9b8da828a13e5d79c3e44da7b52c6cf65beb0d3
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="ChatController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/eictu/app/Http/Controllers/ChatController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+=======
       <file leaf-file-name="school_app.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/eictu/resources/views/layouts/school_app.blade.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -155,6 +202,7 @@
             <state relative-caret-position="246">
               <caret line="66" column="38" selection-start-line="66" selection-start-column="38" selection-end-line="66" selection-end-column="38" />
 >>>>>>> b85ea27ae0767ef1ee888e98e8a3177e28f0e741
+>>>>>>> d9b8da828a13e5d79c3e44da7b52c6cf65beb0d3
               <folding />
             </state>
           </provider>
@@ -202,17 +250,23 @@
         <option value="$PROJECT_DIR$/eictu/app/Http/Controllers/RentHouseController.php" />
         <option value="$PROJECT_DIR$/eictu/resources/views/chat/guest.blade.php" />
         <option value="$PROJECT_DIR$/eictu/resources/views/chat_guest/guest.blade.php" />
-        <option value="$PROJECT_DIR$/eictu/app/Http/Controllers/ChatGuestController" />
-        <option value="$PROJECT_DIR$/eictu/routes/chat.php" />
         <option value="$PROJECT_DIR$/eictu/resources/views/chat/friend.blade.php" />
-        <option value="$PROJECT_DIR$/eictu/resources/views/findjob/detail.blade.php" />
         <option value="$PROJECT_DIR$/eictu/public/css/chat.css" />
         <option value="$PROJECT_DIR$/eictu/resources/views/chat_guest/guestroom.blade.php" />
         <option value="$PROJECT_DIR$/eictu/resources/views/chat/friendroom.blade.php" />
-        <option value="$PROJECT_DIR$/eictu/resources/views/chat/classroom.blade.php" />
         <option value="$PROJECT_DIR$/eictu/resources/views/chat/classlist.blade.php" />
         <option value="$PROJECT_DIR$/eictu/app/Http/Controllers/ChatController.php" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/eictu/resources/views/Teacher/master.blade.php" />
+        <option value="$PROJECT_DIR$/eictu/resources/views/chat/classroom.blade.php" />
+        <option value="$PROJECT_DIR$/eictu/resources/views/findjob/detail.blade.php" />
+        <option value="$PROJECT_DIR$/eictu/routes/chat.php" />
+        <option value="$PROJECT_DIR$/eictu/routes/chatguest.php" />
+        <option value="$PROJECT_DIR$/eictu/app/Http/Controllers/ChatGuestController" />
+        <option value="$PROJECT_DIR$/eictu/resources/views/chatguest/guest.blade.php" />
+=======
 >>>>>>> b85ea27ae0767ef1ee888e98e8a3177e28f0e741
+>>>>>>> d9b8da828a13e5d79c3e44da7b52c6cf65beb0d3
       </list>
     </option>
   </component>
@@ -224,10 +278,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="17" />
-    <option name="y" value="30" />
-    <option name="width" value="1320" />
-    <option name="height" value="738" />
+    <option name="x" value="-8" />
+    <option name="y" value="22" />
+    <option name="width" value="1382" />
+    <option name="height" value="754" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -368,6 +422,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eictu" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eictu" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eictu" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Teacher" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -534,7 +614,33 @@
               <option name="myItemType" value="" />
 =======
             <PATH_ELEMENT>
-              <option name="myItemId" value="chat_guest" />
+              <option name="myItemId" value="classes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eictu" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eictu" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eictu" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chatguest" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
 >>>>>>> b85ea27ae0767ef1ee888e98e8a3177e28f0e741
             </PATH_ELEMENT>
@@ -1342,12 +1448,19 @@
 =======
       <updated>1475234649931</updated>
       <workItem from="1475276505636" duration="18000" />
+<<<<<<< HEAD
+      <workItem from="1475284709660" duration="6869000" />
+=======
       <workItem from="1475284709660" duration="3621000" />
 >>>>>>> b85ea27ae0767ef1ee888e98e8a3177e28f0e741
+>>>>>>> d9b8da828a13e5d79c3e44da7b52c6cf65beb0d3
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="6887000" />
+=======
 <<<<<<< HEAD
     <option name="totallyTimeSpent" value="35688000" />
   </component>
@@ -1358,19 +1471,25 @@
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2647504" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
 =======
     <option name="totallyTimeSpent" value="3639000" />
+>>>>>>> d9b8da828a13e5d79c3e44da7b52c6cf65beb0d3
   </component>
   <component name="ToolWindowManager">
-    <frame x="17" y="30" width="1320" height="738" extended-state="0" />
-    <editor active="false" />
+    <frame x="-8" y="22" width="1382" height="754" extended-state="6" />
+    <editor active="true" />
     <layout>
+<<<<<<< HEAD
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24583964" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+=======
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2579365" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
 >>>>>>> b85ea27ae0767ef1ee888e98e8a3177e28f0e741
+>>>>>>> d9b8da828a13e5d79c3e44da7b52c6cf65beb0d3
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32838285" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279743" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1380,7 +1499,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1849,45 +1967,73 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/eictu/resources/views/chatguest/guestroom.blade.php">
+=======
     <entry file="file://$PROJECT_DIR$/eictu/public/index.php">
 =======
     <entry file="file://$PROJECT_DIR$/eictu/resources/views/students/studentHomepage.blade.php">
+>>>>>>> d9b8da828a13e5d79c3e44da7b52c6cf65beb0d3
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-612">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="3077">
+          <caret line="181" column="5" selection-start-line="181" selection-start-column="5" selection-end-line="181" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eictu/resources/views/findjob/detail.blade.php">
+    <entry file="file://$PROJECT_DIR$/eictu/resources/views/chat/friendroom.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="34" column="59" selection-start-line="34" selection-start-column="59" selection-end-line="34" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eictu/routes/chat.php">
->>>>>>> b85ea27ae0767ef1ee888e98e8a3177e28f0e741
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="29" />
+        <state relative-caret-position="518">
+          <caret line="325" column="5" selection-start-line="325" selection-start-column="5" selection-end-line="325" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
 <<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/eictu/resources/views/schools/index2.blade.php">
+    <entry file="file://$PROJECT_DIR$/eictu/resources/views/Teacher/master.blade.php">
 =======
-    <entry file="file://$PROJECT_DIR$/eictu/public/css/chat.css">
+    <entry file="file://$PROJECT_DIR$/eictu/routes/chat.php">
 >>>>>>> b85ea27ae0767ef1ee888e98e8a3177e28f0e741
+>>>>>>> d9b8da828a13e5d79c3e44da7b52c6cf65beb0d3
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="177" column="1" selection-start-line="177" selection-start-column="1" selection-end-line="177" selection-end-column="1" />
+        <state relative-caret-position="400">
+          <caret line="163" column="25" selection-start-line="149" selection-start-column="20" selection-end-line="163" selection-end-column="25" />
+          <folding>
+            <marker date="1475289615240" expanded="false" signature="5872:5897" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eictu/resources/views/classes/classmatersbirthday.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-469">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/eictu/resources/views/students/studentHomepage.blade.php">
+=======
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/eictu/resources/views/schools/index2.blade.php">
+=======
+    <entry file="file://$PROJECT_DIR$/eictu/public/css/chat.css">
+>>>>>>> b85ea27ae0767ef1ee888e98e8a3177e28f0e741
+>>>>>>> d9b8da828a13e5d79c3e44da7b52c6cf65beb0d3
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="26" column="94" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="94" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/eictu/routes/chat.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+=======
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/eictu/resources/views/layouts/school2_app.blade.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1899,10 +2045,17 @@
         <state relative-caret-position="187">
           <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
 >>>>>>> b85ea27ae0767ef1ee888e98e8a3177e28f0e741
+>>>>>>> d9b8da828a13e5d79c3e44da7b52c6cf65beb0d3
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/eictu/public/css/chat.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="874">
+          <caret line="171" column="1" selection-start-line="171" selection-start-column="1" selection-end-line="171" selection-end-column="1" />
+=======
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/eictu/public/quanlytruong/css/eICTuHomePage.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -1914,10 +2067,17 @@
         <state relative-caret-position="3077">
           <caret line="181" column="5" selection-start-line="181" selection-start-column="5" selection-end-line="181" selection-end-column="5" />
 >>>>>>> b85ea27ae0767ef1ee888e98e8a3177e28f0e741
+>>>>>>> d9b8da828a13e5d79c3e44da7b52c6cf65beb0d3
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/eictu/routes/chatguest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+=======
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/eictu/resources/views/layouts/student_app.blade.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1929,10 +2089,17 @@
         <state relative-caret-position="153">
           <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
 >>>>>>> b85ea27ae0767ef1ee888e98e8a3177e28f0e741
+>>>>>>> d9b8da828a13e5d79c3e44da7b52c6cf65beb0d3
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/eictu/routes/classes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
+=======
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/eictu/resources/views/layouts/school_app.blade.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1944,10 +2111,17 @@
         <state relative-caret-position="306">
           <caret line="39" column="39" selection-start-line="39" selection-start-column="39" selection-end-line="39" selection-end-column="56" />
 >>>>>>> b85ea27ae0767ef1ee888e98e8a3177e28f0e741
+>>>>>>> d9b8da828a13e5d79c3e44da7b52c6cf65beb0d3
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/eictu/resources/views/findjob/detail.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="35" column="103" selection-start-line="35" selection-start-column="103" selection-end-line="35" selection-end-column="103" />
+=======
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/eictu/app/Http/Controllers/SchoolController.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1959,6 +2133,7 @@
         <state relative-caret-position="518">
           <caret line="325" column="5" selection-start-line="325" selection-start-column="5" selection-end-line="325" selection-end-column="5" />
 >>>>>>> b85ea27ae0767ef1ee888e98e8a3177e28f0e741
+>>>>>>> d9b8da828a13e5d79c3e44da7b52c6cf65beb0d3
           <folding />
         </state>
       </provider>
@@ -1969,8 +2144,8 @@
     <entry file="file://$PROJECT_DIR$/eictu/resources/views/chat/classroom.blade.php">
 >>>>>>> b85ea27ae0767ef1ee888e98e8a3177e28f0e741
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="338" column="0" selection-start-line="338" selection-start-column="0" selection-end-line="338" selection-end-column="0" />
+        <state relative-caret-position="1097">
+          <caret line="180" column="0" selection-start-line="180" selection-start-column="0" selection-end-line="180" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1998,9 +2173,46 @@
 =======
     <entry file="file://$PROJECT_DIR$/eictu/app/Http/Controllers/ChatController.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="221">
+          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eictu/app/Http/Controllers/ClassesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-493">
+          <caret line="150" column="12" selection-start-line="150" selection-start-column="12" selection-end-line="150" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eictu/app/Http/Controllers/ChatGuestController">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="15" column="36" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eictu/resources/views/chat/friend.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="30" column="31" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eictu/resources/views/chatguest/guest.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+=======
         <state relative-caret-position="246">
           <caret line="66" column="38" selection-start-line="66" selection-start-column="38" selection-end-line="66" selection-end-column="38" />
 >>>>>>> b85ea27ae0767ef1ee888e98e8a3177e28f0e741
+>>>>>>> d9b8da828a13e5d79c3e44da7b52c6cf65beb0d3
           <folding />
         </state>
       </provider>

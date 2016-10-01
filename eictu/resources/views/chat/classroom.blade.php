@@ -178,7 +178,7 @@
                                     mg.setAttribute('id', 'mg');
 
                                     mg.innerHTML = ' ' + data[x].message;
-                                    alert(data[x].name);
+
                                     var time1 = document.createElement('div');
                                     time1.setAttribute('id', 'time1');
 
