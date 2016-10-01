@@ -16,7 +16,8 @@ class CreateNewsfeedTable extends Migration
         Schema::create('newsfeed', function ($table) {
             $table->increments('id');
             $table->integer('student_id');
-            $table->string('content');
+            $table->text('content');
+            $table->integer('type')->nullable();
             $table->timestamp('time');
         });
     }

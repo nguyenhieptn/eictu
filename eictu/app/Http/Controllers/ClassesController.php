@@ -70,13 +70,20 @@ class ClassesController extends Controller
                     ->get()->first();
 				$sid = $data123->id;
 			
-				$_st=  DB::table('students')->select('students.code as studentcode','students.name as studentname', 'birthday','gender','majors.code as major_code')
+				$_students =  DB::table('students')->select('students.code as studentcode',
+				'students.name as studentname', 'birthday','gender','majors.code as major_code')
 				->leftjoin('majors', 'major_id', '=', 'majors.id')
-				->where('class_id', '=', null)->get()->first();
+				->where('class_id', '=', null)
+				->where('school_id','=',$sid)
+				->orderBy('students.code', 'asc')
+				->paginate(20);
+				$_page = null;
+				$_page = Input::get('page');	
+				if($_page !=null && count($_page)>0)$_page = ($_page-1)*20;
 				
 				$_class= DB::table('classes')->select('name','id')->where('id', '=', $classid)->get()->first();			
 				
-				return view('classes.studentjoinclass',['_class'=>$_class,'_st'=>$_st,'_schoolid'=>$sid]);
+				return view('classes.studentjoinclass',['_class'=>$_class,'_students'=>$_students,'_schoolid'=>$sid,'_page'=>$_page]);
 			}else{
 				return "Who are you?";
 			}
@@ -119,10 +126,27 @@ class ClassesController extends Controller
 	
 	function studentjoinclass($classid)
 	{				
-		$_code=Input::get('_code');
-		DB::table('students')->where('code', $_code)->update(['class_id' => $classid]);
+		if(!Auth::guest())
+		{
+			if(Auth::user()->type==1)
+			{
+				$arrCode = Input::get('arrCode');
+				foreach($arrCode as $code)
+				{
+					DB::table('students')->where('code', $code)->update(['class_id' => $classid]);
+				}
+				
+				return redirect()->back();
+			}else{
+				return "Who are you?";
+			}
+		}else{
+			return redirect('schools/login');
+		}
+		
+		
 			
-		return "sd";
+		
 		
 	}		
 		

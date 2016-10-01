@@ -11,12 +11,25 @@ eICTuStudentGoodsDetail - Chi tiết về bản tin đồ cũ
              <li style="float:left; padding:0px 10px 0px 10px; "><img  @if($student->avatar!=null) src="{{$student->avatar}}" @else src="{{url('img/avatar_null.png')}}" @endif height="50px" width="50px"/></li>
              <li style="float:left;">
                <ul type="none" style="padding:0px;">
-                 <li> <strong style="color: #000000; font-size: 18px">{{$student->name}}</strong></li>
+                 <li> <strong style="color: #000000; font-size: 18px">{{$student->name}}</strong> </li>
                  <li style="color: #2e3436; font-size:14px;">
                     <span> @if ($student->gender==1) Nam @else Nữ @endif</span>
                     <span>, đang ở @if($address!=null){{$address}}@else không xác định @endif</span>
                  </li>
                </ul>
+             </li>
+             <li class="pull-right date-post">
+                 <p>
+                    @if(date('d-m-Y',strtotime($have->created_at)) == date("d-m-Y",time()))
+                      {{date('H:i',strtotime($have->created_at))}}
+                    @elseif(date('d-m-Y',strtotime($have->created_at)) ==(date("d-m-Y",time()-86400)))
+                      Hôm qua
+                    @elseif(date('d-m-Y',strtotime($have->created_at)) ==(date("d-m-Y",time()-2*86400)))
+                      Hôm kia
+                    @else
+                      {{date('d-m-Y',strtotime($have->created_at))}}
+                  @endif
+                  </p>
              </li>
              <li style="clear:left; padding-top: 8px"> <p style="color: #000000; font-size: 18px">{{$have->content}}</p></li>
            </ul>

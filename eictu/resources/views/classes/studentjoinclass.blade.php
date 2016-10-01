@@ -1,185 +1,118 @@
-@extends('layouts.app')		
+@extends('layouts.school_app')
+<link rel="stylesheet" type="text/css" 
+			href="{!! url('classes_src/css/bootstrap.min.css')!!}">	
 		
-		<link rel="stylesheet" type="text/css" 
-			href="{!! url('classes_src/css/bootstrap.min.css')!!}">
-			
 		<link rel="stylesheet" type="text/css" 
 			href="{!! url('classes_src/css/classes.css')!!}">	
 			
 		<script src="{!! url('classes_src/js/jquery.min.js')!!}">
 		</script>
-		
 		<script src="{!! url('classes_src/js/classes.js')!!}"></script>
-	
-		@section('title')
-			Quản lý lớp học - Trang phân lớp cho sinh viên
-		@endsection		
-
-	
+		<style>
+			.htsvpl:hover{
+				color:red;
+				text-decoration: underline;
+				cursor: pointer;
+				}
+		</style>
+@section('title')
+    Lớp Học - Thêm sinh viên vào lớp học
+@endsection
 @section('content')
-<div class="container">
-<script language="javascript">
-$(document).ready(function(){
-	loadtable('');		
-});
-function loadtable(_page)
-{
-	var rowperpage=10;
-	
-	var _url="{{ route('classes.waitingstudentlist',$_class->id)}}";
-	var sid = '{{$_schoolid}}';
-	if( _page!=="") _url=_url+"?page="+_page;
-	var token = $('#tokenid').val();
-	$.ajax({
-		url : _url,
-		type : 'get',
-		dataType : 'json',
-		data:{'_token':token,'rowperpage':rowperpage,'schoolid':sid},
-		success : function (data){  
-			var html = '';
-			html += '<table class="table" id="table_dssv1">';	
-			
-			html +='<tr>';
-			html +='<td align="left" class="col-md-1" colspan="12" >';
-			html +='Nhấn vào tên sinh viên để thêm vào lớp {{ $_class->name }}';
-			html +='</td>';
-			html +='</tr>';			
-			html +=  '<tr>';
-			html +=  '<th>';
-			html +=  "STT";
-			html +=  '</th>';
-			html +=  '<th>';
-			html +=  "Mã ngành";
-			html +=  '</th>';
-			html +=  '<th>';
-			html +=  "Họ tên";
-			html +=  '</th>';
-			html +=  '<th>';
-			html +=  "Giới tính";
-			html +=  '</th>';
-			html +=  '<th >';
-			html += 'Ngày sinh';
-			html +=  '</th>';
-			html +=  '</tr>';
-				
-			var i=0;
-			if( _page!=="")i= (parseInt(_page)-1)*rowperpage;
-			$(data['result']).each (function (key, item){
-				i++;
-				html +=  '<tr>';
-				html +=  '<td>';
-				html +=  i;
-				html +=  '</td>';
-				html +=  '<td>';
-				html +=  item['major_code'];
-				html +=  '</td>';
-				html +=  '<td><span value="';
-				html +=  item['studentcode'];
-				html +='" class="htsvpl" title="Thêm sinh viên vào lớp">';
-				html +=  item['studentname'];
-				html +=  '</span></td>';
-				html +=  '<td>';
-				if(item['gender']=="0")
-					html +=  "Nữ";
-				else
-					html +=  "Nam";
-				html +=  '</td>';
-				html +=  '<td >';
-				var d=item['birthday'].split("-");							
-				html +=  d[2]+"/"+d[1]+"/"+d[0];
-				html +=  '</td>';
-				html +=  '</tr>';
-			});			 
-			html +=  '</table>';
-			 
-			$('#table_dssv1').html(html);
-			//alert(data['pagination']);
-			$('#pagination').html(data['pagination']);
-		}
-	});
-}
-        </script>
-<script>
-$(document).on('click', '.pagination a', function (event) {
-	
-    event.preventDefault();
-    if ( $(this).attr('href') != '#' ) {
-        $("html, body").animate({ scrollTop: 0 }, "fast");
-		loadtable($(this).text() );
-    }
-});
+    <div >
+        <div class="row">
+            
+                <div class="panel panel-default">
+<div class="panel-heading">
+						<strong>Danh sách Sinh viên trúng tuyển chưa phân lớp.</strong>
+			</div>
+                    <div class="panel-body">
+                       <form method="post" 
+					   action="{{ route('classes.studentjoinclass',$_class->id)}}"
+					   >
+					   <input id = "tokenid" type=hidden name=_token value={{csrf_token()}} />	
+                        Nhấn vào tên sinh viên để thêm vào lớp {{ $_class->name }}<br/><br/>
+                        <table class="table">
+						
+                            <tr>
+                               <th>STT</th>
+                                <th>Mã ngành</th>
+								 <th>Họ tên</th>
+								 <th></th>
+								 <th>Giới tính</th>
+								 <th>Ngày sinh</th>
+                            </tr>
+
+            @if (count($_students) === 0 )
+				<tr>
+					<td align="left">
+						Chưa có sinh viên
+					</td>
+				</tr>
+			@else
+				@foreach ($_students as $_student)						
+					<tr>
+						<td>
+							@if(isset($_page) && count($_page>0))							
+								{{ $loop->iteration + $_page }}
+							@else								
+								{{ $loop->iteration }}
+							@endif
+						</td>
+						<td >
+							{{ $_student->major_code }}
+						</td>
+						<td>
+							<span class="htsvpl" value="{{ $_student->studentcode }}">
+								{{ $_student->studentname }}
+							</span>
+						</td>	
+						<td id="{{ $_student->studentcode }}"></td>
+						<td >
+							@if ($_student->gender == "1" )
+								Nam
+							@else
+								Nữ
+							@endif
+						</td>		
+						<td>							
+							{{ explode("-",$_student->birthday)[2]."/".explode("-", $_student->birthday)[1]."/".explode("-", $_student->birthday)[0] }}							
+							
+
+						</td>						
+					</tr>
+				@endforeach
+			@endif			
+					
+		</table>
+		@if (count($_students) >0 )
+			{{ $_students->links() }}<br>
+		@endif
+		<a class="btn btn-primary" href="{{ 	route('classes.studentlist',$_class->id)}}" 
+					  >Hủy</a>
+		<input class="btn btn-primary" type="submit" value="Thêm mới" name="OK" />
+		</form>	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+
 $(document).on('click', '.htsvpl', function () {    
-	var token = $('#tokenid');
+	
 	var masv = $(this).attr("value");
 	//alert(masv);
-	var _token = token.val();
-	var url = "{{ route('classes.studentjoinclass',$_class->id)}}" ;
-	var _page ="";
-	if(typeof $(".pagination .active").html()!=='undefined')
-	{
-		var textp=$(".pagination .active").html();
-		var inp = textp.indexOf("<",5)
-		_page=textp.substring(6,inp);
-	}	
-	$object=$(this);
 	
-	$.post(url, {'_token': _token, '_code': masv }, function(res){
-		
-		$($object).parents('tr').remove();
-		loadtable(_page);			
-	});		
+	//var x = document.getElementsByName("fname")[0].value;
+	if(document.getElementById(masv).innerHTML.trim() =="")
+	{
+		document.getElementById(masv).innerHTML = "<input type='hidden' name='arrCode[]' value='"+masv+"'/>&#10004;";		
+	}else
+	{
+		document.getElementById(masv).innerHTML = "";
+	}
+    
 });
 </script>
-<div class="qllophoc_header">
-<!--
-	<header id="header" class="">
-		<div class="header-content">
-		<span class="title">
-			eICTUStudentJoinClass - Thêm sinh viên vào lớp học
-			@if(!Auth::guest())
-						<span class="pull-right">
-							<img src="{!! url('classes_src/images/logout.png')!!}" />
-							<a href="{{ route('classes.logout')}}">Logout</a>
-						</span>
-			@endif
-		</span>
-		</div>
-	</header>
-	-->
-<!--
-	<table class="table" >
-		<tr>
-			<td><span class="tieude">eICTUStudentJoinClass - Thêm sinh viên vào lớp học</span></td>
-			<td align="right"><img src="{!! url('quanlylophoc/images/logout.png')!!}" /><span class="tieude">Logout</span></td>
-		</tr>
-	</table>
--->
-
-</div>
-<div class="qllophoc_content">
-	 Danh sách sinh viên trúng tuyển chưa phân lớp.
-</div>
-	<input id = "tokenid" type=hidden name=_token value={{csrf_token()}} />	
-	<div class="dssv">	
-		<table class="table" id="table_dssv1">		
-		</table>
-		<div id="pagination">			
-		</div>		
-		<form method="get" action="{{ route('classes.studentlist',$_class->id)}}">
-			<center>
-				<button type=submit 
-					onclick="location.href='
-					{{ 	route('classes.studentlist',$_class->id)}}'" 
-					class="btn btn-success"
-				>
-					ĐÓNG
-				</button>
-			</center>			
-			
-		</form>
-   </div>
-</div>
-</div>
-@endsection			
-  
-   
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

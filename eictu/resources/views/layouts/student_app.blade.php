@@ -95,7 +95,13 @@
                 </div>
                 <div>
                     <ul class="list-group">
-                      <li class="list-group-item"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> <a href="{{url('student/newsfeed')}}">News Feed</a></li>
+                      <li class="list-group-item"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> 
+                      <a href="{{url('student/newsfeed')}}">News Feed</a></li>
+                      @if(count($classid)>0 && $classid !=null)
+                            <li class="list-group-item">
+                                    <a href="{{route('classes.classmatersbirthday', $classid )}}">Sinh nhật bạn cùng lớp</a>
+                            </li>
+                        @endif
                       <li class="list-group-item"><a href="{{route('iwant.status')}}">Tôi muốn- I Want</a> </li> 
                       <li class="list-group-item"><a href="{{url('/iHave')}}">Chợ đồ cũ</a></li> 
                       <li class="list-group-item"><a href="{{url('/findjob/index')}}">Tìm việc làm </a></li> 

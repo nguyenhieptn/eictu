@@ -41,6 +41,7 @@ class IWantController extends Controller
             $new = new NewsFeed();
             $new->student_id = $student->id;
             $new->content = $request->content;
+//             $new->type = 9;
             $new->save();
         }
       

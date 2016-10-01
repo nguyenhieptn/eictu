@@ -37,6 +37,7 @@ class IHaveController extends Controller
         $news = new NewsFeed();
         $news->content=$data['content'];
         $news->student_id=$data['student_id'];
+        $news->type=10;
         $news->save();
 
         return redirect("iHave");
