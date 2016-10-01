@@ -88,12 +88,7 @@
             <link rel="stylesheet" type="text/css" href="{!! url('quanlytruong/css/eICTuHomePage.css')!!}">
             <div>
                 <ul class="list-group">
-                       @if(Auth::user()->id)
-                <?php 
-                     if (isset(Auth::user()->id)) {
-                       $avatar = DB::table('teacher')->where('code',Auth::user()->username )->first();
-                    }
-                 ?>
+                       
                     <li class="list-group-item" style="background:scroll; text-transform: uppercase;"> {{Auth::user()->name}}<br/>  <a href="{{route('teacher.avatar')}}" title=""><img class="image" src="{!!asset('/upload/avatar/'.$avatar->avatar)!!}"></a><a class="" href="">Giáo Viên</a> </li>
                 @endif
                     <li class="list-group-item"style="background:scroll;"><br/> <a class="link" href="">News Feed</a></li>
