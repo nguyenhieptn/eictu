@@ -1,7 +1,8 @@
 <?php
-    if (Auth::user()->type==3)
     $file="'layouts.student_app'";
-    elseif(Auth::user()->type==2)
+    if (auth()->check() && auth()->user()->type==3)
+    $file="'layouts.student_app'";
+    elseif(Auth::check() && Auth::user()->type==2)
     $file="'teacher.master'";
 ?>
     @extends({{$file}});
