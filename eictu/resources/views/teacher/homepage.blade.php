@@ -59,11 +59,11 @@ function time_elapsed_string($datetime, $full = false) {
        <div class="row boot">
        <?php 
             $students = DB::table('students')->where('id', $item->student_id)->first();
-             echo $students->0;
+             
            ?>
           
           <div class="col-lg-2">
-            
+            <h4>{{$item->time}}</h4>
           </div>
           <div class="col-lg-10 ">
           
