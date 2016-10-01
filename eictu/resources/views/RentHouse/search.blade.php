@@ -1,7 +1,7 @@
 @if(Auth::check() && Auth::user()->type==3)
-@extends('layouts.student_app')
-@elseif(Auth::check() && Auth::user()->type==2)
 @extends('teacher.master')
+@elseif(Auth::check() && Auth::user()->type==2)
+@extends('layouts.student_app')
 @endif
 
 @section('title')
