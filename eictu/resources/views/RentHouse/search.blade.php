@@ -1,9 +1,10 @@
-@if (Auth::user()->type==3)
-  @extends('layouts.student_app');
-  @elseif(Auth::user()->type==2)
-  @extends('teacher.master');
-  @endif
-
+<?php
+    if (Auth::user()->type==3)
+    $file='layouts.student_app';
+    elseif(Auth::user()->type==2)
+    $file='teacher.master';
+    @extends($file);
+?>
 
 @section('title')
 eICTuStudentRentHouseSearch - Tra cứu địa chỉ nhà trọ của Sinh viên
