@@ -1,11 +1,11 @@
 <?php
-    $file="'layouts.student_app'";
+    $file='layouts.student_app';
     if (auth()->check() && auth()->user()->type==3)
-    $file="'layouts.student_app'";
+    $file='layouts.student_app';
     elseif(Auth::check() && Auth::user()->type==2)
-    $file="'teacher.master'";
+    $file='teacher.master';
 ?>
-    @extends({{$file}});
+    @extends($file);
 
 @section('title')
 eICTuStudentRentHouseSearch - Tra cứu địa chỉ nhà trọ của Sinh viên
