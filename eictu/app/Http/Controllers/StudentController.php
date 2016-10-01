@@ -10,9 +10,11 @@ use App\Student;
 use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use File;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Schema;
 
 class StudentController extends Controller
@@ -127,35 +129,78 @@ class StudentController extends Controller
 
     public  function  profile()
     {
-        $data = School::select('*')->get();
+        $data = Student::select('*')
+            ->where('code', '=', Auth::user()->username)
+            ->get()->first();
         $majors= Major::select('*')->get();
         return view('students.profile',compact('data','majors'));
     }
 
     public function EditStudent(Request $request)
     {
-//        $data = array();
-//        $data['code']       = $request->input('Code');
-//        $data['name']       = $request->input('Name');
-//        $data['gender']     = $request->input('gender');
-//        $data['birthday']   = $request->input('birthday');
-//        $data['major_id']   = $request->input('Major_Id');
-//
-//        // lấy mã trường do quản trị viên quản lý
-//        $userid= Auth::user()->id;
-//        $school= School::where('user_id', $userid)->first();
-//        $data['school_id']  = $school->id;
-//
-//        $this->validate($request, [
-//            'Code'    => 'required',
-//            'Name'    => 'required'
-//        ]);
 
-        $imageName = '11.' . $request->file('image');
-        $request->file('image')->move(
-            base_path() . '/public/img/', $imageName
-        );
+        $this->validate($request, [
+            'Code'    => 'required',
+            'Name'    => 'required'
+        ]);
+        //update thông tin
+        Student::where('code', Auth::user()->username)
+            ->update(['name'=>$request->input('Name'),'gender' => $request->input('gender'),
+                'birthday' =>$request->input('birthday') ,'major_id' =>$request->input('Major_Id')]);
+        $content="Cập nhật thông tin cá nhân.";
+        if (Input::hasFile('image')) {
+            $extension = $request->file('image')->guessClientExtension();
+            $image_name = time().$extension.$request->file('image')->getClientOriginalName();
 
+            //update avatar
+            Student::where('code', Auth::user()->username)
+                ->update(['avatar' =>"/upload/avatar/".$image_name]);
+
+            Input::file('image')->move('upload/avatar/', $image_name);
+
+            $content="Cập nhật ảnh đại diện mới.";
+        }
+
+        $st = Student::select('*')
+            ->where('code', '=', Auth::user()->username)
+            ->get()->first();
+        $news = new NewsFeed();
+        $news->student_id   =$st->id;
+        $news->content      =$content;
+        $news->type         =3;
+        $news->save();
+        return redirect('student/newsfeed');
+    }
+
+    public function adding()
+    {
+        //  Schema::table('newsfeed', function ($table) {
+        //         $table->integer('type')->nullable();
+        //     });
+
+        //   $columns1 = Schema::getColumnListing('newsfeed'); // users table
+
+        //     Schema::table('teacher', function ($table) {
+        //         $table->string('avatar')->nullable();
+        //      });
+
+        //   $columns2 = Schema::getColumnListing('teacher'); // users table
+
+        //       DB::statement('ALTER TABLE newsfeed MODIFY COLUMN content text');
+//
+        Schema::table('students', function ($table) {
+            $table->text('address')->nullable();
+        });
+        $columns = Schema::getColumnListing('students'); // users table
+
+        dd($columns);
+        /*   $student = Student::select('*')->get();
+         foreach ($student as $st)
+         {
+             echo $st->code." | ";
+             echo $st->name." | ";
+             echo $st->avatar."|---------";
+         }*/
     }
 
     //add

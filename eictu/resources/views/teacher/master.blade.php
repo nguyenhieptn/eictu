@@ -30,7 +30,7 @@
                 -ms-border-radius: 4px;
                 -o-border-radius: 4px;
               }
-              img{
+          /*    img{
                 width: 100px;
                 height: 100px;
                 border-radius: 4px;
@@ -38,7 +38,7 @@
                 -webkit-border-radius: 4px;
                 -ms-border-radius: 4px;
                 -o-border-radius: 4px;
-              }
+              }*/
             </style>
     <style type="text/css" media="screen">
         /*.pagination ul li{
@@ -117,6 +117,7 @@
                     <li><a href="{{ url('/login') }}" style="font-size:15px">Đăng Nhập</a></li>
                 @else
                     <li class="dropdown">
+                    
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
@@ -148,35 +149,44 @@
             <table style="text-align: left">
                 <tr>
                     <td>
-                        <img src="{{url('img/gioithieu.png')}}"/>
-                        <a href="{{url('student/newsfeed')}}">ICTU</a>
+                    <?php 
+                    if (isset(Auth::user()->id)) {
+                       $avatar = DB::table('teacher')->where('code',Auth::user()->username )->first();
+                    }
+                     ?>
+                        <a href="{{route('teacher.avatar')}}" title=""><img src="{!!asset('/upload/avatar/'.$avatar->avatar)!!}" width="60px" height="60px" /></a>
+                        <a href="{{url('student/newsfeed')}}" style="text-transform:uppercase;">
+                            @if(Auth::user()->id)
+                                {{Auth::user()->name}}
+                            @endif
+                        </a>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <a class="link" href="{{ route('teacher.index') }}">New Feed</a>
+                        <a class="link" href="{{ route('teacher.index') }}"><span class="glyphicon glyphicon-play" style="color: #2c3e50;">&nbsp;</span>New Feed</a>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <a class="link" href="{{route('dormitory.getSearch')}}">Ký túc xá</a>
+                        <a class="link" href="{{route('dormitory.getSearch')}}"><span class="glyphicon glyphicon-play" style="color: #2c3e50;">&nbsp;</span>Ký túc xá</a>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <a class="link" href="{{url('rentHouse')}}">Nhà trọ sinh viên</a>
+                        <a class="link" href="{{url('rentHouse')}}"><span class="glyphicon glyphicon-play" style="color: #2c3e50;">&nbsp;</span>Nhà trọ sinh viên</a>
 
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <a class="link" href="{{url('/iHave')}}">Chợ đồ cũ</a>
+                        <a class="link" href="{{url('/iHave')}}"><span class="glyphicon glyphicon-play" style="color: #2c3e50;">&nbsp;</span>Chợ đồ cũ</a>
                     </td>
                 </tr>
 
                 <tr>
                     <td>
-                        <a class="link" href="{{url('/chat/classlist')}}">Message/CHAT</a>
+                        <a class="link" href="{{url('/chat/classlist')}}"><span class="glyphicon glyphicon-play" style="color: #2c3e50;">&nbsp;</span>Message/CHAT</a>
                     </td>
                 </tr>
             </table>

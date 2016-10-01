@@ -24,5 +24,15 @@
         "as"   => "teacher.login",
     ]);
 
+    Route::get('avatar', [
+        "uses" => "TeacherController@get_avatar",
+        "as"   => "teacher.avatar",
+    ]);
+    Route::post('avatar', [
+        "uses" => "TeacherController@change_avatar",
+        
+    ]);
+
+
 });
  ?>

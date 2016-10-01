@@ -1,0 +1,33 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+use Auth;
+
+use App\Http\Requests;
+
+class ChatGuestController extends Controller
+{
+    public function guest(Request $request)
+    {
+
+        $data = array();
+
+        $data['name'] = $request->input('name');
+
+        return view('chat.friend', ['data' => $data]);
+
+    }
+
+
+
+    public function page($slug)
+    {
+
+        return view('chat_guest/' . $slug, ['name' => $slug]);
+    }
+
+
+}
