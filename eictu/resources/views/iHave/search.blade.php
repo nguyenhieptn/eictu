@@ -92,7 +92,6 @@ $(function () {
             </ul>
           </a></li>
         @endforeach
-
       </ul>
       <center><span style="padding-bottom: 20px" id="loadMore">Load More</span></center>
     </div>
