@@ -2,7 +2,7 @@
 @if(auth()->user()->type==3)
 @extends('layouts.student_app')
 @elseif(auth()->user()->type==2)
-@extends('Teacher.master')
+@extends('teacher.master')
 @endif
 @endif
 @section('title')
