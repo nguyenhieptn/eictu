@@ -17,23 +17,62 @@
     @endif  
     	
   </div>
+<?php 
+function time_elapsed_string($datetime, $full = false) {
+    $now = new DateTime;
+    $ago = new DateTime($datetime);
+    $diff = $now->diff($ago);
 
+    $diff->w = floor($diff->d / 7);
+    $diff->d -= $diff->w * 7;
+
+    $string = array(
+        'y' => 'year',
+        'm' => 'month',
+        'w' => 'week',
+        'd' => 'day',
+        'h' => 'hour',
+        'i' => 'minute',
+        's' => 'second',
+    );
+    foreach ($string as $k => &$v) {
+        if ($diff->$k) {
+            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+        } else {
+            unset($string[$k]);
+        }
+    }
+
+    if (!$full) $string = array_slice($string, 0, 1);
+    return $string ? implode(', ', $string) . ' ago' : 'just now';
+}
+?>
   <div class="row">
-    <div class="col-xs-10">
+    <div class="col-xs-8">
       <?php 
-      $teacher = DB::table('teacher')->select('name')->where('code', Auth::user()->username)->first();
+      $feed = DB::table('newsfeed')->select('*')->get();
+
+
      ?>
-
-       
-     @if( $teacher)
-      <h2>Giảng viên :{{$teacher->name}}</h2>
-      <ul style="list-style: none; font-size: 20px;">
-      <li><span class="glyphicon glyphicon-play" style="color: #2c3e50;">&nbsp;</span><a href="{{route('dormitory.getSearch')}}" title="" >Nơi ở của sinh viên trong KTX</a></li>
-      <li><span class="glyphicon glyphicon-play" style="color: #2c3e50;">&nbsp; </span><a href="{{url('rentHouse')}}" title="" >Nơi ở của sinh ngoài phòng trọ</a></li>
-      <li><span class="glyphicon glyphicon-play" style="color: #2c3e50;">&nbsp;</span><a href="{{url('/chat/classlist')}}" title="" >Chat với lớp</a></li>
-    </ul>
-     @endif
-
+     @if(!empty($feed))
+       @foreach($feed as $item)
+       <div class="row boot">
+       <?php 
+            $students = DB::table('students')->where('id', $item->student_id)->first();
+           ?>
+          <div class="col-lg-2">
+            <img src="{!!asset('/upload/avatar/'.$students->avatar)!!}" class="img-rounded" height="100px" width="100px" alt="">
+            
+          </div>
+          <div class="col-lg-10 ">
+          
+            <h3><b style="color: black;">{!! $students->name !!}</b><span style="margin-left: 150px;">{!! time_elapsed_string($item->time)!!}</span></h3>
+             <p ><a style="color: black;" >{{$item->content}}</a></p>
+          </div>
+        </div>
+         
+       @endforeach
+      @endif
     
     </div>
     

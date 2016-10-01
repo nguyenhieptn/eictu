@@ -155,6 +155,7 @@
                     }
                      ?>
                         <a href="{{route('teacher.avatar')}}" title=""><img src="{!!asset('/upload/avatar/'.$avatar->avatar)!!}" width="60px" height="60px" /></a>
+                      
                         <a href="" style="text-transform:uppercase;">
                             @if(Auth::user()->id)
                                 {{Auth::user()->name}}
