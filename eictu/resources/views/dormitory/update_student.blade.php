@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.student_app')
 @section('css')
 <link rel="stylesheet" type="text/css" href="{!! url('dr/css/main.css')!!}">
 
