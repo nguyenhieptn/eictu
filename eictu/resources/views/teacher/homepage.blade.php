@@ -58,8 +58,8 @@ function time_elapsed_string($datetime, $full = false) {
        <div class="row boot">
        <?php 
             $students = DB::table('students')->where('id', $item->student_id)->first();
+            print_r($students);
            ?>
-          //xoa
           
         </div>
          
