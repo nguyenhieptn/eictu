@@ -58,8 +58,8 @@ function time_elapsed_string($datetime, $full = false) {
        @foreach($feed as $item)
        <div class="row boot">
        <?php 
-            $students = DB::table('students')->where('id', $item->student_id)->first();
-             echo $students->name;
+            $students = DB::table('students')->where('id', $item->student_id)->first()->toString();
+             echo $students['name'];
            ?>
           
           <div class="col-lg-2">
