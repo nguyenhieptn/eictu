@@ -97,7 +97,7 @@
                     <li class="list-group-item" style="background:scroll; text-transform: uppercase;"> {{Auth::user()->name}}<br/>  <a href="{{route('teacher.avatar')}}" title=""><img class="image" src="{!!asset('/upload/avatar/'.$avatar->avatar)!!}"></a><a class="" href="">Giáo Viên</a> </li>
                 @endif
                     <li class="list-group-item"style="background:scroll;"><br/> <a class="link" href="">News Feed</a></li>
-                    <li class="list-group-item"style="background:scroll;"><br/><a class="link" href="{{route('dormitory.getSearch')}}">Ký túc xá</a></li>
+                    <li class="list-group-item"style="background:scroll;"><br/><a class="link" href="{{url('dormitory/search')}}">Ký túc xá</a></li>
                     <li class="list-group-item" style="background:scroll;"><br/><a class="link" href="{{url('rentHouse')}}">Nhà trọ sinh viên</a></li>
                     <li class="list-group-item"style="background:scroll;"><br/>  <a class="link" href="{{url('iHave')}}">Chợ đồ cũ</a></li>
                     <li class="list-group-item"style="background:scroll;"><br/> <a class="link" href="{{url('findjob/index')}}">Message/CHAT</a></li>
