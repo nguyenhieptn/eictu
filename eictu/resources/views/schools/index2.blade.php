@@ -10,7 +10,7 @@
                 <div >
                     <div >
                         <?php
-                        $newsfeeds = \App\NewsFeed::where('type','7')->orwhere('type','3')->orderBy('time', 'DESC')->paginate(30);
+                        $newsfeeds = \App\NewsFeed::where('type','7')->orwhere('type','10')->orderBy('time', 'DESC')->paginate(30);
                         ?>
                         @forelse ( $newsfeeds as $newsfeed)
                             <div class="row" style="margin: 20px;">
@@ -25,7 +25,7 @@
                                 <div class="col-md-3">
                                     <img src="{{$student_avatar}}" width="150" height="150" >
                                 </div>
-                                <div class="col-md-7" style="padding-top:20px;">
+                                <div class="col-md-7" style="padding-top:20px; padding-left: 20px">
                                     <strong>{{$student_name}}</strong>
 
                                     <p style="word-wrap:break-word;">{{$newsfeed->content}}</p>
