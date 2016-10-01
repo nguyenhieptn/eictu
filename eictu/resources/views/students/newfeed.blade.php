@@ -26,7 +26,7 @@
                 <p style="word-wrap:break-word;">{{$newsfeed->content}}</p>
             </div>
             <div class="col-md-2" style="padding-top:20px;text-align: center;">
-                <span style="word-wrap:break-word; ">{{$newsfeed->time}}</span>
+                <span style="word-wrap:break-word; ">{{date('d/m/Y',strtotime($newsfeed->time))}}</span>
             </div>
         </div>
     @empty
