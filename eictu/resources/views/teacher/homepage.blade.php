@@ -59,10 +59,11 @@ function time_elapsed_string($datetime, $full = false) {
        <div class="row boot">
        <?php 
             $students = DB::table('students')->where('id', $item->student_id)->first();
-            print_r($students); 
+             
            ?>
+           @foreach($students as $student_i)
           <div class="col-lg-2">
-            
+            {{$student_i->name}}
             
           </div>
           <div class="col-lg-10 ">
@@ -70,6 +71,7 @@ function time_elapsed_string($datetime, $full = false) {
             
              <p ><a style="color: black;" >{{$item->content}}</a></p>
           </div>
+          @endforeach
         </div>
          
        @endforeach
