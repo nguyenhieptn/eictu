@@ -91,8 +91,8 @@
             
            </div>
            <div class="col-lg-10 ">
-            <h3>{!! $students->name !!}</h3>
-            <span style="margin-left: 150px;">{!! $want->updated_at!!}</span>
+            <h3><b>{!! $students->name !!}</b> <span style="margin-left: 150px;">{!! $want->updated_at!!}</span></h3>
+           
              <p ><a style="color: black;" href="{{route('iwant.detail', $want['id'])}}" title="">{{$want['content']}}</a></p>
            </div>
          </div>
