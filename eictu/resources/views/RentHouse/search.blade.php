@@ -1,7 +1,7 @@
 @if (Auth::user()->type==3)
-  @include('layouts.student_app');
+  @require('layouts.student_app');
   @elseif(Auth::user()->type==2)
-  @include('teacher.master');
+  @require('teacher.master');
   @endif
 
 
