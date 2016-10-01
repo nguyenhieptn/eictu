@@ -58,18 +58,14 @@ function time_elapsed_string($datetime, $full = false) {
        @foreach($feed as $item)
        <div class="row boot">
        <?php 
-            $students = DB::table('students')->where('id', $item->student_id)->get();
+            $st = DB::table('students')->where('id', $item->student_id)->first();
             
            ?>
           
           <div class="col-lg-2">
-               @foreach($students as $student)
-                {{$student->avatar}}
-               @endforeach
+                <img src="{!!asset('/upload/avatar/'.$st->avatar)!!}" height="100px" width="100px" />
             <h4>
-                @foreach($students as $student)
-                {{$student->name}}
-               @endforeach
+                {{$st->name}}
             {{$item->time}}</h4>
           </div>
           <div class="col-lg-10 ">

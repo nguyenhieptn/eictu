@@ -6,6 +6,12 @@
 @section('content')
     <div >
         <div class="row">
+<<<<<<< HEAD
+=======
+            <div >
+                <div >
+                    <div >
+>>>>>>> 23a1addb21d1b111611dcb7e6a94c5bc7a6bf52b
                         <?php
                         $newsfeeds = \App\NewsFeed::where('type','7')->orwhere('type','10')->orderBy('time', 'DESC')->paginate(30);
                         ?>
