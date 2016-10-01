@@ -1,16 +1,14 @@
-@extends('layouts.school_app')
-
+@extends('teacher.master')
 
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">Danh sách giáo viên</div>
                     <div class="panel-body">
-                    @if(Auth::user()->type == 1)
                         <h2><a href="{{ route('teacher.add') }}">THÊM GIÁO VIÊN VÀO TRƯỜNG</a></h2>
-                    @endif
+
                         
                         <table class="table">
                             <thead>
@@ -19,6 +17,8 @@
                                 <th>Mã giáo viên</th>
                                 <th>Họ tên giáo viên</th>
                                 <th>Ngành</th>
+                                <th>Giới tính</th>
+                                <th>Ngày sinh</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -35,6 +35,14 @@
                                         	 ?>
                                         	 {{$major_name->name}}
                                         </td>
+                                        <td>
+    	                                    @if($item_teacher->gender == 0)
+    	                                    	Nam
+    	                                    @else
+    	                                    	Nữ
+    	                                    @endif
+                                        </td>
+                                        <td>{{ date("d-m-Y",strtotime($item_teacher->birthday)) }}</td>
                                     </tr>
                                 @endforeach
                             @else
