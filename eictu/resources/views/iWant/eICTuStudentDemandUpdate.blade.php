@@ -87,7 +87,7 @@
             </style>
          <div class="row boot">
            <div class="col-lg-2">
-            <img src="$students->avatar" class="img-rounded" alt="">
+            <img src="{{$students->avatar}}" class="img-rounded" alt="">
             
            </div>
            <div class="col-lg-10 ">
