@@ -16,7 +16,7 @@
                     ->where('id','=',$newsfeed->student_id)
                     ->get()->first();
             $student_name=  $data1!=null? $data1->name : "Người nào đó";
-            $student_avatar=  $data1!=null? $data1->avatar : "/img/avatar.jpg";
+            $student_avatar= $data1== null ? $data1->avatar==null ? "/img/avatar.jpg" : $data1->avatar."" : "/img/avatar.jpg";
             ?>
             <div class="col-md-2">
                 <img src="{{$student_avatar}}" width="150" height="150">

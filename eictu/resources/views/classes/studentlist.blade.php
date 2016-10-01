@@ -1,21 +1,23 @@
 @extends('layouts.school_app')
 
 @section('title')
-    Lớp Học
+    Lớp Học - Sinh viên trong lớp
 @endsection
 @section('content')
     <div >
         <div class="row">
             
                 <div class="panel panel-default">
-
+					<div class="panel-heading">
+						 Danh sách sinh viên lớp <strong>{{ $_class->name }}</strong>
+					</div>
                     <div class="panel-body">
-                        <a class="btn btn-info" href="{{ route('classes.studentjoinclass',$_class->id)}}" >	   
+                        <a class="btn btn-primary" href="{{ route('classes.studentjoinclass',$_class->id)}}" >	   
 					THÊM SINH VIÊN VÀO LỚP
 				</a>
                         <br/>
                         <br/>
-                        Danh sách sinh viên lớp <strong>{{ $_class->name }}</strong>
+                       
                         <table class="table">
                             <tr>
                                <th>STT</th>

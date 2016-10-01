@@ -56,6 +56,7 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{url('findjob/total')}}">Quản lý Bài Đăng tìm việc</a></li>
                             <li>
                                 <a href="{{ url('/dormitory/logout') }}"
                                    onclick="event.preventDefault();
@@ -94,7 +95,13 @@
                 </div>
                 <div>
                     <ul class="list-group">
-                      <li class="list-group-item"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> <a href="{{url('student/newsfeed')}}">News Feed</a></li>
+                      <li class="list-group-item"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> 
+                      <a href="{{url('student/newsfeed')}}">News Feed</a></li>
+                      @if(count($classid)>0 && $classid !=null)
+                            <li class="list-group-item">
+                                    <a href="{{route('classes.classmatersbirthday', $classid )}}">Sinh nhật bạn cùng lớp</a>
+                            </li>
+                        @endif
                       <li class="list-group-item"><a href="{{route('iwant.status')}}">Tôi muốn- I Want</a> </li> 
                       <li class="list-group-item"><a href="{{url('/iHave')}}">Chợ đồ cũ</a></li> 
                       <li class="list-group-item"><a href="{{url('/findjob/index')}}">Tìm việc làm </a></li> 
@@ -107,7 +114,6 @@
                           <span class="caret"></span></button>
                           <ul class="dropdown-menu">
                             <li><a href="#">Upload Hình</a></li>
-                            <li><a href="{{url('findjob/total')}}">Quản lý Bài Đăng tìm việc</a></li>
                           </ul>
                       </li> 
                     </ul>
