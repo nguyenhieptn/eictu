@@ -1,4 +1,10 @@
+@if(auth()->check())
+@if(auth()->user()->type==3)
 @extends('layouts.student_app')
+@elseif(auth()->user()->type==2)
+@extends('Teacher.master')
+@endif
+@endif
 @section('title')
 eICTuStudentRentHouseHistory - Lịch sử nhà trọ
 @endsection
