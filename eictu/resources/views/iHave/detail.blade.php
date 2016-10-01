@@ -35,7 +35,7 @@ eICTuStudentGoodsDetail - Chi tiết về bản tin đồ cũ
            </ul>
          </div>
          <div class="panel" style="padding:0px 20px 20px 10px;">
-           <div style="margin-top: 30px;">
+           <div style="margin: 0px 20px 20px 20px;">
              <a class="btn btn-danger item navbar-left" href="{{ url('iHave') }}"><span class="glyphicon glyphicon-remove"></span>QUAY LẠI</a>
              @if(auth()->check())
                @if(auth()->user()->username!=$student->code)
