@@ -10,14 +10,10 @@ use App\Http\Requests;
 
 class ChatGuestController extends Controller
 {
-    public function guest(Request $request)
+    public function guest($student_id)
     {
 
-        $data = array();
-
-        $data['name'] = $request->input('name');
-
-        return view('chat.friend', ['data' => $data]);
+        return view('chatguest.guest', ['data' => $student_id]);
 
     }
 
@@ -26,7 +22,7 @@ class ChatGuestController extends Controller
     public function page($slug)
     {
 
-        return view('chat_guest/' . $slug, ['name' => $slug]);
+        return view('chatguest/' . $slug, ['name' => $slug]);
     }
 
 
