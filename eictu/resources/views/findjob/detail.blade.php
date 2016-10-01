@@ -35,10 +35,7 @@
                                     <div class="col-md-10">
                                           <form action="{{ url('chat_guest/guest') }}" method="post">
                                             <Button class="btn btn-danger"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
-                                                <?php
-                                                    $student_id = $detail->code;
-                                                    echo '<a href="guest?id=$student_id"> Sent Message </a>';
-                                                ?>
+                                                Sent Message
                                             </Button>
                                          </form>
                                     </div>
