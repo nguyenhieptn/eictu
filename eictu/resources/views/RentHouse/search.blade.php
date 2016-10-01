@@ -1,4 +1,4 @@
-@extends(@if(Auth::user()->type==3)'layouts.student_app' @elseif(Auth::user()->type==2)'teacher.master'@endif)
+@extends(Auth::user()->type==3)?layouts.student_app':'teacher.master'@endif)
 
 @section('title')
 eICTuStudentRentHouseSearch - Tra cứu địa chỉ nhà trọ của Sinh viên
