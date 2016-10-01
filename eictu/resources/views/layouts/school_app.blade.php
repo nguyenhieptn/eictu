@@ -17,49 +17,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     @yield('css')
     <style type="text/css" media="screen">
-        /*.pagination ul li{
-            padding: 3px 10px;
-            margin: 3px;
-            font-size: 20px;
-            background: #bdc3c7;
-        }*/
-        #Left  table{
-            margin: 20px;
-        }
-
-        #Left table img{
-            width: 30px;
-            height: auto;
-            float: left;
-            margin-left: 50px;
-        }
-        #Left table #topimg {
-            width: 50px;
-            float: left;
-            margin-bottom: 20px;
-        }
-        #Left table td{
-            padding: 5px 0;
-            font-weight: bold;
-        }
-        #Left table td a{
-            text-decoration: none;
-            color: black;
-        }
-        #Left table td a:hover{
-            color:#FF2C21 ;
-        }
-        #Left table td a:checked{
-            color:#FF2C21 ;
-        }
-        #Left table td span {
-            color: #BFCDE3;
-            font-weight: bold;
-        }
-        #toptext{
-            font-weight: bold;
-            font-size: 20px;
-        }
+        img{width: }
     </style>
     <script>
         window.Laravel = <?php echo json_encode([
@@ -117,54 +75,25 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
+<div class="container" style="margin-top:80px">
+    <div class="col-md-3 col-sm-3">
+        <div style="background-color: #ededed;">
+            <link rel="stylesheet" type="text/css" href="{!! url('quanlytruong/css/eICTuHomePage.css')!!}">
+            <div>
+                <ul class="list-group">
 
-<div class="container" style="margin-top: 100px;">
-    <div class="col-md-3" id="Left">
-        <div style="background-color: #ededed; position: fixed; height: 450px;">
-            <table style="text-align: left">
-                <tr>
-                    <td>
-                        <img src="{{url('img/gioithieu.png')}}"/>
-                        <a href="{{url('student/newsfeed')}}">Giới thiệu</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <img class="image" src="{{url('img/search.png')}}">
-                        <a class="link" href="{{ url('schools/eICTuMajorList') }}">Ngành Học</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <img class="image" src="{{url('img/lophoc.icon.png')}}">
-                        <a class="link" href="{{ url('schools/eICTuClassList') }}">Lớp Học</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <img class="image" src="{{url('img/lophoc.png')}}">
-                        <a class="link" href="{{ url('student') }}">Sinh Viên</a>
+                    <li class="list-group-item" style="background:scroll;"> <img class="image" src="{{url('img/gioithieu.png')}}"/> <a class="link" href="{{url('student/newsfeed')}}">Giới thiệu</a></li>
+                    <li class="list-group-item"style="background:scroll;"> <img class="image" src="{{url('img/search.png')}}"> <a class="link" href="{{ url('schools/eICTuMajorList') }}">Ngành Học</a></li>
+                    <li class="list-group-item"style="background:scroll;"> <img class="image" src="{{url('img/lophoc.icon.png')}}"><a class="link" href="{{ url('schools/eICTuClassList') }}">Lớp Học</a></li>
+                    <li class="list-group-item" style="background:scroll;"><img class="image" src="{{url('img/lophoc.png')}}"> <a class="link" href="{{ url('student') }}">Sinh Viên</a></li>
+                    <li class="list-group-item"style="background:scroll;"> <img class="image" src="{{url('img/giaovien.ico')}}"> <a class="link" href="{{route('teacher.list')}}">Giao Viên</a></li>
+                    <li class="list-group-item"style="background:scroll;">  <img class="image" src="{{url('img/hoso1.png')}}"><a class="link" href="{{route('teacher.list')}}">Hồ sơ trường</a></li>
 
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <img class="image" src="{{url('img/giaovien.ico')}}">
-                        <a class="link" href="{{route('teacher.list')}}">Giao Viên</a>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <img class="image" src="{{url('img/hoso1.png')}}">
-                        <a class="link" href="{{route('teacher.list')}}">Hồ sơ trường</a>
-                    </td>
-                </tr>
-            </table>
+                </ul>
+            </div>
         </div>
     </div>
-
-    <div class="col-md-9" >
+    <div class="col-md-9 col-sm-9">
         @yield('content')
     </div>
 </div>

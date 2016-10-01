@@ -13,6 +13,7 @@
     <link href="{{url("/css/app.css")}}" rel="stylesheet">
     <link href="{{url("/css/style.css")}}" rel="stylesheet">
     <link href="{{url("/css/chat.css")}}" rel="stylesheet">
+    <link href="{{url("/css/layout-2.css")}}" rel="stylesheet">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     @yield('css')
@@ -116,13 +117,67 @@
                 </div>
             </div>
         </div>
+        
          <div class="col-md-9 col-sm-9">
             @yield('content')
         </div>
         @else
-          <div class="col-md-12 col-sm-12">
-            @yield('content')
-        </div>
+            <div class="col-md-3 col-sm-3"  style="margin-top:-20px;padding:5px" >
+                <div style="background-color: #ededed;" id="Left">        
+                    <table style="text-align:left" >
+                    <tr>
+                        <td>Nếu Bạn là giáo viên,hãy chọn</td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <img class="image" src="{{url('quanlytruong/images/giaovien.ico')}}">
+                            <a class="link" href="{{route('teacher.login')}}">Giáo Viên</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Nếu Bạn là Sinh Viên,hãy chọn</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img class="image" src="{{url('quanlytruong/images/sinhvien.ico')}}">
+                            <a class="link" href="{{url('student/login')}}">Sinh Viên</a>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Nếu Bạn là quản trị viên của trường học đã tham gia eictu,hãy chọn</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img class="image" src="{{url('quanlytruong/images/go-home-128.png')}}">
+                            <a class="link" href="{{url('schools/login')}}">Trường Học</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Nếu trường đại học của bản chưa tham gia eictu, hãy bắt đầu </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img class="image" src="{{url('quanlytruong/images/register.png')}}">
+                            <a class="link" href="{{url('/schools/eICTuSchoolRegister')}}">Đăng Kí</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Nếu bạn cần tuyển sinh viên ngoài giờ hãy chọn </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img class="image" src="{{url('quanlytruong/images/job.png')}}">
+                            <a class="link" href="{{url('findjob/index')}}">Sinh Viên Tìm Việc</a>
+                        </td>
+                    </tr>
+                </table>
+                </div>
+            </div>
+              <div class="col-md-9 col-sm-9">
+                @yield('content')
+            </div>
         @endif
        
     </div>

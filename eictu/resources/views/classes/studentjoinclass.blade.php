@@ -31,7 +31,7 @@
 					   action="{{ route('classes.studentjoinclass',$_class->id)}}"
 					   >
 					   <input id = "tokenid" type=hidden name=_token value={{csrf_token()}} />	
-                        Nhấn vào tên sinh viên để thêm vào lớp {{ $_class->name }}<br/><br/>
+                        Nhấn vào tên sinh viên để chọn vào lớp {{ $_class->name }}<br/><br/>
                         <table class="table">
 						
                             <tr>
