@@ -111,7 +111,7 @@ function time_elapsed_string($datetime, $full = false) {
             
            </div>
            <div class="col-lg-10 ">
-            <h3>{!! $students->name !!}</h3><span style="margin-left: 150px;">{!! time_elapsed_string($want->created_at)!!}</span>
+            <h3>{!! $students->name !!}</h3><span style="margin-left: 150px;">{!! time_elapsed_string($want->updated_at)!!}</span>
              <p ><a style="color: black;" href="{{route('iwant.detail', $want['id'])}}" title="">{{$want['content']}}</a></p>
            </div>
          </div>
