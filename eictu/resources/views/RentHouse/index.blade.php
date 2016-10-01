@@ -5,10 +5,10 @@ eICTuStudentRentHouseHistory - Lịch sử nhà trọ
   @section('content')
   <div class="container" style="width:100%;padding-top:10px">
     <div class="row">
-        <a class="btn btn-info" style="background:#cc5200;color: #ffffff;" href="{{"rentHouse/create"}}">
+        <a class="btn" style="background:#cc5200;color: #ffffff;" href="{{"rentHouse/create"}}">
           <strong class="redirect"><i class="glyphicon glyphicon-plus"/>&nbsp;</i>CẬP NHẬT NHÀ TRỌ MỚI</strong>
         </a>
-        <a class="btn btn-info" style="background:#cc5200;color: #ffffff;" href="{{"rentHouse/search"}}">
+        <a class="btn" style="background:#cc5200;color: #ffffff;" href="{{"rentHouse/search"}}">
           <strong class="redirect"><i class="glyphicon glyphicon-search"/>&nbsp;</i>BẠN TÔI TRỌ Ở ĐÂU?</strong>
         </a>
     </div>
