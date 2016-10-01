@@ -42,8 +42,8 @@ eICTuStudentRentHouseSearch - Sinh viên khai báo nhà trọ
                          </div>
                        </div>
                        <div class="form-group">
-                         <div class="col-sm-offset-2 col-sm-10">
-                           <button type="submit" class="btn btn-default" style="background: #cc5200"><i class="glyphicon glyphicon-ok"></i>Cập nhật</button>
+                         <div class="col-sm-offset-3 col-sm-10">
+                           <button type="submit" class="btn btn-default" style="background: #cc5200;margin-right:50px;"><i class="glyphicon glyphicon-ok"></i>Cập nhật</button>
                            <a href="{{url('rentHouse')}}" class="btn btn-default" role="button"><i class="glyphicon glyphicon-remove"></i>Hủy bỏ</a>
                          </div>
                        </div>
