@@ -17,49 +17,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     @yield('css')
     <style type="text/css" media="screen">
-        /*.pagination ul li{
-            padding: 3px 10px;
-            margin: 3px;
-            font-size: 20px;
-            background: #bdc3c7;
-        }*/
-        #Left  table{
-            margin: 20px;
-        }
-
-        #Left table img{
-            width: 30px;
-            height: auto;
-            float: left;
-            margin-left: 50px;
-        }
-        #Left table #topimg {
-            width: 50px;
-            float: left;
-            margin-bottom: 20px;
-        }
-        #Left table td{
-            padding: 5px 0;
-            font-weight: bold;
-        }
-        #Left table td a{
-            text-decoration: none;
-            color: black;
-        }
-        #Left table td a:hover{
-            color:#FF2C21 ;
-        }
-        #Left table td a:checked{
-            color:#FF2C21 ;
-        }
-        #Left table td span {
-            color: #BFCDE3;
-            font-weight: bold;
-        }
-        #toptext{
-            font-weight: bold;
-            font-size: 20px;
-        }
+        img{width: }
     </style>
     <script>
         window.Laravel = <?php echo json_encode([
@@ -117,63 +75,24 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
+<div class="container" style="margin-top:56px">
+    <div class="col-md-3 col-sm-3">
+        <div style="background-color: #ededed;">
+            <link rel="stylesheet" type="text/css" href="{!! url('quanlytruong/css/eICTuHomePage.css')!!}">
+            <div>
+                <ul class="list-group">
 
-<div class="container" style="margin-top: 100px;">
-    <div class="col-md-3" id="Left">
-        <div style="background-color: #ededed; position: fixed; height: 1000px;">
-            <table style="text-align: left">
-                <tr>
-                    <td>Nếu Bạn là giáo viên,hãy chọn</td>
-                </tr>
+                    <li class="list-group-item" style="background:scroll;">Nếu Bạn là giáo viên,hay chọn<br/>  <img class="image" src="{{url('quanlytruong/images/giaovien.ico')}}"><a class="link" href="{{route('teacher.login')}}">Giáo Viên</a> </li>
+                    <li class="list-group-item"style="background:scroll;">Nếu Bạn là Sinh Viên,hay chọn<br/> <img class="image" src="{{url('quanlytruong/images/sinhvien.ico')}}"><a class="link" href="{{url('student/login')}}">Sinh Viên</a></li>
+                    <li class="list-group-item"style="background:scroll;">Nếu Bạn là quản trị viên của trường học đã tham gia eictu,hãy chọn <br/><img class="image" src="{{url('quanlytruong/images/go-home-128.png')}}"><a class="link" href="{{url('schools/login')}}">Trường Học</a></li>
+                    <li class="list-group-item" style="background:scroll;">Nếu trường đại học của bản chưa tham gia eictu, hãy bắt đầu <br/><img class="image" src="{{url('quanlytruong/images/register.png')}}"> <a class="link" href="{{url('/schools/eICTuSchoolRegister')}}">Đăng Kí</a></li>
+                    <li class="list-group-item"style="background:scroll;">Nếu bạn cần tuyển sinh viên ngoài giờ chọn<br/> <img class="image" src="{{url('quanlytruong/images/job.png')}}"> <a class="link" href="{{url('findjob/index')}}">Tìm Việc</a></li>
 
-                <tr>
-                    <td>
-                        <img class="image" src="{{url('quanlytruong/images/giaovien.ico')}}">
-                        <a class="link" href="{{route('teacher.login')}}">Giáo Viên</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Nếu Bạn là Sinh Viên,hãy chọn</td>
-                </tr>
-                <tr>
-                    <td>
-                        <img class="image" src="{{url('quanlytruong/images/sinhvien.ico')}}">
-                        <a class="link" href="{{url('student/login')}}">Sinh Viên</a>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td>Nếu Bạn là quản trị viên của trường học đã tham gia eictu,hãy chọn</td>
-                </tr>
-                <tr>
-                    <td>
-                        <img class="image" src="{{url('quanlytruong/images/go-home-128.png')}}">
-                        <a class="link" href="{{url('schools/login')}}">Trường Học</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Nếu trường đại học của bản chưa tham gia eictu, hãy bắt đầu </td>
-                </tr>
-                <tr>
-                    <td>
-                        <img class="image" src="{{url('quanlytruong/images/register.png')}}">
-                        <a class="link" href="{{url('/schools/eICTuSchoolRegister')}}">Đăng Kí</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Nếu bạn cần tuyển sinh viên ngoài giờ hãy chọn </td>
-                </tr>
-                <tr>
-                    <td>
-                        <img class="image" src="{{url('quanlytruong/images/job.png')}}">
-                        <a class="link" href="{{url('findjob/index')}}">Sinh Viên Tìm Việc</a>
-                    </td>
-                </tr>
-            </table>
+                </ul>
+            </div>
         </div>
     </div>
-
-    <div class="col-md-9" >
+    <div class="col-md-9 col-sm-9">
         @yield('content')
     </div>
 </div>
