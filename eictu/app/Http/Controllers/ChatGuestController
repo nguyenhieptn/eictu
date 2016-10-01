@@ -1,0 +1,29 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+use Auth;
+
+use App\Http\Requests;
+
+class ChatGuestController extends Controller
+{
+    public function guest($student_id)
+    {
+
+        return view('chatguest.guest', ['data' => $student_id]);
+
+    }
+
+
+
+    public function page($slug)
+    {
+
+        return view('chatguest/' . $slug, ['name' => $slug]);
+    }
+
+
+}

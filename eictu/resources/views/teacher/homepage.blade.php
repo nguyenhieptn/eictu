@@ -1,9 +1,5 @@
 @extends('teacher.master')
 
-@section('title')
-Trang chu giao vien
-@endsection
-
 @section('content')
 <div class="container">
     <div class="row">
@@ -21,8 +17,8 @@ Trang chu giao vien
     @endif  
     	
   </div>
-<?php
-    function time_elapsed_string($datetime, $full = false) {
+<?php 
+function time_elapsed_string($datetime, $full = false) {
     $now = new DateTime;
     $ago = new DateTime($datetime);
     $diff = $now->diff($ago);
@@ -50,28 +46,34 @@ Trang chu giao vien
     if (!$full) $string = array_slice($string, 0, 1);
     return $string ? implode(', ', $string) . ' ago' : 'just now';
 }
-?> 
+?>
   <div class="row">
-    <div class="col-lg-9">
+    <div class="col-xs-8">
       <?php 
-      $newfeed = DB::table('newsfeed')->select('*')->orderBy('id', 'DESC')->get();
+      $feed = DB::table('newsfeed')->select('*')->get();
+
+
      ?>
-     @if(!empty($newfeed))
-      @foreach($newfeed as $item)
-          <?php 
-            $student_id = DB::table('students')->where('id',$item->student_id )->first();
+     @if(!empty($feed))
+       @foreach($feed as $item)
+       <div class="row boot">
+       <?php 
+            $students = DB::table('students')->where('id', $item->student_id)->first();
            ?>
-         <div class="row boot">
-           <div class="col-lg-2">
-            <img src="{{url('{!! $student_id->name !!}')}}" alt="">
-           </div>
-           <div class="col-lg-9 ">
-            <h3>{!! $student_id->name !!} <span style="margin-left: 200px; ">{!! time_elapsed_string($item->time) !!}</span></h3>
-            <p style="word-wrap:break-word;">{{$item->content}}</p>
-           </div>
-         </div>
-      @endforeach  
-    @endif
+          <div class="col-lg-2">
+            <img src="{!!asset('/upload/avatar/'.$students->avatar)!!}" class="img-rounded" height="100px" width="100px" alt="">
+            
+          </div>
+          <div class="col-lg-10 ">
+          
+            <h3><b style="color: black;">{!! $students->name !!}</b><span style="margin-left: 150px;">{!! time_elapsed_string($item->time)!!}</span></h3>
+             <p ><a style="color: black;" >{{$item->content}}</a></p>
+          </div>
+        </div>
+         
+       @endforeach
+      @endif
+    
     </div>
     
   </div>

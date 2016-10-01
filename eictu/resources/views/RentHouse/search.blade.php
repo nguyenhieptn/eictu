@@ -1,9 +1,10 @@
 @extends('layouts.student_app')
+
 @section('title')
 eICTuStudentRentHouseSearch - Tra cứu địa chỉ nhà trọ của Sinh viên
 @endsection
   @section('content')
-  <div class="container" style="width:100%">
+  <div class="container" style="width:100%;padding-top:10px;">
     <div class="row">
       <div class="col-md-12">
         <div class="panel panel-default">

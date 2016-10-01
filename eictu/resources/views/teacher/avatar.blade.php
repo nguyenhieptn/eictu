@@ -17,8 +17,30 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     @yield('css')
     <style type="text/css" media="screen">
-        img{width: }
-    </style>
+              .boot{
+
+                margin-top:10px; 
+                padding-top: 5px;
+                padding-bottom: 5px;
+                background: #ecf0f1;
+
+                border-radius: 4px;
+                -moz-border-radius: 4px;
+                -webkit-border-radius: 4px;
+                -ms-border-radius: 4px;
+                -o-border-radius: 4px;
+              }
+          /*    img{
+                width: 100px;
+                height: 100px;
+                border-radius: 4px;
+                -moz-border-radius: 4px;
+                -webkit-border-radius: 4px;
+                -ms-border-radius: 4px;
+                -o-border-radius: 4px;
+              }*/
+            </style>
+
     <script>
         window.Laravel = <?php echo json_encode([
                 'csrfToken' => csrf_token(),
@@ -51,6 +73,7 @@
                     <li><a href="{{ url('/login') }}" style="font-size:15px">Đăng Nhập</a></li>
                 @else
                     <li class="dropdown">
+                    
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
@@ -75,24 +98,20 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-<div class="container" style="margin-top:56px">
-    <div class="col-md-3 col-sm-3">
-        <div style="background-color: #ededed;">
-            <link rel="stylesheet" type="text/css" href="{!! url('quanlytruong/css/eICTuHomePage.css')!!}">
-            <div>
-                <ul class="list-group">
 
-                    <li class="list-group-item" style="background:scroll;">Nếu Bạn là giáo viên,hay chọn<br/>  <img class="image" src="{{url('quanlytruong/images/giaovien.ico')}}"><a class="link" href="{{route('teacher.login')}}">Giáo Viên</a> </li>
-                    <li class="list-group-item"style="background:scroll;">Nếu Bạn là Sinh Viên,hay chọn<br/> <img class="image" src="{{url('quanlytruong/images/sinhvien.ico')}}"><a class="link" href="{{url('student/login')}}">Sinh Viên</a></li>
-                    <li class="list-group-item"style="background:scroll;">Nếu Bạn là quản trị viên của trường học đã tham gia eictu,hãy chọn <br/><img class="image" src="{{url('quanlytruong/images/go-home-128.png')}}"><a class="link" href="{{url('schools/login')}}">Trường Học</a></li>
-                    <li class="list-group-item" style="background:scroll;">Nếu trường đại học của bản chưa tham gia eictu, hãy bắt đầu <br/><img class="image" src="{{url('quanlytruong/images/register.png')}}"> <a class="link" href="{{url('/schools/eICTuSchoolRegister')}}">Đăng Kí</a></li>
-                    <li class="list-group-item"style="background:scroll;">Nếu bạn cần tuyển sinh viên ngoài giờ chọn<br/> <img class="image" src="{{url('quanlytruong/images/job.png')}}"> <a class="link" href="{{url('findjob/index')}}">Tìm Việc</a></li>
-
-                </ul>
-            </div>
-        </div>
+<div class="container" style="margin-top: 100px;">
+    <div class="row">
+    <div class="col-lg-4 col-lg-offset-3 control-group">
+        <form action="{{route('teacher.avatar')}}" method="post" role="form" accept-charset="utf-8" enctype="multipart/form-data">
+            <input type="hidden" name="_token" value="{{Session::token()}}">
+            <input type="file" class="form-control" name="image" value="" placeholder="">
+            <button type="submit" class="btn btn-success" >Upload</button>
+        </form>
     </div>
-    <div class="col-md-9 col-sm-9">
+       
+    </div>
+
+    <div class="col-md-9" >
         @yield('content')
     </div>
 </div>

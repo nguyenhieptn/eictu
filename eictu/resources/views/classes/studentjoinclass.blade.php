@@ -24,14 +24,14 @@
             
                 <div class="panel panel-default">
 <div class="panel-heading">
-						<strong>Danh sách Sinh viên trúng tuyển chưa phân lớp.</strong>
+						<strong>Danh sách sinh viên trúng tuyển chưa phân lớp.</strong>
 			</div>
                     <div class="panel-body">
                        <form method="post" 
 					   action="{{ route('classes.studentjoinclass',$_class->id)}}"
 					   >
 					   <input id = "tokenid" type=hidden name=_token value={{csrf_token()}} />	
-                        Nhấn vào tên sinh viên để thêm vào lớp {{ $_class->name }}<br/><br/>
+                        Nhấn vào tên sinh viên để chọn vào lớp {{ $_class->name }}<br/><br/>
                         <table class="table">
 						
                             <tr>
