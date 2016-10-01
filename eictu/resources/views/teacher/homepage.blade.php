@@ -21,36 +21,7 @@ Trang chu giao vien
     @endif  
     	
   </div>
-<?php
-    function time_elapsed_string($datetime, $full = false) {
-    $now = new DateTime;
-    $ago = new DateTime($datetime);
-    $diff = $now->diff($ago);
 
-    $diff->w = floor($diff->d / 7);
-    $diff->d -= $diff->w * 7;
-
-    $string = array(
-        'y' => 'year',
-        'm' => 'month',
-        'w' => 'week',
-        'd' => 'day',
-        'h' => 'hour',
-        'i' => 'minute',
-        's' => 'second',
-    );
-    foreach ($string as $k => &$v) {
-        if ($diff->$k) {
-            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
-        } else {
-            unset($string[$k]);
-        }
-    }
-
-    if (!$full) $string = array_slice($string, 0, 1);
-    return $string ? implode(', ', $string) . ' ago' : 'just now';
-}
-?> 
   <div class="row">
     <div class="col-lg-9">
       <?php 
@@ -65,9 +36,9 @@ Trang chu giao vien
            <div class="col-lg-2">
             <img src="{{url('{!! $student_id->name !!}')}}" alt="">
            </div>
-           <div class="col-lg-9 ">
-            <h3>{!! $student_id->name !!} <span style="margin-left: 200px; ">{!! time_elapsed_string($item->time) !!}</span></h3>
-            <p style="word-wrap:break-word;">{{$item->content}}</p>
+           <div class="col-lg-8 ">
+            <h3>{!! $student_id->name !!} <span style="margin-left: 200px; ">{!! $item->time !!}</span></h3>
+            <p>{{$item->content}}</p>
            </div>
          </div>
       @endforeach  
