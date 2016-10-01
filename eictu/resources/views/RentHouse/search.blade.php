@@ -1,4 +1,4 @@
-@if(Auth::check() && Auth::user()->type <= 2)
+@if(!Auth::guest() && Auth::user()->type <= 2)
 @extends('teacher.master')
 @else
 @extends('layouts.student_app')
