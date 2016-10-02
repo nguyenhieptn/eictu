@@ -9,8 +9,8 @@ Sửa bài đăng
     <form action="" role="form" method="post" accept-charset="utf-8">
       <input type="hidden" name="_token" value="{{Session::token()}}">
       <div class="form-group {{$errors->has('content')? ' has-error': ''}}">
-        <textarea placeholder="Gõ bản tin đề nghị giúp đỡ của bạn vào đây…Chúc bạn may mắn!" name="content" class="form-control" rows="3">{!!old('content', isset($data) ? $data['content']:null) !!}</textarea>
-      </div>
+        <textarea placeholder="Gõ bản tin đề nghị giúp đỡ của bạn vào đây…Chúc bạn may mắn!" name="content" class="form-control" rows="3">{!!$data['content'] !!}</textarea>
+      </div> 
       <div class="form-group">
         <input type="text" name="location" value="{!!old('location', isset($data) ? $data['location']:null) !!}" class="form-control" placeholder="Vị trí hiện tại của bạn">
       </div>
