@@ -42,7 +42,6 @@ function time_elapsed_string($datetime, $full = false) {
             unset($string[$k]);
         }
     }
-
     if (!$full) $string = array_slice($string, 0, 1);
     return $string ? implode(', ', $string) . ' ago' : 'just now';
 }
@@ -67,13 +66,10 @@ function time_elapsed_string($datetime, $full = false) {
           <div class="col-lg-10 ">    
             <p ><a style="color: black;" >{{$item->content}}</a></p>
           </div>
-        </div>
-         
+        </div>         
        @endforeach
-      @endif
-    
-    </div>
-    
+      @endif    
+    </div>    
   </div>
 </div>
 @endsection
