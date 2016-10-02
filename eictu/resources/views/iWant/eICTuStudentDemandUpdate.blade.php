@@ -104,7 +104,7 @@
              </p>
              <h4 class='media-heading'><strong>{!! $students->name !!}</strong></h4>
              <p> 
-              @if($student->gender == 1)
+              @if($students->gender == 1)
               Nam , &nbsp;&nbsp;
               @else
               Nữ , &nbsp;&nbsp;
