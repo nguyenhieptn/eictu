@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.student_app')
 @section('title')
 eICTuStudentDormitorySearch - Tra cứu chỗ ở trong KTX
 @endsection
@@ -9,8 +9,7 @@ eICTuStudentDormitorySearch - Tra cứu chỗ ở trong KTX
 @endsection
 @section('content')
 <div id="updateStudent">
-	<div class="container">
-		
+	
 		<div class="row">
 			@if(Session::has('msg'))
 			<div class="alert alert-warning">{!! Session::get('msg') !!}</div>
@@ -64,7 +63,5 @@ eICTuStudentDormitorySearch - Tra cứu chỗ ở trong KTX
 				</div>
 			</div>
 		</div>
-	</div>
-
 </div>
 @endsection
