@@ -56,7 +56,7 @@ function time_elapsed_string($datetime, $full = false) {
        @foreach($feed as $item)
        <div class="row boot">
        <?php 
-            $st = DB::table('students')->where('id', $item->student_id)->get();            
+            $st = DB::table('students')->where('id', $item->student_id)->first();            
            ?>          
           <div class="col-lg-2">
                 <img @if($st->avatar!=null) src="{{$st->avatar}}" @else src="{{url('img/avatar_null.png')}}" @endif height="100px" width="100px" />
