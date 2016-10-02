@@ -127,6 +127,7 @@ class DormitoryController extends Controller
 	    		}
 	    		else{
 	    			$area = DB::table('areas')->where('id', $dormitory->area_id)->first();
+                    
                     return view('dormitory.search', compact('student', 'school', 'dormitory', 'area'));
 	    		}
 	    	}
