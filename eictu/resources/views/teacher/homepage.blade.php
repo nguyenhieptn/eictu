@@ -58,13 +58,21 @@ function time_elapsed_string($datetime, $full = false) {
        @foreach($feed as $item)
        <?php 
             $st = DB::table('students')->where('id', $item->student_id)->first();
-            
+            <?php 
+              foreach ($st as $value) {
+                $aaa= $value->avatar;
+            }
+             ?>
            ?>
        <div class='media boot'>
-         <a href='' class='media-left' href='#'><img class='media-object'  class="img-rounded"  alt=''></a>
+         <a href='' class='media-left' href='#'><img class='media-object' src="{!!asset($aaa)!!}" class="img-rounded"  alt=''></a>
          <div class='media-body'> 
           <p class="pull-right date-post">{!! time_elapsed_string($item->time) !!}</p>
-          <h4 class='media-heading'><strong>ten nguoi</strong></h4>
+          <h4 class='media-heading'><strong><?php 
+              foreach ($st as $value) {
+                echo $value->name;
+            }
+             ?></strong></h4>
           <p class="index-content">{{$item->content}}</p>
          </div>
         </div>
