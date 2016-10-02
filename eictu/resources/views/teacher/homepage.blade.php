@@ -38,7 +38,7 @@ function time_elapsed_string($datetime, $full = false) {
     );
     foreach ($string as $k => &$v) {
         if ($diff->$k) {
-            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? '' : '');
         } else {
             unset($string[$k]);
         }
