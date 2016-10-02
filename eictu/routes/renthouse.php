@@ -16,5 +16,7 @@ Route::post('rentHouse/create', 'RentHouseController@store');
 Route::get('/rentHouse/search', 'RentHouseController@search');
 Route::post('/rentHouse/search', 'RentHouseController@search');
 
+Route::get('/rentHouse/action','RentHouseController@action');
+
 /*end RentHouse section*/
 ?>
