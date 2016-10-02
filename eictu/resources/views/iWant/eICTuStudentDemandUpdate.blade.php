@@ -5,7 +5,16 @@
 @endsection
 @section('content')
 <div class="container">
-
+<script type="text/javascript">
+           function myFunction() {
+                var r = confirm("Bạn có chắc chắn muốn xóa không !");
+                if (r == true) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        </script>
 <style type="text/css" media="screen">
               .boot{
 
@@ -29,7 +38,7 @@
                 -o-border-radius: 4px;
               }
             </style>
-<?php 
+          <?php 
               function time_elapsed_string($datetime, $full = false) {
             $now = new DateTime;
             $ago = new DateTime($datetime);
@@ -77,20 +86,33 @@
         @foreach($data as $want)
 
       
+      
         <?php 
-          $students = DB::table('students')->select('name','avatar')->where('id', $want->student_id)->first();
+          $students = DB::table('students')->select('code','name','avatar')->where('id', $want->student_id)->first();
           $avatar = $students->avatar;
+          $code = $students->code;
          ?>
  
 
         <div class='media boot'>
+
              <a href='' class='media-left' href='#'><img class='media-object'  class="img-rounded" src="{{asset($avatar)}}" alt=''></a>
              <div class='media-body'> 
                <p class="pull-right date-post">
+
                  {!! time_elapsed_string($want->created_at) !!}
              </p>
              <h4 class='media-heading'><strong>{!! $students->name !!}</strong></h4>
-             <a href="{{route('iwant.detail', $want['id'])}}" title=""><p class="index-content"><?php echo substr($want['content'], 0,150) ?> ...</p></a></div>
+             
+             <a href="{{route('iwant.detail', $want['id'])}}" title=""><p class="index-content"><?php echo substr($want['content'], 0,150) ?> ...</p></a>
+             @if(Auth::check() && Auth::user()->type <= 2 || Auth::check() && Auth::user()->username ==$code)
+              <a onclick="return myFunction()" style="color: red;" href="{{route('iwant.delete', $want->id)}}" title="">Xóa</a>
+
+              <a  href="{{URL::route('iwant.edit', $want->id)}}" title="">Sửa</a>
+             @endif
+
+             </div>
+
              </div>
         @endforeach
     @else
