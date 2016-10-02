@@ -87,11 +87,8 @@
       
       
         <?php 
-<<<<<<< HEAD
           $students = DB::table('students')->select('code','name','avatar')->where('id', $want->student_id)->first();
-=======
           $students = DB::table('students')->select('code','name','avatar', 'gender')->where('id', $want->student_id)->first();
->>>>>>> bf01f78c567d7dd9b7fd34cb0803d9e60ac04170
           $avatar = $students->avatar;
           $code = $students->code;
          ?>
@@ -107,16 +104,10 @@
              </p>
              <h4 class='media-heading'><strong>{!! $students->name !!}</strong></h4>
              
-<<<<<<< HEAD
              <a href="{{route('iwant.detail', $want['id'])}}" title=""><p class="index-content"><?php echo substr($want['content'], 0,150) ?> ...</p></a>
-             @if(Auth::check() && Auth::user()->type <= 2 || Auth::check() && Auth::user()->username ==$code)
-              <a onclick="return myFunction()" style="color: red;" href="{{route('iwant.delete', $want->id)}}" title="">Xóa</a>
-=======
-             
-             <a href="{{route('iwant.detail', $want['id'])}}" title=""><p class="index-content"><?php echo substr($want['content'], 0,150) ?> ...</p></a>
+
              @if(Auth::check() && Auth::user()->type <= 2 || Auth::check() && Auth::user()->username ==$code)
               <a onclick="return myFunction()" style="color: red;" href="{{route('iwant.delete', $want->id)}}" title="">Xóa</a>&nbsp;&nbsp;&nbsp;&nbsp;
->>>>>>> bf01f78c567d7dd9b7fd34cb0803d9e60ac04170
 
               <a  href="{{URL::route('iwant.edit', $want->id)}}" title="">Sửa</a>
              @endif

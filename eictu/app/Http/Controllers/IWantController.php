@@ -64,24 +64,13 @@ class IWantController extends Controller
     	return view('iWant.eICTuStudentDemandDetail', compact('want', 'student', 'address', 'address2'));
     }
 
-<<<<<<< HEAD
-    public function delete($id)
-=======
-public function delete($id)
->>>>>>> bf01f78c567d7dd9b7fd34cb0803d9e60ac04170
+    public function delete($id)public function delete($id)
     {
         $iwant = IWant::find($id);
         $iwant->delete($id);
         return redirect()->route('iwant.status');
     }
-<<<<<<< HEAD
 
-
-    public function get_edit($id)
-    {
-        $data = IWant::findOrFail($id)->toArray();
-        return view('iwant.edit', compact('data'));
-    }
 
     public function post_edit($id, Request $request)
     {
@@ -93,9 +82,6 @@ public function delete($id)
         ->update(['content' => $request->content], ['location' => $request->location])
         return redirect()->route('iwant.status');
     }
-=======
->>>>>>> bf01f78c567d7dd9b7fd34cb0803d9e60ac04170
-
 
     public function get_edit($id)
     {
@@ -103,14 +89,5 @@ public function delete($id)
         return view('iwant.edit', compact('data'));
     }
 
-    public function post_edit($id, Request $request)
-    {
-        $this->validate($request, [
-            'content'=>'required|max:5000'
-            ]);
-        $iwant = new IWant();
-        $iwant->content = $request->content;
-        $iwant->location = $request->location;
-        return redirect()->route('iwant.status');
-    }
+  
 }

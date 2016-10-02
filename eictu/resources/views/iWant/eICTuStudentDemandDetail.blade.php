@@ -61,9 +61,7 @@ Chi tiết lời yêu cầu
 		       {!! time_elapsed_string($want->created_at) !!}
 		   </p>
 		   <h4 class='media-heading'><strong>{!! $students->name !!}</strong></h4>
-<<<<<<< HEAD
            <p>{{ $want->location }}</p>
-=======
 		  <p> 
 		   @if($student->gender == 1)
 		   Nam , &nbsp;&nbsp;
@@ -85,7 +83,6 @@ Chi tiết lời yêu cầu
 	      ?>
 		   @endif
 		   {{ $want->location }}</p>
->>>>>>> bf01f78c567d7dd9b7fd34cb0803d9e60ac04170
 		   <a href="" title=""><p class="index-content">{{$want->content}}</p></a></div>
 		</div>
 
