@@ -66,8 +66,7 @@
               .boot{
 
                 margin-top:10px; 
-                padding-top: 5px;
-                padding-bottom: 5px;
+                padding :10px;
                 background: #ecf0f1;
 
                 border-radius: 4px;
@@ -86,21 +85,20 @@
                 -o-border-radius: 4px;
               }
             </style>
-         <div class="row boot">
-           <div class="col-lg-2">
-            <img src="{{asset($avatar)}}" class="img-rounded" alt="">
-            
-           </div>
-           <div class="col-lg-10 ">
-            <h3><b>{!! $students->name !!}</b> <span style="margin-left: 150px;">{!! $want->updated_at!!}</span></h3>
-           
-             <p ><a style="color: black;" href="{{route('iwant.detail', $want['id'])}}" title="">{{$want['content']}}</a></p>
-           </div>
-         </div>
-         
+
           
           
         </div>
+
+        <div class='media boot'>
+             <a href='' class='media-left' href='#'><img class='media-object'  class="img-rounded" src="{{asset($avatar)}}" alt=''></a>
+             <div class='media-body'> 
+               <p class="pull-right date-post">
+                 {!! time_elapsed_string($want->created_at) !!}
+             </p>
+             <h4 class='media-heading'><strong>{!! $students->name !!}</strong></h4>
+             <a href="{{route('iwant.detail', $want['id'])}}" title=""><p class="index-content"><?php echo substr($want['content'], 0,150) ?> ...</p></a></div>
+             </div>
         @endforeach
     @else
       <p>Không ai thèm  muốn gì luôn đấy !</p>
