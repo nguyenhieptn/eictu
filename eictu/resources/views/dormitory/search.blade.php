@@ -9,8 +9,6 @@ eICTuStudentDormitorySearch - Tra cứu chỗ ở trong KTX
 @endsection
 @section('content')
 <div id="updateStudent">
-	<div class="container">
-		
 		<div class="row">
 			@if(Session::has('msg'))
 			<div class="alert alert-warning">{!! Session::get('msg') !!}</div>
@@ -22,7 +20,9 @@ eICTuStudentDormitorySearch - Tra cứu chỗ ở trong KTX
 			@endif
 		</div>
 		<div class="contentUpdate">
-			<h3>Tìm kiếm thông tin nơi ở sinh viên trong KTX bằng mã sinh viên</h3>
+			<div class="page-header">
+				<h3>Tìm kiếm thông tin nơi ở sinh viên trong KTX bằng mã sinh viên</h3>
+			</div>
 			<div class="box">
 				<form action="{!! url('dormitory/query')!!}" method="get" id="fSearch" class="form-horizontal" accept-charset="utf-8">
 					<div class="form-group">
@@ -62,7 +62,5 @@ eICTuStudentDormitorySearch - Tra cứu chỗ ở trong KTX
 				</div>
 			</div>
 		</div>
-	</div>
-
 </div>
 @endsection
