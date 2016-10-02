@@ -27,10 +27,15 @@
             border-bottom-left-radius:4px;
             background: #ecf0f1;
         }
-        .time{
-            position: relative;
-            margin-left: 240px;
-        }
+        img{
+                width: 100px;
+                height: 100px;
+                border-radius: 4px;
+                -moz-border-radius: 4px;
+                -webkit-border-radius: 4px;
+                -ms-border-radius: 4px;
+                -o-border-radius: 4px;
+              }
     </style>
     <script>
         window.Laravel = <?php echo json_encode([
