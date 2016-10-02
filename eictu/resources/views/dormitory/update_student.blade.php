@@ -7,7 +7,7 @@
 eICTuStudentDormitoryUpdate - Sinh viên cập nhật chỗ ở KTX
 @endsection
 @section('content')
-<div id="updateStudent">
+<div id="updateStudentDr">
 		<div class="contentUpdate">
 			<div class="page-header">
 				<h3>Cập nhật thông tin về chỗ ở hiện tại của KTX tại đây</h3>
@@ -46,16 +46,7 @@ eICTuStudentDormitoryUpdate - Sinh viên cập nhật chỗ ở KTX
 					</div>
 				</form>
 			</div>
-			<div class="col-sm-10 col-sm-offset-1">
-				<h3><strong>Lịch sử chuyển chỗ ở trong KTX của bạn</strong></h3>
-			<?php 
-				$code = Auth::user()->username;
-	        	$student = DB::table('students')->where('code', $code)->first();
-        	?>
-				<ul>
-					{!! Cache::get($student->id)!!}
-				</ul>
-			</div>
+			
 		</div>
 </div>
 

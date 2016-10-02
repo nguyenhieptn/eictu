@@ -1,4 +1,4 @@
-@extends('/layouts.student_app')
+@extends('teacher.master')
 @section('content')
 
     <?php
