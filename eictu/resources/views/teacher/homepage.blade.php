@@ -55,7 +55,7 @@ function time_elapsed_string($datetime, $full = false) {
        @foreach($feed as $item)
        <div class="row boot">
        <?php 
-            $st = DB::table('students')->where('id', $item->student_id)->first();  
+            $st = DB::table('students')->where('id', $item->student_id)->get();  
             print_r($st);
            ?>  
            <div class="col-lg-2">
