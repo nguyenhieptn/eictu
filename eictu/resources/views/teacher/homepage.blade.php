@@ -1,4 +1,3 @@
-
 @extends('teacher.master')
 
 @section('content')
@@ -57,21 +56,17 @@ function time_elapsed_string($datetime, $full = false) {
      ?>
      @if(!empty($feed))
        @foreach($feed as $item)
-       <div class="row boot">
        <?php 
             $st = DB::table('students')->where('id', $item->student_id)->first();
             
            ?>
-          
-          <div class="col-lg-2">
-                
-            
-          </div>
-          <div class="col-lg-10 ">
-          
-            <h4><span class="time" >{!! time_elapsed_string($item->time) !!}</span></h4>
-             <p ><a style="color: black;" >{{$item->content}}</a></p>
-          </div>
+       <div class='media boot'>
+         <a href='' class='media-left' href='#'><img class='media-object'  class="img-rounded"  alt=''></a>
+         <div class='media-body'> 
+          <p class="pull-right date-post">{!! time_elapsed_string($item->time) !!}</p>
+          <h4 class='media-heading'><strong>ten nguoi dan</strong></h4>
+          <p class="index-content">{{$item->content}}</p>
+         </div>
         </div>
          
        @endforeach
