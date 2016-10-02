@@ -103,11 +103,18 @@
                  {!! time_elapsed_string($want->created_at) !!}
              </p>
              <h4 class='media-heading'><strong>{!! $students->name !!}</strong></h4>
-             <p>{{ $want->location }}</p>
+             <p> 
+              @if($student->gender == 1)
+              Nam , &nbsp;&nbsp;
+              @else
+              Nữ , &nbsp;&nbsp;
+              @endif
+              {{ $want->location }}
+             </p>
              
              <a href="{{route('iwant.detail', $want['id'])}}" title=""><p class="index-content"><?php echo substr($want['content'], 0,150) ?> ...</p></a>
              @if(Auth::check() && Auth::user()->type <= 2 || Auth::check() && Auth::user()->username ==$code)
-              <a onclick="return myFunction()" style="color: red;" href="{{route('iwant.delete', $want->id)}}" title="">Xóa</a>
+              <a onclick="return myFunction()" style="color: red;" href="{{route('iwant.delete', $want->id)}}" title="">Xóa</a>&nbsp;&nbsp;&nbsp;&nbsp;
 
               <a  href="{{URL::route('iwant.edit', $want->id)}}" title="">Sửa</a>
              @endif
