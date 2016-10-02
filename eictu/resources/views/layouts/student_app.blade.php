@@ -96,8 +96,13 @@
                     </div>
                 </div>
                 <div>
+                <?php  
+                    $url= $_SERVER['REQUEST_URI']; 
+                    $arr=array();
+                    $arr = explode('/',$url);
+                ?>
                     <ul class="list-group">
-                      <li class="list-group-item" ><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> 
+                      <li class="list-group-item<?php ?>" ><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> 
                       <a href="{{url('student/newsfeed')}}">News Feed</a></li>
                       @if(count($classid)>0 && $classid !=null)
                             <li class="list-group-item ">
@@ -108,7 +113,7 @@
                       <li class="list-group-item "><a href="{{url('/iHave')}}">Chợ đồ cũ</a></li> 
                       <li class="list-group-item "><a href="{{url('/findjob/index')}}">Tìm việc làm </a></li> 
                       <li class="list-group-item "><a href="{!! url('dormitory/search')!!}">Kí túc xá</a></li> 
-                      <li class="list-group-item "><a href="{{url('/rentHouse')}}">Nhà trọ sinh viên</a></li> 
+                      <li class="list-group-item <?php if($arr[1]=='rentHouse') echo 'active'; ?>"><a href="{{url('/rentHouse')}}">Nhà trọ sinh viên</a></li> 
                       <li class="list-group-item "><a href="{{url('chat/classrooms')}}">Messages / CHAT</a></li>
                       <li class="list-group-item "><a href="{{url('chat/friend')}}">Chát với bạn</a></li>
                       <li class="list-group-item "><a href="{{url('LMS/show')}}">Tiến độ học tập LMS</a></li> 
