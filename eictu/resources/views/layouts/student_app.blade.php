@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     @yield('css')
     <style type="text/css" media="screen">
-          img{width: }
+          /*img{width: }*/
     </style>
     <script>
         window.Laravel = <?php echo json_encode([
@@ -90,7 +90,7 @@
                     $avatar = $data1!= null ? $data1->avatar==null ? "/img/avatar.jpg" : $data1->avatar."" : "/img/avatar.jpg";
                     ?>
                     <div style="height:80px;line-height:80px; padding-left:10px">
-                        <img src="{{ url($avatar)}}" width="50" height="50" class="img-rounded"  />
+                        <img alt="Avata" class="img-thumbnail" src="{{ url($avatar)}}" width="50" height="50" class="img-rounded"  />
                         <span><strong>{{$data1->name}}</strong></span>
                     </div>
                 </div>

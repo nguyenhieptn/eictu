@@ -136,6 +136,15 @@ class StudentController extends Controller
         return view('students.profile',compact('data','majors'));
     }
 
+    public  function  detail()
+    {
+        $data = Student::select('*')
+            ->where('code', '=', Auth::user()->username)
+            ->get()->first();
+        $majors= Major::select('*')->get();
+        return view('students.profile',compact('data','majors'));
+    }
+
     public function EditStudent(Request $request)
     {
 
