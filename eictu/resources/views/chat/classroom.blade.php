@@ -77,7 +77,7 @@
 
     </div>
 
-    <script src="http://45.32.41.40:8088/socket.io/socket.io.js"></script>
+    <script src="http://127.0.0.1:8088/socket.io/socket.io.js"></script>
     <script>
         (function(){
             var getNode = function(s){
@@ -89,7 +89,8 @@
                     status = getNode('.chat-status span'),
                     messages = getNode('.chat-messages'),
                     list_room = getNode('.room-list'),
-                    chatName = getNode('.chat-id'),
+                    chatID = getNode('.chat-id'),
+                    chatName = getNode('.chat-name'),
                     chatRoom = getNode('.chat-room'),
 
                     StatusDefault = status.textContent,
@@ -106,17 +107,18 @@
                     };
 
             try{
-                var socket = io.connect('http://45.32.41.40:8088');
+                var socket = io.connect('http://127.0.0.1:8088');
             }catch(e)
             {
                 //set status to warn user
             }
-            var name = chatName.value,
+            var id = chatID.value,
+                 name = chatName.value,
                     room = chatRoom.value,
                     time,
                     nd = "";
-
             socket.emit('input-one',{
+                id: id,
                 name: name,
                 room: room
             });
@@ -134,7 +136,7 @@
                         {
                             if(data[x].room == chatRoom.value){
                                 message = document.createElement('div');
-                                if(data[x].name !== chatName.value){
+                                if(data[x].id !== chatID.value){
                                     var message1 = document.createElement('div');
                                     message1.setAttribute('id','left');
 
@@ -158,9 +160,6 @@
 
                                     var anh = document.createElement('div');
                                     anh.setAttribute('id','image1');
-
-                                    innerHTML = data[x].name
-
 
                                     message2.appendChild(anh);
                                     message2.appendChild(tit);
@@ -197,7 +196,7 @@
 
                         for(var y=0;y<data.length; y=y+1)
                         {
-                            if(data[y].name == chatName.value){
+                            if(data[y].id == chatID.value){
                                 dem = 0;
                                 fLen = arr_room.length;
                                 for(var i=0;i<fLen;i++){
@@ -209,16 +208,16 @@
                                     arr_room.push(data[y].room);
                                 }
                             }
-                            if (data[y].room == chatName.value) {
+                            if (data[y].room == chatID.value) {
                                 dem = 0;
                                 fLen = arr_room.length;
                                 for (var i = 0; i < fLen; i++) {
-                                    if (arr_room[i] == data[y].name) {
+                                    if (arr_room[i] == data[y].id) {
                                         dem = dem + 1;
                                     }
                                 }
                                 if (dem == 0) {
-                                    arr_room.push(data[y].name);
+                                    arr_room.push(data[y].id);
                                 }
                             }
                         }
@@ -239,7 +238,7 @@
 
                         } else {
                             room_link.innerHTML = "<h4>" + arr_room[z] + "</h4>";
-                            room_link.href = 'friendroom?id='+chatName.value+'&friend='+ arr_room[z];
+                            room_link.href = 'friendroom?id='+chatID.value+'&friend='+ arr_room[z];
                         }
 
                         rooms.setAttribute("class", "room-list");
@@ -300,6 +299,7 @@
                     time = h + ":" + m + ":" + s + " / " + d + "-" + month + "-" + y;
                     nd = textarea.value;
                     socket.emit('input', {
+                        id:id,
                         name: name,
                         room: room,
                         message: nd,
@@ -326,6 +326,7 @@
                         time = h+":"+m+":"+s+" / "+d+"-"+month+"-"+y;
                         nd = textarea.value;
                         socket.emit('input',{
+                            id: id,
                             name: name,
                             room: room,
                             message: nd,
