@@ -63,9 +63,9 @@ Chi tiết lời yêu cầu
 		   <h4 class='media-heading'><strong>{!! $students->name !!}</strong></h4>
 		  <p> 
 		   @if($student->gender == 1)
-		   Nam , 
+		   Nam , &nbsp;&nbsp;
 		   @else
-		   Nữ , 
+		   Nữ , &nbsp;&nbsp;
 		   @endif
 		   &nbsp;&nbsp;{{ $want->location }}</p>
 		   <a href="" title=""><p class="index-content">{{$want->content}}</p></a></div>
