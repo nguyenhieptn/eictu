@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-    @if(Auth::user()->type == 1)
+    @if(Auth::check() && Auth::user()->type == 1)
     	<div class="col-xs-4">
     		<h3><a href="{{route('teacher.add')}}" title="">Thêm giảng viên vào trường</a></h3>
     	</div>
@@ -12,7 +12,7 @@
       </div>
     @endif
 
-    @if(Auth::user()->type == 3)
+    @if(Auth::check() && Auth::user()->type == 3)
       {{route('iwant.search')}}
     @endif  
     	
