@@ -54,12 +54,12 @@ function time_elapsed_string($datetime, $full = false) {
      @if(!empty($feed))
        @foreach($feed as $item)
        <div class="row boot">
-           <div class="col-lg-2">
         <?php 
             $st = DB::table('students')->where('id', $item->student_id)->first();  
-            echo '<img src="'.$st->avatar.'" height="100px" width="100px" />';
-            echo '<h4>'.$st->name.'</h4>';
            ?>  
+           <div class="col-lg-2">           
+            <img src="{{$st->avatar}}" height="100px" width="100px" />
+            <h4>{{$st->name}}</h4>
           </div>
           <div class="col-lg-10 ">    
             <p ><a style="color: black;" >{{$item->content}}</a></p>
