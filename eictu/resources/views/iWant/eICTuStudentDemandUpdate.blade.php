@@ -1,5 +1,4 @@
-
-@extends('layouts.student_app')
+@extends('teacher.master')
 @section('title')
 Đăng tin - Danh sách những mong muốn
 @endsection
