@@ -1,3 +1,4 @@
+
 @extends('teacher.master')
 
 @section('content')
@@ -56,7 +57,11 @@ function time_elapsed_string($datetime, $full = false) {
      ?>
      @if(!empty($feed))
        @foreach($feed as $item)
+<<<<<<< HEAD
       <?php 
+=======
+       <?php 
+>>>>>>> bf01f78c567d7dd9b7fd34cb0803d9e60ac04170
             $st = DB::table('students')->where('id', $item->student_id)->get()->toArray();
             foreach ($st as $values) {
               $aaa= $values->avatar;

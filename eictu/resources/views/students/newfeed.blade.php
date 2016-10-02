@@ -7,31 +7,50 @@
     <?php
      $newsfeeds = \App\NewsFeed::orderBy('time', 'DESC')->paginate(30);
     ?>
-    @forelse ( $newsfeeds as $newsfeed)
-        <div class="row" style="margin: 20px;">
-            <?php
-            $data1 = \App\Student::select('*')
-                    ->where('id','=',$newsfeed->student_id)
-                    ->get()->first();
-            $student_name=  $data1!=null? $data1->name : "Người nào đó";
+    <div class="panel panel-default find-job">
+        <div class="panel-heading">Bảng tin </div>
+        <div class="panel-body panel-body-2" id="content-js">
 
-            $student_avatar= $data1!= null ? $data1->avatar==null ? "/img/avatar.jpg" : $data1->avatar."" : "/img/avatar.jpg";
-            ?>
-            <div class="col-md-3">
-                <img src="{{$student_avatar}}" width="150" height="150" >
-            </div>
-            <div class="col-md-7" style="padding-top:20px;">
-                <strong>{{$student_name}}</strong>
 
-                <p style="word-wrap:break-word;">{{$newsfeed->content}}</p>
-            </div>
-            <div class="col-md-2" style="padding-top:20px;text-align: center;">
-                <span style="word-wrap:break-word; ">{{date('d/m/Y',strtotime($newsfeed->time))}}</span>
-            </div>
+
+            @foreach($newsfeeds as $item)
+                <?php
+                $data1 = \App\Student::select('*')
+                        ->where('id','=',$item->student_id)
+                        ->get()->first();
+                $student_name=  $data1!=null? $data1->name : "Người nào đó";
+
+                $student_avatar= $data1!= null ? $data1->avatar==null ? "/img/avatar.jpg" : $data1->avatar."" : "/img/avatar.jpg";
+                ?>
+                <div class='media'>
+                    <a href='' class='media-left' href='#'><img class='media-object'  class="img-rounded" src="{{url($student_avatar)}}" alt=''></a>
+                    <div class='media-body'>
+                        <p class="pull-right date-post">
+                            <?php
+                            if(date('d-m-Y',strtotime($item->time)) == date("d-m-Y")){
+                                echo "Hôm nay";
+                            }elseif(date('d-m-Y',strtotime($item->time)) ==(date("d-m-Y")-1)){
+                                echo "Hôm qua";
+                            }else{
+                                echo date('d-m-Y',strtotime($item->time));
+                            }
+                            ?>
+
+                        </p>
+                        <h4 class='media-heading'>
+                            <strong>
+                               <?php
+                                $id=$data1->id;
+                                $code=$data1->code;
+                                echo "<h3><a href='friendroom?id=$id&friend=$code'>$student_name</a></h3>";  ?>
+                            </strong>
+                        </h4>
+                        <p class="index-content"><?php echo substr($item->content, 0,250) ?> ...</p></div>
+                </div>
+
+            @endforeach
+            <div class="pull-right">{{$newsfeeds->render()}}</div>
         </div>
-    @empty
-        <p>Không có bảng tin nào</p>
-    @endforelse
 
-    {!! $newsfeeds->render() !!}
+    </div>
 @endsection
