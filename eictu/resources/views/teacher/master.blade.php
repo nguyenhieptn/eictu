@@ -113,9 +113,9 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstit rap/3.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
-@endif
+@else
 
-@if(Auth::user()->type == 3)
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
