@@ -58,7 +58,9 @@ function time_elapsed_string($datetime, $full = false) {
        <?php 
             $st = DB::table('students')->where('id', $item->student_id)->first();     
             print_r($st);
+            
            ?>  
+           {{$st->avatar}}
           <div class="col-lg-10 ">    
             <p ><a style="color: black;" >{{$item->content}}</a></p>
           </div>
