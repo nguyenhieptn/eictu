@@ -59,7 +59,7 @@ function time_elapsed_string($datetime, $full = false) {
             print_r($st);
            ?>  
            <div class="col-lg-2">
-                <img src="{{$st->avatar}}" height="100px" width="100px" />
+                <img src="" height="100px" width="100px" />
             <h4>
                 {{$st->name}}
            </h4>
