@@ -58,7 +58,7 @@ Chi tiết lời yêu cầu
 	    		<?php 
 	    			$students = DB::table('students')->select('name','avatar')->where('id', $want->student_id)->first();
 	    		 ?>
-	    		 <img src="$students->avatar" class="img-rounded" height="100px" width="100px" alt="">
+	    		 <img src="{{asset($students->avatar)}}" class="img-rounded" height="100px" width="100px" alt="">
 	    	</div>
 	    	<div class="col-lg-10">
 	    		<p><b style="color: #e74c3c; font-size: 20px;">{{$student->name}}</b><span style="margin-left: 200px;">{!! time_elapsed_string($want->created_at) !!}</span></p>

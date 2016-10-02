@@ -50,7 +50,7 @@ function time_elapsed_string($datetime, $full = false) {
   <div class="row">
     <div class="col-xs-8">
       <?php 
-      $feed = DB::table('newsfeed')->select('*')->get();
+      $feed = DB::table('newsfeed')->select('*')->orderBy('id', 'DESC')->get();
 
 
      ?>
@@ -63,14 +63,12 @@ function time_elapsed_string($datetime, $full = false) {
            ?>
           
           <div class="col-lg-2">
-                <img src="{!!asset('/upload/avatar/'.$st->avatar)!!}" height="100px" width="100px" />
-            <h4>
-                {{$st->name}}
-           </h4>
+                <img src="{!!asset($st->avatar)!!}" height="100px" width="100px" />
+            
           </div>
           <div class="col-lg-10 ">
           
-            
+            <h4><b>{{$st->name}}</b> <span class="time" >{!! time_elapsed_string($item->time) !!}</span></h4>
              <p ><a style="color: black;" >{{$item->content}}</a></p>
           </div>
         </div>

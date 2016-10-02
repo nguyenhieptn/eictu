@@ -27,7 +27,7 @@ class IWantController extends Controller
     public function postStatus(Request $request)
     {
         $this->validate($request, [
-            'content'=>'required|max:1000'
+            'content'=>'required|max:5000'
             ]);
         $iwant = new IWant();
         $iwant->content = $request->content;
@@ -41,7 +41,7 @@ class IWantController extends Controller
             $new = new NewsFeed();
             $new->student_id = $student->id;
             $new->content = $request->content;
-//             $new->type = 9;
+            $new->type = 9;
             $new->save();
         }
       

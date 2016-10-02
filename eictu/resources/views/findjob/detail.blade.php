@@ -1,4 +1,6 @@
-@extends('layouts.student_app')
+@extends('teacher.master')
+
+
 @section('content')
      <div class="row find-job" >
          <div class="col-md-12">

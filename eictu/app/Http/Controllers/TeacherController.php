@@ -105,7 +105,7 @@ class TeacherController extends Controller
         // return redirect()->back();
 
         Teacher::where('code', Auth::user()->username)
-          ->update(['avatar' => $image_name]);
+          ->update(['avatar' => "/upload/avatar/".$image_name]);
           Input::file('image')->move('upload/avatar/', $image_name);
           // file('image')->move('resources/upload/images/',$image_name );
           return redirect()->route('teacher.index');

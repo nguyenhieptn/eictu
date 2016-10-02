@@ -60,6 +60,7 @@
         <div class="col-xs-12">
         <?php 
           $students = DB::table('students')->select('name','avatar')->where('id', $want->student_id)->first();
+          $avatar = $students->avatar;
          ?>
          <style type="text/css" media="screen">
               .boot{
@@ -87,7 +88,7 @@
             </style>
          <div class="row boot">
            <div class="col-lg-2">
-            <img src="{{$students->avatar}}" class="img-rounded" alt="">
+            <img src="{{asset($avatar)}}" class="img-rounded" alt="">
             
            </div>
            <div class="col-lg-10 ">
