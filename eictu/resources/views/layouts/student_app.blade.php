@@ -112,11 +112,7 @@
                       <li class="list-group-item "><a href="{{url('chat/classrooms')}}">Messages / CHAT</a></li>
                       <li class="list-group-item "><a href="{{url('chat/friend')}}">Chát với bạn</a></li>
                       <li class="list-group-item "><a href="{{url('LMS/show')}}">Tiến độ học tập LMS</a></li> 
-                      <li class="list-group-item "><a href="#" class=" dropdown-toggle" data-toggle="dropdown" >Hồ sơ</a>
-                          <span class="caret"></span>
-                          <ul class="dropdown-menu">
-                            <li><a href="#">Upload Hình</a></li>
-                          </ul>
+                      
                       <li class="list-group-item "><a href="{{url("student/profile")}}">Hồ sơ sinh viên</a>
                       </li> 
                     </ul>
