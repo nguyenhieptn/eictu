@@ -94,7 +94,7 @@
             <div>
                 <ul class="list-group">
            
-                    <li class="list-group-item"style="background:scroll;"><br/> <a class="link" href="">News Feed</a></li>
+                    <li class="list-group-item"style="background:scroll;"><br/> <a class="link" href="{{route('teacher.index')}}">News Feed</a></li>
                     <li class="list-group-item"style="background:scroll;"><br/><a class="link" href="{{url('dormitory/search')}}">Ký túc xá</a></li>
                     <li class="list-group-item" style="background:scroll;"><br/><a class="link" href="{{url('rentHouse')}}">Nhà trọ sinh viên</a></li>
                     <li class="list-group-item"style="background:scroll;"><br/>  <a class="link" href="{{url('iHave')}}">Chợ đồ cũ</a></li>
@@ -113,9 +113,9 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstit rap/3.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
-@endif
+@else
 
-@if(Auth::user()->type == 3)
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
