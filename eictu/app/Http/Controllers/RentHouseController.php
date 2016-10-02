@@ -73,6 +73,6 @@ class RentHouseController extends Controller
     public function action(){
         $code = auth()->user()->username;
         $student_id=DB::table('students')->where('code',$code)->value('id');
-        DB::table(motels)->where('student_id',$student_id)->delete();
+        DB::table('motels')->where('student_id',$student_id)->delete();
     }
 }
