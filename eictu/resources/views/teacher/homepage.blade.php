@@ -69,7 +69,7 @@ function time_elapsed_string($datetime, $full = false) {
           </div>
           <div class="col-lg-10 ">
           
-            <h4><b>{{$st->name}}</b> <span class="time" >{!! time_elapsed_string($item->time) !!}</span></h4>
+            <h4><span class="time" >{!! time_elapsed_string($item->time) !!}</span></h4>
              <p ><a style="color: black;" >{{$item->content}}</a></p>
           </div>
         </div>
