@@ -99,7 +99,7 @@
                        $avatar = DB::table('teacher')->where('code',Auth::user()->username )->first();
                     }
                  ?>
-                    <li class="list-group-item" style="background:scroll; text-transform: uppercase;"> <br/>  <a href="{{route('teacher.avatar')}}" title=""><img class="image" src="{!!asset($avatar->avatar)!!}"></a>{{$avatar->name}} </li>
+                    <li class="list-group-item" style="background:scroll; text-transform: uppercase;"> <br/>  <a href="{{route('teacher.avatar')}}" title=""><img class="image" src="{!!asset($avatar->avatar)!!}"></a>&nbsp;{{$avatar->name}} </li>
                 @endif
                    
                     <li class="list-group-item"style="background:scroll;"><br/> <a class="link" href="">News Feed</a></li>
