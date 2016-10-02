@@ -1,4 +1,4 @@
-@extends('layouts.student_app')
+@extends('teacher.master')
 @section('title')
 eICTuStudentGoodsDetail - Chi tiết về bản tin đồ cũ
 @endsection
