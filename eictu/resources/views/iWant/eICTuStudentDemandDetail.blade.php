@@ -30,18 +30,10 @@ Chi tiết lời yêu cầu
 				    $diff->w = floor($diff->d / 7);
 				    $diff->d -= $diff->w * 7;
 
-				    $string = array(
-				        'y' => 'year',
-				        'm' => 'month',
-				        'w' => 'week',
-				        'd' => 'day',
-				        'h' => 'hour',
-				        'i' => 'minute',
-				        's' => 'second',
-				    );
+				    $string = array( 'y' => 'năm', 'm' => 'tháng', 'w' => 'tuần', 'd' => 'ngày', 'h' => 'giờ', 'i' => 'phút', 's' => 'giây', );
 				    foreach ($string as $k => &$v) {
 				        if ($diff->$k) {
-				            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+				            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? '' : '');
 				        } else {
 				            unset($string[$k]);
 				        }
