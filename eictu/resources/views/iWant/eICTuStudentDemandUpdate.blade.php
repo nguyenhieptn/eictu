@@ -88,7 +88,7 @@
       
       
         <?php 
-          $students = DB::table('students')->select('code','name','avatar')->where('id', $want->student_id)->first();
+          $students = DB::table('students')->select('code','name','avatar', 'gender')->where('id', $want->student_id)->first();
           $avatar = $students->avatar;
           $code = $students->code;
          ?>
