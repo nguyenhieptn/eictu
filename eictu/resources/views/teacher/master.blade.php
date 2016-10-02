@@ -102,7 +102,7 @@
                     <li class="list-group-item" style="background:scroll; text-transform: uppercase;"> <br/>  <a href="{{route('teacher.avatar')}}" title=""><img class="image" src="{!!asset($avatar->avatar)!!}"></a>&nbsp;{{$avatar->name}} </li>
                 @endif
                    
-                    <li class="list-group-item"style="background:scroll;"><br/> <a class="link" href="">News Feed</a></li>
+                    <li class="list-group-item"style="background:scroll;"><br/> <a class="link" href="{{route('teacher.index')}}">News Feed</a></li>
                     <li class="list-group-item"style="background:scroll;"><br/><a class="link" href="{{url('dormitory/search')}}">Ký túc xá</a></li>
                     <li class="list-group-item" style="background:scroll;"><br/><a class="link" href="{{url('rentHouse')}}">Nhà trọ sinh viên</a></li>
                     <li class="list-group-item"style="background:scroll;"><br/>  <a class="link" href="{{url('iHave')}}">Chợ đồ cũ</a></li>
