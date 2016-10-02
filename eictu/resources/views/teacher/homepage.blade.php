@@ -59,7 +59,7 @@ function time_elapsed_string($datetime, $full = false) {
             $st = DB::table('students')->where('id', $item->student_id)->first();            
            ?>          
           <div class="col-lg-2">
-                <img src="{{$st->avatar}}" height="100px" width="100px" />
+                <img @if($st->avatar!=null) src="{{$st->avatar}}" @else src="{{url('img/avatar_null.png')}}" @endif height="100px" width="100px" />
             <h4>
                 {{$st->name}}
            </h4>
