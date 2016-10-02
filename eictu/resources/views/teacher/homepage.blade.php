@@ -1,3 +1,4 @@
+
 @extends('teacher.master')
 
 @section('content')
@@ -27,30 +28,30 @@ function time_elapsed_string($datetime, $full = false) {
     $diff->d -= $diff->w * 7;
 
     $string = array(
-        'y' => 'year',
-        'm' => 'month',
-        'w' => 'week',
-        'd' => 'day',
-        'h' => 'hour',
-        'i' => 'minute',
-        's' => 'second',
+        'y' => 'năm',
+        'm' => 'tháng',
+        'w' => 'tuần',
+        'd' => 'ngày',
+        'h' => 'giờ',
+        'i' => 'phút',
+        's' => 'giây',
     );
     foreach ($string as $k => &$v) {
         if ($diff->$k) {
-            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? '' : '');
         } else {
             unset($string[$k]);
         }
     }
 
     if (!$full) $string = array_slice($string, 0, 1);
-    return $string ? implode(', ', $string) . ' ago' : 'just now';
+    return $string ? implode(', ', $string) . ' trước' : 'vừa xong';
 }
 ?>
   <div class="row">
     <div class="col-xs-8">
       <?php 
-      $feed = DB::table('newsfeed')->select('*')->get();
+      $feed = DB::table('newsfeed')->select('*')->orderBy('id', 'DESC')->get();
 
 
      ?>
@@ -63,14 +64,12 @@ function time_elapsed_string($datetime, $full = false) {
            ?>
           
           <div class="col-lg-2">
-                <img src="{!!asset('/upload/avatar/'.$st->avatar)!!}" height="100px" width="100px" />
-            <h4>
-                {{$st->name}}
-           </h4>
+                
+            
           </div>
           <div class="col-lg-10 ">
           
-            
+            <h4><span class="time" >{!! time_elapsed_string($item->time) !!}</span></h4>
              <p ><a style="color: black;" >{{$item->content}}</a></p>
           </div>
         </div>

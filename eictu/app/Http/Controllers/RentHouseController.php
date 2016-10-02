@@ -70,4 +70,9 @@ class RentHouseController extends Controller
         $data = DB::table('motels')->where('student_id', $student_id)->orderBy('date_join', 'desc')->paginate(10);
         return view("RentHouse.index", ['data' => $data]);
     }
+    public function action(){
+        $code = auth()->user()->username;
+        $student_id=DB::table('students')->where('code',$code)->value('id');
+        DB::table('motels')->where('student_id',$student_id)->delete();
+    }
 }

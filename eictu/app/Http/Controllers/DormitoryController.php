@@ -103,9 +103,15 @@ class DormitoryController extends Controller
         }
         $oldInfo = $str;
         
-        return redirect()->back()->with('msg', 'Cập nhật thành công!');
+        return redirect('/dormitory/history')->with('msg', 'Cập nhật thành công!');
     }
     public function getSearch(){
+        if(!Auth::guest()){
+            if(Auth::user()->type == 3)
+                return view('dormitory.search');
+            else
+                return view('dormitory.search2');
+        }
     	return view('dormitory.search');
     }
 
@@ -127,6 +133,12 @@ class DormitoryController extends Controller
 	    		}
 	    		else{
 	    			$area = DB::table('areas')->where('id', $dormitory->area_id)->first();
+                    if(!Auth::guest()){
+                        if(Auth::user()->type == 3)
+                            return view('dormitory.search', compact('student', 'school', 'dormitory', 'area'));
+                        else
+                            return view('dormitory.search2', compact('student', 'school', 'dormitory', 'area'));
+                    }
                     return view('dormitory.search', compact('student', 'school', 'dormitory', 'area'));
 	    		}
 	    	}
@@ -137,5 +149,21 @@ class DormitoryController extends Controller
         Auth::logout();
         return redirect('/');
         return view('schools.eICTuHomePage');
+    }
+
+    public function history(){
+        $code = Auth::user()->username;
+        $student = DB::table('students')->where('code', $code)->first();
+        $cache = "";
+        if(Cache::has($student->id)){
+            $cache = Cache::get($student->id);
+        }
+        if(!Auth::guest()){
+            if(Auth::user()->type == 3)
+                return view('dormitory.history', compact('cache'));
+            else
+                return view('dormitory.history2', compact('cache'));
+        }
+        return view('dormitory.history', compact('cache'));
     }
 }
