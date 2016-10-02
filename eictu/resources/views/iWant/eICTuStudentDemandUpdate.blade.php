@@ -5,24 +5,48 @@
 @endsection
 @section('content')
 <div class="container">
+
+<style type="text/css" media="screen">
+              .boot{
+
+                margin-top:10px; 
+                padding :10px;
+                background: #ecf0f1;
+
+                border-radius: 4px;
+                -moz-border-radius: 4px;
+                -webkit-border-radius: 4px;
+                -ms-border-radius: 4px;
+                -o-border-radius: 4px;
+              }
+              img{
+                width: 100px;
+                height: 100px;
+                border-radius: 4px;
+                -moz-border-radius: 4px;
+                -webkit-border-radius: 4px;
+                -ms-border-radius: 4px;
+                -o-border-radius: 4px;
+              }
+            </style>
 <?php 
-            	function time_elapsed_string($datetime, $full = false) {
-				    $now = new DateTime;
-				    $ago = new DateTime($datetime);
-				    $diff = $now->diff($ago);
-				    $diff->w = floor($diff->d / 7);
-				    $diff->d -= $diff->w * 7;
-				    $string = array( 'y' => 'năm', 'm' => 'tháng', 'w' => 'tuần', 'd' => 'ngày', 'h' => 'giờ', 'i' => 'phút', 's' => 'giây', );
-				    foreach ($string as $k => &$v) {
-				        if ($diff->$k) {
-				            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? '' : '');
-				        } else {
-				            unset($string[$k]);
-				        }
-				    }
-				    if (!$full) $string = array_slice($string, 0, 1);
-				    return $string ? implode(', ', $string) . ' ago' : 'just now';
-				}
+              function time_elapsed_string($datetime, $full = false) {
+            $now = new DateTime;
+            $ago = new DateTime($datetime);
+            $diff = $now->diff($ago);
+            $diff->w = floor($diff->d / 7);
+            $diff->d -= $diff->w * 7;
+            $string = array( 'y' => 'năm', 'm' => 'tháng', 'w' => 'tuần', 'd' => 'ngày', 'h' => 'giờ', 'i' => 'phút', 's' => 'giây', );
+            foreach ($string as $k => &$v) {
+                if ($diff->$k) {
+                    $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? '' : '');
+                } else {
+                    unset($string[$k]);
+                }
+            }
+            if (!$full) $string = array_slice($string, 0, 1);
+            return $string ? implode(', ', $string) . ' trước' : 'vừa xong';
+        }
              ?>
 @if(Auth::check() && Auth::user()->type ==3)
 
@@ -48,39 +72,16 @@
       <h4>Hiện có các lời kêu gọi/yêu cầu sau đây, mời bạn xem và trợ giúp nếu có thể:</h4>
       <hr>
       @if($data)
+
+
         @foreach($data as $want)
-        <div class="col-xs-12">
+
+      
         <?php 
           $students = DB::table('students')->select('name','avatar')->where('id', $want->student_id)->first();
           $avatar = $students->avatar;
          ?>
-         <style type="text/css" media="screen">
-              .boot{
-
-                margin-top:10px; 
-                padding :10px;
-                background: #ecf0f1;
-
-                border-radius: 4px;
-                -moz-border-radius: 4px;
-                -webkit-border-radius: 4px;
-                -ms-border-radius: 4px;
-                -o-border-radius: 4px;
-              }
-              img{
-                width: 100px;
-                height: 100px;
-                border-radius: 4px;
-                -moz-border-radius: 4px;
-                -webkit-border-radius: 4px;
-                -ms-border-radius: 4px;
-                -o-border-radius: 4px;
-              }
-            </style>
-
-          
-          
-        </div>
+ 
 
         <div class='media boot'>
              <a href='' class='media-left' href='#'><img class='media-object'  class="img-rounded" src="{{asset($avatar)}}" alt=''></a>
