@@ -106,7 +106,7 @@
                     <li class="list-group-item"style="background:scroll;"><br/><a class="link" href="{{url('dormitory/search')}}">Ký túc xá</a></li>
                     <li class="list-group-item" style="background:scroll;"><br/><a class="link" href="{{url('rentHouse')}}">Nhà trọ sinh viên</a></li>
                     <li class="list-group-item"style="background:scroll;"><br/>  <a class="link" href="{{url('iHave')}}">Chợ đồ cũ</a></li>
-                    <li class="list-group-item"style="background:scroll;"><br/> <a class="link" href="{{url('chat/classrooms')}}">Message/CHAT</a></li>
+                    <li class="list-group-item"style="background:scroll;"><br/> <a class="link" href="{{url('chat/classlist')}}">Message/CHAT</a></li>
 
                 </ul>
             </div>
