@@ -18,6 +18,7 @@
     	
   </div>
 <?php 
+use DB;
 function time_elapsed_string($datetime, $full = false) {
     $now = new DateTime;
     $ago = new DateTime($datetime);
