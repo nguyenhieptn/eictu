@@ -109,7 +109,7 @@
                                     <a href="{{route('classes.classmatersbirthday', $classid )}}">Sinh nhật bạn cùng lớp</a>
                             </li>
                         @endif
-                      <li class="list-group-item <?php if($arr[1]=='iwant') echo "list-group-item-warning active";?> "><a href="{{route('iwant.status')}}">Tôi muốn- I Want</a> </li> 
+                      <li class="list-group-item <?php if($arr[1]=='iwant') echo "list-group-item-warning";?> "><a href="{{route('iwant.status')}}">Tôi muốn- I Want</a> </li> 
                       <li class="list-group-item <?php if($arr[1]=='iHave') echo "list-group-item-warning";?> "><a href="{{url('/iHave')}}">Chợ đồ cũ</a></li> 
                       <li class="list-group-item <?php if($arr[1]=='findjob') echo "list-group-item-warning";?> "><a href="{{url('/findjob/index')}}">Tìm việc làm </a></li> 
                       <li class="list-group-item <?php if($arr[1]=='dormitory') echo "list-group-item-warning";?> "><a href="{!! url('dormitory/search')!!}">Kí túc xá</a></li> 
