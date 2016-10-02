@@ -67,6 +67,20 @@ Chi tiết lời yêu cầu
 		   @else
 		   Nữ , &nbsp;&nbsp;
 		   @endif
+		   @if(!empty($want->location))
+		   	<?php 
+
+	      		if (isset($address)) {
+	      			echo " Xóm trọ ông/bà :".$address->hostess." , ".$address->address;
+	      		}elseif (isset($address2)) {
+	      			echo  "Phòng số :".$address2->room." , Tòa nhà :".$address2->building." , Khu :".$area->name;
+	      		}else{
+	      			echo "Không xác định được địa chỉ hiện tại của sinh viên";
+	      		}
+	      			
+	      		
+	      ?>
+		   @endif
 		   {{ $want->location }}</p>
 		   <a href="" title=""><p class="index-content">{{$want->content}}</p></a></div>
 		</div>
