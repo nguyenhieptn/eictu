@@ -99,7 +99,7 @@
                     <ul class="list-group">
 						<?php  
 							$url= $_SERVER['REQUEST_URI']; 
-							$arr = var_dump(explode('/',$url));
+							$arr = explode('/',$url);
 						?>
                       <li class="list-group-item" <?php if($arr[2]=='student' && $arr[3]=='newsfeed') echo "active"; ?>><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> 
                       <a href="{{url('student/newsfeed')}}">News Feed</a></li>
