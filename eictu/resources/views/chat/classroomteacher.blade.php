@@ -5,6 +5,8 @@
     $user_id = Auth::user()->username;
     $class_room = $_GET['c'];
 
+    $classes = DB::table('classes')->get();
+
     if (Auth::user()->type == 2){
         $name = Auth::user()->name;
     } else {
@@ -34,7 +36,7 @@
 
     ?>
     <div class="row">
-        <div class="col-sm-12" id="purple">
+        <div class="col-sm-12" id="colors">
             <h4>Phòng Chat của lớp <span><?php echo $class_room;?></span>
             </h4>
         </div>
@@ -43,10 +45,10 @@
             <input type="hidden" class="chat-name" value="<?php echo $name;?>"/>
             <input type="hidden" class="chat-id" value="<?php echo $user_id;?>"/>
         </div>
-        <div class="col-sm-4 list-room">
+        <div class="col-sm-3 list-room">
             <div class="room-list"></div>
         </div>
-        <div class="col-sm-8 chat-messages">
+        <div class="col-sm-9 chat-messages">
             <div id="left"></div>
             <div id="right"></div>
         </div>
@@ -177,7 +179,7 @@
 
                                 }
                                 messages.appendChild(message);
-                                messages.insertBefore(message, messages.lastChild);
+                                messages.insertBefore(message, messages.firstChild);
                             }
                         }
 
@@ -212,26 +214,48 @@
                         list_room.removeChild(list_room.firstChild);
                     }
 
+                    <?php
+                        foreach ($classes as $class) {
+                            ?>
+                            var temp_name = "<?php echo $class->name; ?>";
+                            rooms = document.createElement("div");
+                            room_link = document.createElement("a");
+                            room_link.setAttribute("id", "room-link");
 
-                    for (var z = 0; z < arr_room.length; z++) {
-                        rooms = document.createElement("div")
-                        room_link = document.createElement("a");
-                        room_link.setAttribute("id", "room-link");
-                        if (arr_room[z].length < 10) {
-                            room_link.innerHTML = "<h4>" + chatRoom.value + "</h4>";
-                            room_link.href = 'classrooms';
+                            if (temp_name == chatRoom.value){
+                                room_link.innerHTML = "<h5 style='color: #ff000f'>" + temp_name + "</h5>";
+                            } else {
+                                room_link.innerHTML = "<h5>" + temp_name + "</h5>";
+                            }
+                            room_link.href = 'classroomteacher?c=' + temp_name;
 
-                        } else {
-                            room_link.innerHTML = "<h4>" + arr_room[z] + "</h4>";
-                            room_link.href = 'friendroom?id=' + chatName.value + '&friend=' + arr_room[z];
+                            rooms.setAttribute("class", "room-list");
+                            rooms.appendChild(room_link);
+
+                            list_room.appendChild(rooms);
+                            list_room.insertBefore(rooms, list_room.firstChild);
+                    <?php
                         }
+                    ?>
 
-                        rooms.setAttribute("class", "room-list");
-                        rooms.appendChild(room_link);
 
-                        list_room.appendChild(rooms);
-                        list_room.insertBefore(rooms, list_room.firstChild);
-                    }
+//                    for (var z = 0; z < arr_room.length; z++) {
+//                        rooms = document.createElement("div");
+//                        room_link = document.createElement("a");
+//                        room_link.setAttribute("id", "room-link");
+//                        if (arr_room[z].length < 10) {
+//                            room_link.innerHTML = "<h5>" + chatRoom.value + "</h5>";
+//                            room_link.href = 'classrooms';
+//
+//
+//                        }
+//
+//                        rooms.setAttribute("class", "room-list");
+//                        rooms.appendChild(room_link);
+//
+//                        list_room.appendChild(rooms);
+//                        list_room.insertBefore(rooms, list_room.firstChild);
+//                    }
                 });
 
 

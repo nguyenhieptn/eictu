@@ -43,7 +43,7 @@
 
     ?>
     <div class="row">
-        <div class="col-sm-12" id="purple">
+        <div class="col-sm-12" id="colors">
             <h4>Phòng Chat của lớp <span><?php echo $class_room;?></span>
             </h4>
         </div>
@@ -52,18 +52,16 @@
             <input type="hidden" class="chat-name" value="<?php echo $name;?>"/>
             <input type="hidden" class="chat-id" value="<?php echo $user_id;?>"/>
         </div>
-        <div class="col-sm-4 list-room">
+        <div class="col-sm-3 list-room">
             <div class="room-list"></div>
         </div>
-        <div class="col-sm-8 chat-messages">
+        <div class="col-sm-9 chat-messages">
             <div id="left"></div>
             <div id="right"></div>
         </div>
 
         <div class="col-sm-10">
-            <textarea class="form-control" rows="3" id="comment" placeholder="Nhập mã nội dung Chat"></textarea>
-            {{--<input class="form-control input-lg chat-input" id="inputlg" type="text"--}}
-            {{--placeholder="Type your message">--}}
+            <textarea class="form-control" rows="3" id="comment" placeholder="Type your message"></textarea>
         </div>
         <div class="col-sm-2">
             <button type="button" id="send" class="btn btn-primary btn-lg">Send</button>
@@ -93,6 +91,7 @@
                     chatName = getNode('.chat-name'),
                     chatRoom = getNode('.chat-room'),
 
+
                     StatusDefault = status.textContent,
 
                     setStatus= function(s){
@@ -113,10 +112,11 @@
                 //set status to warn user
             }
             var id = chatID.value,
-                 name = chatName.value,
-                    room = chatRoom.value,
-                    time,
-                    nd = "";
+                name = chatName.value,
+                room = chatRoom.value,
+                time,
+                nd = "";
+
             socket.emit('input-one',{
                 id: id,
                 name: name,
@@ -124,6 +124,7 @@
             });
             var message,rooms,room_link;
             var arr_room=[];
+            var arr_friend_room = [];
             var dem = 0;
             var fLen = 0;
             if(socket !== undefined)
@@ -176,7 +177,7 @@
                                     var mg = document.createElement('div');
                                     mg.setAttribute('id','mg');
 
-                                    mg.innerHTML =data[x].message + ' <= ';
+                                    mg.innerHTML =data[x].message + '   ';
 
                                     var time1 = document.createElement('div');
                                     time1.setAttribute('id','time2');
@@ -206,6 +207,7 @@
                                 }
                                 if(dem==0){
                                     arr_room.push(data[y].room);
+                                    arr_friend_room.push(data[y].friendname);
                                 }
                             }
                             if (data[y].room == chatID.value) {
@@ -218,6 +220,7 @@
                                 }
                                 if (dem == 0) {
                                     arr_room.push(data[y].id);
+                                    arr_friend_room.push(data[y].name);
                                 }
                             }
                         }
@@ -233,11 +236,15 @@
                         room_link = document.createElement("a");
                         room_link.setAttribute("id", "room-link");
                         if (arr_room[z].length < 10 ) {
-                            room_link.innerHTML = "<h4>" + chatRoom.value + "</h4>";
-                            room_link.href = 'classrooms';
+                            if (chatRoom.value == room){
+                                room_link.innerHTML = "<h5 style='color: #ff000f'>" + chatRoom.value + "</h5>";
+                            } else {
+                                room_link.innerHTML = "<h5>" + chatRoom.value + "</h5>";
+                            }
 
+                            room_link.href = 'classrooms';
                         } else {
-                            room_link.innerHTML = "<h4>" + arr_room[z] + "</h4>";
+                            room_link.innerHTML = "<h5>" + arr_friend_room[z] + "</h5>";
                             room_link.href = 'friendroom?id='+chatID.value+'&friend='+ arr_room[z];
                         }
 
@@ -302,6 +309,7 @@
                         id:id,
                         name: name,
                         room: room,
+                        friendname:room,
                         message: nd,
                         time: time
                     });
@@ -329,9 +337,10 @@
                             id: id,
                             name: name,
                             room: room,
+                            friendname:room,
                             message: nd,
                             time: time
-                        });
+                    });
                     }
                 });
             }

@@ -28,11 +28,14 @@ input {
 #cla{
     font-size: 18px;
 }
-#purple {
+#send {
+    margin-top: 16px;
+}
+#colors {
     text-align: center;
-    background-color: #9b09d6;
+    background-color: #00cc33;
     color: #fff;
-    border: 2px solid #9209c9;
+    border: 2px solid #00cc33;
     border-radius: 5px;
 }
 

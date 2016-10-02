@@ -35,7 +35,7 @@
                                     <!-- SENT MESSAGE  -->
                                     <!-- để lấy Ma sv $detail->code -->
                                     <div class="col-md-10">
-                                          <form action="" >
+                                          <form action="{{ url('chat/friend') }}" >
                                             <Button class="btn btn-danger"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
                                                 Sent Message
                                             </Button>
