@@ -1,5 +1,4 @@
-@extends('teacher.master')
-
+@extends('layouts.student_app')
 
 @section('title')
 eICTuStudentDormitorySearch - Tra cứu chỗ ở trong KTX
@@ -10,7 +9,7 @@ eICTuStudentDormitorySearch - Tra cứu chỗ ở trong KTX
 
 @endsection
 @section('content')
-<div id="updateStudent">
+<div id="updateStudentDr">
 		<div class="row">
 			@if(Session::has('msg'))
 			<div class="alert alert-warning">{!! Session::get('msg') !!}</div>

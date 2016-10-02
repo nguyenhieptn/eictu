@@ -7,7 +7,7 @@
 eICTuStudentDormitoryUpdate - Sinh viên cập nhật chỗ ở KTX
 @endsection
 @section('content')
-<div id="updateStudent">
+<div id="updateStudentDr">
 		<div class="contentUpdate">
 			<div class="page-header">
 				<h3>Cập nhật thông tin về chỗ ở hiện tại của KTX tại đây</h3>
