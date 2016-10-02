@@ -27,10 +27,15 @@
             border-bottom-left-radius:4px;
             background: #ecf0f1;
         }
-        .time{
-            position: relative;
-            margin-left: 240px;
-        }
+        img{
+                width: 100px;
+                height: 100px;
+                border-radius: 4px;
+                -moz-border-radius: 4px;
+                -webkit-border-radius: 4px;
+                -ms-border-radius: 4px;
+                -o-border-radius: 4px;
+              }
     </style>
     <script>
         window.Laravel = <?php echo json_encode([
@@ -94,18 +99,20 @@
             <div>
                 <ul class="list-group">
                 @if(Auth::user()->id)
-                <?php 
-                     if (isset(Auth::user()->id)) {
-                       $avatar = DB::table('teacher')->where('code',Auth::user()->username )->first();
-                    }
-                 ?>
-                    <li class="list-group-item" style="background:scroll; text-transform: uppercase;"> <br/>  <a href="{{route('teacher.avatar')}}" title=""><img class="image" src="{!!asset($avatar->avatar)!!}"></a>&nbsp;{{$avatar->name}} </li>
+                    <?php 
+                         if (isset(Auth::user()->id)) {
+                           $avatar = DB::table('teacher')->where('code',Auth::user()->username )->first();
+                        }
+                     ?>
+                        <li class="list-group-item" style="background:scroll; text-transform: uppercase;"> <br/>  <a href="{{route('teacher.avatar')}}" title=""><img class="image" src="{!!asset($avatar->avatar)!!}"></a> &nbsp;{{$avatar->name}} </li>
+             
                 @endif
                    
-                    <li class="list-group-item"style="background:scroll;"><br/> <a class="link" href="">News Feed</a></li>
+                    <li class="list-group-item"style="background:scroll;"><br/> <a class="link" href="{{route('teacher.index')}}">News Feed</a></li>
                     <li class="list-group-item"style="background:scroll;"><br/><a class="link" href="{{url('dormitory/search')}}">Ký túc xá</a></li>
                     <li class="list-group-item" style="background:scroll;"><br/><a class="link" href="{{url('rentHouse')}}">Nhà trọ sinh viên</a></li>
                     <li class="list-group-item"style="background:scroll;"><br/>  <a class="link" href="{{url('iHave')}}">Chợ đồ cũ</a></li>
+                    <li class="list-group-item"style="background:scroll;"><br/> <a class="link" href="{{url('chat/classrooms')}}">Message/CHAT</a></li>
                     <li class="list-group-item"style="background:scroll;"><br/> <a class="link" href="{{url('chat/classlist')}}">Message/CHAT</a></li>
 
                 </ul>
@@ -325,4 +332,3 @@
 
 
 @endif
-

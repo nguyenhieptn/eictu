@@ -7,8 +7,6 @@
                     <div class="panel-heading">Sinh viên toàn trường</div>
                     <div class="panel-body">
                         <a href="{{ url('student/create') }}">THÊM SINH VIÊN VÀO TRƯỜNG</a>
-                        |
-                        <a href="{{ url('student/adding') }}">THÊM SINH VIÊN VÀO TRƯỜNG</a>
                         <h2>Danh sách sinh viên toàn trường</h2>
                         <table class="table">
                             <thead>

@@ -1,3 +1,4 @@
+
 @extends('teacher.master')
 
 @section('content')
@@ -27,24 +28,24 @@ function time_elapsed_string($datetime, $full = false) {
     $diff->d -= $diff->w * 7;
 
     $string = array(
-        'y' => 'năm',
-        'm' => 'tháng',
-        'w' => 'tuần',
-        'd' => 'ngày',
-        'h' => 'giờ',
-        'i' => 'phút',
-        's' => 'giây',
+        'y' => 'year',
+        'm' => 'month',
+        'w' => 'week',
+        'd' => 'day',
+        'h' => 'hour',
+        'i' => 'minute',
+        's' => 'second',
     );
     foreach ($string as $k => &$v) {
         if ($diff->$k) {
-            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? '' : '');
+            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
         } else {
             unset($string[$k]);
         }
     }
 
     if (!$full) $string = array_slice($string, 0, 1);
-    return $string ? implode(', ', $string) . ' trước' : 'vừa xong';
+    return $string ? implode(', ', $string) . ' ago' : 'just now';
 }
 ?>
   <div class="row">
@@ -56,18 +57,28 @@ function time_elapsed_string($datetime, $full = false) {
      ?>
      @if(!empty($feed))
        @foreach($feed as $item)
-       <?php 
-            $st = DB::table('students')->where('id', $item->student_id)->first();
-            
+      <?php 
+            $st = DB::table('students')->where('id', $item->student_id)->get()->toArray();
+            foreach ($st as $values) {
+              $aaa= $values->avatar;
+            }
            ?>
        <div class='media boot'>
-         <a href='' class='media-left' href='#'><img class='media-object'  class="img-rounded"  alt=''></a>
+         <a href='' class='media-left' href='#'><img class='media-object' src="{!!asset($aaa)!!}" class="img-rounded" src="" alt=''></a>
          <div class='media-body'> 
           <p class="pull-right date-post">{!! time_elapsed_string($item->time) !!}</p>
-          <h4 class='media-heading'><strong>ten nguoi dan</strong></h4>
-          <p class="index-content">{{$item->content}}</p>
-         </div>
+          <h4 class='media-heading'><strong>
+            <?php 
+              foreach ($st as $value) {
+                echo $value->name;
+            }
+             ?>
+
+          </strong></h4>
+         <p class="index-content">{{$item->content}}</p>
         </div>
+      </div>  
+
          
        @endforeach
       @endif

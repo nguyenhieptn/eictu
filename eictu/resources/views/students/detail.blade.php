@@ -1,11 +1,11 @@
-@extends('teacher.master')
+@extends('layouts.student_app')
 
 
 @section('content')
      <div class="row find-job" >
          <div class="col-md-12">
              <div class="panel panel-default">
-                 <div class="panel-heading">Bản tin tìm việc chi tiết của sinh viên</div>
+                 <div class="panel-heading">Thông tin chi tiết.</div>
                  <div class="panel-body">
                     </hr>
                       <div class="entry-content">
@@ -22,7 +22,7 @@
                                             @else
                                                 {{ "Nữ" }}
                                              @endif
-                                     </strong></p>
+                                    </strong></p>
                                  </div>
                             
                                 <div class ="col-md-12 " style="margin-top: 30px">
@@ -35,7 +35,7 @@
                                     <!-- SENT MESSAGE  -->
                                     <!-- để lấy Ma sv $detail->code -->
                                     <div class="col-md-10">
-                                          <form action="{{ url('chat/friend') }}" >
+                                          <form action="" >
                                             <Button class="btn btn-danger"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
                                                 Sent Message
                                             </Button>

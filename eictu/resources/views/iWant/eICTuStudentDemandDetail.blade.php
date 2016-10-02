@@ -1,4 +1,4 @@
-@extends('layouts.student_app')
+@extends('teacher.master')
 @section('title')
 Chi tiết lời yêu cầu
 @endsection
@@ -61,6 +61,28 @@ Chi tiết lời yêu cầu
 		       {!! time_elapsed_string($want->created_at) !!}
 		   </p>
 		   <h4 class='media-heading'><strong>{!! $students->name !!}</strong></h4>
+           <p>{{ $want->location }}</p>
+		  <p> 
+		   @if($student->gender == 1)
+		   Nam , &nbsp;&nbsp;
+		   @else
+		   Nữ , &nbsp;&nbsp;
+		   @endif
+		   @if(!empty($want->location))
+		   	<?php 
+
+	      		if (isset($address)) {
+	      			echo " Xóm trọ ông/bà :".$address->hostess." , ".$address->address;
+	      		}elseif (isset($address2)) {
+	      			echo  "Phòng số :".$address2->room." , Tòa nhà :".$address2->building." , Khu :".$area->name;
+	      		}else{
+	      			echo "Không xác định được địa chỉ hiện tại của sinh viên";
+	      		}
+	      			
+	      		
+	      ?>
+		   @endif
+		   {{ $want->location }}</p>
 		   <a href="" title=""><p class="index-content">{{$want->content}}</p></a></div>
 		</div>
 
