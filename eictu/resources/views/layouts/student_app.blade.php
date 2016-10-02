@@ -113,7 +113,7 @@
                       <li class="list-group-item "><a href="{{url('/iHave')}}">Chợ đồ cũ</a></li> 
                       <li class="list-group-item "><a href="{{url('/findjob/index')}}">Tìm việc làm </a></li> 
                       <li class="list-group-item "><a href="{!! url('dormitory/search')!!}">Kí túc xá</a></li> 
-                      <li class="list-group-item "><a <?php href="{{url('/rentHouse')}}" if($arr[1]=='rentHouse') echo "style='color:red;!important'"; ?>>Nhà trọ sinh viên</a></li> 
+                      <li class="list-group-item "><a href="{{url('/rentHouse')}}" @if($arr[1]=='rentHouse') class="text-danger" @endif >Nhà trọ sinh viên</a></li> 
                       <li class="list-group-item "><a href="{{url('chat/classrooms')}}">Messages / CHAT</a></li>
                       <li class="list-group-item "><a href="{{url('chat/friend')}}">Chát với bạn</a></li>
                       <li class="list-group-item "><a href="{{url('LMS/show')}}">Tiến độ học tập LMS</a></li> 

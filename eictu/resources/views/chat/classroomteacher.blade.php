@@ -9,15 +9,6 @@
         $name = Auth::user()->name;
     } else {
 
-    $st = DB::table('students')->where('code', $user_id)->first();
-    $class_id = $st->class_id;
-    $class = DB::table('classes')->where('id', $class_id)->first();
-    $class_name = $class->name;
-
-    if ($class_room == $class_name){
-        $student = DB::table('students')->where('code', $user_id)->first();
-        $name = $student->name;
-    } else {
     ?>
 
     <div class="row">
@@ -38,7 +29,7 @@
 
     <?php
     return false;
-    }
+
     }
 
     ?>
@@ -79,8 +70,8 @@
 
     <script src="http://127.0.0.1:8088/socket.io/socket.io.js"></script>
     <script>
-        (function(){
-            var getNode = function(s){
+        (function () {
+            var getNode = function (s) {
                         return document.querySelector(s);
 
                     },
@@ -94,21 +85,19 @@
 
                     StatusDefault = status.textContent,
 
-                    setStatus= function(s){
+                    setStatus = function (s) {
                         status.textContent = s;
 
-                        if(s!== StatusDefault)
-                        {
-                            var delay = setTimeout(function(){
+                        if (s !== StatusDefault) {
+                            var delay = setTimeout(function () {
                                 setStatus(StatusDefault);
-                            },3000);
+                            }, 3000);
                         }
                     };
 
-            try{
+            try {
                 var socket = io.connect('http://127.0.0.1:8088');
-            }catch(e)
-            {
+            } catch (e) {
                 //set status to warn user
             }
             var name = chatName.value,
@@ -116,48 +105,45 @@
                     time,
                     nd = "";
 
-            socket.emit('input-one',{
+            socket.emit('input-one', {
                 name: name,
                 room: room
             });
-            var message,rooms,room_link;
-            var arr_room=[];
+            var message, rooms, room_link;
+            var arr_room = [];
             var dem = 0;
             var fLen = 0;
-            if(socket !== undefined)
-            {
+            if (socket !== undefined) {
                 //Lisen for output
-                socket.on('output', function(data){
-                    if(data.length)
-                    {
-                        for(var x=0;x<data.length; x=x+1)
-                        {
-                            if(data[x].room == chatRoom.value){
+                socket.on('output', function (data) {
+                    if (data.length) {
+                        for (var x = 0; x < data.length; x = x + 1) {
+                            if (data[x].room == chatRoom.value) {
                                 message = document.createElement('div');
-                                if(data[x].name !== chatName.value){
+                                if (data[x].name !== chatName.value) {
                                     var message1 = document.createElement('div');
-                                    message1.setAttribute('id','left');
+                                    message1.setAttribute('id', 'left');
 
                                     var message2 = document.createElement('div');
-                                    message2.setAttribute('id','divtitle');
+                                    message2.setAttribute('id', 'divtitle');
 
                                     var tit = document.createElement('div');
-                                    tit.setAttribute('id','title1');
+                                    tit.setAttribute('id', 'title1');
 
                                     tit.innerHTML = data[x].name;
 
                                     var mg = document.createElement('div');
-                                    mg.setAttribute('id','mg');
+                                    mg.setAttribute('id', 'mg');
 
                                     mg.innerHTML = ' ' + data[x].message;
 
                                     var time1 = document.createElement('div');
-                                    time1.setAttribute('id','time1');
+                                    time1.setAttribute('id', 'time1');
 
-                                    time1.innerHTML =data[x].time;
+                                    time1.innerHTML = data[x].time;
 
                                     var anh = document.createElement('div');
-                                    anh.setAttribute('id','image1');
+                                    anh.setAttribute('id', 'image1');
 
                                     innerHTML = data[x].name
 
@@ -170,19 +156,19 @@
 
                                     message.appendChild(message1);
 
-                                }else{
+                                } else {
                                     var message1 = document.createElement('div');
-                                    message1.setAttribute('id','right');
+                                    message1.setAttribute('id', 'right');
 
                                     var mg = document.createElement('div');
-                                    mg.setAttribute('id','mg');
+                                    mg.setAttribute('id', 'mg');
 
-                                    mg.innerHTML =data[x].message + ' <= ';
+                                    mg.innerHTML = data[x].message + ' <= ';
 
                                     var time1 = document.createElement('div');
-                                    time1.setAttribute('id','time2');
+                                    time1.setAttribute('id', 'time2');
 
-                                    time1.innerHTML =data[x].time;
+                                    time1.innerHTML = data[x].time;
 
                                     message1.appendChild(mg);
                                     message1.appendChild(time1)
@@ -195,17 +181,16 @@
                             }
                         }
 
-                        for(var y=0;y<data.length; y=y+1)
-                        {
-                            if(data[y].name == chatName.value){
+                        for (var y = 0; y < data.length; y = y + 1) {
+                            if (data[y].name == chatName.value) {
                                 dem = 0;
                                 fLen = arr_room.length;
-                                for(var i=0;i<fLen;i++){
-                                    if(arr_room[i] == data[y].room){
-                                        dem = dem +1;
+                                for (var i = 0; i < fLen; i++) {
+                                    if (arr_room[i] == data[y].room) {
+                                        dem = dem + 1;
                                     }
                                 }
-                                if(dem==0){
+                                if (dem == 0) {
                                     arr_room.push(data[y].room);
                                 }
                             }
@@ -223,23 +208,22 @@
                             }
                         }
                     }
-                    while(list_room.firstChild){
+                    while (list_room.firstChild) {
                         list_room.removeChild(list_room.firstChild);
                     }
 
 
-
-                    for(var z=0;z<arr_room.length;z++){
+                    for (var z = 0; z < arr_room.length; z++) {
                         rooms = document.createElement("div")
                         room_link = document.createElement("a");
                         room_link.setAttribute("id", "room-link");
-                        if (arr_room[z].length < 10 ) {
+                        if (arr_room[z].length < 10) {
                             room_link.innerHTML = "<h4>" + chatRoom.value + "</h4>";
                             room_link.href = 'classrooms';
 
                         } else {
                             room_link.innerHTML = "<h4>" + arr_room[z] + "</h4>";
-                            room_link.href = 'friendroom?id='+chatName.value+'&friend='+ arr_room[z];
+                            room_link.href = 'friendroom?id=' + chatName.value + '&friend=' + arr_room[z];
                         }
 
                         rooms.setAttribute("class", "room-list");
@@ -251,18 +235,16 @@
                 });
 
 
-
                 //listen for s status
-                socket.on('status',function(data){
-                    setStatus((typeof data === 'object')? data.message: data);
+                socket.on('status', function (data) {
+                    setStatus((typeof data === 'object') ? data.message : data);
 
-                    if(data.clear === true )
-                    {
+                    if (data.clear === true) {
                         textarea.value = '';
                     }
                 });
 
-                var today,h,i,m,j,s,d,month,y,k,l;
+                var today, h, i, m, j, s, d, month, y, k, l;
                 var code;
 
                 var button = document.getElementById("send");
@@ -308,24 +290,40 @@
 
                 };
                 var textarea = document.getElementById('comment');
-                textarea.addEventListener('keydown', function (e){
+                textarea.addEventListener('keydown', function (e) {
                     code = e.keyCode ? e.keyCode : e.which;
                     if (code == 13) {
                         today = new Date();
                         l = today.getHours();
-                        if(l<10){h="0"+l;}else{h=l;}
+                        if (l < 10) {
+                            h = "0" + l;
+                        } else {
+                            h = l;
+                        }
                         i = today.getMinutes();
-                        if(i<10){m= "0"+i;}else{m=i;}
+                        if (i < 10) {
+                            m = "0" + i;
+                        } else {
+                            m = i;
+                        }
                         j = today.getSeconds();
-                        if(j<10){s= "0"+j;}else{s=j;}
+                        if (j < 10) {
+                            s = "0" + j;
+                        } else {
+                            s = j;
+                        }
                         d = today.getDate();
                         k = today.getMonth();
-                        if(k>8){month=k+1;}else{month = "0"+(k+1);}
+                        if (k > 8) {
+                            month = k + 1;
+                        } else {
+                            month = "0" + (k + 1);
+                        }
                         y = today.getFullYear();
 
-                        time = h+":"+m+":"+s+" / "+d+"-"+month+"-"+y;
+                        time = h + ":" + m + ":" + s + " / " + d + "-" + month + "-" + y;
                         nd = textarea.value;
-                        socket.emit('input',{
+                        socket.emit('input', {
                             name: name,
                             room: room,
                             message: nd,
