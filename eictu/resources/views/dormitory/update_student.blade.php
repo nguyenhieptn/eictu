@@ -8,9 +8,10 @@ eICTuStudentDormitoryUpdate - Sinh viên cập nhật chỗ ở KTX
 @endsection
 @section('content')
 <div id="updateStudent">
-
 		<div class="contentUpdate">
-			<h3>Cập nhật thông tin về chỗ ở hiện tại của KTX tại đây</h3>
+			<div class="page-header">
+				<h3>Cập nhật thông tin về chỗ ở hiện tại của KTX tại đây</h3>
+			</div>
 			@if (count($errors) > 0)
 			    <div class="alert alert-danger">
 			        <ul>

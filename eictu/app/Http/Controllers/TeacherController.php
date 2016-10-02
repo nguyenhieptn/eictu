@@ -16,7 +16,7 @@ class TeacherController extends Controller
 {
 
     public function index(){
-       if (isset(Auth::user()->id) && Auth::user()->type <= 2) {
+       if (Auth::check() && Auth::user()->type <= 2) {
             return view('teacher.homepage');
         }else{
             return redirect()->route('teacher.login');

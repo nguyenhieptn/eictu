@@ -1,4 +1,11 @@
-@extends('layouts.student_app')
+<?php
+    $file='layouts.student_app';
+    if (auth()->check() && auth()->user()->type==3)
+    $file='layouts.student_app';
+    elseif(Auth::check() && Auth::user()->type==2)
+    $file='teacher.master';
+?>
+@extends($file);
 @section('title')
 eICTuStudentGoodsSearch - Danh sách đồ cũ đang rao
 @endsection
@@ -85,7 +92,6 @@ $(function () {
             </ul>
           </a></li>
         @endforeach
-
       </ul>
       <center><span style="padding-bottom: 20px" id="loadMore">Load More</span></center>
     </div>

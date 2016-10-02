@@ -43,7 +43,7 @@ class HomeController extends Controller
                 ->get()->first();
             $classid = $data == null ? 0 : $data->class_id;
             $avatar = $data== null ? $data->avatar==null ? "/img/avatar.jpg" : $data->avatar."" : "/img/avatar.jpg";
-            return view("layouts.student_app", compact('name'));
+            return view("students.newfeed", compact('name'));
         }
     }
 

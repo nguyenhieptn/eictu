@@ -24,7 +24,7 @@
 			    @foreach($total as $item)
 			      <tr>
 			     	<td><?php echo $i +=1?></td>
-			        <td><a href="{{url('findjob/detail',$item['id'])}}"><?php echo substr($item['content'], 0,80) ?> ..</a></td>
+			        <td><a href="{{url('findjob/detail',$item['id'])}}"><?php echo substr($item['content'], 0,60) ?> ..</a></td>
 			        <td><?php echo date('d/m/Y',strtotime($item['created_at'])) ?></td>
 			        <td>
 				        <a href="{{route('findjob.del',$item['id'])}}" class="btn btn-danger" onclick="return confirm('bạn có chắc chắn muốn xóa không ? ')">Del </a>

@@ -62,13 +62,13 @@ ol li {
     font-weight: bold;
 }
 .list-room{
-    background-color: #24ffe1;
+    background-color: #d7ffef;
     width: 100%;
     height: 450px;
     overflow-y: scroll;
     padding: 10px;
     max-height: 450px;
-    border: 2px solid #67c935;
+    border: 2px solid #d7ffef;
     border-radius: 5px;
 }
 

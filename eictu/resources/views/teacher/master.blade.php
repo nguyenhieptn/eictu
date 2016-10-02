@@ -17,7 +17,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     @yield('css')
     <style type="text/css" media="screen">
-        img{width: }
+        .boot{
+            margin-top: 10px;
+            padding: 10px;
+            border-top-left-radius:4px;
+            border-top-right-radius:4px;
+            border-bottom-right-radius:4px;
+            border-bottom-left-radius:4px;
+            background: #ecf0f1;
+        }
     </style>
     <script>
         window.Laravel = <?php echo json_encode([
@@ -80,19 +88,12 @@
             <link rel="stylesheet" type="text/css" href="{!! url('quanlytruong/css/eICTuHomePage.css')!!}">
             <div>
                 <ul class="list-group">
-                @if(Auth::user()->id)
-                <?php 
-                     if (isset(Auth::user()->id)) {
-                       $avatar = DB::table('teacher')->where('code',Auth::user()->username )->first();
-                    }
-                 ?>
-                    <li class="list-group-item" style="background:scroll; text-transform: uppercase;"> {{Auth::user()->name}}<br/>  <a href="{{route('teacher.avatar')}}" title=""><img class="image" src="{!!asset('/upload/avatar/'.$avatar->avatar)!!}"></a><a class="" href="">Giáo Viên</a> </li>
-                @endif
+           
                     <li class="list-group-item"style="background:scroll;"><br/> <a class="link" href="">News Feed</a></li>
-                    <li class="list-group-item"style="background:scroll;"><br/><a class="link" href="{{route('dormitory.getSearch')}}">KY TUC XA</a></li>
-                    <li class="list-group-item" style="background:scroll;"><br/><a class="link" href="{{url('rentHouse')}}">NHA TRO SINH VIEN</a></li>
-                    <li class="list-group-item"style="background:scroll;"><br/>  <a class="link" href="{{url('findjob/index')}}">CHO DO CU</a></li>
-                    <li class="list-group-item"style="background:scroll;"><br/> <a class="link" href="{{url('findjob/index')}}">MESSAGE/CHAT</a></li>
+                    <li class="list-group-item"style="background:scroll;"><br/><a class="link" href="{{url('dormitory/search')}}">Ký túc xá</a></li>
+                    <li class="list-group-item" style="background:scroll;"><br/><a class="link" href="{{url('rentHouse')}}">Nhà trọ sinh viên</a></li>
+                    <li class="list-group-item"style="background:scroll;"><br/>  <a class="link" href="{{url('iHave')}}">Chợ đồ cũ</a></li>
+                    <li class="list-group-item"style="background:scroll;"><br/> <a class="link" href="{{url('findjob/index')}}">Message/CHAT</a></li>
 
                 </ul>
             </div>

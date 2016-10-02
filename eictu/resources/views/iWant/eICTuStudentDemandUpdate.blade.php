@@ -6,54 +6,34 @@
 @section('content')
 <div class="container">
 <?php 
-function time_elapsed_string($datetime, $full = false) {
-    $now = new DateTime;
-    $ago = new DateTime($datetime);
-    $diff = $now->diff($ago);
-
-    $diff->w = floor($diff->d / 7);
-    $diff->d -= $diff->w * 7;
-
-    $string = array(
-        'y' => 'year',
-        'm' => 'month',
-        'w' => 'week',
-        'd' => 'day',
-        'h' => 'hour',
-        'i' => 'minute',
-        's' => 'second',
-    );
-    foreach ($string as $k => &$v) {
-        if ($diff->$k) {
-            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
-        } else {
-            unset($string[$k]);
-        }
-    }
-
-    if (!$full) $string = array_slice($string, 0, 1);
-    return $string ? implode(', ', $string) . ' ago' : 'just now';
-}
-?>
+            	function time_elapsed_string($datetime, $full = false) {
+				    $now = new DateTime;
+				    $ago = new DateTime($datetime);
+				    $diff = $now->diff($ago);
+				    $diff->w = floor($diff->d / 7);
+				    $diff->d -= $diff->w * 7;
+				    $string = array(
+				        'y' => 'year',
+				        'm' => 'month',
+				        'w' => 'week',
+				        'd' => 'day',
+				        'h' => 'hour',
+				        'i' => 'minute',
+				        's' => 'second',
+				    );
+				    foreach ($string as $k => &$v) {
+				        if ($diff->$k) {
+				            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+				        } else {
+				            unset($string[$k]);
+				        }
+				    }
+				    if (!$full) $string = array_slice($string, 0, 1);
+				    return $string ? implode(', ', $string) . ' ago' : 'just now';
+				}
+             ?>
 @if(Auth::check() && Auth::user()->type ==3)
-<!--   <div class="row">
-        <div class="col-lg-8 col-xs-12">
-          <form  class="nav-form" action="{{route('iwant.status')}}" role="form" method="post" accept-charset="utf-8">
-            <input type="hidden" name="_token" value="{{Session::token()}}">
-            <div class="input-group add-on" style="padding: 10px; height: 70px" >
-              <textarea style="height: 70px" placeholder="Gõ bản tin đề nghị giúp đỡ của bạn vào đây…
-          Chúc bạn may mắn!" name="content" class="form-control" rows="2"></textarea>
-          
-              <div class="input-group-btn">
-                <button type="submit" class="btn" style="background: #ff7b07; color: #ffffff; height: 70px; border-radius: 0 8px 8px 0px; font-size: 20px; ">ĐĂNG NGAY</button>
-              </div>
-            </div>
-            <input type="text" name="location" value="" class="form-control" placeholder="Vị trí hiện tại của bạn">
-          </form>
-          <span>Bạn cần trợ giúp khẩn cấp? Hãy đăng tin lên ngay để bạn bè của bạn biét tin giúp đỡ.</span>
-          <hr>
-        </div>
-      </div> -->
+
         <div class="row">
     <div class="col-lg-8 col-xs-12">
       <form action="{{route('iwant.status')}}" role="form" method="post" accept-charset="utf-8">
@@ -107,11 +87,12 @@ function time_elapsed_string($datetime, $full = false) {
             </style>
          <div class="row boot">
            <div class="col-lg-2">
-            <img src="$students->avatar" class="img-rounded" alt="">
+            <img src="{{$students->avatar}}" class="img-rounded" alt="">
             
            </div>
            <div class="col-lg-10 ">
-            <h3>{!! $students->name !!}</h3><span style="margin-left: 150px;">{!! time_elapsed_string($want->created_at)!!}</span>
+            <h3><b>{!! $students->name !!}</b> <span style="margin-left: 150px;">{!! $want->updated_at!!}</span></h3>
+           
              <p ><a style="color: black;" href="{{route('iwant.detail', $want['id'])}}" title="">{{$want['content']}}</a></p>
            </div>
          </div>
