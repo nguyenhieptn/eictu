@@ -11,6 +11,7 @@ Route::group(['prefix' => 'dormitory'], function () {
     Route::get('/query', ['as' => 'dormitory.postSearch', 'uses' => 'DormitoryController@postSearch']);
 	
     Route::get('/logout', ['as' => 'dormitory.postSearch', 'uses' => 'DormitoryController@logout']);
+    Route::get('/history', ['as' => 'dormitory.history', 'uses' => 'DormitoryController@history']);
     Route::get('/addDB', function(){
     	 
         for($i = 680; $i <= 750; $i+=2){
