@@ -74,7 +74,7 @@ function time_elapsed_string($datetime, $full = false) {
              ?>
 
           </strong></h4>
-         
+         <p class="index-content">{{$item->content}}</p>
         </div>
       </div>  
 
