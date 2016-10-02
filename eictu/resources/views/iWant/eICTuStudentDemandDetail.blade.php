@@ -67,7 +67,7 @@ Chi tiết lời yêu cầu
 		   @else
 		   Nữ , 
 		   @endif
-		   {{ $want->location }}</p>
+		   &nbsp;&nbsp;{{ $want->location }}</p>
 		   <a href="" title=""><p class="index-content">{{$want->content}}</p></a></div>
 		</div>
 
