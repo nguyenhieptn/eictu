@@ -92,10 +92,10 @@ Chi tiết lời yêu cầu
 	      <a href="{{route('iwant.status')}}" title="ĐÓng" class="btn btn-danger" style="color: white;">Đóng</a>
 	      @if(auth()->check())
                @if(auth()->user()->username!=$student->code)
-                 <a style="background: #cc5200;"  class=" btn btn-warning item navbar-right" href="/chat/friendroom?id={{auth()->user()->username}}&friend={{$student->code}}"><span class="glyphicon glyphicon-send"></span>  NHẮN TIN CHO NGƯỜI ĐĂNG</a>
+                 <a style="background: #cc5200;"  class=" btn btn-primary item navbar-right" href="/chat/friendroom?id={{auth()->user()->username}}&friend={{$student->code}}"><span class="glyphicon glyphicon-send"></span>  NHẮN TIN CHO NGƯỜI ĐĂNG</a>
                @endif
 	      @endif 
-	      <a href="" title="Nhắn tin cho người đăng tin" class="btn btn-primary" style="color: white; margin-left: 470px; ">Nhắn tin cho người đăng tin</a>
+	      
 	    </div> 
 	@endif    
   </div>
