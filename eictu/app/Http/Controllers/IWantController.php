@@ -64,7 +64,7 @@ class IWantController extends Controller
     	return view('iWant.eICTuStudentDemandDetail', compact('want', 'student', 'address', 'address2'));
     }
 
-    public function delete($id)public function delete($id)
+    public function delete($id)
     {
         $iwant = IWant::find($id);
         $iwant->delete($id);
@@ -79,7 +79,7 @@ class IWantController extends Controller
             ]);
 
         IWant::where('id', $id)
-        ->update(['content' => $request->content], ['location' => $request->location])
+        ->update(['content' => $request->content], ['location' => $request->location]);
         return redirect()->route('iwant.status');
     }
 
