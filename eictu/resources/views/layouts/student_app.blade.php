@@ -102,23 +102,23 @@
                     $arr = explode('/',$url);
                 ?>
                     <ul class="list-group">
-                      <li class="list-group-item<?php ?>" ><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> 
+                      <li class="list-group-item <?php if($arr[1]=='student' && $arr[2]=='newsfeed') echo "text-danger";?> " ><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> 
                       <a href="{{url('student/newsfeed')}}">News Feed</a></li>
                       @if(count($classid)>0 && $classid !=null)
                             <li class="list-group-item ">
                                     <a href="{{route('classes.classmatersbirthday', $classid )}}">Sinh nhật bạn cùng lớp</a>
                             </li>
                         @endif
-                      <li class="list-group-item"><a href="{{route('iwant.status')}}">Tôi muốn- I Want</a> </li> 
-                      <li class="list-group-item "><a href="{{url('/iHave')}}">Chợ đồ cũ</a></li> 
-                      <li class="list-group-item "><a href="{{url('/findjob/index')}}">Tìm việc làm </a></li> 
-                      <li class="list-group-item "><a href="{!! url('dormitory/search')!!}">Kí túc xá</a></li> 
+                      <li class="list-group-item <?php if($arr[1]=='iwant') echo "text-danger";?> "><a href="{{route('iwant.status')}}">Tôi muốn- I Want</a> </li> 
+                      <li class="list-group-item <?php if($arr[1]=='iHave') echo "text-danger";?> "><a href="{{url('/iHave')}}">Chợ đồ cũ</a></li> 
+                      <li class="list-group-item <?php if($arr[1]=='findjob') echo "text-danger";?> "><a href="{{url('/findjob/index')}}">Tìm việc làm </a></li> 
+                      <li class="list-group-item <?php if($arr[1]=='dormitory') echo "text-danger";?> "><a href="{!! url('dormitory/search')!!}">Kí túc xá</a></li> 
                       <li class="list-group-item <?php if($arr[1]=='rentHouse') echo "text-danger";?> "><a href="{{url('/rentHouse')}}" >Nhà trọ sinh viên</a></li> 
-                      <li class="list-group-item "><a href="{{url('chat/classrooms')}}">Messages / CHAT</a></li>
-                      <li class="list-group-item "><a href="{{url('chat/friend')}}">Chát với bạn</a></li>
-                      <li class="list-group-item "><a href="{{url('LMS/show')}}">Tiến độ học tập LMS</a></li> 
+                      <li class="list-group-item <?php if($arr[1]=='chat' && $arr[2]=='classrooms') echo "text-danger";?> "><a href="{{url('chat/classrooms')}}">Messages / CHAT</a></li>
+                      <li class="list-group-item <?php if($arr[1]=='chat' && $arr[2]=='friend') echo "text-danger";?> "><a href="{{url('chat/friend')}}">Chát với bạn</a></li>
+                      <li class="list-group-item <?php if($arr[1]=='LMS') echo "text-danger";?> "><a href="{{url('LMS/show')}}">Tiến độ học tập LMS</a></li> 
                       
-                      <li class="list-group-item "><a href="{{url("student/profile")}}">Hồ sơ sinh viên</a>
+                      <li class="list-group-item <?php if($arr[1]=='student' && $arr[2]=='profile') echo "text-danger";?> "><a href="{{url("student/profile")}}">Hồ sơ sinh viên</a>
                       </li> 
                     </ul>
                 </div>
