@@ -1,13 +1,23 @@
 @extends('layouts.school_app')
 
 @section('content')
+<script type="text/javascript">
+           function myFunction() {
+                var r = confirm("Bạn có chắc chắn muốn xóa không !");
+                if (r == true) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        </script>
     <div class="container">
         <div class="row">
             <div class="col-md-10">
                 <div class="panel panel-default">
                     <div class="panel-heading">Danh sách giáo viên</div>
                     <div class="panel-body">
-                        <h2><a href="{{ route('teacher.add') }}">THÊM GIÁO VIÊN VÀO TRƯỜNG</a></h2>
+                        <h2><a class="btn btn-success" href="{{ route('teacher.add') }}">THÊM GIÁO VIÊN VÀO TRƯỜNG</a></h2>
 
                         
                         <table class="table">
@@ -18,7 +28,7 @@
                                 <th>Họ tên giáo viên</th>
                                 <th>Ngành</th>
                                 <th>Giới tính</th>
-                                <th>Ngày sinh</th>
+                                <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -42,7 +52,7 @@
     	                                    	Nữ
     	                                    @endif
                                         </td>
-                                        <td>{{ date("d-m-Y",strtotime($item_teacher->birthday)) }}</td>
+                                       <td><a onclick="return myFunction()" style="color: red;" href="{{URL::route('teacher.delete', $item_teacher->id)}}" title="">Xóa</a></td>
                                     </tr>
                                 @endforeach
                             @else

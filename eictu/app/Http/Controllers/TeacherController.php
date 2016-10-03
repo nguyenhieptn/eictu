@@ -112,6 +112,12 @@ class TeacherController extends Controller
         }
     }
         
+    public function delete($id){
+        $teacher = Teacher::find($id);
+        $teacher->delete($id);
 
+        return redirect()->route('teacher.list');
+    }
+        
 
 }

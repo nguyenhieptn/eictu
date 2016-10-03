@@ -17,7 +17,7 @@
                 <?php
                 $data1 = \App\Student::select('*')
                         ->where('id','=',$item->student_id)
-                        ->get()->first();
+                        ->first();
                 $student_name=  $data1!=null? $data1->name : "Người nào đó";
 
                 $student_avatar= $data1!= null ? $data1->avatar==null ? "/img/avatar.jpg" : $data1->avatar."" : "/img/avatar.jpg";
@@ -40,9 +40,9 @@
                         <h4 class='media-heading'>
                             <strong>
                                <?php
-                                $id=$data1->id;
-                                $code=$data1->code;
-                                echo "<h3><a href='friendroom?id=$id&friend=$code'>$student_name</a></h3>";  ?>
+                                $id=auth()->user()->username;
+                                $code=$data1!=null? $data1->code : "";
+                                echo "<h3><a href='/chat/friendroom?id=$id&friend=$code'>$student_name</a></h3>";  ?>
                             </strong>
                         </h4>
                         <p class="index-content"><?php echo substr($item->content, 0,250) ?> ...</p></div>
