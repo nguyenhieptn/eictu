@@ -52,11 +52,11 @@ function time_elapsed_string($datetime, $full = false) {
       <?php 
             $st = DB::table('students')->where('id', $item->student_id)->get()->toArray();
             foreach ($st as $values) {
-              $aaa= $values->avatar;
+              $aaa= $values->avatar==null ? "" : $values->avatar;
             }
            ?>
        <div class='media boot'>
-         <a href='' class='media-left' href='#'><img class='media-object' src="" class="img-rounded" alt=''></a>
+         <a href='' class='media-left' href='#'><img class='media-object' src="{{$aaa}}" class="img-rounded" alt=''></a>
          <div class='media-body'> 
           <p class="pull-right date-post">{!! time_elapsed_string($item->time) !!}</p>
           <h4 class='media-heading'><strong>
