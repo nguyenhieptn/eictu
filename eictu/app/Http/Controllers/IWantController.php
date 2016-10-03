@@ -35,7 +35,7 @@ class IWantController extends Controller
         
         $student = Student::select('id')->where('code', Auth::user()->username)->first();
 
-        $iwant->student_id       = $student->id;
+        $iwant->student_id  = $student->id;
         $iwant->save();
         if ($iwant->save()) {
             $new = new NewsFeed();
