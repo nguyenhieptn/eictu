@@ -17,8 +17,9 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Danh sách giáo viên</div>
                     <div class="panel-body">
-                        <h2><a href="{{ route('teacher.add') }}">THÊM GIÁO VIÊN VÀO TRƯỜNG</a></h2>
-
+                    @if(Auth::check() && Auth::user()->type==1)
+                        <h2><a class="btn btn-success" href="{{ route('teacher.add') }}">THÊM GIÁO VIÊN VÀO TRƯỜNG</a></h2>
+                    @endif
                         
                         <table class="table">
                             <thead>
@@ -28,7 +29,9 @@
                                 <th>Họ tên giáo viên</th>
                                 <th>Ngành</th>
                                 <th>Giới tính</th>
+                                @if(Auth::check() && Auth::user()->type==1)
                                 <th>Action</th>
+                                @endif
                             </tr>
                             </thead>
                             <tbody>
@@ -52,7 +55,9 @@
     	                                    	Nữ
     	                                    @endif
                                         </td>
+                                        @if(Auth::check() && Auth::user()->type==1)
                                        <td><a onclick="return myFunction()" style="color: red;" href="{{URL::route('teacher.delete', $item_teacher->id)}}" title="">Xóa</a></td>
+                                        @endif
                                     </tr>
                                 @endforeach
                             @else

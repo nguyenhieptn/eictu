@@ -1,5 +1,7 @@
 @extends('layouts.student_app')
 @section('content')
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="{{url('/js/app-main.js')}}"></script>
     <div class="panel panel-default find-job">
         <div class="panel-heading">Trang tin tìm việc làm của Sinh viên </div>
         <div class="panel-body">
@@ -35,8 +37,9 @@
              <p class="index-content"><?php echo substr($item->content, 0,150) ?> ...</p></div>
              </div>
           @endforeach
-           <div class="pull-right">{{$datas->render()}}</div> 
+            
         </div>
+        <center><span  id="loadMore" class="btn btn-xs btn-info">xem thêm<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></span></center>
 
     </div>
 @endsection

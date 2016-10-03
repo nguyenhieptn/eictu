@@ -49,6 +49,24 @@
     background: none !important;
     color:#337ab7 !important;
 }
+    
+.find-job .media {
+    display:none;
+    padding: 10px;
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: #fff;
+    box-shadow: 0 1px 1px #ccc;
+    margin-bottom: 5px;
+    background-color: #f1f1f1;
+}
+.find-job #loadMore{
+    border-radius: 0px !important;
+    height: 30px;
+    width: 100px;
+    padding:0px !important;
+    cursor:pointer;
+}
 @media (max-width:320px) {
     /* For mobile phones: */
  .find-job .btn-post{

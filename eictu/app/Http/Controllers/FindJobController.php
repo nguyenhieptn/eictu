@@ -19,10 +19,10 @@ class FindJobController extends Controller
     public function getIndex()
     {
         if(Auth::check() && Auth::user()->type==3){
-              $datas= DB::table('searchjobs')->join('users','searchjobs.student_id','users.id')->join('students','users.username','students.code')->orderby('searchjobs.created_at','DESC')->select('searchjobs.id as sid','users.name','searchjobs.content','searchjobs.created_at','students.avatar')->paginate(4);
+              $datas= DB::table('searchjobs')->join('users','searchjobs.student_id','users.id')->join('students','users.username','students.code')->orderby('searchjobs.created_at','DESC')->select('searchjobs.id as sid','users.name','searchjobs.content','searchjobs.created_at','students.avatar')->get();
             return view('findjob.index')->with('datas',$datas);
         }else{
-           $datas= DB::table('searchjobs')->join('users','searchjobs.student_id','users.id')->join('students','users.username','students.code')->orderby('searchjobs.created_at','DESC')->select('searchjobs.id as sid','users.name','searchjobs.content','searchjobs.created_at','students.avatar')->paginate(4);
+           $datas= DB::table('searchjobs')->join('users','searchjobs.student_id','users.id')->join('students','users.username','students.code')->orderby('searchjobs.created_at','DESC')->select('searchjobs.id as sid','users.name','searchjobs.content','searchjobs.created_at','students.avatar')->get();
            return view('findjob.index')->with('datas',$datas);
         }
         
