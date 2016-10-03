@@ -18,7 +18,7 @@
                                 <th>Họ tên giáo viên</th>
                                 <th>Ngành</th>
                                 <th>Giới tính</th>
-                                <th>Action</th>
+                                
                             </tr>
                             </thead>
                             <tbody>
@@ -42,7 +42,7 @@
     	                                    	Nữ
     	                                    @endif
                                         </td>
-                                        <td><a onclick="return myFunction()" style="color: red;" href="{{route('teacher.delete', $item_teacher->id)}}" title="">Xóa</a></td>
+                                       
                                     </tr>
                                 @endforeach
                             @else
