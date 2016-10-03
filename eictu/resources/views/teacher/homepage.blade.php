@@ -58,7 +58,7 @@ function time_elapsed_string($datetime, $full = false) {
      @if(!empty($feed))
        @foreach($feed as $item)
       <?php 
-            $st = DB::table('students')->where('id', $item->student_id)->first();
+            $st = DB::table('students')->where('id', $item->student_id)->get()->toArray();
             foreach ($st as $values) {
               $aaa=$st!= null ? $values->avatar==null ? "/img/avatar.jpg" : $values->avatar."" : "/img/avatar.jpg";
             }
