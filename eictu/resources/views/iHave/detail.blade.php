@@ -45,8 +45,10 @@ eICTuStudentGoodsDetail - Chi tiết về bản tin đồ cũ
            <div style="margin: 0px 20px 20px 20px;">
              <a class="btn btn-danger item navbar-left" href="{{ url('iHave') }}"><span class="glyphicon glyphicon-remove"></span>QUAY LẠI</a>
              @if(auth()->check())
-               @if(auth()->user()->username!=$student->code && auth()->user()->username==3)
+               @if(auth()->user()->username!=$student->code)
+                @if( auth()->user()->username==3)
                  <a style="background: #cc5200;"  class=" btn btn-warning item navbar-right" href="/chat/friendroom?id={{auth()->user()->username}}&friend={{$student->code}}"><span class="glyphicon glyphicon-send"></span>  NHẮN TIN CHO NGƯỜI ĐĂNG</a>
+                @endif
                @else
                  <a style="background: #cc5200;"  class=" btn btn-warning item navbar-right" href="{{url('iHave/update',$have->id)}}"><span class="glyphicon glyphicon-ok"></span>  ĐÃ CHO</a>
                @endif
