@@ -60,7 +60,7 @@ function time_elapsed_string($datetime, $full = false) {
       <?php 
             $values = DB::table('students')->where('id', $item->student_id)->first();
               $aaa=$values->avatar==null ? "/img/avatar.jpg" : $values->avatar;
-              $name=$values->name;            
+              $name=$values->name!=null?$values->name:"";            
            ?>
        <div class='media boot'>
          <a href='' class='media-left' href='#'><img class='media-object' src="{{$aaa}}" class="img-rounded"alt=''></a>
