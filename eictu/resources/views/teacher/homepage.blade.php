@@ -65,7 +65,6 @@ function time_elapsed_string($datetime, $full = false) {
          <div class='media-body'> 
           <p class="pull-right date-post">{!! time_elapsed_string($item->time)!!}</p>
           <h4 class='media-heading'><strong>
-            {{}}
           </strong></h4>
          <p class="index-content">{{$item->content}}</p>
         </div>
