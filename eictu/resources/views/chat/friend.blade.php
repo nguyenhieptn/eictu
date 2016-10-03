@@ -1,29 +1,28 @@
-@extends('/layouts/app')
+@extends('/layouts.student_app')
 @section('content')
 
 
 
     <div class="row">
 
-        <div class="col-xs-8 col-xs-offset-2" id="purple">
+        <div class="col-xs-12" id="colors">
             <h4>Tìm bạn để Chat</h4>
         </div>
         <br><br><br><br><br>
-
         <form action="{{ url("chat/friend")}}" method="post">
-            <div class="col-xs-5 col-xs-offset-3">
+            <div class="col-xs-7 col-xs-offset-1">
                 <input class="form-control input-lg" name="message" type="text"
                        placeholder="Nhập Mã Sinh Viên cần Chat" >
 
             </div>
 
-            <div class="col-xs-1">
+            <div class="col-xs-3">
                 <button type="submit" class="btn btn-primary btn-lg">Tìm Kiếm</button>
             </div>
             <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
         </form>
 
-        <div class="col-xs-10 col-xs-offset-2">
+        <div class="col-xs-10 col-xs-offset-1">
 
             <br>
             <?php

@@ -60,14 +60,19 @@
             <div id="right"></div>
         </div>
 
-        <div class="col-sm-10">
+        <div class="col-sm-3" id="find">
+            <form action="{{ url('chat/friend') }}">
+                <button type="submit" class="btn btn-info btn-md" id="send">+ Tìm bạn sinh viên</button>
+            </form>
+        </div>
+
+        <div class="col-sm-7">
             <textarea class="form-control" rows="3" id="comment" placeholder="Type your message"></textarea>
         </div>
         <div class="col-sm-2">
-            <button type="button" id="send" class="btn btn-primary btn-lg">Send</button>
+            <button type="submit" class="btn btn-primary btn-lg" id="send">Send</button>
+            <div class="chat-status">Status: <span>Wait</span></div>
         </div>
-
-        <div class="col-sm-8 chat-status">Status: <span>Idle</span></div>
     </div>
 
     <div class="row">

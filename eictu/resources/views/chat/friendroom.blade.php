@@ -66,14 +66,19 @@
     </div>
 
     <div class="row  message">
-        <div class="col-sm-10">
-            <textarea class="form-control" rows="3" id="comment" placeholder="Nhập mã nội dung Chat"></textarea>
-            {{--<input class="form-control input-lg chat-input" id="inputlg" type="text" placeholder="Type your message">--}}
+        <div class="col-sm-3" id="find">
+            <form action="{{ url('chat/friend') }}">
+                <button type="submit" class="btn btn-info btn-md" id="send">+ Tìm bạn sinh viên</button>
+            </form>
+        </div>
+
+        <div class="col-sm-7">
+            <textarea class="form-control" rows="3" id="comment" placeholder="Type your message"></textarea>
         </div>
         <div class="col-sm-2">
             <button type="submit" class="btn btn-primary btn-lg" id="send">Send</button>
+            <div class="chat-status">Status: <span>Wait</span></div>
         </div>
-        <div class="col-sm-8 chat-status">Status: <span>Idle</span></div>
     </div>
 
     <script src="http://127.0.0.1:8088/socket.io/socket.io.js"></script>
@@ -248,10 +253,10 @@
                         room_link = document.createElement("a");
                         room_link.setAttribute("id", "room-link");
 
-                        if (arr_room[z].length < 10 ) {
+                        if (arr_room[z].length < 10) {
                             room_link.href = 'classrooms';
                         } else {
-                            if (arr_friend_room[z] == friend_name){
+                            if (arr_friend_room[z] == friend_name) {
                                 room_link.innerHTML = "<h5 style='color: #ff000f'>" + arr_friend_room[z] + "</h5>";
                             } else {
                                 room_link.innerHTML = "<h5>" + arr_friend_room[z] + "</h5>";
@@ -320,9 +325,9 @@
                     time = h + ":" + m + ":" + s + " / " + d + "-" + month + "-" + y;
                     nd = textarea.value;
                     socket.emit('input', {
-                        id : id,
+                        id: id,
                         name: name,
-                        friendname : friend_name,
+                        friendname: friend_name,
                         room: friend,
                         message: nd,
                         time: time
@@ -367,9 +372,9 @@
                         nd = textarea.value;
 
                         socket.emit('input', {
-                            id : id,
+                            id: id,
                             name: name,
-                            friendname : friend_name,
+                            friendname: friend_name,
                             room: friend,
                             message: nd,
                             time: time
