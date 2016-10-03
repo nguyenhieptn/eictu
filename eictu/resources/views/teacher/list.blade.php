@@ -17,7 +17,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Danh sách giáo viên</div>
                     <div class="panel-body">
-                        <h2><a href="{{ route('teacher.add') }}">THÊM GIÁO VIÊN VÀO TRƯỜNG</a></h2>
+                        <h2><a class="btn btn-success" href="{{ route('teacher.add') }}">THÊM GIÁO VIÊN VÀO TRƯỜNG</a></h2>
 
                         
                         <table class="table">
