@@ -81,7 +81,7 @@
         </div>
     </div>
 
-    <script src="http://127.0.0.1:8088/socket.io/socket.io.js"></script>
+    <script src="http://45.32.41.40:8088/socket.io/socket.io.js"></script>
     <script>
         (function () {
             var getNode = function (s) {
@@ -112,7 +112,7 @@
 //                    alert(chatId.value + chatName.value + chatFriend.value + chatFriendName.value);
 
             try {
-                var socket = io.connect('http://127.0.0.1:8088');
+                var socket = io.connect('http://45.32.41.40:8088');
             } catch (e) {
                 //set status to warn user
             }
