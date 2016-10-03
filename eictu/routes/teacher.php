@@ -27,6 +27,11 @@
         "uses" => "TeacherController@change_avatar",
         
     ]);
+        
+        Route::get('delete/{$id}', [
+        "uses" => "TeacherController@delete",
+        "as"   => "teacher.delete",
+    ]);
 });
    
  ?>
