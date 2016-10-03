@@ -15,6 +15,7 @@
                                      <p>Nội Dung bản tin :<br/> {{$detail->content}}</p>
                                      <p>Giới tính: 
                                      <strong>
+                                     <?php var_dump($detail)?>
                                             @if($detail->gender==1)
                                                 {{ "Nam" }}
                                             @else
