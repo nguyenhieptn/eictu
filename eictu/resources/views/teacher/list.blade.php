@@ -17,8 +17,9 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Danh sách giáo viên</div>
                     <div class="panel-body">
+                    @if(Auth::check() && Auth::user()->type==1)
                         <h2><a class="btn btn-success" href="{{ route('teacher.add') }}">THÊM GIÁO VIÊN VÀO TRƯỜNG</a></h2>
-
+                    @endif
                         
                         <table class="table">
                             <thead>
