@@ -53,7 +53,9 @@
     	                                    	Nữ
     	                                    @endif
                                         </td>
+                                        @if(Auth::check() && Auth::user()->type==1)
                                        <td><a onclick="return myFunction()" style="color: red;" href="{{URL::route('teacher.delete', $item_teacher->id)}}" title="">Xóa</a></td>
+                                        @endif
                                     </tr>
                                 @endforeach
                             @else
