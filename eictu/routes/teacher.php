@@ -28,7 +28,7 @@
         
     ]);
         
-        Route::get('delete/{$id}', [
+        Route::get('delete/{id}', [
         "uses" => "TeacherController@delete",
         "as"   => "teacher.delete",
     ]);
