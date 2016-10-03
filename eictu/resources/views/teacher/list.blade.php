@@ -1,6 +1,16 @@
 @extends('layouts.school_app')
 
 @section('content')
+<script type="text/javascript">
+           function myFunction() {
+                var r = confirm("Bạn có chắc chắn muốn xóa không !");
+                if (r == true) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        </script>
     <div class="container">
         <div class="row">
             <div class="col-md-10">
