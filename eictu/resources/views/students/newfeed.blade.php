@@ -41,7 +41,7 @@
                             <strong>
                                <?php
                                 $id=auth()->user()->username;
-                                $code='';
+                                $code=$data1!=null? $data1->code : "";
                                 echo "<h3><a href='/chat/friendroom?id=$id&friend=$code'>$student_name</a></h3>";  ?>
                             </strong>
                         </h4>
