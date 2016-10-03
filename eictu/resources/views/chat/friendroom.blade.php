@@ -68,7 +68,7 @@
     <div class="row  message">
         <div class="col-sm-3" id="find">
             <form action="{{ url('chat/friend') }}">
-                <button type="submit" class="btn btn-info btn-md" id="send">+ Tìm bạn sinh viên</button>
+                <button type="submit" class="btn btn-info btn-md">+ Tìm bạn sinh viên</button>
             </form>
         </div>
 
@@ -76,7 +76,7 @@
             <textarea class="form-control" rows="3" id="comment" placeholder="Type your message"></textarea>
         </div>
         <div class="col-sm-2">
-            <button type="submit" class="btn btn-primary btn-lg" id="send">Send</button>
+            <button type="button" id="send" class="btn btn-primary btn-lg" >Send</button>
             <div class="chat-status">Status: <span>Wait</span></div>
         </div>
     </div>
@@ -290,8 +290,11 @@
                         friend_name = chatFriendName.value,
                         time,
                         nd = "";
+
                 var button = document.getElementById("send");
 
+                var code;
+                var textarea = document.getElementById('comment');
 
                 button.onclick = function () {
                     today = new Date();
@@ -324,6 +327,7 @@
 
                     time = h + ":" + m + ":" + s + " / " + d + "-" + month + "-" + y;
                     nd = textarea.value;
+
                     socket.emit('input', {
                         id: id,
                         name: name,
@@ -335,8 +339,7 @@
 
                 };
 
-                var code;
-                var textarea = document.getElementById('comment');
+
                 textarea.addEventListener('keydown', function (e) {
                     code = e.keyCode ? e.keyCode : e.which;
                     if (code == 13) {

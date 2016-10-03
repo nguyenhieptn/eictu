@@ -62,7 +62,7 @@
 
         <div class="col-sm-3" id="find">
             <form action="{{ url('chat/friend') }}">
-                <button type="submit" class="btn btn-info btn-md" id="send">+ Tìm bạn sinh viên</button>
+                <button type="submit" class="btn btn-info btn-md">+ Tìm bạn sinh viên</button>
             </form>
         </div>
 
@@ -196,7 +196,7 @@
 
                                 }
                                 messages.appendChild(message);
-                                messages.insertBefore(message, messages.lastChild);
+                                messages.insertBefore(message, messages.firstChild);
                             }
                         }
 
