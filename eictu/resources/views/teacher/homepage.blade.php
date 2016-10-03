@@ -60,14 +60,15 @@ function time_elapsed_string($datetime, $full = false) {
       <?php 
             $values = DB::table('students')->where('id', $item->student_id)->first();
               $aaa= $values->avatar==null ? "/img/avatar.jpg" : $values->avatar;
-              $name= $values->name==null ? "Không xác định" : $values->name;            
+              $ten="";
+              $ten= $values->name=="" ? "" : $values->name;            
            ?>
        <div class='media boot'>
          <a href='' class='media-left' href='#'><img class='media-object' src="{{$aaa}}" class="img-rounded"alt=''></a>
          <div class='media-body'> 
           <p class="pull-right date-post">{!! time_elapsed_string($item->time)!!}</p>
           <h4 class='media-heading'><strong>
-            {{$name}}
+            {{$ten}}
           </strong></h4>
          <p class="index-content">{{$item->content}}</p>
         </div>
