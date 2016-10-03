@@ -59,8 +59,6 @@ function time_elapsed_string($datetime, $full = false) {
        @foreach($feed as $item)
       <?php 
             $values = DB::table('students')->where('id', $item->student_id)->first();
-              $aaa= $values->avatar==null ? "/img/avatar.jpg" : $values->avatar;
-              $ten="xxx";        
            ?>
        <div class='media boot'>
          <a href='' class='media-left' href='#'><img class='media-object' src="" class="img-rounded"alt=''></a>
