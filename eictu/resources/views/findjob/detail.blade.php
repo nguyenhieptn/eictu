@@ -45,12 +45,10 @@
                                            class="btn btn-danger"><span class="glyphicon glyphicon-comment"
                                                                         aria-hidden="true"> Sent Message</span></a>
                                     @else
-                                        <form action="{{ url('/chatguest/guestroom?id=Guest&friend=$detail->code') }}">
-                                            <Button class="btn btn-danger"><span class="glyphicon glyphicon-comment"
-                                                                                 aria-hidden="true"></span>
-                                                Sent Message
-                                            </Button>
-                                        </form>
+                                        <a style="color:#fff"
+                                           href="/chatguest/guestroom?id=Guest&friend={{$detail->code}}"
+                                           class="btn btn-danger"><span class="glyphicon glyphicon-comment"
+                                                                        aria-hidden="true"> Sent Message</span></a>
                                     @endif
                                 </div>
 
