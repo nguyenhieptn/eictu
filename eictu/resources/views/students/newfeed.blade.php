@@ -12,7 +12,7 @@
         <div class="panel-body panel-body-2" id="content-js">
 
 
-
+            @if(!empty($newsfeeds))
             @foreach($newsfeeds as $item)
                 <?php
                 $data1 = \App\Student::select('*')
@@ -22,7 +22,7 @@
 
                 $student_avatar= $data1!= null ? $data1->avatar==null ? "/img/avatar.jpg" : $data1->avatar."" : "/img/avatar.jpg";
                 ?>
-                <div class='media'>
+                <div class='media' style='display:block;'>
                     <a href='' class='media-left' href='#'><img class='media-object'  class="img-rounded" src="{{url($student_avatar)}}" alt=''></a>
                     <div class='media-body'>
                         <p class="pull-right date-post">
@@ -50,6 +50,7 @@
 
             @endforeach
             <div class="pull-right">{{$newsfeeds->render()}}</div>
+            @endif
         </div>
 
     </div>

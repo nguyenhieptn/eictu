@@ -62,7 +62,7 @@ Chi tiết lời yêu cầu
 		   </p>
 		   <h4 class='media-heading'><strong>{!! $students->name !!}</strong></h4>
            
-		  <p> 
+		  <p style="color:#bdc3c7;"> 
 		   @if($student->gender == 1)
 		   Nam , &nbsp;&nbsp;
 		   @else

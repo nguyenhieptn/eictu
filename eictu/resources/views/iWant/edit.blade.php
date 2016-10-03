@@ -14,6 +14,7 @@ Sửa bài đăng
       <div class="form-group">
         <input type="text" name="location" value="{!!$data['location']!!}" class="form-control" placeholder="Vị trí hiện tại của bạn">
       </div>
+
       <p><span>Bạn cần trợ giúp khẩn cấp? Hãy đăng tin lên ngay để bạn bè của bạn biét tin giúp đỡ.</span></p>
       <button type="submit" class="btn btn-success">Sửa bài</button>    
     </form>

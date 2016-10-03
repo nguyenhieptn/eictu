@@ -18,7 +18,7 @@
         </div>
         <div class="panel-body panel-body-2" id="content-js">
         @foreach($datas as $data=>$item)
-           <div class='media'>
+           <div class='media media-index'>
              <a href='' class='media-left' href='#'><img class='media-object'  class="img-rounded" src="<?php echo ($item->avatar== null) ? "/img/user-image01.png" : $item->avatar ?>" alt=''></a>
              <div class='media-body'> 
                <p class="pull-right date-post">
