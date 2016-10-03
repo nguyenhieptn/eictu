@@ -70,7 +70,7 @@ $(function () {
         @foreach($data as $item)
           <li style="height:120px; padding-top: 10px" class="myList"><a style="height:120px;" class="list-group-item" href="{{url('iHave/detail', $item->id)}}">
             <ul type="none" style="padding:0px;">
-              <li style="float:left; padding-right: 10px;"><img @if($item->avatar!=null) src="{{$item->avatar}}" @else src="{{url('img/avatar_null.png')}}" @endif height="50px" width="50px"/></li>
+              <li style="float:left; padding-right: 10px;"><img @if($item->avatar!=null) src="{{$item->avatar}}" @else src="{{url('img/avatar_null.png')}}" @endif height="100px" width="100px"/></li>
               <li>
                 <ul type="none">
                   <li>{{$item->name}}
