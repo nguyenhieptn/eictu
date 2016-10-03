@@ -51,7 +51,7 @@ function time_elapsed_string($datetime, $full = false) {
        @foreach($feed as $item)
       <?php 
             $st = DB::table('students')->where('id', $item->student_id)->first();
-                $aaa="img/avatar.jpg";          
+                $aaa="/img/avatar.jpg";          
                 if($st!=null && $st->avatar!=null) $aaa=$st->avatar;
                 $name="Không xác định";
                 if($st!=null && $st->name!=null) $name=$st->name;
