@@ -12,7 +12,7 @@ class IWantController extends Controller
 {
     public function getStatus()
     {
-        $data = IWant::select('*')->orderBy('id','DESC')->paginate(20);
+        $data = IWant::select('*')->orderBy('updated_at','DESC')->paginate(20);
         
         return view('iWant.eICTuStudentDemandUpdate', compact('data'));
     	
