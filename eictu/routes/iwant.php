@@ -19,5 +19,20 @@
         "uses" => "IWantController@detail",
         "as"   => "iwant.detail",
     ]);
+
+    Route::get('delete/{id}', [
+        "uses" => "IWantController@delete",
+        "as"   => "iwant.delete",
+    ]);
+
+    Route::get('edit/{id}', [
+        "uses" => "IWantController@get_edit",
+        "as"   => "iwant.edit",
+    ]);
+    Route::post('edit/{id}', [
+        "uses" => "IWantController@post_edit",
+    ]);
+
+
 });
  ?>

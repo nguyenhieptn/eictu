@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     @yield('css')
     <style type="text/css" media="screen">
-          img{width: }
+          /*img{width: }*/
     </style>
     <script>
         window.Laravel = <?php echo json_encode([
@@ -77,6 +77,7 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
+
     <div class="container" style="margin-top:80px">
     @if(Auth::check())
         <div class="col-md-3 col-sm-3">
@@ -90,28 +91,33 @@
                     $avatar = $data1!= null ? $data1->avatar==null ? "/img/avatar.jpg" : $data1->avatar."" : "/img/avatar.jpg";
                     ?>
                     <div style="height:80px;line-height:80px; padding-left:10px">
-                        <img src="{{ url($avatar)}}" width="50" height="50" class="img-rounded"  />
+                        <img alt="Avata" class="img-thumbnail" src="{{ url($avatar)}}" width="50" height="50" class="img-rounded"  />
                         <span><strong>{{$data1->name}}</strong></span>
                     </div>
                 </div>
                 <div>
+                <?php  
+                    $url= $_SERVER['REQUEST_URI']; 
+                    $arr=array();
+                    $arr = explode('/',$url);
+                ?>
                     <ul class="list-group">
-                      <li class="list-group-item"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> 
+                      <li class="list-group-item <?php if($arr[1]=='student' && $arr[2]=='newsfeed') echo "list-group-item-warning";?> " ><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> 
                       <a href="{{url('student/newsfeed')}}">News Feed</a></li>
                       @if(count($classid)>0 && $classid !=null)
-                            <li class="list-group-item">
+                            <li class="list-group-item <?php if($arr[1]=='classes' && $arr[2]=='classmatersbirthday') echo "list-group-item-warning";?>">
                                     <a href="{{route('classes.classmatersbirthday', $classid )}}">Sinh nhật bạn cùng lớp</a>
                             </li>
                         @endif
-                      <li class="list-group-item"><a href="{{route('iwant.status')}}">Tôi muốn- I Want</a> </li> 
-                      <li class="list-group-item"><a href="{{url('/iHave')}}">Chợ đồ cũ</a></li> 
-                      <li class="list-group-item"><a href="{{url('/findjob/index')}}">Tìm việc làm </a></li> 
-                      <li class="list-group-item"><a href="{!! url('dormitory/search')!!}">Kí túc xá</a></li> 
-                      <li class="list-group-item"><a href="{{url('/rentHouse')}}">Nhà trọ sinh viên</a></li> 
-                      <li class="list-group-item"><a href="{{url('chat/classrooms')}}">Messages / CHAT</a></li>
-                      <li class="list-group-item"><a href="{{url('chat/friend')}}">Chát với bạn</a></li>
-                      <li class="list-group-item"><a href="{{url('LMS/show')}}">Tiến độ học tập LMS</a></li> 
-                      <li class="list-group-item"><a href="{{url("student/profile")}}">Hồ sơ sinh viên</a>
+                      <li class="list-group-item <?php if($arr[1]=='iwant') echo "list-group-item-warning";?> "><a href="{{route('iwant.status')}}">Tôi muốn- I Want</a> </li> 
+                      <li class="list-group-item <?php if($arr[1]=='iHave') echo "list-group-item-warning";?> "><a href="{{url('/iHave')}}">Chợ đồ cũ</a></li> 
+                      <li class="list-group-item <?php if($arr[1]=='findjob') echo "list-group-item-warning";?> "><a href="{{url('/findjob/index')}}">Tìm việc làm </a></li> 
+                      <li class="list-group-item <?php if($arr[1]=='dormitory') echo "list-group-item-warning";?> "><a href="{!! url('dormitory/search')!!}">Kí túc xá</a></li> 
+                      <li class="list-group-item <?php if($arr[1]=='rentHouse') echo "list-group-item-warning";?> "><a href="{{url('/rentHouse')}}" >Nhà trọ sinh viên</a></li> 
+                      <li class="list-group-item <?php if($arr[1]=='chat' && $arr[2]=='classrooms') echo "list-group-item-warning";?> "><a href="{{url('chat/classrooms')}}">Messages / CHAT</a></li>
+                      <li class="list-group-item <?php if($arr[1]=='chat' && $arr[2]=='friend') echo "list-group-item-warning";?> "><a href="{{url('chat/friend')}}">Chát với bạn</a></li>
+                      <li class="list-group-item <?php if($arr[1]=='LMS') echo "list-group-item-warning";?> "><a href="{{url('LMS/show')}}">Tiến độ học tập LMS</a></li>                      
+                      <li class="list-group-item <?php if($arr[1]=='student' && $arr[2]=='profile') echo "list-group-item-warningr";?> "><a href="{{url("student/profile")}}">Hồ sơ sinh viên</a>
                       </li> 
                     </ul>
                 </div>

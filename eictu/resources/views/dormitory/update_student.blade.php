@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.student_app')
 @section('css')
 <link rel="stylesheet" type="text/css" href="{!! url('dr/css/main.css')!!}">
 
@@ -7,11 +7,11 @@
 eICTuStudentDormitoryUpdate - Sinh viên cập nhật chỗ ở KTX
 @endsection
 @section('content')
-<div id="updateStudent">
-	<div class="container">
-		
+<div id="updateStudentDr">
 		<div class="contentUpdate">
-			<h3>Cập nhật thông tin về chỗ ở hiện tại của KTX tại đây</h3>
+			<div class="page-header">
+				<h3>Cập nhật thông tin về chỗ ở hiện tại của KTX tại đây</h3>
+			</div>
 			@if (count($errors) > 0)
 			    <div class="alert alert-danger">
 			        <ul>
@@ -46,18 +46,8 @@ eICTuStudentDormitoryUpdate - Sinh viên cập nhật chỗ ở KTX
 					</div>
 				</form>
 			</div>
-			<div class="col-sm-10 col-sm-offset-1">
-				<h3><strong>Lịch sử chuyển chỗ ở trong KTX của bạn</strong></h3>
-			<?php 
-				$code = Auth::user()->username;
-	        	$student = DB::table('students')->where('code', $code)->first();
-        	?>
-				<ul>
-					{!! Cache::get($student->id)!!}
-				</ul>
-			</div>
+			
 		</div>
-	</div>
 </div>
 
 @endsection

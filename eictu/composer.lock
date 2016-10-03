@@ -308,16 +308,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.3.12",
+            "version": "v5.3.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "309fe4cdb2039c4a46d0454a9c56d5dc5faa304a"
+                "reference": "f034a02f38db77d4b0b3e89942394cae456a627f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/309fe4cdb2039c4a46d0454a9c56d5dc5faa304a",
-                "reference": "309fe4cdb2039c4a46d0454a9c56d5dc5faa304a",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/f034a02f38db77d4b0b3e89942394cae456a627f",
+                "reference": "f034a02f38db77d4b0b3e89942394cae456a627f",
                 "shasum": ""
             },
             "require": {
@@ -432,7 +432,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-09-29 13:46:41"
+            "time": "2016-09-29 22:13:17"
         },
         {
             "name": "league/flysystem",
@@ -2178,16 +2178,16 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "9270140b940ff02e58ec577c237274e92cd40cdd"
+                "reference": "8331b5efe816ae05461b7ca1e721c01b46bafb3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/9270140b940ff02e58ec577c237274e92cd40cdd",
-                "reference": "9270140b940ff02e58ec577c237274e92cd40cdd",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/8331b5efe816ae05461b7ca1e721c01b46bafb3e",
+                "reference": "8331b5efe816ae05461b7ca1e721c01b46bafb3e",
                 "shasum": ""
             },
             "require": {
@@ -2219,7 +2219,7 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2016-06-10 09:48:41"
+            "time": "2016-09-30 07:12:33"
         },
         {
             "name": "phpdocumentor/type-resolver",

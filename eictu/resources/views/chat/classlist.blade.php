@@ -1,4 +1,4 @@
-@extends('/layouts/app')
+@extends('teacher.master')
 @section('content')
     <?php
     $user_id = Auth::user()->username;
@@ -8,7 +8,7 @@
     }
     ?>
     <div class="row">
-        <div class="col-sm-8 col-sm-offset-2" id="purple">
+        <div class="col-sm-12" id="purple">
             <h4>Các phòng chat theo lớp học</h4>
 
         </div>
@@ -16,15 +16,15 @@
     </div>
 
     <div class="row">
-        <div class="col-sm-5 col-sm-offset-3">
+        <div class="col-sm-10 col-sm-offset-2">
             <br>
             <ol>
                 <?php
                 $classes = DB::table('classes')->get();
+
                 foreach ($classes as $class) {
                     $class_name = $class->name;
-
-                    echo "<li id='cla'><a href='classroom?c=$class_name>$class_name</a></li>";
+                    echo "<li id='cla'><a href='classroomteacher?c=$class_name'>$class_name</a></li>";
                 }
                 ?>
             </ol>

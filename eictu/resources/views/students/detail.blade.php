@@ -1,9 +1,11 @@
 @extends('layouts.student_app')
+
+
 @section('content')
      <div class="row find-job" >
          <div class="col-md-12">
              <div class="panel panel-default">
-                 <div class="panel-heading">Bản tin tìm việc chi tiết của sinh viên</div>
+                 <div class="panel-heading">Thông tin chi tiết.</div>
                  <div class="panel-body">
                     </hr>
                       <div class="entry-content">
@@ -12,16 +14,15 @@
                                  <div class='media-body'> 
                                      <h3 class='media-heading'><strong>{{$detail->name}}</strong></h3>
                                      <p>  Ngày đăng : <strong><?php echo date('d-m-Y',strtotime($detail->day))?></strong></p>
-                                     <p>Mã sinh viên :  <i>{{$detail->code}}</i></p>
                                      <p>Nội Dung bản tin :<br/> {{$detail->content}}</p>
                                      <p>Giới tính: 
                                      <strong>
-                                            @if($detail->gender==1)
+                                            @if($detail->gender==1)00.0
                                                 {{ "Nam" }}
                                             @else
                                                 {{ "Nữ" }}
                                              @endif
-                                     </strong></p>
+                                    </strong></p>
                                  </div>
                             
                                 <div class ="col-md-12 " style="margin-top: 30px">
@@ -34,15 +35,11 @@
                                     <!-- SENT MESSAGE  -->
                                     <!-- để lấy Ma sv $detail->code -->
                                     <div class="col-md-10">
-                                        @if(Auth::check())
-                                             <a  style="color:#fff" href="/chat/friendroom?id={{auth()->user()->username}}&friend={{$detail->code}}" class="btn btn-danger"><span class="glyphicon glyphicon-comment" aria-hidden="true"> Sent Message</span></a>
-                                        @else
-                                            <form action="{{ url('chat/friend') }}" >
-                                                <Button class="btn btn-danger"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
-                                                    Sent Message
-                                                </Button>
-                                             </form>
-                                        @endif
+                                          <form action="" >
+                                            <Button class="btn btn-danger"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+                                                Sent Message
+                                            </Button>
+                                         </form>
                                     </div>
                          
                             </div>

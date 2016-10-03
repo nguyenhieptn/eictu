@@ -42,7 +42,7 @@ class StudentController extends Controller
                     ->get()->first();
                 $classid = $data->class_id;
                 $name = Auth::user()->name;
-                return view("students.studentHomepage", compact('name', 'classid'));
+                return view("students.newfeed", compact('name', 'classid'));
             }
             else
                 return redirect()->back()->with('global', 'Xin lỗi! bạn không phải sinh viên.');
@@ -128,6 +128,15 @@ class StudentController extends Controller
      */
 
     public  function  profile()
+    {
+        $data = Student::select('*')
+            ->where('code', '=', Auth::user()->username)
+            ->get()->first();
+        $majors= Major::select('*')->get();
+        return view('students.profile',compact('data','majors'));
+    }
+
+    public  function  detail()
     {
         $data = Student::select('*')
             ->where('code', '=', Auth::user()->username)

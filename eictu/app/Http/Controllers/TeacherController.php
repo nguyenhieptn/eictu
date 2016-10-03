@@ -16,7 +16,7 @@ class TeacherController extends Controller
 {
 
     public function index(){
-       if (isset(Auth::user()->id) && Auth::user()->type <= 2) {
+       if (Auth::check() && Auth::user()->type <= 2) {
             return view('teacher.homepage');
         }else{
             return redirect()->route('teacher.login');
@@ -105,7 +105,7 @@ class TeacherController extends Controller
         // return redirect()->back();
 
         Teacher::where('code', Auth::user()->username)
-          ->update(['avatar' => $image_name]);
+          ->update(['avatar' => "/upload/avatar/".$image_name]);
           Input::file('image')->move('upload/avatar/', $image_name);
           // file('image')->move('resources/upload/images/',$image_name );
           return redirect()->route('teacher.index');
