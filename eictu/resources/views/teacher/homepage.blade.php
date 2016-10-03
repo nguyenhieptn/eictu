@@ -52,7 +52,7 @@ function time_elapsed_string($datetime, $full = false) {
       <?php 
             $st = DB::table('students')->where('id', $item->student_id)->get()->toArray();
             foreach ($st as $values) {
-              $aaa= $values->avatar==null ? "" : $values->avatar;
+              $aaa= $values->avatar==null ? "/img/avatar.jpg" : $values->avatar;
             }
            ?>
        <div class='media boot'>
