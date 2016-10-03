@@ -11,9 +11,10 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="{{url("/css/app.css")}}" rel="stylesheet">
+      <link href="{{url("/css/app.css")}}" rel="stylesheet">
     <link href="{{url("/css/style.css")}}" rel="stylesheet">
     <link href="{{url("/css/chat.css")}}" rel="stylesheet">
+    <link href="{{url("/css/layout-2.css")}}" rel="stylesheet">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     @yield('css')
@@ -112,7 +113,6 @@
                     <li class="list-group-item"style="background:scroll;"><br/><a class="link" href="{{url('dormitory/search')}}">Ký túc xá</a></li>
                     <li class="list-group-item" style="background:scroll;"><br/><a class="link" href="{{url('rentHouse')}}">Nhà trọ sinh viên</a></li>
                     <li class="list-group-item"style="background:scroll;"><br/>  <a class="link" href="{{url('iHave')}}">Chợ đồ cũ</a></li>
-                    <li class="list-group-item"style="background:scroll;"><br/> <a class="link" href="{{url('chat/classrooms')}}">Message/CHAT</a></li>
                     <li class="list-group-item"style="background:scroll;"><br/> <a class="link" href="{{url('chat/classlist')}}">Message/CHAT</a></li>
 
                 </ul>
@@ -126,6 +126,7 @@
 <script src="{{ url("/js/app.js") }}"></script>
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstit rap/3.3.1/js/bootstrap.min.js"></script>
+@yield('script')
 </body>
 </html>
 @endif
