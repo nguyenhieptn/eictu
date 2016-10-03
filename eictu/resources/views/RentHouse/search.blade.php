@@ -31,7 +31,7 @@ eICTuStudentRentHouseSearch - Tra cứu địa chỉ nhà trọ của Sinh viên
               @if($student ==null && $code!=null)
                 <li class='list-group-item' style="color:red;" >Không tồn tại sinh viên!</li>
               @elseif($student!=null)
-                <li class='list-group-item' style="height:70px;border:0px;">
+                <li class='list-group-item' style="height:120px;border:0px;">
                   <ul type="none" style="padding:0px;">
                     <li style="float:left; padding-right: 10px; "><img width="50px" height="50px" border-radius="8px" @if($student->avatar!=null) src="{{$student->avatar}} @else src="{{url('img/avatar_null.png')}} @endif" /></li>
                     <li style="float:left;">
