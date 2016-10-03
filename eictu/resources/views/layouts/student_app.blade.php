@@ -115,7 +115,6 @@
                       <li class="list-group-item <?php if($arr[1]=='dormitory') echo "list-group-item-warning";?> "><a href="{!! url('dormitory/search')!!}">Kí túc xá</a></li> 
                       <li class="list-group-item <?php if($arr[1]=='rentHouse') echo "list-group-item-warning";?> "><a href="{{url('/rentHouse')}}" >Nhà trọ sinh viên</a></li> 
                       <li class="list-group-item <?php if($arr[1]=='chat' && $arr[2]=='classrooms') echo "list-group-item-warning";?> "><a href="{{url('chat/classrooms')}}">Messages / CHAT</a></li>
-                      <li class="list-group-item <?php if($arr[1]=='chat' && $arr[2]=='friend') echo "list-group-item-warning";?> "><a href="{{url('chat/friend')}}">Chát với bạn</a></li>
                       <li class="list-group-item <?php if($arr[1]=='LMS') echo "list-group-item-warning";?> "><a href="{{url('LMS/show')}}">Tiến độ học tập LMS</a></li>                      
                       <li class="list-group-item <?php if($arr[1]=='student' && $arr[2]=='profile') echo "list-group-item-warningr";?> "><a href="{{url("student/profile")}}">Hồ sơ sinh viên</a>
                       </li> 
