@@ -83,13 +83,15 @@ Chi tiết lời yêu cầu
 	      ?>
 		   @endif
 		   {{ $want->location }}</p>
-		   <a href="" title=""><p class="index-content">{{$want->content}}</p></a></div>
+		   <p class="index-content">{{$want->content}}</p></div>
 		</div>
 
 	      
 	      <hr>
 	      <a href="{{route('iwant.status')}}" title="ĐÓng" class="btn btn-danger" style="color: white;">Đóng</a>
+	      @if(Auth::check() && Auth::user()->username != $student->code)
 	      <a href="/chat/friendroom?id={{auth()->user()->username}}&friend={{$student->code}}" title="Nhắn tin cho người đăng tin" class="btn btn-primary" style="color: white; margin-left: 470px; ">Nhắn tin cho người đăng tin</a>
+	    @endif
 	    </div> 
 	@endif    
   </div>

@@ -65,7 +65,10 @@ class IWantController extends Controller
             'content'=>'required|max:5000'
             ]);
         IWant::where('id', $id)
-        ->update(['content' => $request->content], ['location' => $request->location]);
+        ->update(['content' => $request->content]);
+
+        IWant::where('id', $id)
+        ->update(['location' => $request->location]);
         return redirect()->route('iwant.status');
     }
     public function get_edit($id)
