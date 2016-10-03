@@ -53,15 +53,15 @@ function time_elapsed_string($datetime, $full = false) {
             $st = DB::table('students')->where('id', $item->student_id)->first();
                 $aaa="img/avatar.jpg";          
                 if($st!=null && $st->avatar!=null) $aaa=$st->avatar;
+                $name="Không xác định";
+                if($st!=null && $st->name!=null) $name=$st->name;
            ?>
        <div class='media boot'>
          <a href='' class='media-left' href='#'><img class='media-object' src="{{$aaa}}" class="img-rounded" alt=''></a>
          <div class='media-body'> 
           <p class="pull-right date-post">{!! time_elapsed_string($item->time) !!}</p>
           <h4 class='media-heading'><strong>
-            <?php 
-              echo $st->name;
-             ?>
+            {{$name}}
           </strong></h4>
          <p class="index-content">{{$item->content}}</p>
         </div>
