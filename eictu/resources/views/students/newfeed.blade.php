@@ -40,7 +40,7 @@
                         <h4 class='media-heading'>
                             <strong>
                                <?php
-                                $id=Auth::user()->code;
+                                $id=auth()->user()->code;
                                 $code='';
                                 echo "<h3><a href='friendroom?id=$id&friend=$code'>$student_name</a></h3>";  ?>
                             </strong>
