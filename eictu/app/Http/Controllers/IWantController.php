@@ -71,7 +71,7 @@ class IWantController extends Controller
     public function get_edit($id)
     {
         $data = IWant::findOrFail($id)->toArray();
-        return view('iwant.edit', compact('data'));
+        return view('iWant.edit', compact('data'));
     }
   
 }
