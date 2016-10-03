@@ -68,7 +68,7 @@ Chi tiết lời yêu cầu
 		   @else
 		   Nữ , &nbsp;&nbsp;
 		   @endif
-		   @if(!empty($want->location))
+		   @if(($want->location)==null)
 		   	<?php 
 
 	      		if (isset($address)) {
