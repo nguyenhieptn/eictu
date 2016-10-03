@@ -10,11 +10,14 @@ use App\Http\Requests;
 
 class ChatGuestController extends Controller
 {
-    public function guest($student_id)
+    public function __construct()
+    {
+    }
+
+    public function guestroom()
     {
 
-        return view('chatguest.guest', ['data' => $student_id]);
-
+        return view('chatguest/guestroom');
     }
 
 

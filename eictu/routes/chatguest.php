@@ -5,16 +5,8 @@
  * Date: 9/23/2016
  * Time: 4:51 PM
  */
-//
-//Route::get('/', function () {
-//    return view('layouts/app');
-//});
+
+Route::post('chatguest/guestroom', 'ChatGuestController@guestroom');
 
 
-Route::get('guest/{student_id}',
-
-    ['as' => '.guest',
-        'uses' => 'ChatGuestController@guest']);
-
-
-Route::get('chat/{slug}','ChatController@page');
+Route::get('chatguest/{slug}','ChatGuestController@page');
