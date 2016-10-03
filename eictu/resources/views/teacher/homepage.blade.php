@@ -59,8 +59,8 @@ function time_elapsed_string($datetime, $full = false) {
        @foreach($feed as $item)
       <?php 
             $values = DB::table('students')->where('id', $item->student_id)->first();
-              $aaa=$values->avatar==null ? "/img/avatar.jpg" : $values->avatar;
-              $name=$values->name==null? null :$values->name;            
+              $aaa= $values->avatar==null ? "/img/avatar.jpg" : $values->avatar;
+              $name= $values->name==null ? "Không xác định" : $values->name;            
            ?>
        <div class='media boot'>
          <a href='' class='media-left' href='#'><img class='media-object' src="{{$aaa}}" class="img-rounded"alt=''></a>
