@@ -54,15 +54,13 @@
         </div>
 
         <div class="col-sm-10">
-            <textarea class="form-control" rows="3" id="comment" placeholder="Nhập mã nội dung Chat"></textarea>
-            {{--<input class="form-control input-lg chat-input" id="inputlg" type="text"--}}
-            {{--placeholder="Type your message">--}}
+            <textarea class="form-control" rows="3" id="comment" placeholder="Type your message"></textarea>
         </div>
         <div class="col-sm-2">
             <button type="button" id="send" class="btn btn-primary btn-lg">Send</button>
+            <div class="chat-status">Status: <span>Wait</span></div>
         </div>
 
-        <div class="col-sm-8 chat-status">Status: <span>Idle</span></div>
     </div>
 
     <div class="row">
@@ -238,24 +236,6 @@
                         }
                     ?>
 
-
-//                    for (var z = 0; z < arr_room.length; z++) {
-//                        rooms = document.createElement("div");
-//                        room_link = document.createElement("a");
-//                        room_link.setAttribute("id", "room-link");
-//                        if (arr_room[z].length < 10) {
-//                            room_link.innerHTML = "<h5>" + chatRoom.value + "</h5>";
-//                            room_link.href = 'classrooms';
-//
-//
-//                        }
-//
-//                        rooms.setAttribute("class", "room-list");
-//                        rooms.appendChild(room_link);
-//
-//                        list_room.appendChild(rooms);
-//                        list_room.insertBefore(rooms, list_room.firstChild);
-//                    }
                 });
 
 
