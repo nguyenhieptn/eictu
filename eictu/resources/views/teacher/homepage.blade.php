@@ -63,11 +63,11 @@ function time_elapsed_string($datetime, $full = false) {
               $ten="xxx";        
            ?>
        <div class='media boot'>
-         <a href='' class='media-left' href='#'><img class='media-object' src="{{$aaa}}" class="img-rounded"alt=''></a>
+         <a href='' class='media-left' href='#'><img class='media-object' src="" class="img-rounded"alt=''></a>
          <div class='media-body'> 
           <p class="pull-right date-post">{!! time_elapsed_string($item->time)!!}</p>
           <h4 class='media-heading'><strong>
-            {{$ten}}
+            {{}}
           </strong></h4>
          <p class="index-content">{{$item->content}}</p>
         </div>
