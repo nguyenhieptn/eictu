@@ -58,8 +58,9 @@ function time_elapsed_string($datetime, $full = false) {
      @if(!empty($feed))
        @foreach($feed as $item)
       <?php 
-            $st = DB::table('students')->where('id', $item->student_id)->first();
-              $aaa=$st!= null ? $values->avatar==null ? "/img/avatar.jpg" : $values->avatar."" : "/img/avatar.jpg";
+            $values = DB::table('students')->where('id', $item->student_id)->first();
+              $aaa=$values->avatar==null ? "/img/avatar.jpg" : $values->avatar;
+              $name=$values->name;
             
            ?>
        <div class='media boot'>
@@ -67,10 +68,7 @@ function time_elapsed_string($datetime, $full = false) {
          <div class='media-body'> 
           <p class="pull-right date-post">{!! time_elapsed_string($item->time)!!}</p>
           <h4 class='media-heading'><strong>
-            <?php
-                echo $value->name;
-             ?>
-
+            {{$name}}
           </strong></h4>
          <p class="index-content">{{$item->content}}</p>
         </div>
