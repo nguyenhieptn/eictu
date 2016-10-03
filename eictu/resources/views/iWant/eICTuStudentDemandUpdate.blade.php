@@ -109,7 +109,7 @@
              @if(Auth::check() && Auth::user()->type <= 2 || Auth::check() && Auth::user()->username ==$code)
               <a onclick="return myFunction()" style="color: red;" href="{{route('iwant.delete', $want->id)}}" title="">Xóa</a>&nbsp;&nbsp;&nbsp;&nbsp;
 
-              <a  href="{{URL::route('iwant.edit', $want->id)}}" title="">Sửa</a>
+              <a class="btn btn-success" href="{{URL::route('iwant.edit', $want->id)}}" title="">Sửa</a>
              @endif
 
              </div>
