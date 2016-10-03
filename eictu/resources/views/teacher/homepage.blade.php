@@ -67,10 +67,8 @@ function time_elapsed_string($datetime, $full = false) {
          <div class='media-body'> 
           <p class="pull-right date-post">{!! time_elapsed_string($item->time)!!}</p>
           <h4 class='media-heading'><strong>
-            <?php 
-              foreach ($st as $value) {
+            <?php
                 echo $value->name;
-            }
              ?>
 
           </strong></h4>
