@@ -29,8 +29,8 @@
             background: #ecf0f1;
         }
         img{
-                width: 100px;
-                height: 100px;
+                width: 80px;
+                height: 80px;
                 border-radius: 4px;
                 -moz-border-radius: 4px;
                 -webkit-border-radius: 4px;
