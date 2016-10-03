@@ -3,51 +3,25 @@
 
     <?php
 
-    $user_id = Auth::user()->username;
-
     $friend = $_GET['friend'];
     $id = $_GET['id'];
 
-    if ($user_id == $id){
         $student1 = DB::table('students')->where('code', $friend)->first();
-        $namefriend = $student1->name;
+        $friend_name = $student1->name;
         $student2 = DB::table('students')->where('code', $id)->first();
         $name = $student2->name;
-    } else {
-    ?>
-
-    <div class="row">
-        <br><br><br><br>
-        <div class="col-lg-8 col-lg-offset-2" id="purple">
-            <h2>Bạn không có quyền hạn để truy cập vào đường dẫn này. Xin mời logout và đăng nhập lại
-                <a href="{{ url('/logout') }}"
-                   onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
-                    Logout
-                </a>
-
-                <form id="logout-form" action="{{ url('/logout') }}" method="POST">
-                    {{ csrf_field() }}
-                </form>
-            </h2>
-        </div>
-    </div>
-
-    <?php
-    return false;
-    }
-
-
     ?>
 
 
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2" id="purple">
-            <h4>Phòng Chat với <span><?php echo $namefriend;?></span></h4>
+            <h4>Phòng Chat với <span><?php echo $friend_name;?></span></h4>
         </div>
         <div class="col-sm-8 col-sm-offset-2">
-            <input type="hidden" class="chat-friend" value="<?php echo $friend;?>"/>
-            <input type="hidden" disabled="disabled" class="chat-name" value="<?php echo $id;?>"/>
+            <input type="hidden" class="chat-friend" value="<?php echo $friend_name;?>"/>
+            <input type="hidden" class="chat-friend-id" value="<?php echo $friend;?>"/>
+            <input type="hidden" class="chat-id" value="<?php echo $id;?>"/>
+            <input type="hidden" class="chat-name" value="<?php echo $name;?>"/>
         </div>
 
         <div class="col-sm-8 col-sm-offset-2 chat-messages">
@@ -78,9 +52,10 @@
                     //Get required nodes
                     status = getNode('.chat-status span'),
                     messages = getNode('.chat-messages'),
+                    chatId = getNode('.chat-id'),
                     chatName = getNode('.chat-name'),
-                    chatFriend = getNode('.chat-friend'),
-
+                    chatFriend = getNode('.chat-friend-id'),
+                    chatFriendName = getNode('.chat-friend'),
                     StatusDefault = status.textContent,
 
                     setStatus = function (s) {
@@ -104,15 +79,60 @@
                 socket.on('output', function (data) {
                     if (data.length) {
                         for (var x = 0; x < data.length; x = x + 1) {
-                            if ((data[x].room == chatFriend.value && data[x].name == chatName.value) || (data[x].name == chatFriend.value && data[x].room == chatName.value)) {
+                            if ((data[x].room == chatFriend.value && data[x].id == chatId.value) || (data[x].id == chatFriend.value && data[x].room == chatId.value)) {
                                 var message = document.createElement('div');
-                                if (data[x].name !== chatName.value) {
-                                    message.setAttribute('id', 'left');
-                                    message.innerHTML = data[x].name + ": " + " (" + data[x].time + ") -- " + data[x].message;
+                                if (data[x].id !== chatId.value) {
+
+                                    var message1 = document.createElement('div');
+                                    message1.setAttribute('id', 'left');
+
+                                    var message2 = document.createElement('div');
+                                    message2.setAttribute('id', 'divtitle');
+
+                                    var tit = document.createElement('div');
+                                    tit.setAttribute('id', 'title1');
+
+                                    tit.innerHTML = data[x].name;
+
+                                    var mg = document.createElement('div');
+                                    mg.setAttribute('id', 'mg');
+
+                                    mg.innerHTML = ' ' + data[x].message;
+
+                                    var time1 = document.createElement('div');
+                                    time1.setAttribute('id', 'time1');
+
+                                    time1.innerHTML = data[x].time;
+
+                                    var anh = document.createElement('div');
+                                    anh.setAttribute('id', 'image1');
+
+                                    message2.appendChild(anh);
+                                    message2.appendChild(tit);
+                                    message1.appendChild(message2);
+                                    message1.appendChild(mg);
+                                    message1.appendChild(time1);
+
+                                    message.appendChild(message1);
 
                                 } else {
-                                    message.setAttribute('id', 'right');
-                                    message.innerHTML = data[x].message + " -- (" + data[x].time + ")";
+                                    var message1 = document.createElement('div');
+                                    message1.setAttribute('id', 'right');
+
+                                    var mg = document.createElement('div');
+                                    mg.setAttribute('id', 'mg');
+
+                                    mg.innerHTML = data[x].message + '  ';
+
+                                    var time1 = document.createElement('div');
+                                    time1.setAttribute('id', 'time2');
+
+                                    time1.innerHTML = data[x].time;
+
+                                    message1.appendChild(mg);
+                                    message1.appendChild(time1);
+
+                                    message.appendChild(message1);
                                 }
                                 messages.appendChild(message);
                                 messages.insertBefore(message, messages.firstChild);
@@ -132,11 +152,17 @@
                 });
 
                 var today, h, i, m, j, s, d, month, y, k, l;
-                var name = chatName.value,
+                var id = chatId.value,
+                        name = chatName.value,
                         friend = chatFriend.value,
+                        friend_name = chatFriendName.value,
                         time,
                         nd = "";
                 var button = document.getElementById("send");
+
+                var code;
+                var textarea = document.getElementById('comment');
+
                 button.onclick = function () {
                     today = new Date();
                     l = today.getHours();
@@ -167,15 +193,64 @@
                     y = today.getFullYear();
 
                     time = h + ":" + m + ":" + s + " / " + d + "-" + month + "-" + y;
-                    nd = document.querySelector('.chat-input').value;
+                    nd = textarea.value;
+
                     socket.emit('input', {
+                        id: id,
                         name: name,
+                        friendname: friend_name,
                         room: friend,
                         message: nd,
                         time: time
                     });
 
                 };
+
+
+                textarea.addEventListener('keydown', function (e) {
+                    code = e.keyCode ? e.keyCode : e.which;
+                    if (code == 13) {
+                        today = new Date();
+                        l = today.getHours();
+                        if (l < 10) {
+                            h = "0" + l;
+                        } else {
+                            h = l;
+                        }
+                        i = today.getMinutes();
+                        if (i < 10) {
+                            m = "0" + i;
+                        } else {
+                            m = i;
+                        }
+                        j = today.getSeconds();
+                        if (j < 10) {
+                            s = "0" + j;
+                        } else {
+                            s = j;
+                        }
+                        d = today.getDate();
+                        k = today.getMonth();
+                        if (k > 8) {
+                            month = k + 1;
+                        } else {
+                            month = "0" + (k + 1);
+                        }
+                        y = today.getFullYear();
+
+                        time = h + ":" + m + ":" + s + " / " + d + "-" + month + "-" + y;
+                        nd = textarea.value;
+
+                        socket.emit('input', {
+                            id: id,
+                            name: name,
+                            friendname: friend_name,
+                            room: friend,
+                            message: nd,
+                            time: time
+                        });
+                    }
+                });
             }
         })();
     </script>
