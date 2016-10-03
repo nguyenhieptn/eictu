@@ -83,7 +83,7 @@ Chi tiết lời yêu cầu
 	      ?>
 		   @endif
 		   {{ $want->location }}</p>
-		   <a href="" title=""><p class="index-content">{{$want->content}}</p></a></div>
+		   <p class="index-content">{{$want->content}}</p></div>
 		</div>
 
 	      
