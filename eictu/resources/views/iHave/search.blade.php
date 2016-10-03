@@ -68,7 +68,7 @@ $(function () {
       <div style="padding-left: 23px;">Các đồ cũ đang có trong chợ.</div>
       <ul type="none" class="list-group">
         @foreach($data as $item)
-          <li style="height:1000px; padding-top: 10px" class="myList"><a style="height:100px;" class="list-group-item" href="{{url('iHave/detail', $item->id)}}">
+          <li style="height:100px; padding-top: 10px" class="myList"><a style="height:100px;" class="list-group-item" href="{{url('iHave/detail', $item->id)}}">
             <ul type="none" style="padding:0px;">
               <li style="float:left; padding-right: 10px;"><img @if($item->avatar!=null) src="{{$item->avatar}}" @else src="{{url('img/avatar_null.png')}}" @endif height="50px" width="50px"/></li>
               <li>
