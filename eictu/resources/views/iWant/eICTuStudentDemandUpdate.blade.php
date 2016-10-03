@@ -100,7 +100,7 @@
              <div class='media-body'> 
                <p class="pull-right date-post">
 
-                 {!! time_elapsed_string($want->created_at) !!}
+                 {!! time_elapsed_string($want->updated_at) !!}
              </p>
              <h4 class='media-heading'><strong>{!! $students->name !!}</strong></h4>
              
