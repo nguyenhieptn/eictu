@@ -42,7 +42,7 @@
                                <?php
                                 $id=auth()->user()->username;
                                 $code='';
-                                echo "<h3><a href='friendroom?id=$id&friend=$code'>$student_name</a></h3>";  ?>
+                                echo "<h3><a href='/chat/friendroom?id=$id&friend=$code'>$student_name</a></h3>";  ?>
                             </strong>
                         </h4>
                         <p class="index-content"><?php echo substr($item->content, 0,250) ?> ...</p></div>
