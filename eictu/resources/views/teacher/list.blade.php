@@ -29,7 +29,9 @@
                                 <th>Họ tên giáo viên</th>
                                 <th>Ngành</th>
                                 <th>Giới tính</th>
+                                @if(Auth::check() && Auth::user()->type==1)
                                 <th>Action</th>
+                                @endif
                             </tr>
                             </thead>
                             <tbody>
