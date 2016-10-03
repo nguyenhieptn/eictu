@@ -17,9 +17,8 @@
                 <?php
                 $data1 = \App\Student::select('*')
                         ->where('id','=',$item->student_id)
-                        ->get()->first();
+                        ->first();
                 $student_name=  $data1!=null? $data1->name : "Người nào đó";
-                       $code=$data1->code;
 
                 $student_avatar= $data1!= null ? $data1->avatar==null ? "/img/avatar.jpg" : $data1->avatar."" : "/img/avatar.jpg";
                 ?>
@@ -42,6 +41,7 @@
                             <strong>
                                <?php
                                 $id=Auth::user()->code;
+                                $code=$data1->code;
                                 echo "<h3><a href='friendroom?id=$id&friend=$code'>$student_name</a></h3>";  ?>
                             </strong>
                         </h4>
