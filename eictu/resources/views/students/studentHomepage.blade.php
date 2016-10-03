@@ -54,10 +54,6 @@
                             <td><a href="{{url('chat/classrooms')}}">Messages / CHAT</a></td>
                         </tr>
                         <tr>
-                            <td><img src="{{url('img/chat-128.png')}}"/></td>
-                            <td><a href="{{url('chat/friend')}}">Chát với bạn</a></td>
-                        </tr>
-                        <tr>
                             <td><img src="{{url('img/search.png')}}"/></td>
                             <td><a href="{{url('LMS/show')}}">Tiến độ học tập LMS</a></td>
                         </tr>
