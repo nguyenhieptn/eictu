@@ -1,5 +1,7 @@
 @extends('layouts.school_app')
-
+@section('title')
+Danh sách giáo viên
+@endsection
 @section('content')
 <script type="text/javascript">
            function myFunction() {
@@ -15,7 +17,7 @@
         <div class="row">
             <div class="col-md-10">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Danh sách giáo viên</div>
+                    <div class="panel-heading"</div>
                     <div class="panel-body">
                     @if(Auth::check() && Auth::user()->type==1)
                         <h2><a class="btn btn-success" href="{{ route('teacher.add') }}">THÊM GIÁO VIÊN VÀO TRƯỜNG</a></h2>
