@@ -1,4 +1,3 @@
-
 @extends('teacher.master')
 
 @section('content')
@@ -23,10 +22,8 @@ function time_elapsed_string($datetime, $full = false) {
     $now = new DateTime;
     $ago = new DateTime($datetime);
     $diff = $now->diff($ago);
-
     $diff->w = floor($diff->d / 7);
     $diff->d -= $diff->w * 7;
-
     $string = array(
         'y' => 'year',
         'm' => 'month',
@@ -43,7 +40,6 @@ function time_elapsed_string($datetime, $full = false) {
             unset($string[$k]);
         }
     }
-
     if (!$full) $string = array_slice($string, 0, 1);
     return $string ? implode(', ', $string) . ' ago' : 'just now';
 }
@@ -52,27 +48,26 @@ function time_elapsed_string($datetime, $full = false) {
     <div class="col-xs-8">
       <?php 
       $feed = DB::table('newsfeed')->select('*')->orderBy('id', 'DESC')->get();
-
-
      ?>
      @if(!empty($feed))
        @foreach($feed as $item)
-      <?php
-       $st = DB::table('students')->where('id', $item->student_id)->get()->toArray();
+      <?php 
+            $st = DB::table('students')->where('id', $item->student_id)->get()->toArray();
             foreach ($st as $values) {
               $aaa= $values->avatar;
             }
            ?>
        <div class='media boot'>
-         <a href='' class='media-left' href='#'><img class='media-object' src="" class="img-rounded"alt=''></a>
+         <a href='' class='media-left' href='#'><img class='media-object' src="{!!asset($aaa)!!}" class="img-rounded" src="" alt=''></a>
          <div class='media-body'> 
-          <p class="pull-right date-post">{!! time_elapsed_string($item->time)!!}</p>
+          <p class="pull-right date-post">{!! time_elapsed_string($item->time) !!}</p>
           <h4 class='media-heading'><strong>
-          <?php 
+            <?php 
               foreach ($st as $value) {
                 echo $value->name;
             }
              ?>
+
           </strong></h4>
          <p class="index-content">{{$item->content}}</p>
         </div>
