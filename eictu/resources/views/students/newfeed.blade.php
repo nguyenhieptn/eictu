@@ -12,7 +12,7 @@
         <div class="panel-body panel-body-2" id="content-js">
 
 
-
+            @if(!empty($newsfeeds))
             @foreach($newsfeeds as $item)
                 <?php
                 $data1 = \App\Student::select('*')
@@ -50,6 +50,7 @@
 
             @endforeach
             <div class="pull-right">{{$newsfeeds->render()}}</div>
+            @endif
         </div>
 
     </div>
