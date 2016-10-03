@@ -54,7 +54,7 @@
         </div>
 
         <div class="col-sm-10">
-            <textarea class="form-control" rows="3" id="comment" placeholder="Type your message"></textarea>
+            <textarea class="form-control" rows="3" id="comment" placeholder="Type your message. Enter to send !"></textarea>
         </div>
         <div class="col-sm-2">
             <button type="button" id="send" class="btn btn-primary btn-lg">Send</button>
