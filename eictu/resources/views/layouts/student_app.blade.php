@@ -77,6 +77,7 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
+
     <div class="container" style="margin-top:80px">
     @if(Auth::check())
         <div class="col-md-3 col-sm-3">
@@ -96,27 +97,31 @@
                 </div>
                 <div>
                     <ul class="list-group">
-                      <li class="list-group-item"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> 
+						<?php  
+							$url= $_SERVER['REQUEST_URI']; 
+							$arr = var_dump(explode('/',$url));
+						?>
+                      <li class="list-group-item" <?php if($arr[2]=='student' && $arr[3]=='newsfeed') echo "active"; ?>><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> 
                       <a href="{{url('student/newsfeed')}}">News Feed</a></li>
                       @if(count($classid)>0 && $classid !=null)
-                            <li class="list-group-item">
+                            <li class="list-group-item <?php  echo "active"; ?>">
                                     <a href="{{route('classes.classmatersbirthday', $classid )}}">Sinh nhật bạn cùng lớp</a>
                             </li>
                         @endif
-                      <li class="list-group-item"><a href="{{route('iwant.status')}}">Tôi muốn- I Want</a> </li> 
-                      <li class="list-group-item"><a href="{{url('/iHave')}}">Chợ đồ cũ</a></li> 
-                      <li class="list-group-item"><a href="{{url('/findjob/index')}}">Tìm việc làm </a></li> 
-                      <li class="list-group-item"><a href="{!! url('dormitory/search')!!}">Kí túc xá</a></li> 
-                      <li class="list-group-item"><a href="{{url('/rentHouse')}}">Nhà trọ sinh viên</a></li> 
-                      <li class="list-group-item"><a href="{{url('chat/classrooms')}}">Messages / CHAT</a></li>
-                      <li class="list-group-item"><a href="{{url('chat/friend')}}">Chát với bạn</a></li>
-                      <li class="list-group-item"><a href="{{url('LMS/show')}}">Tiến độ học tập LMS</a></li> 
-                      <li class="list-group-item"><a href="#" class=" dropdown-toggle" data-toggle="dropdown" >Hồ sơ</a>
+                      <li class="list-group-item <?php if($arr[2]=='iwant') echo "active"; ?>"><a href="{{route('iwant.status')}}">Tôi muốn- I Want</a> </li> 
+                      <li class="list-group-item <?php if($arr[2]=='iHave')  echo "active"; ?>"><a href="{{url('/iHave')}}">Chợ đồ cũ</a></li> 
+                      <li class="list-group-item <?php if($arr[2]=='findjob')  echo "active"; ?>"><a href="{{url('/findjob/index')}}">Tìm việc làm </a></li> 
+                      <li class="list-group-item <?php if($arr[2]=='dormitory')  echo "active"; ?>"><a href="{!! url('dormitory/search')!!}">Kí túc xá</a></li> 
+                      <li class="list-group-item <?php if($arr[2]=='rentHouse')  echo "active"; ?>"><a href="{{url('/rentHouse')}}">Nhà trọ sinh viên</a></li> 
+                      <li class="list-group-item <?php if($arr[2]=='chat')  echo "active"; ?>"><a href="{{url('chat/classrooms')}}">Messages / CHAT</a></li>
+                      <li class="list-group-item <?php if($arr[2]=='chat')  echo "active"; ?>"><a href="{{url('chat/friend')}}">Chát với bạn</a></li>
+                      <li class="list-group-item <?php if($arr[2]=='LMS')  echo "active"; ?>"><a href="{{url('LMS/show')}}">Tiến độ học tập LMS</a></li> 
+                      <li class="list-group-item <?php?>"><a href="#" class=" dropdown-toggle" data-toggle="dropdown" >Hồ sơ</a>
                           <span class="caret"></span>
                           <ul class="dropdown-menu">
                             <li><a href="#">Upload Hình</a></li>
                           </ul>
-                      <li class="list-group-item"><a href="{{url("student/profile")}}">Hồ sơ sinh viên</a>
+                      <li class="list-group-item <?php if($arr[2]=='student' && $arr[3]=='profile')  echo "active"; ?>"><a href="{{url("student/profile")}}">Hồ sơ sinh viên</a>
                       </li> 
                     </ul>
                 </div>
